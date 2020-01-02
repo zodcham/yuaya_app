@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style type="text/css">
+            .eachchart {
+                margin-left: 0.5em;
+                margin-bottom: 0.5em;
+                width: 5em;
+                height: 2em;
+                line-height: 2em;
+                float: left;
+                font-size: 0.9em;
+            }
+            .chart_active {
+                background-color: #00CC33 !important;
+                color: #fff !important;
+            }
+            .noselect {
+                background-color: #3DACEE;
+                color: #fff;
+                border-radius: 0.2em;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="content" class="ub ub-f1 umar-a bc-white uinn ub-ver">
+            <div class="ub-f1">
+                
+                <div id="chart_type_1" onclick="LoadChart(1,'学生人数');" class="btn noselect eachchart chart_active">
+                    学生人数
+                </div>
+                <div id="chart_type_2" onclick="LoadChart(2,'任务发布量');" class="btn noselect eachchart">
+                    任务发布量
+                </div>
+                <div id="chart_type_8" onclick="LoadChart(8,'任务发布量');" class="btn noselect eachchart">
+                    任务完成量
+                </div>
+                <div id="chart_type_3" onclick="LoadChart(3,'人均任务量');" class="btn noselect eachchart">
+                    人均任务量
+                </div>
+                <div id="chart_type_4" onclick="LoadChart(4,'任务完成率');" class="btn noselect eachchart">
+                    任务完成率
+                </div>
+                <div id="chart_type_7" onclick="LoadChart(7,'读后感数量');" class="btn noselect eachchart">
+                    读后感数量
+                </div>
+                <div id="chart_type_5" onclick="LoadChart(5,'人均读后感');" class="btn noselect eachchart">
+                    人均读后感
+                </div>
+                <div id="chart_type_6" onclick="LoadChart(6,'参与阅读率');" class="btn noselect eachchart">
+                    参与阅读率
+                </div>
+            </div>
+            <div class="ub-f1" id="grade" ></div>
+            <div class="ub-f1 uhide" id="exp" ></div>
+        </div>
+        <!--content结束-->
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/ranking/teacherCharts_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/echarts.common.min.js"><\/script>');
+    </script>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style>
+            .book-title{
+                 overflow: hidden;
+                /*white-space: nowrap;
+                text-overflow: ellipsis;*/
+                
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                height:1.2em;
+                text-align: center;
+                
+            }
+            .cs-select{
+              border: solid 0px #000;
+            
+              /*很关键：将默认的select选择框样式清除*/
+              appearance:none;
+              -moz-appearance:none;
+              background: rgba(0,0,0,0);
+            }
+            .ico_search {
+                width:1em;
+                height:1em;
+                background: url(css/icons/ico_search.png);
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="page" class="ub ub-ver ub-fh ub-fv">
+            <div id="box" class="ub ub-ver ub-ac ub-pc uinn" style="background: url(css/image1/ico_duhougan@2x_01.png) no-repeat;background-size: cover">
+                <div class="ub ub-fh bc-border uba umar-t bc-white " style="height:2em;border-radius: 2em">
+                    <div class="ub ub-f1 "><input id="searchText" type="text" class="ub ub-f1 ulev0" placeholder="书名/作者/关键字" style="padding:0.5em 1em;border:0;background: rgba(0,0,0,0)" /></div>
+                    <div class="ub uinn btnSearch "><div class="ico_search"></div></div>
+                </div>
+                <div class="ub-f1"></div>
+            </div>
+            <div class="ub ub-fh">
+                <div class="ub ub-f1 uinn bc-white" style="padding: 0.5em 1em">
+                    <div class="ub ub-ac ub-pc ub-f1 bc-bg sc-text" style="height:1.8em;border-radius: 0.3em 0 0 0.3em">
+                       <select class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text" style="width: 5em" id="book_category">
+                           <option value="">全部分类</option>
+                       </select>
+                    </div>
+                    <div class="ub bc-white" style="width: 0.1em"></div>
+                    <div class="ub ub-ac ub-pc ub-f1 bc-bg sc-text"  style="height:1.8em">
+                       <select class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text" style="width: 5em" id="grade">
+                           <option value="">全部年级</option>
+                       </select>
+                    </div>
+                    <div class="ub bc-white" style="width: 0.1em"></div>
+                    <!-- <div class="ub ub-ac ub-pc ub-f1 bc-bg sc-text"  style="height:1.8em;border-radius: 0 0.3em 0.3em 0">
+                       <select class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text" style="width: 5em" id="recommendLevel">
+                           <option value="">所有等级</option>
+                       </select>
+                    </div> -->
+                </div>
+          </div>
+          <div class="ub ub-fh bc-bg" style="height:0.5em">&nbsp;</div>
+          <div id="bookList" class="ub ub-ver ub-fh ub-fv ub-f1 "></div>
+          <div id="item" class="ub item uhide ub-f1">
+              <div class="ub ub-ver ub-ac ub-pc ub-f1 book">
+                  <div class="ub ub-ac ub-pc ub-f1 " style="border-radius:0em">
+                        <img class="bookImage" src="css/icons/noImg.png" style="width:3.7em;height:5.2em" />
+                        <div class="bookBox uhide"></div>
+                  </div>  
+                  <div class="ub ub-fh ub-ac ub-pc uhide">
+                    <div style="color:#FFC304" class="info-star ulev-2">
+                        <div class="fa icon-star-five-hollow"></div>
+                        <div class="fa icon-star-five-hollow"></div>
+                        <div class="fa icon-star-five-hollow"></div>
+                        <div class="fa icon-star-five-hollow"></div>
+                        <div class="fa icon-star-five-hollow"></div>
+                    </div>
+                    <div class="evaluate ub sc-text-active ulev-2"></div>
+                  </div>
+                  <div class="ub ub-ac ub-pc ub-fh">
+                      <div class="ub ub-ac ub-pc readNum ulev-2 umar-r" ></div>
+                      <div class="ub ub-ac ub-pc score ulev-2"></div>
+                  </div>
+                  <div class="book-title umar-t ub-fh ulev-1 name"></div>
+              </div>
+          </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tool.js"></script>
+        <script src="http://www.readseed.cn/nocache/js_teacher/index_grid_mall.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

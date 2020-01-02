@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />   
+ 
+        <style>
+             .txt-ellipsis{ 
+                overflow:hidden; 
+            
+                text-overflow:ellipsis;
+                
+                display:-webkit-box; 
+                
+                -webkit-box-orient:vertical;
+                
+                -webkit-line-clamp:6; 
+            }
+        </style> 
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="swiper-parent swiper-container ub ub-fh ub-fv">
+            <div id="main" class="swiper-wrapper ub ub-fh ub-fv">
+                <div id='list_loading' class="swiper-slide" style="width:100%;height:100%">
+                    <div class="loading ub ub-ac ub-pc ub-fv">
+                        <i class="fa icon-loading fa-spin"></i>努力加载中...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="item" class="scroll swiper-slide uhide item" style="width:100%;height:100%;top: 1em;" >
+            <div class="scroll-container swiper-container" style="width:100%;height:100%">                
+                <div class="swiper-slide" style="height: auto;-webkit-box-sizing: border-box; box-sizing: border-box">
+                        
+                <div class="  bc-white umar-b umar-l umar-r  uinn " style="border-radius: 0.5em;">
+           <ul id="btn2">
+                <li>                   
+                    <img class="image" src="../css/icons/noImg.png" style="width:20.8em;height:11.7em; " />
+                     <a class="image1 uhide"></a>               
+                </li>
+            </ul>
+                    
+                    <!-- 标题 -->
+                    <div style="height:12em" >
+                         <div class="titleDiv sc-text-active ulev1 " style="width:100%;top: 1em; ">
+                    </div>
+                    </div>                           
+                </div>
+                    <!-- <div class="swiper-wrapper" style="width:100%;height:100%">                   
+                        <ol start="1" class="answerView bc-white"></ol>
+                        <div class="analyzeDiv bc-white"></div>
+                    </div>
+                    <div class="swiper-slide bc-white" style="height: 2em"></div> -->
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+        
+         
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+ 
+    </body>
+    <script>
+        var g_listHeight;
+        var g_SwiperParent;
+        var isClick = false;
+        var isOpenImg = false;
+        var question_category = {};
+        var g_TimeCount = 0;
+        var g_Timer;
+        // var image1; 
+        var dataArra;
+        appcan.ready(function() {
+            getUserInfo();
+            getProgramInfo();
+         
+            loadData();
+            //$("#item .bookName").html(bookInfo.name);
+            g_listHeight = $("#list_loading").height();
+            g_SwiperParent = new Swiper('.swiper-parent', {
+                autoHeight : true,
+                spaceBetween : 20,
+                observer : false,
+                observeParents : true,
+                onlyExternal : true,
+                direction : 'horizontal',
+                onInit : function(swiper) {
+                    
+                },
+                onTransitionEnd:function(swiper){
+                    uexWindow.evaluateScript("",0,"setPageIndex('"+ (swiper.activeIndex + 1) +"','"+(swiper.slides.length)+"')");
+                }
+            });
+        });
+
+        function loadData() {
+            var params = {
+                'userId' : userInfo.id,
+                'programId' :programInfo.id 
+            };
+            
+            common.ajax("/exercise/getProgramQuestionList", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                 dataArra = data.attributes.dataArray;  
+                if(data.obj){
+                    //bookId：图书id，
+                    //title：题目标题，
+                    //type：题目类型（1=单选题、2=多选题、3=判断题），
+                    //questionCategory：题目分类 (字典： question_category)，
+                    //questionOptionList ：[{content：选项内容， isRight：是否正确答案(1:正确,0:错误)，sort：排序}]
+                    createView(data.obj);
+                }else{
+                    g_SwiperParent.removeSlide(0);
+                    myPrompt.show();
+                }
+            }, function(data) {
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            }, null);
+        }
+
+        function createView(data) {
+            var i = 0;
+            for (; i < data.length; i++) {
+                var obj = data[i];
+                var objItem = $("#item").clone();
+                objItem.removeClass("uhide");
+                objItem.attr("id", obj.id);
+                objItem.attr("idx", i);
+                objItem.attr("type", obj.type);
+                objItem.addClass("ques scroll_" + i );
+                // var typeName = "<span class='ub' style='color:#ff8000'>";
+                // switch(obj.type) {
+                // case "1":
+                    // typeName += "【单】"
+                    // break;
+                // case "2":
+                    // typeName += "【多】";
+                    // break;
+                // case "3":
+                    // typeName += "【判】";
+                    // break;
+                // }
+                // typeName+="</span>";
+               // objItem.find(".titleName").html("考查"+question_category[obj.questionCategory]+"能力");
+                
+              //  objItem.find(".typeNames").html("<div class='ub'>" +"测试题目类型:"+ typeName + "</div>");
+              
+              
+                //标题
+                objItem.find(".titleDiv").html("<div class='ub txt-ellipsis'>"  + obj.title + "</div>");
+                //图片
+                 
+                  objItem.find(".image").attr("src",_SERVER_ADDRESS+obj.image01);
+                  // objItem.find(".image1").html(_SERVER_ADDRESS+obj.image01);   
+                  objItem.find(".image").on("click",function(){
+                      openBrowser();
+                   });
+                // for (var j = 0; j < obj.questionOptionList.length; j++) {
+                    // var item = obj.questionOptionList[j];
+                    // var li = $('<li id="' + item.id + '" class="ubb bc-border ' + ((obj.type == "2") ? "square" : "circular") + '"><div class="item" data-line="' + getLetterByNum(j + 1) + '" isRight="' + item.isRight + '">' + item.content + '</div></li>');
+                    // if (item.isRight == "1") {
+                        // li.addClass("selected");
+                    // }
+                    // objItem.find(".answerView").append(li);
+                // }
+                g_SwiperParent.appendSlide(objItem);
+            }
+           
+            $.each($(".scroll"), function(idx, n) {
+                var swiper = new Swiper('.scroll_' + $(n).attr("idx") + ' .swiper-container', {
+                    scrollbar : '.swiper-scrollbar',
+                    direction : 'vertical',
+                    slidesPerView : 'auto',
+                    mousewheelControl : true,
+                    freeMode : true
+                });
+            });
+            g_SwiperParent.removeSlide(0);
+            uexWindow.evaluateScript("",0,"setPageIndex('"+ (g_SwiperParent.activeIndex + 1) +"','"+(g_SwiperParent.slides.length )+"')");
+        }
+        
+      ///打开图片浏览器
+       function openBrowser(){ 
+           // alert(dataArra);
+                 var data ={
+                    displayActionButton:false,
+                    displayNavArrows:true,
+                    enableGrid:true,
+                    //startOnGrid:true,
+                    startIndex:0,
+                    data:dataArra
+                    
+                  } 
+               // alert(data.data);    
+            var json=JSON.stringify(data);
+            // alert(json);
+            uexImage.openBrowser(json);
+        }
+        
+       function getLetterByNum(n) {
+            return String.fromCharCode(64 + parseInt(n));
+        }
+        
+        function doPre() {
+            g_SwiperParent.slidePrev();
+        }
+        function doNext() {
+            g_SwiperParent.slideNext();
+        }
+        function goSheet() {    
+            g_SwiperParent.slideTo(g_SwiperParent.slides.length - 1, 500, false);
+        }
+    </script>
+</html>

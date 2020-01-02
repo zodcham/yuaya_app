@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+             input[type='checkbox'] + .box:before{
+                 content: "\f096";
+                 color:#848484;
+             }
+             input[type='checkbox']:checked + .box:before{
+                  color: #00cc33;
+                 content: "\f14a";
+             }
+            .cs-select{
+              border: solid 0px #000;
+            
+              /*很关键：将默认的select选择框样式清除*/
+              appearance:none;
+              -moz-appearance:none;
+              background: rgba(0,0,0,0);
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+       <div id="main" class="ub ub-ver ub-fh ub-fv">
+            <div class="ub ub-fh ub-ac ub-pc umar-t">
+               <div class="ub ub-ac ub-pc ub-f1 sc-bg sc-text" style="margin:0 1em;height:1.8em;border-radius: 0.3em">
+                    <select class="cs-select ub ulev0 ub-ac ub-pc sc-text" id="list_class">
+                    </select>
+                </div>
+                <div class="ub ub-ac ub-pc sc-text umar-r bc-border uba checkall" style="border-radius: 0.2em">
+                    <div class="ub ub-f1" style="padding: 0.3em 0.5em">
+                        <div class="fa icon-checkbox fa-1x2 "></div>
+                        <div class="umar-l text">全选</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh umar-t">
+                <div class="ub ub-fh sc-bg ub-f1 umar-l umar-r" style="height:1px">&nbsp;</div>
+            </div>
+            <div class="ub ub-fh " id="divList"></div>
+        </div> 
+        <div id="item" class="item ub ub-fh bc-border ubb uhide click" >
+            <div  class="ub ub-f1"  style="padding:0.5em">
+                <div class="ub ub-ac ub-pc photo">
+                  <img class="ub-f1" src="../head.png" style="border-radius: 50%;border:1px solid #BABABA;width:3em;height:3em">
+                </div>
+                <div class="ub ub-f1 name umar-l ub-ac"></div>
+                <div class="ub ub-ac ub-pc" style="margin-right: 2em">
+                    <input type="checkbox" name="student" class='uhide' />
+                    <div class="box fa fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="item2" class="item2 ub ub-fh uhide sc-bg" >
+            <div class="ub ub-fh ub-f1 letter uinn text-blue"></div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/pinyin.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var letter = "";
+        var checkStudent = [];
+        var friendList = [];
+       appcan.ready(function() {
+            getBookInfo();
+            getUserInfo();
+            getCommInfo();
+            if (commInfo.selectStudentType == "0") {
+            }else{
+                  $("#list_class").append("<option value='friend'>我的好友</option>");  
+            }
+            checkStudent = bookInfo.studentChecked;
+            loadClass();
+            $("#list_class").on("change",function(){
+                loadStudent();
+            });
+        });
+        
+        function touchIndexBar(itemId){
+             var obj = $(".item[key='"+itemId+"']").eq(0);
+             $("html,body").animate({scrollTop: obj[0].offsetTop}, 100);
+        }
+        
+        
+        appcan.button(".checkall", "btn-act", function() {
+            var flag = $(this).find(".fa").hasClass("icon-checkbox");
+            changeCheckBox(flag);
+            var classId = $("#list_class").val();
+            $("#"+classId).find(".item input").attr("checked",flag);
+        });
+        
+        function ischeckAll(){
+            var classId = $("#list_class").val();
+            var flag = $("#"+classId).find(".item input:checkbox").length > 0;
+            flag = (flag && $("#"+classId).find(".item input:checkbox").not("input:checked").length == 0);
+            changeCheckBox(flag);
+        }
+        
+        function changeCheckBox(flag){
+            if(flag){
+                $(".checkall .fa").removeClass("icon-checkbox").addClass("icon-checkboxchecked");
+                 $(".checkall .text").html("全不选");
+            }else{
+               $(".checkall .fa").removeClass("icon-checkboxchecked").addClass("icon-checkbox");
+                 $(".checkall .text").html("全选");
+            }
+        }
+
+        function createView(studentList){
+            var classId = $("#list_class").val();
+            $.each(studentList, function(key, list) { 
+                if(list.length > 0){
+                    for(var i = 0 ; i < list.length ; i ++){
+                        var obj = list[i];
+                        var objItem = $("#item").clone();
+                        objItem.removeClass("uhide");
+                        objItem.attr("id","item_" + obj.id);
+                        objItem.attr("key",key);
+                        objItem.find("input").attr("id",obj.id).attr("name",obj.name);
+                        if($.inArray(obj.id, checkStudent) >= 0){
+                            objItem.find("input").attr("checked",true);
+                        }
+                        if(obj.photo&&obj.photo.length > 0){
+                            objItem.find("img").attr("src",_SERVER_ADDRESS+obj.photo);
+                        }
+                        objItem.find(".name").html(obj.name);
+                        objItem.on("click",function(){
+                            $(this).find("input").attr("checked",(!$(this).find("input").attr("checked")));
+                            ischeckAll();
+                        });
+                        
+                        if (letter != key) {
+                            letter = key;
+                            var objItem2 = $("#item2").clone();
+                            objItem2.attr("id","letter_"+key);
+                            objItem2.removeClass("uhide");
+                            objItem2.find(".letter").html(letter);
+                            $("#"+classId).append(objItem2);
+                        }
+                        
+                        $("#"+classId).append(objItem);
+                    }
+                }else{
+                     $("#"+classId).append("<div class='item' key='"+key+"'></div>");
+                }
+            });  
+             ischeckAll();
+        }
+        
+        function getDefaultList() {
+            var list = {'-' : []};
+            for(var i = 0 ; i < 26 ; i ++){
+                list[getLetterByNum(i)] = [];
+            }
+            return list;
+        }
+        
+       function getCheckedValue(){
+           var checkList = $("#divList .item input:checkbox:checked");
+           var returnList = [];
+           $.map(checkList,function(obj){
+               var stuObj = {};
+               stuObj.id = $(obj).attr("id");
+               stuObj.name = $(obj).attr("name");
+               returnList.push(stuObj);
+           });
+           bookInfo.studentChecked = returnList;
+           setBookInfo();
+           appcan.window.publish(STUDENT_SELECT, "0");
+           uexWindow.evaluateScript("", 0, "doSubmit();");
+       }
+       
+       //加载班级
+       function loadClass(){
+            var params = {'userId':userInfo.id};
+            common.ajax("/teacher/myClazz", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                 for(var i = 0 ; i < data.obj.length ; i ++) {
+                    var obj=data.obj[i];
+                    if (i == 0) {
+                        clazzId = obj.id;
+                    }
+                    $("#list_class").append("<option value='"+obj.id+"'>"+obj.name+"</option>");  
+                }
+                loadStudent();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+        } 
+        
+        //加载学生
+        function loadStudent()
+        {
+            var classId = $("#list_class").val();
+            $("#divList .list").addClass("uhide");
+            if($("#"+classId).length == 0) {
+                $("#divList").append($("<div id='"+classId+"' class='ub ub-f1 ub-ver list'></div>"));
+                if (classId == "friend") {
+                    loadFriend();
+                    return;   
+                }
+                var params = {'clazzId' : classId};
+                common.ajax("/clazz/getStudentList", {
+                   params:JSON.stringify(params)
+                }, function(data) {
+                    var list = data.obj;
+                    
+                    if(list && list.length > 0){
+                        myPrompt.hide();
+                        var studentList = getDefaultList();
+                        for(var i = 0 ; i < list.length ; i ++){
+                            var py = pinyin.getCamelChars(list[i].name.trim());
+                            if(py.length > 1){
+                                py = py.substr(0,1).toUpperCase();
+                                
+                            }else{
+                                py = "-";
+                            }
+                            list[i].index = py;
+                            studentList[py].push(list[i]);
+                        }
+                                            
+                        createView(studentList);
+                    }else{
+                        myPrompt.show("","#"+classId);
+                    }
+                }, function(data){
+                    toast(getMsgByKey(data.msg),config.toastTimeShort);
+                },{loadingMsg:'正在加载学生，请稍后...'});
+            }else{
+                $("#"+classId).removeClass("uhide");
+            }
+       }
+       //加载我的好友
+       function loadFriend() {
+           if (friendList.length > 0) {
+               createView(friendList);
+           } else {
+                var params={'userId':userInfo.id};
+                common.ajax("/userFriend/friendList", {
+                   params:JSON.stringify(params)
+                }, function(data) {
+                    var list=data.obj;
+                    if(list && list.length > 0){
+                        friendList = getDefaultList();
+                        for(var i = 0 ; i < list.length ; i ++){
+                            if(list[i].id == userInfo.id)
+                            {
+                                continue;
+                            }
+                            var py = pinyin.getCamelChars(list[i].name.trim());
+                            if(py.length > 1){
+                                py = py.substr(0,1);
+                            }else{
+                                py = "-";
+                            }
+                            list[i].index = py;
+                            friendList[py].push(list[i]);
+                        }
+                        createView(friendList);
+                    }else{
+                        myPrompt.show("","#friend");
+                    }
+                }, function(data){
+                    toast(getMsgByKey(data.msg),config.toastTimeShort);
+                });
+           }
+       }
+    </script>
+</html>

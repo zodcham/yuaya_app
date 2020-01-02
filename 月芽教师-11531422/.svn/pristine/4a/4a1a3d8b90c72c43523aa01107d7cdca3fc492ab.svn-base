@@ -1,0 +1,5 @@
+appcan.ready(function() {
+});
+appcan.button(".nav-btn", "btn-act", function() {
+    appcan.window.close(-1);
+})

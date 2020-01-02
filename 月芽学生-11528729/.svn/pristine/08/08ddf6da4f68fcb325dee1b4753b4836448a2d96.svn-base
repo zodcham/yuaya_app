@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+        <style>
+
+            
+             .header{
+                background-color: #fff;
+            }
+            .header .listchild{
+                border-bottom: 1px solid #ddd; height:6em;
+            }
+            .header .div_img{
+                width:5em;text-align: center;margin-left:0.5em;
+            }
+            .header .div_img .forumimg{
+                width:4em;
+                height:4em;
+                border-radius: 0.5em;
+            }
+            .header .title{
+                font-size: 1em;height:1.5em;
+            }
+            .header .threads{
+                color:#999; font-size:0.8em;
+            }
+            .usericon{
+                width:2em;
+                height:2em;
+                border-radius: 0.5em;
+            }
+            .contentimg{
+                width:100%;
+                margin-top:0.5em;
+            }
+            .infloor a{
+                color: #00A1EA;
+                text-decoration: none;                 
+            }
+            .infloor p{
+                line-height: 1.5em;                 
+            }
+            .infloor_span {
+                color:#999;
+                font-size: 1em;
+                margin-left: 1em;
+                color:#999;
+            }
+        </style>
+
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div  id="content"  class="ub ub-ver">
+
+                <div class="ub ub-ver uinn umar-t" style="background-color: #fff;">
+                <div class="ub ub-ac" style="width:95%;margin:0.5em auto;" >
+                    <div  class="ub ub-ac" style="width:2em;text-align: left;height:2.5em;">
+                        <img src="" class="usericon" id="lz_icon">
+                     </div>
+                    <div style="color:#999; width:5em; text-align: left; margin-left:1em;" class="ub ub-ver ub-f1">
+                        <div style="height:1.5em;">
+                            <label style="height:1.5em; color:#000;font-size:1em;" id="lz_username"></label>
+                            <label style="margin-left:2em; background-color: #00A1EA;color:#fff; font-size:0.8em; border-radius: 0.2em; height:1em; width:2em;">楼主</label>
+                        </div>
+                        <div style="font-size:0.8em"><span id="lz_addtime"></span><span style="margin-left:1.5em;">回复:</span><span id="lz_replies"></span><span style="margin-left:1.5em;">阅读:</span><span id="lz_views"></span></div>
+                    </div>
+                    <div style="width:2.5em; text-align:center; font-size:0.8em; background-color:#00A0E9 ;color:#fff;border-radius: 0.3em;" id="threads_edit" class="uhide">修改</div>
+                    <div style="width:2.5em; text-align:center; font-size:0.8em; background-color:#F16412 ;color:#fff;border-radius: 0.3em;margin-left:2em;" id="threads_del" class="uhide">清除</div>
+                    
+                </div>
+                <div class="ub ub-ver uinn" style="width:95%;margin:0 auto;">
+                    <p id="lz_title"></p>
+                    <p id="lz_content"></p>
+                    <p id="lz_imglist">
+                        
+                    </p>
+                </div>
+            </div>
+            
+            <div class="ub ub-ver umar-t  " id="postlist">
+                
+            </div>
+            
+            <div id="list_div" class="uhide ">
+                <div class="ub ub-ver uinn umar-t" style="background-color: #fff;">
+                <div class="ub ub-ac" style="width:100%;margin:0.5em auto;" >
+                    <div  class="ub ub-ac" style="width:2em;text-align: left;height:3em;">
+                        <img src="|usericon|" class="usericon">
+                     </div>
+                    <div style="font-size:0.8em; color:#999; width:5em; text-align: left; margin-left:1em;" class="ub ub-ver ub-f3">
+                        <div style="height:1.8em;">|username|</div>
+                        <div style="font-size:0.9em">第<span>|position|</span>楼 <span style="margin-left:1.5em;">|addtime|</span></div>
+                    </div>
+                    <!-- <div  class="ub ub-ac" style="width:2em;text-align: left;height:2.5em;" onclick="posts_infloor_add(|id|, '|touserid|', '|tousername|')"> -->
+                        <div style="width:2.5em; text-align:center; font-size:0.8em; background-color:#00A0E9 ;color:#fff;border-radius: 0.3em;margin-left:1.5em;"  onclick="edit_posts('yypid','yytid')" class="|hide|">修改</div>
+                        <div style="width:2.5em; text-align:center; font-size:0.8em; background-color:#F16412 ;color:#fff;border-radius: 0.3em;margin-left:1.5em;"  onclick="del_posts('yypid','yytid')" class="|hide|">清除</div>
+                        <div  class="ub ub-ac" style="width:2em;text-align: left;height:2.5em;margin-left:1.5em;" onclick="posts_infloor_add('yypid', '0', '')">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                     </div>
+                </div>
+                <div class="ub " style="width:100%;margin:0 auto;">
+                    <div  class="ub ub-ac" style="width:2em;text-align: left;height:3em;">
+                     </div>
+                    <div style="font-size:0.8em; color:#999; text-align: left; width:80%;" class="ub ub-ver ufr ub-f3">
+                        <p>|content|</p>
+                        <p>
+                            |imglist|
+                        </p>
+                        |infloor|
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+            
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_student/club/posts_content.js"></script>
+   <script>
+        
+          
+    </script>
+</html>

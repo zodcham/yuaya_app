@@ -1,0 +1,415 @@
+document.write("<script src='http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?time="+ (new Date().getTime()) +"'></"+"script>");
+
+appcan.ready(function() {
+    // appcan.window.openPopover({
+    //     name:'button',
+    //     dataType:0,
+    //     url:"button.html",
+    //     top:800,
+    //     left:830,
+    //     width:200,
+    //     height:200
+    // });
+
+    getUserInfo();
+    getCommInfo();
+
+    getSysInfo();
+    LoadAll();
+    loadBookList();
+})
+
+
+
+appcan.button("#bookshelf", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("bookList", "user/user_book_list.html?f=root", 5);
+});
+function openTask(){
+    getCommInfo();
+    commInfo.finishState = '0';
+    setCommInfo();
+    rootClosePlayer();
+    appcan.window.open("user_read_taskss", "user/user_read_taskss.html?f=root", 5);
+}
+appcan.button("#mytasks", "btn-act", function() {
+    openTask();
+});
+appcan.button("#review", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("book_review_historys", "book/book_review_historys.html?f=root", 5);
+});
+appcan.button("#report", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("user_report_search", "user/user_report_search.html?f=root", 5);
+});
+
+appcan.button("#moreNews", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("newslist", "newslist.html?f=root", 5);
+});
+appcan.button("#morePPT", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("readList", "./yueduquan/ReadList.html?f=root", 5);
+});
+appcan.button("#moreVideo", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("book_introduct", "book/book_introduct.html?f=root", 5);
+});
+appcan.button("#moreBook", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("index_mall", "index_mall.html?f=root", 5);
+});
+
+appcan.button("#moreAudio", "btn-act", function() {
+    rootClosePlayer();
+    appcan.window.open("book_famousteache", "book/book_Famousteache.html?f=root", 5);
+});
+
+
+
+function LoadAll() {
+    if(CONNECTSTATUS_FLAG) {
+        /*读数据库版本*/
+        $("#name").html(userInfo.name);
+        var time1 = new Date().format("HH:mm:ss");
+
+        var par = {};
+        var url = _SERVER_ADDRESS + "/phone/newindex";
+        var ferr = function(err) {
+
+        };
+
+        var fok = function(data) {
+            appcan.logs(data);
+            data = JSON.parse(data);
+
+            LoadNews(data.xw);
+            LoadVideo(data.ddsp);
+            LoadAudio(data.jdzy);
+            LoadCourse(data.kcld);
+
+        };
+        common.ajaxPOST(url, par, fok, ferr);
+    }
+    else{
+        var data={"kcld":[{"image":"/userfiles/1/files/cover/12%E6%9C%88%E5%90%8D%E4%BA%BA%E4%BC%A0%E8%AE%B0.jpg","month":"12","year":"2018","grade":"","name":"2018年12月主题：名人传记","id":"957fec1c0508452584faf3beff606b6f"},{"image":"/userfiles/1/files/cover/11%E6%9C%88%E5%86%92%E9%99%A9%E6%95%85%E4%BA%8B%E5%B0%81%E9%9D%A2.jpg","month":"11","year":"2018","grade":"","name":"2018年11月主题：冒险故事","id":"5438d86038c741e2a29b03877b029c0e"},{"image":"/userfiles/1/files/cover/7%E6%9C%88%E5%A4%9A%E5%BD%A9%E7%AB%A5%E5%B9%B4.jpg","month":"7","year":"2018","grade":"","name":"2018年7月主题：多彩童年","id":"e28a2d2e86fb49e6817691b1540ec6da"},{"image":"/userfiles/1/files/cover/8%E6%9C%88%E5%8A%B1%E5%BF%97%E4%BA%BA%E7%94%9F%E5%B0%81%E9%9D%A2.jpg","month":"8","year":"2018","grade":"","name":"2018年8月主题：励志人生","id":"3e5515f930204f048b5c4c8d5ec303ec"},{"image":"/userfiles/1/files/cover/9%E6%9C%88%E5%B9%BB%E6%83%B3%E6%96%87%E5%AD%A6%E5%B0%81%E9%9D%A2.jpg","month":"9","year":"2018","grade":"","name":"2018年9月：幻想文学","id":"ad5d091bba51493c8596b51790ae906f"},{"image":"/userfiles/1/files/cover/10%E6%9C%88%E5%8E%86%E5%8F%B2%E5%9C%B0%E7%90%86%E5%B0%81%E9%9D%A2.jpg","month":"10","year":"2018","grade":"","name":"2018年10月主题：历史地理","id":"902a825b36cb4550bcee0c3f5fd3cce9"}],"ddsp":[{"image":"/userfiles/1/files/book/headPage/9787533274252.jpg","name":"驴小弟变石头","id":"BOOK201612060266","bookId":"BOOK201612060266"},{"image":"/userfiles/1/files/book/headPage/9787533260910.jpg","name":"迟到大王","id":"BOOK201612060243","bookId":"BOOK201612060243"},{"image":"/userfiles/1/files/book/headPage/9787556801251.jpg","name":"豆豆的风车转啊转","id":"BOOK201612060585","bookId":"BOOK201612060585"},{"image":"/userfiles/1/files/book/headPage/9787501605095.jpg","name":"草房子","id":"BOOK201612060049","bookId":"BOOK201612060049"},{"image":"/userfiles/1/files/book/headPage/9787543464544.jpg","name":"大脚丫跳芭蕾","id":"BOOK201612060451","bookId":"BOOK201612060451"},{"image":"/userfiles/1/files/book/headPage/9787501605095.jpg","name":"草房子","id":"BOOK201612060049","bookId":"BOOK201612060049"}],"jdzy":[{"image":"/userfiles/1/files/book/timg_(13).jpg","name":"《小熊不刷牙》长蛀牙不可怕，早晚刷牙笑哈哈","id":"ce242d5b4dc0451280f0b638104e9a24"},{"image":"/userfiles/1/files/book/timg_(10).jpg","name":"《我有友情要出租》使欢乐倍增，悲痛锐减的是友谊","id":"d2291eeefd61445b85dc718483ad0533"},{"image":"/userfiles/1/files/%E6%98%AF%E8%B0%81%E5%97%AF%E5%97%AF%E5%9C%A8%E6%88%91%E7%9A%84%E5%A4%B4%E4%B8%8A.jpg","name":"《是谁嗯嗯在我的头上》小鼹鼠的“嗯嗯”历险记","id":"54e3da2f7d3e4e62be48d9a92aaab0f2"},{"image":"/userfiles/1/files/book/timg_(2).jpg","name":"《万圣节的大南瓜》齐心协力才能吃到好吃的南瓜派","id":"5f50c53e576d4b5e82b5e1161e4f0da3"},{"image":"/userfiles/1/files/book/timg_(4).jpg","name":"《我不跟你走》建立自我保护意识，不和陌生的人走","id":"ad6d511e3b2a4a3d8c6173f63aa1cd9a"},{"image":"/userfiles/1/files/book/timg_(7).jpg","name":"《我的爱一直陪着你》不管你是个小小孩， 还是终究会长大","id":"099d1d89cb33474dbc6e929dfca81d33"}],"lbsj":[{"image":"/userfiles/1/files/activity/600_250.jpg","address":"http://mp.weixin.qq.com/mp/homepage?__biz=MzU0ODA4MDI5NA==&hid=2&sn=881a32c34e92b84fe11afc264cb5367b#wechat_redirect","is_link":"1","id":"6d88af9dadb841ac94660032ba1c0d08"},{"image":"/userfiles/1/files/activity/1551923792(1).png","address":"https://mp.weixin.qq.com/s?__biz=MzU0ODA4MDI5NA==&mid=2247485735&idx=1&sn=6ce7f0ba1419b103d0b1c5759adbaf7d&chksm=fb45d6eecc325ff828af3fab0aec3f66ed3f4626153d808c6b7d5d9e58fa1ab47d678c04e47d&token=982433038&lang=zh_CN#rd","is_link":"1","id":"a58e65635af24a0e8dc525d51edd8eb6"}],"xw":[{"date":"2019-03-07","image":"/userfiles/1/files/activity/0.jpg","name":"【现场直播】建阳区实验小学月芽阅读交流活动","id":"fe87f5fc614140e79a09e85bd5a420e0"},{"date":"2019-03-04","image":"/userfiles/1/files/activity/(1).jpg","name":"“山海相约，共话阅读” -------2019年建阳区实验小学与平潭第二实验小学阅读交流研讨会","id":"4eae30ff6a664c0b956c8b98e8edd764"}]};
+        LoadNews(data.xw);
+        LoadVideo(data.ddsp);
+        LoadAudio(data.jdzy);
+        LoadCourse(data.kcld);
+    }
+
+
+}
+
+
+//新闻
+function LoadNews(data) {
+    var index = 0;
+    var shtml = '';
+    for (var i = 0; i < data.length; i++) {
+        var obj = data[i];
+        var objNews = $("#item_news").clone();
+        objNews.attr("id", obj.id);
+        objNews.removeClass("uhide");
+        var newstitle = obj.name.substring(0, 16);
+        objNews.find(".news_title").html(newstitle);
+        objNews.find(".news_author").html("月芽阅读");
+        objNews.find(".news_date").html(obj.date);
+        var imgUrl=_SERVER_ADDRESS+obj.image;
+        objNews.find(".news_pic").attr("src",imgUrl);
+
+        objNews.bind("click", function() {
+            var id = $(this).attr("id");
+            getProgramInfoById(id, function(data) {
+                getProgramInfo();
+                programInfo = data;
+                setProgramInfo();
+                rootClosePlayer();
+                appcan.window.open("newslist", "newslist.html?f=root", 5);
+
+            }, null);
+        });
+
+        $("#news_list").append(objNews);
+
+    }
+
+}
+
+
+//视频
+function LoadVideo(data) {
+    for (var i = 0; i < data.length; i++) {
+        var obj = data[i];
+        var objNews = $("#itemVideo").clone();
+        objNews.attr("id", obj.id);
+        objNews.removeClass("uhide");
+        var newstitle = obj.name.substring(0, 16);
+        var imgUrl=_SERVER_ADDRESS+obj.image;
+        objNews.find(".videoTitle").html(newstitle);
+        objNews.find(".videoImage").html('<img src="'+ imgUrl +'" style="height:143px;width:98px;margin-top:12px;margin-left:17px;">');
+
+        objNews.bind("click", function() {
+            var id = $(this).attr("id");
+            getBookInfoById(userInfo.id, id, function(data) {
+                getBookInfo();
+                bookInfo = data;
+                setBookInfo();
+                setLocVal("bookInfo_default","video");
+                rootClosePlayer();
+                appcan.window.open("book_default", "book/book_default.html?f=root", 5);
+            }, null);
+        });
+
+        $("#videoList").append(objNews);
+
+    }
+
+    //$("#news_list").html(shtml);
+
+}
+
+
+//音频
+function LoadAudio(data) {
+    for (var i = 0; i < data.length; i++) {
+        var obj = data[i];
+        var objNews = $("#itemAudio").clone();
+        objNews.attr("id", obj.id);
+        objNews.removeClass("uhide");
+        var newstitle = obj.name.substring(0, 16);
+        var imgUrl=_SERVER_ADDRESS+obj.image;
+        objNews.find(".audioTitle").html(newstitle);
+        objNews.find(".audioImage").html('<img src="'+ imgUrl +'" style="height:156px;width:160px;margin-top:0px;margin-left:19px;">');
+
+        objNews.bind("click", function() {
+            var id = $(this).attr("id");
+            getProgramInfoById(id, function(data) {
+                getProgramInfo();
+                programInfo = data;
+                setProgramInfo();
+                rootClosePlayer();
+                appcan.window.open("column_index", "book/column_index.html?f=root", 5);
+            }, null);
+        });
+
+        $("#audioList").append(objNews);
+
+    }
+
+    //$("#news_list").html(shtml);
+
+}
+
+
+
+//课程领读
+function LoadCourse(data) {
+    var height_screen = document.body.clientHeight;
+    var width_screen = document.body.clientWidth;
+
+    var len = data.length > 4 ? 4 : data.length;
+    if (len == 2) {
+        $(".Reads").css("width", "100%");
+    } else if (len == 3) {
+        $(".Reads").css("width", "150%");
+    } else if (len == 4) {
+        $(".Reads").css("width", "200%");
+    } else {
+        //$(".Reads").width(Math.round((data.obj.length * 0.25) * 10000) / 100.00 + "%");
+        $(".Reads").width((50 * len) + "%");
+    }
+    $(".Reads").html('');
+
+    for (var i = 0; i < len; i++) {
+
+        var obj = data[i];
+        var ReadItem = $("#ReadItems").clone();
+        ReadItem.attr("id", obj.id);
+        ReadItem.attr("grade", obj.grade);
+        ReadItem.attr("month", obj.month);
+        ReadItem.attr("year", obj.year);
+        ReadItem.attr("name", obj.name);
+
+        ReadItem.removeClass("uhide");
+        //图片
+        ReadItem.find(".ReadImages").attr("src", _SERVER_ADDRESS + obj.image);
+
+        /*
+         var g_wgt_url = "wgt://data/download" + (obj.image);
+         var g_img_url = _SERVER_ADDRESS + obj.image;
+
+         if (uexFileMgr.isFileExistByPath(g_wgt_url)) {
+         //本地有图片
+         g_img_url = "file:/" + uexFileMgr.getFileRealPath(g_wgt_url);
+         }
+         ReadItem.find(".ReadImages").attr("src", g_img_url);
+         */
+
+        ReadItem.find(".ReadNames").html(obj.name);
+
+        ReadItem.bind("click", function() {
+            var month = $(this).attr("month");
+            var name = $(this).attr("name");
+            var report = $(this).attr("year");
+
+            getSysInfo();
+            sysInfo.ranking = {
+                "grade" : month,
+                "name" : name,
+                "report" : report
+            };
+            setSysInfo();
+            rootClosePlayer();
+            appcan.window.open("readcontents", "./yueduquan/Readcontents.html?f=root", 5);
+
+        });
+
+        $(".Reads").append(ReadItem);
+    }
+    $("#div_reads").scrollLeft(260);
+}
+
+
+
+//课程领读
+function LoadCourse_new(data) {
+    var len = data.length;
+    var objList=[];
+    var imageList=[];
+    for (var i = 0; i < len; i++) {
+        var obj = data[i];
+        objList.push({
+            "grade" : obj.month,
+            "name" : obj.name,
+            "report" : obj.year
+        });
+        imageList.push(_SERVER_ADDRESS + obj.image);
+
+
+        /*
+        ReadItem.bind("click", function() {
+            var month = $(this).attr("month");
+            var name = $(this).attr("name");
+            var report = $(this).attr("year");
+
+            getSysInfo();
+            sysInfo.ranking = {
+                "grade" : month,
+                "name" : name,
+                "report" : report
+            };
+            setSysInfo();
+
+            appcan.window.open("Readcontent", "yueduquan/Readcontents.html", 5);
+
+        });
+        */
+
+    }
+
+    // var params = {
+    //     x: 87,
+    //     y: 380,
+    //     width: 920,
+    //     height: 265,
+    //     isScrollWithWeb: true,
+    //     placeholderImage: imageList[0],
+    //     imageUrl: imageList
+    // };
+    // var coverFlow = uexCoverFlow2.create(JSON.stringify(params));
+
+    var param={
+        interval:1000,
+        anchor:["87", "380"],
+        height:265,
+        width:920,
+        urls:imageList
+    };
+    //var view1=uexScrollPicture.createNewScrollPicture(param);
+
+    // uexScrollPicture.startAutoScroll(JSON.stringify({
+    //     view:view1
+    // }));
+}
+
+
+function loadBookList() {
+    if(CONNECTSTATUS_FLAG) {
+        getUserInfo();
+        var params = {
+            'userId' : userInfo.id,
+            'pageSize' : 24,
+            'pageIndex' : 1
+        };
+        common.ajax("/student/book", {
+            params : JSON.stringify(params)
+        }, function(data) {
+
+            for (var i = 0; i < data.obj.list.length; i++) {
+                var obj = data.obj.list[i];
+
+                var objNews = $("#itemVideo").clone();
+
+                objNews.attr("id", obj.id);
+
+                objNews.removeClass("uhide");
+                var newstitle = obj.name;
+                var imgUrl=_SERVER_ADDRESS+obj.image;
+
+                objNews.find(".videoTitle").html(newstitle);
+                objNews.find(".videoImage").html('<img src="'+ imgUrl +'" style="height:143px;width:98px;margin-top:12px;margin-left:17px;">');
+                objNews.bind("click", function() {
+                    var id = $(this).attr("id");
+                    getBookInfoById(userInfo.id, id, function(data) {
+                        getBookInfo();
+                        bookInfo = data;
+                        setBookInfo();
+                        rootClosePlayer();
+                        appcan.window.open("book_default", "book/book_default.html?f=root", 5);
+                    }, null);
+                });
+                $("#BookList").append(objNews);
+
+            }
+
+
+        }, function(data) {
+        }, null, false);
+
+    }
+    else{
+        var data={"success":true,"msg":"操作成功","obj":{"pageNo":1,"pageSize":24,"count":861,"list":[{"id":"BOOK201612060210","remarks":"母狼紫岚在一个狂风骤雨的夜晚诞下了五只狼崽，四只公狼崽，一只母狼崽，但有一只公狼崽因紫岚的疏忽，死于暴风雨中。它一直有一个梦想，希望把自己的后代培养成狼王，正是因为这个愿望是紫岚死去的丈夫黑桑的心愿。但在残酷的现实面前，它一次次失败，三只小公狼也相继死去，自己也已步入老年。最后，它只能把希望寄托在女儿所产的狼孙身上……","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"狼王梦","author":"沈石溪","score":7,"bookCategory":"1","bookCategoryDescr":"","grade":"5","wordCount":152.0,"publisher":"少儿出版社","pageCount":218,"isbn":"9787558901478","image":"/userfiles/1/files/59438a57N14d0eea2.jpg","price":18.0,"language":"1","introduce":"","readGuide":"","hits":22098,"favTimes":1354,"recommendTimes":2784,"evaluateTimes":23,"evaluateScore":103,"evaluateAvgScore":4.48,"exerciseTimes":8176,"exercisePassTimes":2702,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"80d2d93503fc4a86bad567f11f33f08c","bookCategoryName":"文学","gradeName":"五年级","languageName":"中文"},{"id":"BOOK201612060089","remarks":"57位不同国别的诗人，101首不同风格的新诗，携带着思想、文学、文明的火种，交给孩子，照亮下一代的阅读空间。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"给孩子的诗","author":"北岛","score":8,"bookCategory":"1","bookCategoryDescr":"","grade":"4","wordCount":80.0,"publisher":"中信出版集团","pageCount":171,"isbn":"9787508646664","image":"/userfiles/1/files/book/headPage/9787508646664.jpg","price":30.0,"language":"1","introduce":"","readGuide":"","hits":6653,"favTimes":346,"recommendTimes":1582,"evaluateTimes":10,"evaluateScore":48,"evaluateAvgScore":4.8,"exerciseTimes":1725,"exercisePassTimes":445,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"3c1f14997b3b455ea48d58846b3f9891","bookCategoryName":"文学","gradeName":"四年级","languageName":"中文"},{"id":"c55741f774f244a6b578ab39bfdc1ab9","remarks":"","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"红岩","author":"罗广斌，杨益言","score":10,"bookCategory":"1","bookCategoryDescr":"","grade":"6,7","wordCount":10.0,"publisher":"中国青年出版社","pageCount":"","isbn":"9787500601593","image":"/userfiles/1/files/QQ%E6%88%AA%E5%9B%BE20180112111135.png","price":26.0,"language":"1","introduce":"","readGuide":"","hits":1854,"favTimes":174,"recommendTimes":399,"evaluateTimes":1,"evaluateScore":1,"evaluateAvgScore":1.0,"exerciseTimes":582,"exercisePassTimes":184,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"文学","gradeName":"六年级,七年级","languageName":"中文"},{"id":"799b44ba37fb49fc9abd68b3413b667a","remarks":"2000年，《科学改变人类生活的100个瞬间》出版后，受到了少年儿童的极大欢迎。2001年度被评为中国优秀十大科普畅销图书，并荣获第十二届冰心儿童图书大奖等奖项。2007年，该书中的“因特网将世界连成一家”和“神奇的电脑魔术师”入选中国人教版小学语文课本五年级下册。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"科学改变人类生活的119个伟大瞬间","author":"路甬祥","score":10,"bookCategory":"2","bookCategoryDescr":"","grade":"6","wordCount":260.0,"publisher":"浙江少年儿童出版社","pageCount":359,"isbn":"9787534270598","image":"/userfiles/1/files/QQ%E6%88%AA%E5%9B%BE20180511093537.png","price":36.0,"language":"1","introduce":"","readGuide":"","hits":6244,"favTimes":440,"recommendTimes":897,"evaluateTimes":3,"evaluateScore":15,"evaluateAvgScore":5.0,"exerciseTimes":2231,"exercisePassTimes":1306,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"8051448ec4944df792a278b0da0d0b41","bookCategoryName":"科普","gradeName":"六年级","languageName":"中文"},{"id":"BOOK201612060129","remarks":"《兔儿爷丢了耳朵》是一本讲述“中国故事”的图画书。中秋节到了，小男孩儿从老祖母那里得到了一个可爱的玩偶兔儿爷，可是不小心把兔儿爷的长耳朵摔掉了一只，怎么找也找不到了。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"兔儿爷丢了耳朵","author":"金波","score":6,"bookCategory":"6","bookCategoryDescr":"","grade":"1","wordCount":50.0,"publisher":"中国少儿出版社","pageCount":20,"isbn":"9787514816037","image":"/userfiles/1/files/book/headPage/9787514816037.jpg","price":49.0,"language":"1","introduce":"","readGuide":"","hits":8815,"favTimes":1224,"recommendTimes":468,"evaluateTimes":7,"evaluateScore":35,"evaluateAvgScore":5.0,"exerciseTimes":2046,"exercisePassTimes":1146,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"综合","gradeName":"一年级","languageName":"中文"},{"id":"de677969578a446aa47396e32fe37c91","remarks":"《小讨厌》收录了鲁风创作的18首儿童诗。18首诗歌或具象或想象，都在描述着和你相似又不同的童年，你似乎能听到孩子们之间争抢玩具的吵闹声，也会传出鱼市里的叫卖。这些小诗保留着童年的味道，你永远能在记忆中找到它。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"儿童时代图画书（精装）：小讨厌","author":"鲁风文 ; 赵楠图","score":8,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"中国中福会出版社","pageCount":32,"isbn":"9787507221497","image":"/userfiles/de245dd8a3cc43599c1a9cb024558720/files/QQ%E6%88%AA%E5%9B%BE20170525194851.png","price":32.8,"language":"1","introduce":"","readGuide":"","hits":10640,"favTimes":1086,"recommendTimes":853,"evaluateTimes":14,"evaluateScore":48,"evaluateAvgScore":3.43,"exerciseTimes":2183,"exercisePassTimes":941,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060231","remarks":"出了大门往正东，一园青菜在农夫走后开始了大战，它们个个成了精。在农夫回来后，一园青菜已然熟透……","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"一园青菜成了精","author":"北方童谣","score":6,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"明天出版社","pageCount":34,"isbn":"9787533257545","image":"/userfiles/1/files/book/headPage/9787533257545.jpg","price":36.8,"language":"1","introduce":"","readGuide":"","hits":20717,"favTimes":1906,"recommendTimes":1389,"evaluateTimes":38,"evaluateScore":175,"evaluateAvgScore":4.61,"exerciseTimes":5086,"exercisePassTimes":3443,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060231.mp4","videoFile2":"/videoSave/BOOK201612060231_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787533257545(1).mp4","chooseVideoPath2":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787533257545.mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060386","remarks":"《帽子》以主线描绘了初冬时节，一群憨实、可爱的动物把毛线织物弄来当“帽子”的故事。一只小刺猬因为好奇，钻进了一只吹落到地上的长袜，却怎么也退不出来了。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"帽子","author":"【美】简·布雷特","score":6,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"二十一世纪出版社","pageCount":32,"isbn":"9787539161198","image":"/userfiles/1/files/book/headPage/9787539161198.jpg","price":32.0,"language":"1","introduce":"","readGuide":"","hits":5349,"favTimes":871,"recommendTimes":461,"evaluateTimes":3,"evaluateScore":15,"evaluateAvgScore":5.0,"exerciseTimes":1763,"exercisePassTimes":843,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060110","remarks":"《不可思议的旅程》小女孩意外得到了一支神奇的红色画笔，用这支笔画出的任何东西都可以变成真的。她在卧室墙上画了一扇门，当门打开时，她发现自己进入了另一个国度，一场不可思议的旅程就此开始……","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"不可思议的旅程","author":"【美】艾伦·贝克尔","score":9,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":3.0,"publisher":"新星出版社","pageCount":42,"isbn":"9787513314770","image":"/userfiles/1/files/book/headPage/9787513314770.jpg","price":"","language":"1","introduce":"","readGuide":"","hits":10185,"favTimes":1145,"recommendTimes":859,"evaluateTimes":10,"evaluateScore":38,"evaluateAvgScore":3.8,"exerciseTimes":3254,"exercisePassTimes":1557,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060110.mp4","videoFile2":"/videoSave/BOOK201612060110_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787513314770(1).mp4","chooseVideoPath2":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787513314770.mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"dd64683657b74e02b2e937c4d8911e55","remarks":"《儿童时代图画书:小丑》是一个关于情绪管理的故事。小丑把节目带给大家，也把快乐带给大家，大家的忧愁却没有消散，那些忧愁悄悄地占领了小丑的心。原来，像感冒一样，忧愁也是会传染的。怎么办？最后，忧愁终于消散了，快乐又回到了大家的心里。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"儿童时代图画书（精装）：小丑","author":"徐进著/绘","score":8,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"中国中福会出版社","pageCount":32,"isbn":"9787507220148","image":"/userfiles/de245dd8a3cc43599c1a9cb024558720/files/QQ%E6%88%AA%E5%9B%BE20170531092220.png","price":29.8,"language":"1","introduce":"","readGuide":"","hits":4247,"favTimes":652,"recommendTimes":405,"evaluateTimes":7,"evaluateScore":22,"evaluateAvgScore":3.14,"exerciseTimes":1114,"exercisePassTimes":628,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060377","remarks":"住在农家院的公鸡黑羽因为个子小而感到烦恼，一天他受到很大的打击，无意中跑了出去。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"我要变大","author":"张乐","score":8,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"二十一世纪出版社","pageCount":40,"isbn":"9787539154251","image":"/userfiles/1/files/book/headPage/9787539154251.jpg","price":36.0,"language":"1","introduce":"","readGuide":"","hits":8240,"favTimes":1306,"recommendTimes":483,"evaluateTimes":14,"evaluateScore":62,"evaluateAvgScore":4.43,"exerciseTimes":2496,"exercisePassTimes":1826,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060377.mp4","videoFile2":"/videoSave/BOOK201612060377_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/1/files/book/video/9787539154251.mp4","chooseVideoPath2":"/userfiles/1/files/book/HDvideo/9787539154251.mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060462","remarks":"　马拉太太快生鸭宝宝了，马拉先生和太太为了要寻找一个合适的居住环境，不畏辛苦四处寻觅。最后他们找到了吗？","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"让路给小鸭子","author":"【美】罗伯特·麦克洛斯基","score":10,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":1.0,"publisher":"河北教育出版社","pageCount":"","isbn":"9787543473577","image":"/userfiles/1/files/book/headPage/9787543473577.jpg","price":42.8,"language":"1","introduce":"","readGuide":"","hits":9396,"favTimes":1151,"recommendTimes":586,"evaluateTimes":9,"evaluateScore":43,"evaluateAvgScore":4.78,"exerciseTimes":2811,"exercisePassTimes":1625,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"c3ab20e9113343a5a1944f4de214a8fb","remarks":"大大熊好爱好爱他的小小熊。他要求小小熊喝粥要喝光，在雪地里走累了要睡一会儿，还要他系紧红围巾，以防感冒。小小熊不愿意被人告诉他该怎么做，可是他最后总是会听大大熊的话，因为他知道大大熊这么做是因为爱他。不过当大大熊感冒的时候，就轮到他来告诉大大熊该怎么做了。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"耕林童书馆·大大熊和小小熊","author":"【美】奥利维尔邓瑞尔","score":7,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"河北少年儿童出版社","pageCount":32,"isbn":"9787537669382","image":"/userfiles/de245dd8a3cc43599c1a9cb024558720/files/QQ%E6%88%AA%E5%9B%BE20170525195201.png","price":29.8,"language":"1","introduce":"","readGuide":"","hits":4510,"favTimes":733,"recommendTimes":396,"evaluateTimes":5,"evaluateScore":24,"evaluateAvgScore":4.8,"exerciseTimes":1221,"exercisePassTimes":860,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060075","remarks":"清晨，驼铃声由远及近响到永定门。跟着商队，中轴线之旅就开始。年底的正阳门前，古时也如此热闹！进了正阳门，不久就到大清门，古代，从此是只有宫廷有关人员才能入内的皇城……由南往北，用细致的工笔画描绘北京中轴线的四季和时代的变化。表现北京城正中央——紫禁城三大殿的拉页格外震撼。通过卷末的解说，能了解更多有关中轴线周围的结构美学和建筑艺术。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"北京——中轴线上的城市","author":"于大武","score":5,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"连环画出版社","pageCount":28,"isbn":"9787505622661","image":"/userfiles/1/files/book/headPage/9787505622661.jpg","price":39.8,"language":"1","introduce":"","readGuide":"","hits":9230,"favTimes":697,"recommendTimes":1817,"evaluateTimes":37,"evaluateScore":179,"evaluateAvgScore":4.84,"exerciseTimes":2810,"exercisePassTimes":1455,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"8a4c7f07ad214939820f78e6daff4e6d","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060100","remarks":"对一个五岁的孩子来说，“第一次”独自上街去买东西，那可是个伟大的探险啊。虽然只是去离家不远的街口小店，可对小主人公美依来说充满着一桩接一桩的冒险事件──有一辆自行车迎面冲过来，好危险！哇，跌倒了，膝盖破了皮，她会哭吗？手中的硬币掉了，该怎么办？终于走到小店门口，要怎样跟老板开口买东西？……","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"第一次上街买东西","author":"【日】筒井赖子","score":5,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":3.0,"publisher":"新星出版社","pageCount":31,"isbn":"9787513314527","image":"/userfiles/1/files/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E8%A1%97%E4%B9%B0%E4%B8%9C%E8%A5%BF.png","price":29.8,"language":"1","introduce":"","readGuide":"","hits":22658,"favTimes":1871,"recommendTimes":2262,"evaluateTimes":64,"evaluateScore":309,"evaluateAvgScore":4.83,"exerciseTimes":8243,"exercisePassTimes":5817,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060100.mp4","videoFile2":"/videoSave/BOOK201612060100_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787513309479(1).mp4","chooseVideoPath2":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787513309479.mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"ef01b9833c954208b4be42c3f8e3ded5","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060111","remarks":"　咕噜咕噜，黄蜡笔在一张又大又白的画纸上画起了飞舞的蝴蝶。可有了蝴蝶，就得有花。于是她叫来了红蜡笔和粉蜡笔。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"蜡笔小黑","author":"【日】中屋美和","score":7,"bookCategory":"4","bookCategoryDescr":"","grade":"1","wordCount":3.0,"publisher":"新星出版社","pageCount":22,"isbn":"9787513315173","image":"/userfiles/1/files/book/headPage/9787513315173.jpg","price":29.8,"language":"1","introduce":"","readGuide":"","hits":6481,"favTimes":1067,"recommendTimes":368,"evaluateTimes":5,"evaluateScore":25,"evaluateAvgScore":5.0,"exerciseTimes":2369,"exercisePassTimes":1309,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"艺术","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060250","remarks":"狐狸勤勤恳恳地种了一园子的葡萄，他最期盼的，当然就是葡萄丰收啦！可是，怎样才能种出最多、最甜的葡萄呢？狐狸多方请教，最后得出最权威的一条真理——要有爱！","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"葡萄","author":"邓正祺","score":9,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"明天出版社","pageCount":32,"isbn":"9787533264307","image":"/userfiles/1/files/book/headPage/9787533264307.jpg","price":27.8,"language":"1","introduce":"","readGuide":"","hits":8034,"favTimes":1352,"recommendTimes":321,"evaluateTimes":14,"evaluateScore":56,"evaluateAvgScore":4.0,"exerciseTimes":3488,"exercisePassTimes":1934,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060021","remarks":"《野兽国》以简单诗意的语言讲述了调皮男孩迈克斯的故事：他与妈妈大闹了一场，没吃晚饭就被关进了自己的房间。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"野兽国","author":"【美】莫里斯·桑达克","score":9,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"贵州人民出版社","pageCount":36,"isbn":"9787221119308","image":"/userfiles/1/files/book/headPage/9787221119308.jpg","price":36.0,"language":"1","introduce":"","readGuide":"","hits":10701,"favTimes":1213,"recommendTimes":616,"evaluateTimes":13,"evaluateScore":63,"evaluateAvgScore":4.85,"exerciseTimes":3515,"exercisePassTimes":1889,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060021.mp4","videoFile2":"/videoSave/BOOK201612060021_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787221119308.mp4","chooseVideoPath2":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787221119308(1).mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060011","remarks":"在《忙忙碌碌镇》中，温和的动物居民们过着快乐而忙碌的生活。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"忙忙碌碌镇","author":"【美】斯凯瑞","score":9,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"贵州人民出版社","pageCount":59,"isbn":"9787221077042","image":"/userfiles/1/files/book/headPage/9787221077042.jpg","price":19.8,"language":"1","introduce":"","readGuide":"","hits":4943,"favTimes":760,"recommendTimes":280,"evaluateTimes":6,"evaluateScore":29,"evaluateAvgScore":4.83,"exerciseTimes":1475,"exercisePassTimes":678,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060011.mp4","videoFile2":"/videoSave/BOOK201612060011_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787221077042(1).mp4","chooseVideoPath2":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787221077042.mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060261","remarks":"看啊！一头鲜黄色的牛在星星点缀的湛蓝夜空下凝视远方，火红天空下一只绿色的狮子，还有地上一头彩色圆点的驴子……","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"画了一匹蓝马的画家","author":"【美】艾瑞·卡尔","score":10,"bookCategory":"4","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"明天出版社","pageCount":30,"isbn":"9787533271046","image":"/userfiles/1/files/book/headPage/9787533271046.jpg","price":32.8,"language":"1","introduce":"","readGuide":"","hits":7010,"favTimes":1093,"recommendTimes":343,"evaluateTimes":12,"evaluateScore":59,"evaluateAvgScore":4.92,"exerciseTimes":2456,"exercisePassTimes":1325,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"/videoSave/BOOK201612060261.mp4","videoFile2":"/videoSave/BOOK201612060261_h.mp4","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787533271046(1).mp4","chooseVideoPath2":"/userfiles/ab4b6d53fb484e5ca2a283061ae87b33/files/9787533271046.mp4","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"艺术","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060403","remarks":"勇敢的艾琳是女裁缝线轴儿太太的女儿。这天，线轴儿太太身体不舒服，不能亲自把她做好的晚会礼服送到公爵夫人手里，可这件漂亮的礼服是公爵夫人当天晚上要穿的。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"勇敢的艾琳","author":"【美】威廉·史塔克","score":10,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":10.0,"publisher":"二十一世纪出版社","pageCount":32,"isbn":"9787539180151","image":"/userfiles/1/files/book/headPage/9787539180151.jpg","price":30.0,"language":"1","introduce":"","readGuide":"","hits":3971,"favTimes":760,"recommendTimes":425,"evaluateTimes":3,"evaluateScore":15,"evaluateAvgScore":5.0,"exerciseTimes":1748,"exercisePassTimes":964,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060115","remarks":"乡间的房子，城市里的公寓，洞穴、宫殿、船，甚至是鞋子……","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"家","author":"【美】卡森·埃利斯","score":6,"bookCategory":"6","bookCategoryDescr":"","grade":"1","wordCount":3.0,"publisher":"新星出版社","pageCount":"","isbn":"9787513319065","image":"/userfiles/1/files/book/headPage/9787513319065.jpg","price":45.8,"language":"1","introduce":"","readGuide":"","hits":3057,"favTimes":588,"recommendTimes":211,"evaluateTimes":2,"evaluateScore":10,"evaluateAvgScore":5.0,"exerciseTimes":1251,"exercisePassTimes":490,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"综合","gradeName":"一年级","languageName":"中文"},{"id":"BOOK201612060405","remarks":"雪了。一开始，一片雪花。接着，两片雪花。谁也没有在意这些雪花。只有一个小男孩，独独的一个。他说：“下雪了！”","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"下雪了","author":"【美】尤里·舒利瓦茨","score":5,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":1.0,"publisher":"二十一世纪出版社","pageCount":20,"isbn":"9787539180212","image":"/userfiles/1/files/book/headPage/9787539180212.jpg","price":29.8,"language":"1","introduce":"","readGuide":"","hits":4583,"favTimes":832,"recommendTimes":295,"evaluateTimes":3,"evaluateScore":11,"evaluateAvgScore":3.67,"exerciseTimes":1705,"exercisePassTimes":954,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"},{"id":"da269e6a9eb04dbdaa18ab98665751cb","remarks":"　一只邋遢熊护送六只小白鼠要一起回家去，在回家的路上，他们遇到了想吃小白鼠的猫头鹰、狐狸和蛇。","createBy":"","createDate":"","updateBy":"","updateDate":"","name":"耕林童书馆·邋遢熊和六只白鼠","author":"【英】克里斯·沃梅尔","score":7,"bookCategory":"5","bookCategoryDescr":"","grade":"1","wordCount":30.0,"publisher":"河北少年儿童出版社","pageCount":30,"isbn":"9787537669351","image":"/userfiles/de245dd8a3cc43599c1a9cb024558720/files/QQ%E6%88%AA%E5%9B%BE20170525180015.png","price":29.8,"language":"1","introduce":"","readGuide":"","hits":2407,"favTimes":533,"recommendTimes":0,"evaluateTimes":1,"evaluateScore":5,"evaluateAvgScore":5.0,"exerciseTimes":855,"exercisePassTimes":573,"key":"","scoreSeg":"","minScore":"","maxScore":"","isPublish":"","schoolId":"","videoFile":"","videoFile2":"","recommendLevel":"1","recommendLevelDescr":"一级","chooseVideoPath":"","chooseVideoPath2":"","posterImagePath":"","chooseAudioPath":"","audioFile":"","isFavorite":"","isPass":"","isEvaluate":"","reviewCount":"","star1Count":"","star2Count":"","star3Count":"","star4Count":"","star5Count":"","programId":"","bookCategoryName":"绘本","gradeName":"一年级","languageName":"中文"}],"maxResults":24,"firstResult":0}};
+        for (var i = 0; i < data.obj.list.length; i++) {
+            var obj = data.obj.list[i];
+
+            var objNews = $("#itemVideo").clone();
+
+            objNews.attr("id", obj.id);
+
+            objNews.removeClass("uhide");
+            var newstitle = obj.name;
+            var imgUrl=_SERVER_ADDRESS+obj.image;
+
+            objNews.find(".videoTitle").html(newstitle);
+            objNews.find(".videoImage").html('<img src="'+ imgUrl +'" style="height:143px;width:98px;margin-top:12px;margin-left:17px;">');
+            objNews.bind("click", function() {
+                var id = $(this).attr("id");
+                getBookInfoById(userInfo.id, id, function(data) {
+                    getBookInfo();
+                    bookInfo = data;
+                    setBookInfo();
+                    rootClosePlayer();
+                    appcan.window.open("book_default", "book/book_default.html?f=root", 5);
+                }, null);
+            });
+            $("#BookList").append(objNews);
+
+        }
+    }
+
+
+
+}

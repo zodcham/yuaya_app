@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="login/css/main.css">
+        <style>
+            svg {
+              display: inline-block;
+              width: 1em;
+              height: 1em;
+              overflow: visible;
+            }
+            
+            
+            .house{position:absolute;left:1em;  bottom:4.9em; width:5em; height:4em;}
+            .house1{width:0em;height:0em;border:1em solid transparent;border-bottom-color:#7B5657;position:absolute; top:0em;left:0em;}
+            .house2{width:0.5em; height:1em; background:#7B5657; position:absolute; top:0.5em; left:1.2em; border-top:0.25em solid #572E2F; }
+            .house3{width:1.6em; height:2em; border:1px solid #BABABA; position:absolute; bottom:0; left:0.1em;border-top:none;}
+            .house4{width:0.5em; height:1em; border:1px solid #BABABA; position:absolute; left:0.2em; bottom:1px; background:#EDE5E5;}
+            .house5{width:0.2em; height:0.2em; position:absolute; top:2.3em; left:1em; border:1px solid #E58E1F;}
+            .house6{width:0.2em; height:0.2em; position:absolute; top:2.3em; left:1.2em; border:1px solid #E58E1F;}
+            .house7{width:0.2em; height:0.2em; position:absolute; top:2.5em; left:1em; border:1px solid #E58E1F;}
+            .house8{width:0.2em; height:0.2em; position:absolute; top:2.5em; left:1.2em; border:1px solid #E58E1F;}
+            
+            .windmill_one{
+               position:absolute;right:0.1em; bottom:2em; width:5em; height:4em; 
+            }
+            .windmill_two{
+               position:absolute;left:5em; bottom:1em; width:5em; height:4em; 
+            }
+            .windmill_three{
+               position:absolute;left:8em; bottom:3.5em; width:4em; height:4em; 
+            }
+            .windmill1{
+                display: block; 
+                height: 0; 
+                width: 0.3em; 
+                border-width: 0 0.1em 3em 0.1em; 
+                border-style: none solid solid; 
+                border-color: transparent transparent #BABABA; 
+            }
+            .windmill2{
+                position:absolute;
+                top:0em;
+                left:0em;
+                width:0.3em;   
+                height:0.3em;   
+                border:0.1em #fff solid;   
+                background:#a5cad6;   
+                border-radius:50%;  
+            }
+            .windmill3{
+                position:absolute;
+                top:0.5em;
+                left:0em;
+                height: 0;   
+                width: 0.1em;   
+                border-width: 1.5em 0.1em 0em 0.1em;   
+                border-style: solid solid none;   
+                border-color: #00A1EA transparent transparent ;  
+                -webkit-transform:rotate(60deg);  
+                -webkit-transform-origin:0.2em -0.3em;   
+                -webkit-animation: windmillrotate1 2s linear infinite;  
+            }
+            .windmill4{
+                position:absolute;
+                top:0.5em;
+                left:0em;
+                height: 0;   
+                width: 0.1em;   
+                border-width: 1.5em 0.1em 0em 0.1em;   
+                border-style: solid solid none;   
+                border-color: #FC7800 transparent transparent ;  
+                -webkit-transform:rotate(180deg);  
+                -webkit-transform-origin:0.2em -0.3em;   
+                -webkit-animation: windmillrotate2 2s linear infinite; 
+            }.windmill5{
+                position:absolute;
+                top:0.5em;
+                left:0em;
+                height: 0;   
+                width: 0.1em;   
+                border-width: 1.5em 0.1em 0px 0.1em;   
+                border-style: solid solid none;   
+                border-color: #FF3366 transparent transparent ;  
+                -webkit-transform-origin:0.2em -0.3em;   
+                -webkit-transform:rotate(310deg);  
+                -webkit-animation: windmillrotate3 2s linear infinite;  
+            }
+            @-webkit-keyframes windmillrotate1{
+                from{-webkit-transform:rotate(60deg)}
+                to{-webkit-transform:rotate(420deg)}
+             }  
+             @-webkit-keyframes windmillrotate2{
+                from{-webkit-transform:rotate(180deg);}
+                to{-webkit-transform:rotate(540deg)}
+             }  
+             @-webkit-keyframes windmillrotate3{
+                from{-webkit-transform:rotate(310deg)}
+                to{-webkit-transform:rotate(670deg)}
+             }  
+             
+             .bg {
+                 width:100%;
+                 height:100%;
+                 background: url(css/icons/bg.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+                  
+        </style>
+    </head>
+    <body class="um-vp bc-head" ontouchstart>
+        <div class="ub ub-ac ub-pc ub-fh ub-fv">
+            <img src="css/icons/bg.png" style="width:100%!important;height:auto!important" />
+        </div>
+        <div id="page_0" class="up ub ub-ver sc-bg uhide" tabindex="0">
+            <div class="ub ub-f1 ub-ver ub-ac ub-pc" style="min-height: 20em">
+                 <img src="icon.png" style="width: 10em;height：10em;border-radius: 50%" />
+                 <div class="ub text-blue ulev2 umar-t">培育阅读的萌芽</div>
+            </div>
+            <div class="ub ub-ver ub-ac ub-pc ub-fh ub-fv ub-f1" >
+                <div class="ub ub-ac ub-pc ub-f1 ub-fh">&nbsp;</div>
+                <div class="ub ub-ac ub-pc ub-fh" style="height: 10em">
+                    <div style="position: absolute;bottom:0;right:0;background: #33CC33;border-radius: 0% 100% 0% 0%;width:100%;height:5em">&nbsp;</div>
+                    <div style="position:absolute ;width:100%;height:3em;bottom:0;right:0;background: #77CC33;border-radius: 100% 0% 0% 0%;">&nbsp;</div>
+                    <div class="house">
+                        <div class="house1"></div>
+                        <div class="house2"></div>
+                        <div class="house3"></div>
+                        <div class="house4"></div>
+                        <div class="house5"></div>
+                        <div class="house6"></div>
+                        <div class="house7"></div>
+                        <div class="house8"></div>
+                    </div>
+                    <div class="windmill_one">
+                        <div class="windmill1"></div>
+                        <div class="windmill2"></div>
+                        <div class="windmill3"></div>
+                        <div class="windmill4"></div>
+                        <div class="windmill5"></div>
+                    </div>
+                    <div class="windmill_two">
+                        <div class="windmill1"></div>
+                        <div class="windmill2"></div>
+                        <div class="windmill3"></div>
+                        <div class="windmill4"></div>
+                        <div class="windmill5"></div>
+                    </div>
+                    <div class="windmill_three">
+                        <div class="windmill1"></div>
+                        <div class="windmill2"></div>
+                        <div class="windmill3"></div>
+                        <div class="windmill4"></div>
+                        <div class="windmill5"></div>
+                    </div>
+                </div>
+                <div class="ub ub-ac ub-pc ub-f1 ub-fh" style="background: #77CC33">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/welcome.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

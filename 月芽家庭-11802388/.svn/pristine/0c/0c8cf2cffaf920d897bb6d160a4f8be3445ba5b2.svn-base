@@ -1,0 +1,42 @@
+
+
+appcan.ready(function() {
+    loadUserInfo();
+});
+
+function loadUserInfo(){
+    getUserInfo();
+    if(userInfo.vip==0){
+        $("#vip_user_status").html("您是月芽普通会员，欢迎使用月芽平台。");
+    }
+    else{
+        $("#vip_user_status").html("您已是月芽收费会员，账户将于 "+userInfo.activeValidityDate+" 到期。");
+    }
+}
+
+appcan.button("#buy", "btn-act", function() {
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+
+appcan.button("#upLevel", "btn-act", function() {
+    var sn=$("#sn").val();
+    if(!sn.length) {
+        toast("请输入密钥！",1000);
+        return;
+    }
+
+    var url=_SERVER_ADDRESS+"/phone/register/activateAccount";
+    var par={'code' : sn, 'studentId': userInfo.id};
+    var ferr=function(err){};
+    var fok=function(data){
+        var obj=JSON.parse(data);
+        userInfo.isActiveValidity=1;
+        userInfo.activeValidityDate="2020-4-30";
+        appcan.alert({"title":"提示","content":"您的账户已成功激活，会员到期日为："+userInfo.activeValidityDate});
+        setUserInfo(false);
+        appcan.window.publish(UPDATE_INFO, "0");
+        appcan.window.publish(UPDATE_INDEX, "0");
+        loadUserInfo();
+    };
+    common.ajaxPOST(url, par, fok, ferr);
+});

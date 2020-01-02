@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>互动分享详情</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/willesPlay.css" />
+        
+        <link rel="stylesheet" href="../css/datouwang.css">
+        <link rel="stylesheet" href="../css/audioplayer.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <style>
+             body{
+                color:#5f5f5f;
+            }
+            .nav {
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.5em 0em 0.5em 0;
+                color: #555555;
+                background: #FFFFFF;
+                font-weight: bold;
+            }
+            .txt-ellipsis{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .tabcurrent {
+                color: #4dba72;
+            }
+            .bottom{
+                height:0.3em;
+            }
+            .tabcurrent .bottom{
+                background:url(../css/image1/ico_shuchengxiangqing@2x_r13_c3.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            
+            .icon_into {
+                width:1em;
+                height:1em;
+                background: url(css/icons/btn_into.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_remove {
+                width:1em;
+                height:1em;
+                background: url(css/icons/btn_remove.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                background-size: 100% 100%;*/
+                background: #FE8100;
+            }
+                 .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_integral {
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(../css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             
+            .icon_like {
+                width:1.2em;
+                height:1.2em;
+                background: url(../css/icons/ico_laud.png) no-repeat;
+                background-size:  100% 100%;
+            }
+             .icon_ping {
+                width:1.2em;
+                height:1.2em;
+                background: url(../css/icons/ico_comment.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_branch {
+                width:1.3em;
+                height:1.3em;
+                background: url(../css/image1/branch.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }
+            .icon_commentss {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/zhuanfa.png) no-repeat;
+                background-size:  100% 100%;
+            }         
+             video{
+                object-fit:fill;
+                width:100%;
+                height: auto;                
+            }
+            .uhide {
+            display: none !important;
+            } 
+        #mains{
+            width: 100%;           
+            max-width: 100%;
+            word-wrap:break-word;
+            word-break:break-all;                        
+            margin-bottom:0.2em;
+        }    
+        .main_content{
+            width: 96%;
+            padding-left:2%;
+            max-width: 100%;
+            word-wrap:break-word;
+            word-break:break-all; 
+            margin-bottom:0.2em;        
+        }  
+        table{
+            width: 99%;
+            max-width: 100%;
+            text-align:center;
+            word-wrap:break-word;
+            word-break:break-all; 
+            margin-bottom:0.2em;
+        }   
+        @-webkit-keyframes playing {
+        0%   { transform: rotate(0deg);}
+        100% { -webkit-transform: rotate(360deg);}
+}
+
+        @keyframes playing {
+            100% { transform: rotate(360deg);}
+        }
+         .playdisc {
+            animation-play-state: paused;       
+            -webkit-animation:playing 10s infinite linear; 
+            -webkit-animation-play-state: paused;
+        }  
+         ul{
+            width: 100%;
+        }        
+        li img{
+           display: inline-block;
+            width: 8em;
+            height: 10em;
+            margin-left:0.2em;
+            margin-bottom:0.2em;
+            float: left;
+        }  
+        .icon_dianzans{
+                width:1em;
+                height:1em;
+                background: url(../css/image1/dianzans.png) no-repeat;
+                background-size:  100% 100%;
+            } 
+        .myPromptList{
+             width:100%;
+             height:10em;
+             background: #EEEEEE;            
+        }  
+        
+        
+         .icon_wx{
+                width:3em;
+                height:3em;
+                background: url(../css/icons/icon_wx.png) no-repeat;
+                background-size: 100% 100%;
+            }
+         .icon_res{
+               width:3em;
+                height:3em;
+                background: url(../css/icons/icon_res.png) no-repeat;
+                background-size: 100% 100%;
+          }
+         .quxiao{
+               width:2.5em;
+                height:2.5em;
+                background: url(../css/image1/quxiao.png) no-repeat;
+                background-size: 100% 100%;
+           }  
+                        
+        </style>
+    </head>
+    <body class="um-vp bc-border" ontouchstart>
+               
+      <div class="bc-white" >
+          <div class="ub ub-fh bc-white"  id="main" > 
+                 <div class="ub ub-f1 uinn">
+                     <div class="ub ub-ac ub-pc uinn headImg umar-r" style="width:3em;height:3em;border-radius: 50%">
+                        <img src="../head.png" style="width:100%;height:100%;border-radius: 50%">
+                    </div>
+                    <div class="ub ub-ver ub-f1 ub-pc">
+                        <div class="ub ub-ac name text-blue"></div>
+                        <div class="ub ub-ac sc-text ulev-1 umar-t">
+                           
+                            <div class="ub data"></div>
+                             <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em;">
+                            <div class="ub ">浏览</div>
+                            <div class="ub sc-text hits"></div>                           
+                        </div>
+                        </div>
+                    </div>
+                 </div>
+             </div>     
+          
+       <div class="t-bg uinn names" style="font-weight: bold"></div>
+                 
+        <!-- 音频 -->
+        <div id="audio" style="background: url(../css/image1/yueya.jpg) no-repeat;background-size: 100% 100%;padding-top: 2px" class="uhide">
+             <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="height:9em;position: relative;  box-shadow: 3px;">
+                   <div class="ub ub-ac ub-pc playdisc">
+                       <div class="ub ub-ac ub-pc ub-f1 audios" style="width:9em;height:9em;background:url(../css/image1/LOGO.jpg) no-repeat; background-size: cover;border-radius: 50%;" >
+  
+                       </div>
+                   </div>             
+               </div>
+          <audio id="audio" class="audio"  controls="controls" preload="load" >
+            <source  class="audio" src="01.mp3">
+          </audio>  
+        </div>    
+           <!-- 视频  -->
+       <div id="willesPlay" class="uhide">
+                <div class="playContent">
+                    <video width="100%" height="100%" id="playVideo" class="video videos"poster="../css/image1/hudong.jpg" type="video/mp4">
+            
+                    </video>
+                    <div class="playTip glyphicon glyphicon-play"></div>
+                </div>
+                <div class="playControll">
+                    <div class="playPause playIcon"></div>
+                    <div class="timebar">
+                        <span class="currentTime" style="color: #FFFFFF">0:00:00</span>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                        </div>
+            
+                        <span class="duration" style="color: #FFFFFF">0:00:00</span>
+                    </div>
+                    <div class="otherControl">
+                        <span class="fullScreen glyphicon glyphicon-fullscreen"></span>
+                        <div class="volumeBar">
+                                <div class="volumewrap">
+                                    <div class="progress">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;"></div>
+                                </div>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- 文字内容 -->
+            <div  id="mains" class="ub ub-f1">
+           
+                <div class="main_content">
+                    
+                </div>  
+                            
+            </div>
+            <!-- 图片 -->
+            <ul id="btn2">
+                <li>                   
+                    <img  class="image01 uhide">
+                   <a class="image1 uhide"></a>
+                    <img  class="image02 uhide">
+                    <b class="image2 uhide"></b>
+                    <img  class="image03 uhide">
+                    <p class="image3 uhide"></p> 
+                    <img  class="image04 uhide">
+                    <h1 class="image4 uhide"></h1> 
+                    <img  class="image05 uhide">
+                    <h2 class="image5 uhide"></h2> 
+                     <img  class="image06 uhide">
+                    <h3 class="image6 uhide"></h3> 
+                     <img  class="image07 uhide">
+                    <h4 class="image7 uhide"></h4> 
+                     <img  class="image08 uhide">
+                    <h5 class="image8 uhide"></h5> 
+                    <img  class="image09 uhide">
+                    <h6 class="image9 uhide"></h6>                                      
+                </li>
+            </ul>   
+           <!-- 点赞人数  -->
+           <div class="ub ub-f1 ub-fh umar-t umar-b" > 
+               <div class="ub ub-f1 ub-fh umar-l umar-r prLista" style="width: 18em;">
+                    <div class="ub ub-ac ub-pc umar-r sc-text umar-t" >                           
+                        <div class="ub " style="border-radius: 0.2em">
+                            <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                <div class="ub umar-r icon_dianzans uhide"></div>
+                                <div class="ub sc-text likesName" style="color:#4dba72;"></div>                                
+                            </div>
+                        </div>
+                    </div>    
+                </div>                         
+           </div> 
+           
+           <div class="ub ub-fh uinn ub-ver bc-white umar-t tx-c" id="divHistoryBox">
+             <h1 class="ut ub-f1 ulev-3 ut-s tx-c  uinn umar-t" style="font-weight: bold;color: #707070">精彩评论</h1>
+           </div>
+                      
+        <div class="ub ub-fh ub-fv ub-ver umar-t">
+       
+           <div id="CommentsList" class="umar-b"></div>
+           
+           <div id="item" class="item ub ub-fh uhide bc-border umar-t umar-b">
+               <img class="user-Photo umar-l umar-r umar-t" src="../head.png" style="border-radius: 50%;width:2.5em;height:2.5em">
+               <div class="ub ub-ver ub-f1 bc-white">                    
+                     <div class="ub ub-f1 ub-fh umar-t">
+                         <!-- dates -->
+                  <div class="ub ub-ver ub-f1 ub-pc">
+                        <div class="ub ub-f1 ub-ac user-Name "></div>
+                        <div class="ub ub-ac sc-text ulev-1 umar-t">
+                           
+                             <div class="ub datas ulev-1"></div>
+                              
+                        </div>
+                    </div>
+                              
+                        <div class="ub ub-ac ub-pc umar-r sc-text">                          
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_dianzans"></div>
+                                    <div class="ub like"></div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="ub ub-f1 ub-fh contentMain">
+                       <div class="ub ub-f1 ub-ver uinn ub-fh">
+                           <div class="ub ub-fh ub-ver content  sc-text" ></div>
+                           <div class="ub ub-fh imgs umar-t"></div>
+                       </div>
+                   </div>                   
+                   <div class="ub ub-fh">
+                       <div class="ub ub-f1 umar-a sc-bg " style="height: 0.2em">&nbsp;</div>                      
+                   </div>
+               </div>
+           </div>
+           
+        </div>
+ 
+  </div>
+     
+    </body>
+    
+   <div id="divAddImg" class="ub ub-fh ub-fv ub-ver uhide" style="position: fixed;top:0;left:0;bottom:0;z-index: 101;background: rgba(0,0,0,0.5)">
+           <div class="ub ub-f1 btnCancel"></div>
+           <div class="ub ub-fh ub-ver bc-white bc-border bc-text-head">
+           <!-- <div id="btnPhoto" class="ub ub-ac ub-pc ub-f1 bc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-photoalbum fa-1x2"></div>&nbsp;本地相册</div> -->
+           <!-- <div id="btnCamera" class="ub ub-ac ub-pc ub-f1 sc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-camera fa-1x2"></div>&nbsp;相机拍照</div>   -->
+           <!-- <div  class="btnCancel ub ub-ac ub-pc ub-f1 sc-bg-btn-cancel umar-a" style="padding:0.8em 0;border-radius: 0.3em">取消</div>  -->
+          
+          <div class="ub ub-fh ub-ver bc-white umar-t bc-border" style="padding:0.5em 0">
+                 <div class="ub ub-f1 ub-fh ub-ac ub-pc">
+                      <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="wedpageUrl0">
+                        <div class="ub icon icon_wx"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="width:5em;color: #342864">微信</div>
+                    </div>                
+                    
+                    <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="wedpageUrl1">
+                        <div class="ub icon icon_res"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="width:5em;color: #342864">朋友圈</div>
+                    </div>
+                     
+                    <!-- <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="btnCamera">
+                        <div class="ub icon pai"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="width:5em;color: #8D8EBB">拍照</div>
+                    </div>                    
+                     -->
+                    
+                      <!-- 
+                    <div class="ub ub-f1 ub-ac ub-pc ub-ver">
+                        <div class="ub icon shi"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="width:5em;color: #8D8EBB">视频</div>
+                    </div> -->
+                    
+                    <div class="ub ub-f1 ub-ac ub-pc ub-ver btnCancel">
+                        <div class="ub icon quxiao umar-b"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="width:5em;color: #342864">取消</div>
+                    </div>                 
+                </div>
+            </div>           
+         </div>
+       </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/audioplayer.js"></script>
+    <script src="../js/willesPlay.js"></script> 
+    <script src="../js/tool.js"></script>
+    </body>
+
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/yueduquan/share_index_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

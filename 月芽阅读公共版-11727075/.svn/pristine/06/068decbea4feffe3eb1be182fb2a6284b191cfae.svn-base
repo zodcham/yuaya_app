@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="index/css/main.css">
+        <style type="text/css">
+            .bodybg{
+                background: url("images/index_bg.jpg") no-repeat;
+                background-attachment:scroll;
+            }
+            .img_index_btn{
+                width:3.5em;
+                box-shadow: 0.07em 0.15em 0.1em #aaa;
+                margin-left:0.1em;
+            }
+            .news_title{
+                font-size:20px;
+            }
+            .news_date{
+                font-size:16px;
+                color:#999;
+                margin-left:20px;
+            }
+            .news_author{
+                font-size:16px;
+                color:#23527c;
+            }
+            .main_btn{
+
+            }
+        </style>
+    </head>
+    <body class="um-vp  bodybg" ontouchstart>
+
+        <div class="ub ub-f1 ub-ver" style="height:216px;">
+
+            <div class="ub umar-l ulev-1 ub-ver" id="news_list" style="margin-top:55px;margin-left:434px;border-width: 0; width:478px;height:150px;">
+
+                <div class="ub ub-f1  uhide" id="item_news">
+                    <div class="ub-f1 ub-ver" >
+                        <div class="ub ub-f1" style="height:40px;line-height: 40px;"><span class="news_title"></span></div>
+                        <div class="ub ub-f1" style="height:30px;line-height: 30px;"><span class="news_author"></span><span class="news_date"></span></div>
+                    </div>
+                    <div class="" style="width:130px;height:72px; vertical-align: middle;">
+                        <img src="icon.png" class="news_pic" style="width:120px;height:65px;border-radius: 5px;margin-top:5px;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div  class="ub ub-f1 ub-ver tx-r" style="margin-top:135px;padding-right:220px;">
+            <img src="images/index/more.png" id="moreBook">
+        </div>
+        <div class="ub ub-f1 ub-ver" style="height:200px;margin-top:50px;" >
+            <div id="BookList" class="ub ub-f1" style="overflow-x:scroll;width:765px;height:200px;margin-left:135px; ">
+            </div>
+            <div class="ub ub-ver uhide " id="itemBook" style="height:190px;width:160px;">
+                <div class="videoTitle" class="ub ub-f1" style="text-align: center;font-size:16px;height: 35px;line-height: 17px; vertical-align: middle;"></div>
+                <div class="videoImage" class="ub ub-f1" style="height: 155px;background: url(images/index/video_book.png) no-repeat;"></div>
+            </div>
+        </div>
+
+
+
+        <div  class="ub ub-f1 ub-ver tx-r" style="margin-top:100px;padding-right:220px;">
+            <img src="images/index/more.png" id="morePPT">
+        </div>
+        <div class="ub ub-f1 ub-ver" style="height:290px;margin-top:40px; ">
+            <!-- 课程领读  -->
+            <div class="ub ub-fh ub-ver umar-t slides ">
+                <!--<div class="ub ub-f1 uinn ub-ac ub-pc ">-->
+                <!--<div class="ub ub-f1 umar-l" style="font-weight: bold">-->
+                <!--课程领读-->
+                <!--</div>-->
+                <!--<div class="ub ub-ac ub-pc ulev-1"  style="border-radius: 0.2em;padding:0.2em 0.3em;color: #868686" id="Readbut">-->
+                <!--更多>>-->
+                <!--<div class="ub fa fa-w "></div>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <div style="width:100%;overflow-x:scroll;" id="div_reads">
+                    <div class="ub ub-fh Reads umar-b"></div>
+                </div>
+
+                <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide "  id="ReadItems" style="width:520px;height:260px;">
+                    <img  id="but_teacher" class="ub ub-f1 ub-fh ReadImages  umar-l" style="width:520px;height:292px;border-radius: 0.3em;" />
+                    <div class="ub-fh ub-ac ub-pc ub  txt-e txt ulev-1" style="height: 0.3em"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="ub ub-f1 ub-ver" style="height:220px;margin-top:240px; ">
+            <div class="ub ub-f1" style="height:110px;">
+                <div id="bookshelf" style="width:340px;height: 110px;margin-left:155px;"></div>
+                <div id="mytasks" style="width:340px;height: 110px;margin-left:110px; "></div>
+            </div>
+            <div class="ub ub-f1" style="height:140px;">
+                <div id="review" style="width:340px;height: 140px;margin-left:155px;"></div>
+                <div id="report" style="width:340px;height: 140px;margin-left:110px; "></div>
+            </div>
+        </div>
+
+
+        <div  class="ub ub-f1 ub-ver tx-r" style="margin-top:125px;padding-right:220px;">
+            <img src="images/index/more2.png" id="moreVideo">
+        </div>
+        <div class="ub ub-f1 ub-ver" style="height:200px;margin-top:50px;" >
+            <div id="videoList" class="ub ub-f1" style="overflow-x:scroll;width:765px;height:190px;margin-left:150px; ">
+
+            </div>
+            <div class="ub ub-ver uhide " id="itemVideo" style="height:190px;width:160px;">
+                <div class="videoTitle" class="ub ub-f1" style="text-align: center;font-size:16px;height: 35px;line-height: 17px; vertical-align: middle;"></div>
+                <div class="videoImage" class="ub ub-f1" style="height: 155px;background: url(images/index/video_book.png) no-repeat;"></div>
+            </div>
+        </div>
+
+
+        <div  class="ub ub-f1 ub-ver tx-r" style="margin-top:105px;padding-right:220px;">
+            <img src="images/index/more2.png" id="moreAudio">
+        </div>
+        <div class="ub ub-f1 ub-ver" style="height:210px;margin-top:80px; ">
+            <div id="audioList" class="ub ub-f1" style="overflow-x:scroll;width:618px;height:210px;margin-left:220px; ">
+
+            </div>
+            <div class="ub ub-ver uhide " id="itemAudio" style="height:210px;width:203px;">
+                <div class="audioTitle" class="ub ub-f1" style="text-align: center;font-size:16px;height: 35px;line-height: 17px; vertical-align: middle;"></div>
+                <div class="audioImage" class="ub ub-f1" style="height: 175px;background: url(images/index/audio_book.png) no-repeat;"></div>
+            </div>
+        </div>
+
+        <div class="ub ub-f1 ub-ver" style="height:210px;">
+
+        </div>
+
+            <!--<div class="ub ub-f1 ub-pc">-->
+                <!--<div class="ub" id="div_search" style="background: url('images/index_search.png') no-repeat 100% 100%;width:15em;height:3em;background-size:cover;">-->
+                    <!--<div id="div_search_bar" style="width:10em;height:0.8em;margin-top:1.96em;margin-left:0.6em;padding:0;padding:0;">-->
+                        <!--<input type="text" style="width:100%;height:100%;border-width:0;vertical-align: top;BACKGROUND-COLOR: transparent;" id="btn_search">-->
+                    <!--</div>-->
+                    <!--<img src="images/index_btn_search.png"  id="btn_index_search" style="width:2.75em;margin-top:1.86em;margin-left:0.05em;">-->
+                <!--</div>-->
+                <!--<img src="images/index_btn_sign.png"  id="btn_index_sign" style="width:3.5em;margin-top:1.4em;margin-left:1em;">-->
+            <!--</div>-->
+
+
+            <!--<div class="ub ub-f1" style="background: url('images/index_news.png') no-repeat 100% 100%;height:8em;background-size:cover;"></div>-->
+            <!--<div id="div_ppt" class="ub ub-f1" style="height:6em;"></div>-->
+            <!--<div class="ub-f1 tx-c" style="height:4em;text-align: center;"><img src="images/index_title_review.png" style="width:11em;"> </div>-->
+            <!--<div class="ub ub-f1 ub-ver" style="height:9em;">-->
+                <!--<div class=" ub-pc" style="width:18em; height:2.5em;margin:0 auto;">-->
+                    <!--<img src="images/index_btn_bookshelf.png"  id="btn_index_bookshelf" style="width:8em;">-->
+                    <!--<img src="images/index_btn_task.png"  id="btn_index_task" style="width:8em;">-->
+                <!--</div>-->
+                <!--<div class=" ub-pc" style="width:18em; height:3em;margin:0 auto;">-->
+                    <!--<img src="images/index_btn_record.png"  id="btn_index_record" style="width:8em;">-->
+                    <!--<img src="images/index_btn_report.png"  id="btn_index_report" style="width:8em;">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ub ub-f1 ub-ver" style="height:30em;">-->
+                <!--<div class="ub ub-f1" style="background: url('images/index_bg_video.png') no-repeat 100% 100%;height:10em;background-size:cover;"></div>-->
+                <!--<div class="ub ub-f1" style="background: url('images/index_bg_audio.png') no-repeat 100% 100%;height:10em;background-size:cover;"></div>-->
+                <!--<div class="ub ub-f1" style="background: url('images/index_bg_mall.png') no-repeat 100% 100%;height:9em;background-size:cover;"></div>-->
+            <!--</div>-->
+            <!--<div class="ub ub-f1 ub-ver" style="">-->
+                <!--<img src="images/index_bg_foot.png" style="width:100%;">-->
+            <!--</div>-->
+
+        </div>
+
+        <script src="js/appcan.js"></script><script src="js/tools.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tool.js"></script>
+
+        <script>
+        if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/upload.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/default_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else{
+            document.write('<script src="js/upload.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="js_server/default_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+            /*
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/default_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+            var rem_size=$("html").css('font-size');
+            rem_size=rem_size.replace("px","");
+            rem_size=number(rem_size);
+            */
+
+
+           
+        </script>
+
+    </body>
+</html>

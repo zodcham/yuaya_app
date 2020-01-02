@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+             input[type='radio'] + .box{
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.3em 0em ;
+                color: #8C8C8C;
+                background: #FFFFFF; 
+                font-weight: bold               
+             }
+             input[type='radio']:checked + .box{
+                 color:#1296db;
+             }
+              
+            .bottom{
+                height:0.2em;
+                margin:0 auto;
+                margin-bottom:-0.2em;
+                width: 60%;
+            }
+            
+             input[type='radio']:checked + .box + .bottom{
+                border-bottom:0.2em solid #1296db;
+             }
+            .icon {
+                width: 2em;
+                height:3em;
+                margin-top: -1em;
+            }
+            .icon_rank_first {
+                background: url(../css/icons/rank_first.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_rank_second {
+                background: url(../css/icons/rank_second.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_rank_third {
+                background: url(../css/icons/rank_third.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_rank_none {
+                background: url(../css/icons/rank_none.png) no-repeat;
+                background-size: 100% 100%;
+            }
+             .icon_paixuss {
+                width:1em;
+                height:2em;
+                background: url(../css/image1/paixuss.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            #experience1{
+                 width:1.4em;
+                 height:1.4em;
+                 background: url(../css/image1/Descending.png) no-repeat 0 0;
+                 background-size: 100% 100%;
+            }
+            #experience2{
+                 width:1.4em;
+                 height:1.4em;
+                 background: url(../css/image1/Descending.png) no-repeat 0 0;
+                 background-size: 100% 100%;
+            }
+            #experience3{
+                 width:1.4em;
+                 height:1.4em;
+                 background: url(../css/image1/Descending.png) no-repeat 0 0;
+                 background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" style="padding-bottom: 0.1em" ontouchstart>
+          <div class="ub ub-fh ub-fv ub-ver">
+             <div class="ub ub-fh  bc-white" style="position: fixed; z-index: 101;border-bottom:0.2em solid #ccc;">
+            <div class="ub ub-f1">
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money"  class="uhide" checked="checked"/>
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="1">经验值<div id="experience1"></div></div>               
+                    <div class="ub bottom"></div>
+                </div> 
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money"  class="uhide"/>
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="2">财富值<div id="experience2"></div></div>
+                    <div class="ub bottom"></div>
+                </div>
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money"  class="uhide"/>
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="3">阅读本数<div id="experience3"></div></div>
+                    <div class="ub bottom"></div>
+                </div>                 
+            </div>
+        </div>
+                    
+            <div id="rankingList" class="ub ub-fh ub-fv ub-ver" style="top: 3em;"></div>
+        </div>
+   <div id="item" class="ub ub-fh bc-border ubb item uhide bc-white ub-ver">
+            <div class="ub ub-f1 uinn">
+                <div class="ub ub-ac ub-pc umar-r">
+                    <div class=" ub ub-ac ub-pc icon">
+                            <div class="ub bc-text-head ranking">1</div>
+                    </div>
+                </div>
+                <div class="ub ub-f1 ub-ver umar-l umar-b">
+                    <div class="ub ub-fh">
+                         <div class="ub ub-ac ub-pc name umar-r"></div>
+                         <div class="ub ub-ac ub-pc school sc-text ulev-1 umar-l umar-r"></div>
+                         <div class="ub ub-ac ub-pc class sc-text ulev-1"></div>
+                    </div>
+                    <div class="ub ub-fh ub-f1 umar-t">
+                        <div class="ub ub-ac ub-pc sc-bc-green umar-r ulev-1 bc-text-head" style="height:1.5em;border-radius: 1em;width: 7em">
+                            <div class="ub umar-r">经验值</div>
+                            <div class="ub integral"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc sc-bc-red umar-r umar-l ulev-1 bc-text-head" style="height:1.5em;border-radius: 1em;width: 7em">
+                            <div class="ub umar-r">财富</div>
+                            <div class="ub wealth"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc sc-bc-orange2 umar-l ulev-1 bc-text-head" style="height:1.5em;border-radius: 1em;width: 8em">
+                            <div class="ub umar-r">阅读本数</div>
+                            <div class="ub readNum"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ub ub-fh sc-bg" style="height:0.5em"></div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/ranking/ranking_details_content.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+        <link rel="stylesheet" href="book_review_content/css/main.css" />
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="swiper-parent swiper-container ub ub-fh ub-fv">
+            <div id="main" class="swiper-wrapper ub ub-fh ub-fv">
+                <div id='list_loading' class="swiper-slide" style="width:100%;height:100%">
+                    <div class="loading ub ub-ac ub-pc ub-fv">
+                        <i class="fa icon-loading fa-spin"></i> Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="item" class="scroll swiper-slide uhide bc-white" style="width:100%;height:100%" >
+            <div class="scroll-container swiper-container" style="width:100%;height:100%">
+                <div class="swiper-wrapper" style="width:100%;height:100%">
+                    <div class="swiper-slide bc-white" style="height: auto;-webkit-box-sizing: border-box; box-sizing: border-box">
+                        <div class="top-title ub ubb ubt bc-border bc-white" >
+                            <div class="ub umh4 ub-fh ub-ac uinn">
+                                <div class="ub titleName uhide"></div>
+                                <div class="ub" style="background:url(../css/image1/ico_woyaoceping@2x_r14_c3.png) no-repeat;background-size: 100% 100%;width:1em;height:1em"></div>
+                                <div class="umar-l ub sc-text time" style="min-width:4em">
+                                    00:00
+                                </div>
+                                <div class="b ub-f1" style="color:#ff8000">
+                                    <div class="typeNamess "></div>
+                                </div>
+                                <div class="ub sc-text pageNum umar-r"></div>
+                                <div class="ub sc-text">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ub ub-fh sc-bg" style="height:0.5em"></div>
+
+                        <div class="questionDiv content uinn bc-white umar-t umar-b" >
+                            <div class="titleDiv sc-text-active ulev1" style="display:table;width:100%"></div>
+
+                        </div>
+                        <ol start="1" class="answerView bc-white"></ol>
+                        <div class="analyzeDiv bc-white umar-l"></div>
+                    </div>
+                    <div class="swiper-slide bc-white" style="height: 2em"></div>
+                </div>
+
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+
+        <div id="submitItem" idx='submit' class="scroll swiper-slide scroll_submit uhide " style="width:100%;height:100%">
+            <div class="scroll-container swiper-container" style="width:100%;height:100%">
+                <div class="swiper-wrapper" style="width:100%;height:100%">
+                    <div class="swiper-slide" style="height: auto;-webkit-box-sizing: border-box; box-sizing: border-box;">
+                        <div class="answerInfo uhide">
+                            <div class="ub">
+                                <div class="tit-info acc-sta bc-text-head tx-l ub-f1 uhide">
+                                    正确率
+                                </div>
+                            </div>
+                            <div class="accuracy-box ub ub-pc ub-ac ub-ver bc-border ubb">
+                                <div class="ub ub-ac ub-pc umar-b" style="width:8em;height:8em;background: url(../css/image1/ico_datikajieguo@2x_r5_c6.png) no-repeat;background-size: 100% 100%">
+                                    <div class="ub ub-ac ub-pc uba sc-border " style="width:7em;height:7em;border-radius: 50%;border-width: 0.2em;border-color: #62ca6c">
+                                        <div class="ub score" style="font-size: 3em"></div>
+                                        <div class="ub ulev1 uhide">
+                                            分
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ub ub-ac ub-pc umar-t " style="color:#666666">
+                                    本次测评得分
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sheet ub ub-ver ub-ac ub-fh text-blue bc-border ubt umar-t">
+                            <div class="ub ub-fh umar-l umar-r umar-b ">
+                                <div class="ub-fh tx-l uinn2">
+                                    答题卡
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ub ub-fh ub-ac ub-pc sc-text sunmitTip uhide bc-border ubb umar-b" style="margin-top: 1em">
+                            点击题号，查看题目
+                        </div>
+                        <div class="submitDiv uinn">
+                            <div class="btn ub ub-ac bc-text-head ub-pc bc-head uc-a1 ub-f1" style="height: 2em;border-radius: 2em"  id="submitBtn">
+                                交卷并查看结果
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/book/book_review_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

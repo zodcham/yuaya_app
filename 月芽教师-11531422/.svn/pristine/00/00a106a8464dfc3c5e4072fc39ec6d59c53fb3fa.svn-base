@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>我的收藏</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style type="text/CSS">
+             input[type='radio'] + .box{
+                 padding: 0.3em;
+                 color:#999999;
+                 background: #eeeff3;
+             }
+             input[type='radio']:checked + .box{
+                 padding: 0.3em;
+                 background: #78c1ee;
+                 color:#FFFFFF;
+             }
+             .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+        </style>
+
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+     <div class="ub ub-ver ub-fh ub-fv  umar-t">
+        <div id="bookList" class="ub ub-ver ub-fh ub-f1" ></div>
+     </div>
+     
+        <div id="item" class="item ub-ver ub ub-fh uhide click bc-white umar-b bc-border ubb ubt ">
+            <div class="ub ub-fh ub-ac ub-pc ub-f1">
+                <div class="ub ub-ac ub-pc umar-l umar-t umar-r bc-border uba" style="width:5em;height:6em;border-radius: 0.2em" >
+                    <div class="ub ub-fh ub-f1" style="width:5em;height:6em">
+                        <img src="../css/icons/noImg.png" class="ub ub-fh ub-fv ub-f1 bookImage" />
+                        <div class="ub mark" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+                        <div class="bookBox uhide"></div>
+                    </div>
+                </div>
+                <div class="ub ub-ver ub-f1 umar-l">
+                    <div class="ub ub-fh ub-ae">
+                        <div class="ub bookName txt-ellipsis umar-t ulev0"></div>
+                        <div class="ub ulev-2 sc-text umar-l">-作者:</div>
+                        <div class="ub ub-f1 author txt-ellipsis sc-text ulev-2"></div>
+                    </div>
+                    <div class="ub ub-fh ub-f1 ulev-1 umar-t">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub ub-ac ub-pc sc-text">
+                                <div class="ub ub-ac ub-pc umar-r hits"></div>
+                                <div class="ub time">人读过</div>
+                            </div>
+                        </div>
+                        <div class="ub ub-ac ub-pc" style="margin:0 1em">
+                            <div class="ub ub-ac ub-pc">
+                                <div class="ub ub-ac ub-pc umar-r"><img src="../css/image1/ico_duhougan@2x_19.png" style="width:1.5em;height:1.5em" /></div>
+                                <div class="ub score sc-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh">
+                        <div class="ub ub-ac ub-pc bc-text-head ub-f1 btnRecommended click2" style="height:2em;border-radius: 0.2em;background: #2fd4e8">
+                            <div class="ub ub-ac ub-pc" style="width: 5em">推荐给学生</div>
+                        </div>
+                        <div class="ub ub-ac ub-pc bc-text-head ub-f1 btnRemove click2" style="margin:0em 0.2em;height:2em;border-radius: 0.2em;background: #3f84fe">
+                            <div class="ub ub-ac ub-pc" style="width: 5em">移除书架</div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh ub-f1">
+                        
+                    </div>
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <!-- <div class="ub ub-ac ub-pc ub-f1" style="border-radius: 50%;border:0.2em solid #4B4B4F;width:3em;height:3em;-webkit-transform: rotate(-20deg);">
+                        <div class="ub ub-ac ub-pc ulev-2 ub-f1" style="border-radius: 50%;border:0.1em solid #4B4B4F;width:2.9em;height:2.9em">通过</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="ub ub-fh">
+                <div class="umar-a sc-bg ub ub-f1" style="height:1px">&nbsp;</div>
+            </div>
+      </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/user/user_book_list_content.js"></script>
+    </body>
+    <script> 
+    
+    </script>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .div_block{
+                border:0.05em solid #ddd;
+                border-radius: 0.5em;
+                margin-top:1em;
+                line-height: 2em;
+                padding:1em;
+                background-color: #fff;
+            }
+            .btn1 {
+                padding: .2em 0.5em;
+                min-height: 1.5em;
+                font-size: 1em;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div class="ub ub-ver uinn" id="">
+            <div class="ub ub-ver ub-f1 div_block" id="vip_status">
+                <div class="ub-f1" id="vip_user_status">
+
+                </div>
+            </div>
+
+            <div class="ub ub-ver ub-f1 div_block" id="vip_buy">
+                <div class="ub-f1 uhide" style="font-weight:bold;">购买VIP会员</div>
+                <div class="ub-f1 ub" id="vip_user_buy0">
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1 ub-f4" id="buy01" style="background-color: #00a0e9;" productId="86f4317801324533a17de7f863dc119f">
+                        30元/月
+                    </div>
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1  ub-f4" id="buy02" style="background-color: #00a0e9;margin-left:0.5em;" productId="e0c1a542e24344a69948f91d27d708c8">
+                        80元/季
+                    </div>
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1  ub-f4" id="buy03" style="background-color: #00a0e9;margin-left:0.5em;" productId="10edbc01d02a4e419acccab16be5b4b2">
+                        150元/半年
+                    </div>
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1  ub-f4" id="buy04" style="background-color: #00a0e9;margin-left:0.5em;" productId="fcda2dfea79d4357828b46abe48cbe2b">
+                        299元/年
+                    </div>
+                </div>
+
+                <div class="ub-f1 " style="font-weight:bold;margin-top:1em;">微店购买VIP激活码</div>
+                <div class="ub-f1 ub" id="vip_user_buy">
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1 ub-f4 bc-btn" id="buy1" style="">
+                        30元/月
+                    </div>
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1  ub-f4 bc-btn" id="buy2" style="margin-left:0.5em;">
+                        80元/季
+                    </div>
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1  ub-f4 bc-btn" id="buy3" style="margin-left:0.5em;">
+                        150元/半年
+                    </div>
+                    <div class="btn1 ub ub-ac bc-text-head ub-pc uc-a1 ulev-1  ub-f4 bc-btn" id="buy4" style="margin-left:0.5em;">
+                        299元/年
+                    </div>
+                </div>
+            </div>
+
+            <div class="ub ub-ver ub-f1 div_block">
+                <div class="ub-f1" style="font-weight:bold;">输入激活密钥</div>
+                <div class="ub-f1" style="height:3em;">
+                    <input type="text" id="sn" style="width:100%;height:2em;font-size:1em;">
+                </div>
+                <div class="ub ub-f1 ub-pj">
+                    <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1 " id="upLevel" style="width:90%;">
+                        确定激活
+                    </div>
+                    <!--<div class="btn ub ub-ac bc-text-head ub-pc uc-a1 " id="buy" style="background-color: #00a0e9;width:30%;">-->
+                        <!--购买密钥-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="ub ub-ver ub-f1 div_block">
+                <div class="ub-f1" style="font-weight:bold;">如何成为月芽VIP会员</div>
+                <div class="ub-f1">
+                    1、在我们的微店购买激活密钥。<br>
+                    2、在本页输入激活密钥，成为月芽VIP。
+                </div>
+
+            </div>
+
+            <div class="ub ub-ver ub-f1 div_block">
+                <div class="ub-f1" style="font-weight:bold;">月芽VIP会员特权</div>
+                <div class="ub-f1">
+                    1、无限制观看所有导读视频。<br>
+                    2、无限制观看所有课程领读。<br>
+                    3、无限制观看所有精品资源。<br>
+                    4、无限制观看所有名师讲课视频。
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/vip/vip_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

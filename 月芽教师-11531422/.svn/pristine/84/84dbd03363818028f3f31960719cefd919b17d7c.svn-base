@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="jack"> -->
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,
+                user-scalable=no" />
+        <!-- 适应手机屏幕，防止屏幕缩放 -->
+        
+        <!--样式-->
+        <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../css/calender.css">
+        <link rel="stylesheet" href="css/ranking.css" />
+        <style type="text/css">
+            .school_title{
+                font-size: 1.2em;
+                line-height: 2em;
+                font-weight: bold;
+            }
+            .color_darkred{
+                color:#572E2F;
+            }
+            
+        </style>
+    </head>
+    <body class="um-vp bc-bg " ontouchstart>
+        <div class="ub ub-f1 ub-ver bc-bg">
+            <div class="ub ub-f1 ub-ver umar-a bc-white uinn">
+                <div class="ub-f1 school_title" id="completation_count_title">阅读任务开展概览</div>
+                <div class="ub-f1 school_intro" id="completation_count_intro">阅读任务发布情况由后台调取教师使用数据分析而来。主要参考指标，阅读任务发布量、阅读任务完成量。</div>
+                <div class="ub-f1" id="completation_count" style="margin-top:2em;"></div>
+                
+            </div>
+            
+        </div>
+    </body>
+   <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/js/echarts.common.min.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/js/yy_charts.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/ranking/class_charts_content.js"></script>
+ </body>
+    <script>
+        
+ </script>
+</html>

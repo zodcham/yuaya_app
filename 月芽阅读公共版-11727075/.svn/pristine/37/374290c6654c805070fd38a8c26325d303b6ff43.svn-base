@@ -1,0 +1,79 @@
+appcan.ready(function() {
+    if(CONNECTSTATUS_FLAG){
+        var cDeviceToken= uexDevice.getInfo(16); //wifi mac
+        var url = _SERVER_ADDRESS + "/phone/system/getDeviceInfo";
+        var par = {
+            "deviceId" : cDeviceToken
+        };
+		appcan.logs(cDeviceToken);
+
+        var fok = function(data) {
+
+            LoadData(JSON.parse(data).obj.student);
+        };
+        var ferr = function(err) {
+        };
+
+        common.ajaxPOST(url, par, fok, ferr);
+    }
+    else{
+        var data={"success":true,"msg":"操作成功","obj":{"id":"6aa51231c98d41ebaaddcfd70642376a","remarks":"","createBy":"","createDate":"2019-04-03 17:02:20","updateBy":"","updateDate":"2019-04-10 15:10:23","deviceId":"10:2A:B3:7F:37:D9","name":"月芽测试专用一体机","expireDate":"2029-04-03 00:00:00","studentId":"3da78495c720464a9548c92bb7fee84c","studentUsername":"18867003058","student":{"id":"3da78495c720464a9548c92bb7fee84c","remarks":"","createBy":"1","createDate":"2018-11-26 09:30:43","updateBy":"1","updateDate":"2019-01-28 10:37:38","name":"","schoolId":"a64f7281cebd49a9bd7293545af59160","loginName":"18867003058","password":"36fb69ed2901a179325f6ba90f5cf87cc83c771eb8439cba903b3071","loginIp":"127.0.0.1","loginDate":"2019-04-10 14:09:25","loginFlag":"1","photo":"/userfiles/3da78495c720464a9548c92bb7fee84c/67fb21dafa7945d5876875bdb42e3edb.jpg","scoreCount":38.5,"goldCount":61,"oldLoginIp":"","oldLoginDate":"","schoolName":"月芽阅读研修院","unreadMessageCount":0,"clazzId":"3490d4d1d7174ddf92e80f0bef87ae50","studentNo":"","nickName":"","readLevelId":"read_level_00002","readBookCount":6,"readWordCount":216.0,"sex":"1","qq":"555555555","email":"","phone":"","mobile":"","readLevelName":"秀才","clazzName":"广西基础班","grade":"5","rankCount":"","type":"2","changePwdFlag":"","reviewCount":"","clazzIds":"","expressConsignee":"","expressMobile":"","expressProvince":"","expressCity":"","expressArea":"","expressAddress":"","teacherId":"","beginDate":"","endDate":"","teacher":false,"reader":false,"student":true,"gradeName":"五年级"},"isExpire":true,"isEnable":true}};
+        LoadData(data.obj.student);
+    }
+
+
+
+    /*
+    var user = '17776322701';
+    var pwd = '123456';
+
+    config.currentPath = "";
+    var params = {
+        'username' : user,
+        'password' : pwd
+    };
+    common.ajax("/student/login", {
+        params : JSON.stringify(params)
+    }, function(data) {
+        userInfo = data.obj;
+        setUserInfo(true);
+        appcan.window.open("default", "default.html", 5, 4);
+    }, function(data) {
+        toast(getMsgByKey(data.msg), config.toastTimeShort);
+    }, {
+        type : 'POST'
+    });
+    */
+
+})
+
+
+
+function LoadData(data){
+    isStudentLogin=0;//一体机登录
+    userInfo = data;
+    setUserInfo(true);
+	
+	var width_screen =  uexWindow.getWidth();
+    var height_screen = uexWindow.getHeight();
+	if(width_screen>height_screen){
+		appcan.window.open("tv_index", "tv/tv_index.html", 5, 4);
+		/*
+		appcan.window.evaluateScript({
+			name : "default", //窗口名称
+			scriptContent : 'appcan.window.close();'
+		});
+		*/
+	}
+	else{
+		appcan.window.open("default", "default.html", 5, 4);
+		/*
+		appcan.window.evaluateScript({
+			name : "tv_index", //窗口名称
+			scriptContent : 'appcan.window.close();'
+		});
+		*/
+	}
+	
+
+}

@@ -1,0 +1,178 @@
+
+
+appcan.ready(function() {
+    setLocVal("orderStatus","");
+
+    loadOrderInfo();
+
+    loadUserInfo();
+});
+
+var goodsName="";
+var goodsMoney=0;
+var bookId=0;
+function loadOrderInfo() {
+    var orderObj= JSON.parse(getLocVal("orderObj"));
+    var butType="";
+    switch (orderObj.butType) {
+        case "Video":
+            butType="导读视频";
+            break;
+        case "PPT":
+            butType="课程领读";
+            break;
+        case "audio":
+            butType="精品资源";
+            break;
+        case "vip":
+            butType="VIP会员";
+            break;
+    }
+    bookId=orderObj.goodsID;
+    goodsName=orderObj.goodsName+" "+butType;
+    goodsMoney=orderObj.money;
+    $("#itemName").html(goodsName);
+    $("#orderNo").html("85165651");
+    $("#addTime").html("2019-05-14 15:58:01");
+    $("#money").html("￥"+goodsMoney);
+    $("#orderStatus").html("待支付");
+    $("#orderInfo").removeClass("uhide");
+}
+
+function loadUserInfo(){
+    getUserInfo();
+    if(userInfo.isActiveValidity==0 && userInfo.type!=2){
+        $("#vip_user_status").html("您是月芽普通会员，欢迎使用月芽平台。");
+    }
+    else{
+        if(userInfo.type!=2) {
+            $("#vip_user_status").html("您已是月芽收费会员，账户将于 " + userInfo.activeValidityDate + " 到期。");
+        }
+        else{
+            $("#vip_user_status").html("您月芽学生用户，欢迎使用月芽家庭版。");
+        }
+    }
+}
+
+appcan.button("#buy", "btn-act", function() {
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy1", "btn-act", function() {
+    sysInfo.keytype = 30;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy2", "btn-act", function() {
+    sysInfo.keytype = 90;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy3", "btn-act", function() {
+    sysInfo.keytype = 180;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#payConfirm", "btn-act", function() {
+    pay();
+});
+
+
+
+appcan.button("#upLevel", "btn-act", function() {
+    var sn=$("#sn").val();
+    if(!sn.length) {
+        toast("请输入密钥！",1000);
+        return;
+    }
+
+    var url=_SERVER_ADDRESS+"/phone/register/activateAccount";
+    var par={'code' : sn, 'studentId': userInfo.id};
+    var ferr=function(err){};
+    var fok=function(data){
+        var obj=JSON.parse(data);
+        //userInfo.isActiveValidity=1;
+        //userInfo.activeValidityDate="2020-4-30";
+        userInfo = obj.obj
+        appcan.alert({"title":"提示","content":"您的账户已成功激活，会员到期日为："+userInfo.activeValidityDate});
+        setUserInfo(false);
+        appcan.window.publish(UPDATE_INFO, "0");
+        appcan.window.publish(UPDATE_INDEX, "0");
+        loadUserInfo();
+    };
+    common.ajaxPOST(url, par, fok, ferr);
+});
+
+function setChecked(id) {
+    $("radio").prop("checked",false);
+    $("#"+id).prop("checked",true);
+}
+
+
+function setInfo(){
+    var partner = "2088002170061076";
+    var seller = "454177123@qq.com";
+    var rsaPrivate = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCfxB74SchVPbmHhYFg6CQlmdQ80BwKC5dDgGQ3Elb4qCZY3IG5+o8iOXvUp+GwhJc2PgtV2PnVGntp2M0WIQZb1aG7B85RVDSiueoAU9+9wMkB97cdMO+csE+KCOq+BHpf1D/pTD2/QnR8PfvW0hh8GK/KvBXHN8OnjQLh9eGLo+qRzArsL/YsLgRGKGPvWkehcZWb5dnD9FaJ3HUGAszfFZaKG/R99MNi4JgFkxeT90ZbTivEA4+QDYpjZUUpGjOD7iOJDqt8k7iDh50+EHOUO3x5zsGZo3vxg98ntTDu6ptmyLEdZzvoxzfGdwFfLV3c1OZnkJwcHwHxc2lkGRMZAgMBAAECggEAIzqIpbEHRpyEs3hhze+CQPRJk1tEQ4bIxO6jqm0V1mCljASbalnwg9hvELYwEs851JEbyMM+W5oqSm2u00lW8JsLvYT8HnzV2mfqTEYyWNIQwKlRrFMlEsTh1QsgT+QG4+iWaygPmYPa0aaNSJItKff7k1Wj67jFIMX8M70XDcYtMqXeZOz1LgrBl7UDWFDe60sbOEMPY7wRaVqnqo7MziaSxfGlOFFvXcOiuMhkdLjGqzyWbNqqr7KpoyZUNaV3WUHxsgXGDZqA05AUfKaEgOvrLkCnYUmZuFIG8kSg2pH6gKyPnb1k+M0G0UnHvt55vqRAYWQur/PXJVYz4QGHcQKBgQD29PTyKGVr8Aik4H0VGx+cyP4KNlMJc5OGhbJXkchQg5yGJ9vvI4ZWLX0ziOUZQU1tU3lGRGdIOpda7xCOqgnYLt5jTfe51QdW2TUX7joMjiWCB2PwVHGUTm2JSOzw/G2svJlxzdDS7H2dfxXXi10ADSKQbjbJhlPuDgoND7oL/QKBgQClndA4+XGbzuqMJ6NaWw3zUJgie1cexwsIpM2kZ0VABVFmwM43c7eBuBJxpFLqjQfIoFFwbgAFvw4IYNzYuOQ6i/ABoqS3T+uA7mKa6Uj7Bm7DpruRsSserdhB2NZm5ilMXaMCiwDrAqo6K07vG7chHhXydRAOSExgxLkTEv7YTQKBgQCxaDeu3qY9bCpJh5tT1jBXiWw2GeB9IbIRKWp8zhWBAYsoNOoiWPrgXb1bkDREeE0PBLBSckFf+fdRM/xJAI4h50mLPS+BKDAli9RAZLr+2f7H8lcxBviw+cZmoSTV2gFP3gy9XIVvgMScp/cg6NTefJEgAI0LKJySnzNJPssAYQKBgHpJj8Ex9oAshaVdc1G5YBCkFuGHHyn7oJsOTUWyd0CxbIypmtr5F6uxxfSheBP2dKPgNKIGpv+XNf5bv1ZLF0Jfp6UdefBdE7CM1MQ7swafllPjHiaSohsyFDdyq8Uo95+KmF29U70zp4vyBIOrfEn41A3GAEf7fGILf/ikkwYVAoGAXxtH6lKNKE9c5r7668KLWN1wMt82oA7pF59lZEAIh4GQJqAS44/MfD4v6xWvZNno8Zeje1NtIm6niONMXzPO5K51IJ6VmJiWfD7XTSs8COyWBo9ym+4Zlmxo35DF2og7+uE2wi0/9nftLYsBtDzr1eRI9cVZkbsnqnZYG3+xfUQ=";
+    var rsaPublic = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn8Qe+EnIVT25h4WBYOgkJZnUPNAcCguXQ4BkNxJW+KgmWNyBufqPIjl71KfhsISXNj4LVdj51Rp7adjNFiEGW9WhuwfOUVQ0ornqAFPfvcDJAfe3HTDvnLBPigjqvgR6X9Q/6Uw9v0J0fD371tIYfBivyrwVxzfDp40C4fXhi6PqkcwK7C/2LC4ERihj71pHoXGVm+XZw/RWidx1BgLM3xWWihv0ffTDYuCYBZMXk/dGW04rxAOPkA2KY2VFKRozg+4jiQ6rfJO4g4edPhBzlDt8ec7BmaN78YPfJ7Uw7uqbZsixHWc76Mc3xncBXy1d3NTmZ5CcHB8B8XNpZBkTGQIDAQAB";
+    var notifyUrl = "http://app.yueyabook.com";
+    uexAliPay.setPayInfo(partner, seller, rsaPrivate, rsaPublic, notifyUrl);
+}
+
+function pay(){
+    /*
+    setInfo();
+    var subject = "导读视频单集1";
+    var body = "假如给我三天光明 导读视频1";
+    var fee = "0.02";
+    var num = "20190516001015"; //测试需修改单号,避免已经支付的问题
+
+    uexAliPay.pay(num, subject, body, fee, function(error,data){
+        if(!error){
+            alert("支付成功");
+
+        }else{
+            alert(data);
+        }
+
+    });
+    */
+
+    /*
+    var ordera = uexAliPay.generatePayOrder({//generate供测试使用，正式请把订单处理放在后台
+          private_key: "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCt4+OT9mf+N2iJaU3OdIHbZp6ykMpzLK3s4MjnK7OLhXBdi/Eu7P/K2A9WSBupB3PSGJUIjMYCM0VjtPn7BsKM2CaKe3YvkF/FQS5kM9xMlcXrkuzZFlHJyUfVAJIYhFkcpW312LZOAmobRPZ1MiFgvIVJh1bi9ORqqMLE48lIm4Zqar5e1kMyfTYWSfJaBburC7shKMJ7X7F/rIjD3lboHC+Dq9VvsSizoCN7jxhctpPLuCWaTVdMWaXP+JV7uR5h8zbJYAMJwtKBzpN3HeojpwP7Bz4hWrOE7DoLj9Vwm6XDYySvIt2ppJhrRxei+uff2Ubz7TAoxoY8cKKt3Z0LAgMBAAECggEAQkZC7JfTVs6jZwvdfbxl6csY3RHWN0NmHowlxgWf7qMzClRV3f6yFwt1/PqKoEeY2xBHbPTKWvhTkAbf587Rw4B2X/1iNAqglbucBNDHO+Exh/F9l9er4G54lDQden6mwAZE/JhWEzFUY4RLMquikQ4I9tdAREv16rjbUtNGWgdbxQQPF1tNbY+Q41uAPTkzjnjctz1vwn2lFJD97BvjzaLjyMRgtol3PhG5iMmpORzgA6M03sPKRX3ZyNtWJsgIUhoHde5VFgltRf6+IvU1+iLWtzIPRcsGGMcxexXKtFEMOOQdYFvDiCROj0QQd0rZe5bBb6+d1ofk5/haDZ464QKBgQDTyuWHe74yo9q2nWmCRCWRXT2hUj2PXcdWXZfXOrcreDxII4xJT1VY6FGT1E295k/T8xxxeNLahsZKmo4OYpD62qJWSPMHtrSU8tDfajHMjb5JNDy4nnQvAdsBMYVYRQ/4aJtFOL0EFEtgDdX9r2OPozBgx/0vfGPQgaAh7+iTeQKBgQDSL69Q93HMCztt4BnQ4+g7xYejCqYCMAIr14yaHZ9KASMaMZIOA1oiE/umkJz6v83ID4KMHnAgEQcTO5hUnEKm5i1g+9i1gRwFr9QnBuxPm4RnSaSDbArHn+URD+rSVp1SCVauE+8gXTS/OdnO37HR+GYbIlAp7zZBYl9/ObivowKBgDmF+iF6MoZ+ioDe8DE5YRrCQGL4e0/dIK8MbJlAkU91MKpHPWsL6RpkvwNvvk29qCDg/vCy6FICGQlaQQsXKll32G+nEJsfvJxX9vM3XJ86QFyRm4xpPRUnY9xHHviCiXvmrYV3i574BCDqoRxt7pSstg8TQmkLV/DhxCRzjK/BAoGASSK2iiHPwwQVhcH4uarT4Bh3fc/yu8gguUijb+zmxEVpBXBCNgYMktcJNYgUV1vuKrLa5g6hTUcfgx21f5tvxctJ9vkrCt0F9ySbWYkbKQggJiCF0gUCKzwD5M/5EX959lWxh5kAF+7Wr8NdepJzuXAJd1+VLUJDSrUELazUCqkCgYAWPKax7VC2Hfwoen6aeslnvHaqlRjdFazm5TTDtdrZ3bp8v3Wrz7gONFR2Ug8Ef9g8H3GbQzmkU0YzucyWfo0/NyoggaywtRRszN8OiKyPU5Nmdp5La/a1Bo97X6mxDTXSgFMwcGn8OpoVYBMOLFr4n0paFrvB6lTEBzYcnK7+YQ==",//第三步保存的私钥
+          app_id: "2019051564591594",//分配给签约应用的ID
+          notify_url: "http://app.yueyabook.com/index/",//异步回调地址，处理支付信息的地址，通常是配置成自己服务器处理订单完成情况的url
+          biz_content:{
+            subject:"导读视频单集1",
+            body: "假如给我三天光明 导读视频1",
+            out_trade_no: "0021",//唯一订单号，可随机数加上时间戳生成，同一个订单号只能支付一次
+            total_amount: 1,
+            seller_id: ""//支付宝的PID
+          }
+    });
+    */
+    //alert(ordera);
+    var orderObj= JSON.parse(getLocVal("orderObj"));
+    var orderStatus={"status":1, "message":"支付成功","goodsName":goodsName, "goodsMoney":goodsMoney};
+    setLocVal("orderStatus",JSON.stringify(orderStatus));
+    appcan.window.open("pay_result", "pay_result.html", 5);
+    return;
+
+    var ordera="alipay_sdk=alipay-sdk-java-3.7.26.ALL&app_id=2019051564591594&biz_content=%7B%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22out_trade_no%22%3A%22test002%22%2C%22subject%22%3A%22App%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95Java%22%2C%22timeout_express%22%3A%2230m%22%2C%22total_amount%22%3A%220.01%22%7D&charset=UTF-8&format=json&method=alipay.trade.app.pay&sign=Az4x022FM2XnMjOsoenhGqAs6K2HYiZhEXhUEpkwK8PsEcNgY8Kfx2ZNzNvC7bpQcgiwyJoy1yb49MrDf97IIfs3oPKWIipj4NVXfKvHcMc6iJurWkesXAEcahBRLGeZFG6qnhivgZT2q%2FRpMcnof90Q7ybWI5r9Cnecj8iI1tglZ5Gt%2FHVgLy2rIy1D3gCIbg%2F2nune4I2VJTY9vkx5G2UH6kBFPxfkOAkgDFo08I0axYvUfBw2n%2FJkEiFuDE4cnKy0mzMzco7bsygYNtiycRRfYj%2F6%2BEp5fmKDN5%2FOrtFW6PuJTAVF%2FjjqQIU5kTVvEDOEkFJj7oP2yrO7HKdTog%3D%3D&sign_type=RSA2&timestamp=2019-05-18+09%3A51%3A32&version=1.0";
+    uexAliPay.payWithOrder(ordera,function(error,message){
+        if(error){
+            var orderStatus={"status":0, "message":"支付失败"};
+            setLocVal("orderStatus",JSON.stringify(orderStatus));
+            appcan.window.open("pay_result", "pay_result.html", 5);
+        }else{
+            var orderStatus={"status":1, "message":"支付成功"};
+            setLocVal("orderStatus",JSON.stringify(orderStatus));
+            appcan.window.open("pay_result", "pay_result.html", 5);
+        }
+    })
+
+
+
+
+
+
+}

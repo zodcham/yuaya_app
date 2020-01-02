@@ -1,0 +1,61 @@
+appcan.ready(function() {
+    getUserInfo();
+    getCommInfo();
+    loadData();
+});
+function loadData() {
+    var params = {
+        'userId' : userInfo.id,
+        'friendId' : commInfo.studentId
+    };
+    common.ajax("/userFriend/isRequestFriend", {
+        params : JSON.stringify(params)
+    }, function(data) {
+
+        AddLogContent(userInfo.id, logKeys.PersonMyFriendsInfo, {"friendId":commInfo.studentId});
+
+        var obj = data.obj;
+
+        $("#headImg").attr("src", getHeadImageUrl(obj.userInfo.photo));
+        $(".name").html(obj.userInfo.name);
+        $(".nickName").html(obj.userInfo.nickName);
+        $(".school").html(obj.userInfo.schoolName);
+        $(".class").html(obj.userInfo.clazzName);
+        if (obj.isFriend == "1") {
+            $("#btnAdd").addClass("uhide");
+        } else {
+            if (obj.isSendRequest == "1") {
+                $("#btnAdd").addClass("disable");
+                $("#btnAdd").html("好友请求已发送");
+                if (obj.status == "3") {
+                    $("#btnAdd").addClass("disable");
+                    $("#btnAdd").html("已经是好友");
+                    // $("#btnAdd").removeClass("disable");
+                }
+            }
+        }
+
+    }, function(data) {
+        toast(getMsgByKey(data.msg), config.toastTimeShort);
+    });
+}
+
+appcan.button("#btnAdd", "btn-act", function() {
+    if (!$("#btnAdd").hasClass("disable")) {
+        var params = {
+            'userId' : userInfo.id,
+            'friendId' : commInfo.studentId,
+            'message' : ''
+        };
+        common.ajax("/userFriend/applyAddFriend", {
+            params : JSON.stringify(params)
+        }, function(data) {
+            $("#btnAdd").addClass("disable");
+            $("#btnAdd").html("好友请求已发送");
+        }, function(data) {
+            toast(getMsgByKey(data.msg), config.toastTimeShort);
+        }, {
+            type : 'POST'
+        });
+    }
+})

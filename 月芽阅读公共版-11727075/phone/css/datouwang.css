@@ -1,0 +1,516 @@
+ 
+
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+font-family: 'Viga', sans-serif;	
+}	
+p{
+	margin:0;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+label{
+	margin:0;
+}
+.main {
+    padding: 10px 0;
+}
+
+.main h1 {
+    font-size: 40px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #fff;
+    margin-bottom: 36px;
+}
+p.footer {
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+p.footer a {
+    color: #fff;
+	text-decoration:none;
+}
+p.footer a:hover {
+    color: #000;
+	text-decoration:none;
+}
+.content {    
+    width: 90%;
+}
+.player {
+    background: #FFFFFF;
+    height: 255px;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0px 0px 16px 0px #134861;
+    border-radius: 4px;
+}
+.title, .artist {
+    font-family: verdana;
+    left: 306px;
+    position: absolute;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.title {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    top: 23px;
+}
+.artist {
+    color: #EEEEEE;
+    font-size: 12px;
+    top: 40px;
+}
+.pl {
+    background: transparent url("../images/music.png") no-repeat scroll 0px 0px;
+    cursor: pointer;
+    height: 34px;
+    right: 33px;
+    position: absolute;
+    top: 20px;
+    width: 32px;
+}
+ 
+.controls {
+    cursor: pointer;
+    height: 41px;
+    right: 39px;
+    position: absolute;
+ 
+    width: 158px;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    margin: 0 6px;
+    float: left;
+    height: 100%;
+    width: 25.2%;
+}
+ 
+ 
+.controls .play:hover {
+
+}
+.controls .pause:hover {
+
+}
+.controls .rew:hover {
+
+}
+.controls .fwd:hover {
+
+}
+.hidden {
+    display: none;
+}
+.controls .visible {
+    display: block;
+}
+.player img{
+    position: absolute;
+    left: 261px;
+   
+}
+.volume {
+    height: 11px;
+    left: 296px;
+    position: absolute;
+    top: 155px;
+    width: 178px;
+    background: #3E3E3E;
+    padding: 3px 0;
+    border-radius: 9px;
+}
+.tracker {
+    height: 15px;
+    left: 36px;
+    position: absolute;
+    top: 102px;
+    width: 439px;
+    
+    padding: 3px 0;
+    border-radius: 13px;
+}
+.ui-slider-range {
+    background: #1CA0DE;
+    height: 55%;
+    position: absolute;
+    top: 4px;
+    border-radius: 5px;
+    left: 5px;
+}
+.ui-slider-handle {
+    cursor: pointer;
+    height: 10px;
+    margin-left: -5px;
+    position: absolute;
+    top: 2px;
+    width: 10px;
+    z-index: 2;
+    display: none;
+}
+.volume .ui-slider-handle {
+    background: url("../images/spr.png") no-repeat scroll -201px -188px rgba(0, 0, 0, 0);
+    height: 13px;
+    width: 13px;
+    display: none;
+}
+.playlist {
+    background-color: #6b6b6b;
+    border-radius: 0;
+    list-style-type: none;
+    margin: 4px 0 0 0px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0px 0px 16px 0px #134861;
+    border-radius: 5px;
+}
+.playlist li {
+    color: #EEEEEE;
+    cursor: pointer;
+    margin:0 0 8px 15px;
+}
+.playlist li.active {
+    font-weight: bold;
+	color:#000;
+}
+/*-- responsive media queries --*/
+@media (max-width: 1440px){
+	.content {
+		width: 90%;
+	}	
+}
+@media (max-width: 1366px){
+	.content {
+        width: 90%;
+	}	
+}
+@media (max-width: 1280px){
+	.tracker {
+        width: 90%;
+	}
+	.volume {
+		left: 260px;
+		width: 171px;
+	}
+	.player img {
+		left: 223px;
+	}
+	.controls {
+		right: 20px;
+		width: 156px;
+	}
+	.pl {
+		top: 30px;
+	}
+	.title, .artist {
+		left: 260px;
+	}
+	.title {
+		top: 32px;
+	}
+	.artist {
+		top: 55px;
+	}
+
+}
+@media (max-width: 1080px){
+	.content {
+        width: 90%;
+	}
+	.tracker {
+		width: 84%;
+	}	
+	.pl {
+		right: 37px;
+	}
+}
+@media (max-width: 1024px){
+	.content {
+		margin: 0 auto;
+	}
+	.volume {
+		width: 161px;
+	}
+	.tracker {
+			width: 85%;
+	}	
+}
+@media (max-width: 991px){
+	.content {
+        width: 90%;
+	}
+	.tracker {
+		width: 84%;
+	}	
+}
+@media (max-width: 800px){
+	p.footer {
+		font-size: 14px;
+	}
+	.content {
+        width: 90%;
+	}
+	.volume {
+		width: 161px;
+	}	
+}
+@media (max-width: 768px){
+
+.volume {
+    width: 152px;
+}	
+}
+@media (max-width: 736px){
+
+.main h1 {
+    font-size: 34px;
+    margin-bottom: 0px;
+}
+.content {
+    margin: 0 auto;
+}
+.volume {
+    width: 125px;
+}
+.tracker {
+    width: 83%;
+}
+.title, .artist {
+    left: 218px;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    width: 25.4%;
+}
+.controls {
+    right: 23px;
+}	
+}
+@media (max-width: 667px){
+.content {
+    width: 90%;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    width: 25.6%;
+    margin: 0 4px;
+}	
+}
+@media (max-width: 640px){
+.content {
+    width: 90%;
+}	
+}
+@media (max-width: 600px){
+.content {
+    width: 73%;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    width: 25.4%;
+}	
+}
+@media (max-width: 568px){
+.content {
+    width: 90%;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    width: 25.5%;
+}	
+}
+@media (max-width: 480px){
+.content {
+    width: 90%;
+}
+.main h1 {
+    font-size: 30px;
+}
+	
+}
+@media (max-width: 414px){
+.cover {
+    height: 114px;
+    left: 23px;
+    top: 27px;
+    width: 114px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+}	
+.title, .artist {
+    left: 169px;
+}
+.player img {
+    left: 176px;
+}
+.volume {
+    left: 212px;
+}
+.controls {
+    right: 10px;
+    width: 154px;
+}
+.pl {
+    right: 23px;
+}
+.controls {
+    top: 87px;
+}
+.volume {
+    top: 144px;
+}
+.player img {
+    left: 176px;
+    top: 139px;
+}
+.tracker {
+    left: 20px;
+    top: 182px;
+}
+.tracker {
+    width: 87%;
+}
+.player {
+    height: 229px;
+}
+p.footer {
+    line-height: 1.8em;
+	padding:0 0.5em;
+}
+
+.content {
+    margin: 0 auto;
+}
+}
+@media (max-width: 384px){
+.cover {
+    height: 130px;
+}
+.volume {
+    width: 84px;
+}
+.tracker {
+    width: 85%;
+}
+ 
+.content {
+    margin: 0 auto;
+}	
+}
+@media (max-width: 375px){
+.tracker {
+    width: 88%;
+}
+.volume {
+    width: 97px;
+}
+.controls {
+    right: 12px;
+}
+.title {
+    top: 23px;
+}
+.artist {
+    top: 44px;
+}
+.pl {
+    top: 23px;
+}
+.content {
+    margin: 0 auto;
+}
+.player img {
+    left: 165px;
+}
+.volume {
+    left: 198px;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    width: 25.7%;
+}
+.controls {
+    right: 0px;
+}	
+}
+@media (max-width: 320px){
+	.cover {
+		left: 19px;
+		top: 25px;
+		width: 102px;
+		height: 114px;
+	}
+	.pl {
+		right: 18px;
+	}
+	.controls .play,.controls .pause,.controls .rew,.controls .fwd {
+		background-size: 100% !important;
+	}
+	.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+		margin: 0 3px;
+	width: 26%;
+	}
+	.title, .artist {
+		left: 138px;
+	}
+	.controls {
+		width: 113px;
+	}
+	.player img {
+		left: 132px;
+		top: 118px;
+	}
+	.controls {
+		top: 74px;
+	}	
+	.volume {
+		top: 125px;
+	}
+	.ui-slider-range {
+		height: 28%;
+	}
+	.volume {
+		top: 125px;
+		height: 5px;
+		left: 157px;
+		width: 91px;
+	}
+	.tracker {
+		width: 86%;
+	}
+	.tracker {
+		height: 5px;
+	}
+	.tracker {
+		top: 161px;
+	}
+	.player {
+		height: 195px;
+	}
+ 
+	.main h1 {
+		font-size: 27px;
+	}
+	.controls .rew {
+		background-position: 0px 4px;
+	}
+	.controls .fwd {
+		background-position: 0px 4px;
+	}
+	.controls .play,.controls .pause {
+		background-position: 0px 3px;
+	}
+	.controls {
+		right: 9px;
+	}
+}

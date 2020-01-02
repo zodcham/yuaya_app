@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        
+        <link rel="stylesheet" href="../css/datouwang.css">
+        <link rel="stylesheet" href="../css/audioplayer.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/willesPlay.css" />
+        <style>
+            .nav {
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.5em 0em 0.5em 0;
+                color: #555555;
+                background: #FFFFFF;
+                font-weight: bold;
+            }
+            .txt-ellipsis{ 
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .tabcurrent {
+                color: #4dba72;
+            }
+            .bottom{
+                height:0.3em;
+            }
+            .tabcurrent .bottom{              
+                background:url(../css/image1/ico_shuchengxiangqing@2x_r13_c3.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_into {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/btn_into.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_remove {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/btn_remove.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                background-size: 100% 100%;*/
+                background: #FE8100;
+            }
+                 .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_integral {
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(../css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             
+             .icon_like {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }
+            .icon_commentss {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/zhuanfa.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            @-webkit-keyframes playing {
+                0%   { transform: rotate(0deg);}
+                100% { -webkit-transform: rotate(360deg);}
+            }
+
+        @keyframes playing {
+            100% { transform: rotate(360deg);}
+        }
+         .playdisc {
+            animation-play-state: paused;       
+            -webkit-animation:playing 10s infinite linear; 
+            -webkit-animation-play-state: paused;
+        } 
+        video{
+                object-fit:fill;
+                width:100%;                
+            } 
+        .header{
+             background:url(../css/image1/ico_shuchengxiangqing@2x_r25_c1.png) no-repeat; 
+             background-size: auto auto;  
+             height:auto !important;      
+        } 
+        .cont{
+           top: 0em !important;
+        } 
+        
+        
+             .progress{
+                height: 1.5em;
+            }
+            .progress_text{
+                text-align:center;
+            }
+            
+            .progress_bar {
+              height: 100%;
+              opacity: 0.5;
+              background-color: rgba(18, 135, 204, 0.95);
+              background-image: -webkit-linear-gradient(0deg, rgba(20, 151, 227, 0) 10%, rgba(37, 162, 236, 0.8) 30%, #3dacee 70%, rgba(37, 162, 236, 0.8) 80%, rgba(20, 151, 227, 0) 90%), -webkit-linear-gradient(left, rgba(61, 172, 238, 0) 0%, #3dacee 100%), -webkit-linear-gradient(right, rgba(61, 172, 238, 0) 0%, #3dacee 100%);
+              background-image: linear-gradient(90deg, rgba(20, 151, 227, 0) 10%, rgba(37, 162, 236, 0.8) 30%, #3dacee 70%, rgba(37, 162, 236, 0.8) 80%, rgba(20, 151, 227, 0) 90%), linear-gradient(to right, rgba(61, 172, 238, 0) 0%, #3dacee 100%), linear-gradient(to left, rgba(61, 172, 238, 0) 0%, #3dacee 100%);
+            }
+            .progress_block{
+               position:relative;
+               height:100%;
+               width:100%;
+               top: 0; left: 0; bottom: 0; right: 0;  
+               background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent), to(transparent));   
+               -webkit-background-size: 40px;  
+               -webkit-animation: blockMove 2s linear infinite;  
+               -webkit-border-top-right-radius: 8px;  
+               -webkit-border-bottom-right-radius: 8px;  
+               -webkit-border-top-left-radius: 20px;  
+               -webkit-border-bottom-left-radius: 20px;  
+               overflow: hidden; 
+            }
+            @-webkit-keyframes blockMove {  
+                0% {  
+                   background-position: 0 0;  
+                } 
+                100% {  
+                   background-position: 50px 50px;  
+                }  
+            }
+            .r {
+            border-bottom: 0.5em solid #FFFFFF;
+            border-left: 0.5em solid transparent;
+            border-right: 0.5em solid transparent;
+            width: 0.2em;         
+            margin-left: 5em;
+           }
+           .fixedcontent{
+               display: none;
+           }
+        </style>
+      
+    </head>
+    <body  class="um-vp " ontouchstart>
+      
+        <div id="page_0" class="up ub ub-ver sc-bg" tabindex="0" >
+        <!--header开始 -->
+        <div id="header" class="ub ub-ver" style="background-size: 100% 100%;position:relative;height:17em; z-index:999;">
+            <div class="uh bc-text-head ub" style="position:relative; z-index:99;">
+                <div class="nav-btn" id="nav-left">
+                   <div class="fa icon-back fa-w fa-lg"></div>
+                </div>
+                <h1 id="headerh" class="ut ub-f1 ulev-3 ut-s tx-c headerh" tabindex="0">&nbsp;</h1>
+                <div id="nav-right" class="nav-btn nav-bt umar-r" ></div> 
+                <!-- <b ><img id="Mode" class="ub Mode uhide" src="../css/image1/xiangqing.png" style="width: 1.3em;height:1.3em" /></b> -->
+            </div>
+ 
+            <!-- 外链视频  --> 
+            <div id="chainintroduce" class="uhide" style="padding-top: 2px;top: -4em;z-index:1;position:relative;height:13.5em;" >
+                 <iframe frameborder="0" id="chain"  width="100%" height="100%"   allowfullscreen></iframe> 
+            </div> 
+ 
+            <!-- 音频 -->
+            <div id="audio" class="audioss uhide" style="background: url(../css/image1/yueya.jpg) no-repeat;background-size: 100% 100%;padding-top: 2px;top: -4em;position:relative;z-index:1;">
+                 <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="height:11em;position: relative;  box-shadow: 3px;">
+                       <div class="ub ub-ac ub-pc playdisc" style="top: 1em">
+                           <div class="ub ub-ac ub-pc ub-f1 audios" style="width:9em;height:9em;background:url(../css/image1/LOGO.jpg) no-repeat; background-size: cover;border-radius: 50%;" >
+      
+                           </div>
+                       </div>             
+                   </div>
+              <audio class="audio"  controls="controls" preload="load" >
+                <source  class="audio" src="01.mp3">
+              </audio>  
+            </div>               
+             <!-- 视频  -->
+            <div style="padding-top: 2px;top: -4em;position:relative;z-index:1;">
+                <div id="willesPlay" class="willesPlays uhide" >
+                    <div class="playContent" >
+                        <video style="height:11em;"  width="100%"   id="playVideo" class="video videos" poster="../css/image1/hudong.jpg" type="video/mp4" >
+                
+                        </video>
+                        <div class="playTip glyphicon glyphicon-play"></div>
+                    </div>
+                    <div class="playControll">
+                          <div class="playPause playIcon"></div> 
+                          <div class="timebar">
+                            <span class="currentTime" style="color: #FFFFFF">0:00:00</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                            </div>
+                
+                            <span class="duration" style="color: #FFFFFF">0:00:00</span>
+                        </div>
+                        <div class="otherControl">
+                            <span class="fullScreen glyphicon glyphicon-fullscreen"></span>
+                            <div class="volumeBar">
+                                    <div class="volumewrap">
+                                        <div class="progress">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;"></div>
+                                    </div>
+                                        </div>
+                                </div>
+                        </div>
+                    </div>  
+                </div>   
+            </div>
+          <!-- PPT -->
+           <div id="pdfPathPPT" class="uhide" style="background:url(../css/image1/ico_shuchengxiangqing@2x_r25_c1.png) no-repeat;background-size: 100% 100%;padding-top: 2px;top: -4em;position:relative;z-index:1;">
+                 <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="height:13em;position: relative;">
+                       <div class="ub ub-ac ub-pc playdisc" style="top: 1.5em">    
+                       
+                     <div class="background" style="background: url(../css/image1/yueya.jpg) no-repeat;background-size: 100% 100%;padding-top: 2px;position:relative;z-index:1;height:9em;width: 17em">
+                         <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="position: relative;  box-shadow: 3px;">
+                               <div class="ub ub-ac ub-pc playdisc" style="top: 2em">
+                                   <div class="preview" class="ub ub-ac ub-pc ub-f1" style="width:3em;height:3em;background:url(../css/image1/pofang.png) no-repeat; background-size: cover;" >
+                                      
+                                   </div>                                  
+                               </div>                                          
+                           </div>
+                     </div>   
+                        
+                    </div>              
+                   </div>
+            </div>    
+        
+                                      
+                <div  class="ub ub-ac ub-pc tab umar-t bc-border ubb bc-white" style="top: -4.5em;">
+                    <div class="ub ub-ac ub-pc ub-f1 ub-ver nav tabcurrent">
+                        <span id="Explain" class="ub">内容</span>
+                        <div class="ub ub-fh bottom umar-t"></div>
+                    </div>
+                    <div class="ub ub-ac ub-pc ub-f1 nav ub-ver">
+                        <span class="ub">评论</span>
+                        <div class="ub ub-fh bottom umar-t"></div>
+                    </div>
+                    <div id="Explains"  class="ub ub-ac ub-pc ub-f1 nav ub-ver">
+                        <span class="ub">读后感</span>
+                        <div class="ub ub-fh bottom umar-t"></div>
+                    </div>
+                </div>
+            </div>
+         
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+
+
+            </div>
+           
+       <!-- <div class="fixedcontent" style="position: fixed;width: 30%;right: 0.2em;top: 3.3rem;height: auto; z-index:1002;">
+           <div class="r"></div> 
+           <div id="content" class="ub ub-fh ub-fv ub-ac ub-pc">
+                <div class="ub ub-ver bc-white" style="width:100%">
+                    <div class="ub ub-fh ub-f1 ub-ver">                       
+                        <div class="ub ub-fh bc-border ubb ub-ac ub-pc preview" style="height:2em">
+                            <div class="ub ub-f1 uinn version ulev1" style="color: #919597"><img class="ub" src="../css/image1/yulan.png" style="width: 1em;height:1em" />查看</div>
+                        </div>                        
+                        <div class="ub ub-fh bc-border ubb ub-ac ub-pc uhide" style="height:2em">
+                            <div class="ub ub-f1 uinn version ulev1" style="color: #919597"><img class="ub" src="../css/image1/xiaz.png" style="width: 1em;height:1em" />下载</div>
+                        </div> 
+                         <div class="ub ub-fh bc-border ubb ub-ac ub-pc uhide" style="height:2em">
+                            <div class="ub ub-f1 uinn version  ulev1" style="color: #919597"><img class="ub" src="../css/image1/fenxiang.png" style="width: 1em;height:1em" />分享</div>
+                        </div>                  
+                    </div>
+                </div>
+            </div>
+        </div> -->
+            <!--content结束--> 
+          
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/audioplayer.js"></script>
+        <script src="../js/willesPlay.js"></script> 
+    </body>
+    <script>
+        $('audio').audioPlayer();
+        var dicList={"grade":[],"book_category":[],"recommendLevel":[]};
+        var titHeight;
+        var linkHtml;
+        var isOpenComments=false;
+   
+            // 右侧菜单
+            var i = false;
+           
+            $('#Mode').on('click', function () {
+              if (i === false) {
+                  //显示                   
+                    i = true;
+                    $(".fixedcontent").css("display","block");
+                }else {   
+                    //隐藏                 
+                    i = false;
+                    $(".fixedcontent").css("display","none");                    
+                }
+                reloadJson.levelText="上次刷新："+time1;
+                uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+                $("#bookList").empty();
+                pageIndex = 1;
+                loadData(); 
+            })
+        
+        function isLoadDic(){
+            getCommInfo();
+            if (commInfo.grade.length == 0)
+            {
+                return false;
+            }
+            if (commInfo.book_category.length == 0)
+            {
+                return false;
+            }
+            if (commInfo.recommendLevel.length == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        
+        function loadDic(){
+            if (isLoadDic())
+            {
+                setProgramInfo();
+                return;
+            }
+            $.each(dicList,function(n,obj){
+                if(!obj||obj.length==0){
+                    loadDicData(n);
+                    return false;
+                }
+            });
+        }
+        function loadDicData(name){
+          var params={ "type": name};
+            common.ajax("/dict/getDictList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var dicObj = {};
+                for(var i=0;i<data.obj.length;i++){
+                    var obj=data.obj[i];
+                    dicObj[obj.value] = obj.label;
+                }
+            
+                dicList[name] = dicObj;
+                commInfo[name] = dicObj;
+                setCommInfo();
+                loadDic();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+        }
+        
+        appcan.ready(function() {
+            getUserInfo();
+            getProgramInfo();
+            getCommInfo();
+             init();
+             // titHeight = $('#header').offset().height;
+              titHeight = $('#header').offset().height;
+               uexWindow.onKeyPressed = function(keyCode) {
+                if (keyCode == 0) {
+                    if (isOpenComments) {
+                        uexWindow.evaluatePopoverScript("","introduce1","exit();");
+                    } else {
+                    exit();
+                    }
+                }
+            }
+            init();
+            uexWindow.setReportKey(0, 1);
+            $(".nav").on("click", function() {
+                $(".tab .tabcurrent").removeClass("tabcurrent");
+                $(this).addClass("tabcurrent");
+                appcan.window.selectMultiPopover("content",$(this).index());
+            });
+            // init();
+            $(".bookName").html(programInfo.name);
+            
+            if(programInfo.pptPath.length>0){
+              $("#nav-right").removeClass("uhide");
+             }
+             //外链视频       
+            // alert(programInfo.name);     
+           // alert(programInfo.introduce);
+           // alert(111); 
+          $(".preview").on("click",function(){  
+              $(".fixedcontent").css("display","none");                   
+             getProgramInfo();
+            
+              var name  = programInfo.pdfPath;
+                                                                                       
+             getSysInfo();
+             sysInfo.ranking = {"name":name};
+             setSysInfo();           
+            appcan.window.open("Read_viewer","preview.html",5); 
+                        
+           }); 
+           // $("#download").on("click",function(){                 
+                 // getProgramInfo();
+//                 
+                 // var name  = programInfo.pdfPath;
+//                                                                                            
+                 // getSysInfo();
+                 // sysInfo.ranking = {"name":name};
+                 // setSysInfo();           
+                 // // appcan.window.open("Read_downloader","downloader.html",10);
+                 // appcan.window.open("Read_downloader","../update.html",10);         
+           // });
+          
+          $("#nav-left").on("click", function() {   
+                 
+              appcan.window.close(-1); 
+            });
+           // if(programInfo.videoFile.length == 0&&programInfo.chooseAudioPath.length == 0&&programInfo.introduc.length == 0){
+             // // alert(1);
+             // $("#header").addClass("header");
+             // $("#cont").addClass("cont");
+             // $(".headerh").html(programInfo.name);
+           // }
+            
+             loadDic();
+             
+             var j = 0;
+             var star=programInfo.score;
+             for (; j < parseInt(star/ 2); j++) {
+                $("#info-star .fa").eq(j).removeClass("icon-star-five-hollow").addClass("icon-star-five");
+             }
+             star =Math.round(programInfo.score-star);
+             if(star==1){
+                $("#info-star .fa").eq(j).removeClass("icon-star-five-hollow").addClass("icon-star-five-half");
+             }
+             setView();   
+               
+        });
+         
+         function init(){
+           titHeight =$('#header')[0].offsetHeight;
+           
+           if(programInfo.weixingLink.length>0){
+                linkHtml=programInfo.weixingLink;
+            }else{
+                linkHtml='Read_index_introduce_content.html';
+            }
+               
+           
+            appcan.frame.open({
+                id : "content",
+                url : [{'inPageName':'introduce1','inUrl':linkHtml},{'inPageName':'Reads','inUrl':'Read_index_comments_content.html'},{'inPageName':'content','inUrl':'Read_index_content.html'}],
+                top : titHeight,
+                left : 0,
+                index : 0,
+                change:function(index,res){
+                   $(".tab .tabcurrent").removeClass("tabcurrent");
+                   $(".nav:eq("+res.multiPopSelectedIndex+")").addClass("tabcurrent");
+                }
+            });
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, titHeight);
+            };
+           
+           if(programInfo.remarks.length > 0){                
+               $("#chainintroduce").removeClass("uhide");
+               $("#chain").attr("src",programInfo.remarks);           
+           }
+          //视频第一个图片
+          if(programInfo.videoFile.length > 0){
+               $("#willesPlay").removeClass("uhide");
+               $(".video").attr("src",_SERVER_VIDEO_ADDRESS + programInfo.videoFile,1);
+                if(!programInfo.posterImagePath){
+                $(".videos").attr("poster",_SERVER_ADDRESS + programInfo.image);
+                }else{
+                    $(".videos").attr("poster",_SERVER_ADDRESS + programInfo.posterImagePath);                
+                }
+           }
+           //音频
+          
+           if(programInfo.audioFile.length > 0){
+                $("#audio").removeClass("uhide");  
+                $(".audio").attr("src",_SERVER_VIDEO_ADDRESS + programInfo.audioFile );  
+                                                      
+                $(".audios").css("background-image","url("+_SERVER_ADDRESS + programInfo.image+")");
+            } 
+            //PPT封面
+           if(programInfo.pdfPath.length > 0){
+                $("#pdfPathPPT").removeClass("uhide");
+                $("#Explains").addClass("uhide");               
+                // $(".pdfPath").attr("src",_SERVER_ADDRESS + programInfo.image01);                                       
+                $(".headerh").html(programInfo.name);                
+                $("#Explain").html("内容"); 
+                $(".background").css("background-image","url("+_SERVER_ADDRESS + programInfo.image01+")"); 
+                $(".Mode").removeClass("uhide"); 
+            } 
+        }
+        
+        
+ 
+        appcan.button("#nav-left", "btn-act", function() {           
+             // appcan.window.close(-1); 
+              init();                                           
+              exit();
+        })
+        function exit() {  
+          // uexWindow.evaluatePopoverScript("","introduce1","refesh();");         
+            appcan.window.close(-1);            
+        }
+        
+        function setOrientation(type){
+            uexWindow.setOrientation(type);
+        }
+ 
+ </script>
+</html>

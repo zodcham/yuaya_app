@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .checkbox_on {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/checkbox_on.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .checkbox_off {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/checkbox_off.png) no-repeat;
+                background-size: 100% 100%;
+            }
+           
+             .mark_new {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_new_task.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-ver ub-fh ub-f1 umar-t">
+             <div id="listView" class="ub ub-fh ub-ver ub-f1" ></div>
+         </div>
+        
+        <div id="item" class="item click ub ub-fh uhide ub-ver bc-white bc-border ubt ubb umar-t">
+            <div class="ub ub-f1 uinn">
+                <div class="ub ub-ac ub-pc umar-r bc-border uba" style="width:5em;height:6em;border-radius: 0.2em" >
+                    <div class="ub" style="width:3.7em;height:5.2em">
+                        <img src="../css/icons/noImg.png" class="ub ub-f1 bookImage bookImg" />
+                        <div class="ub mark" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+                        <div class="bookBox uhide"></div>
+                    </div>
+                </div>
+                <div class="ub ub-f1 umar-l">
+                    <div class="ub ub-f1 ub-ver">
+                        <div class="ub ub-fh ub-ac">
+                            <div class="ub ub-f1 bookName ub-pc sc-text-active txt-ellipsis"></div>
+                       </div>
+                        <div class="ub ub-fh ub-ac">
+                            <div class="ub ub-f1 uinn ulev-1 ub-ac">
+                                <div class="ub ub-ac ub-pc umar-r finishState">
+                                    <div  class="ub checkbox umar-r" ></div>
+                                    <div class="ub sc-text">通过测评</div>
+                                </div>
+                                <div class="ub ub-ac ub-pc umar-l isMustReview">
+                                    <div  class="ub checkbox umar-r" ></div>
+                                    <div class="ub sc-text">写读后感</div>
+                                    <div class="ub sc-text level umar-l"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ub ub-fh ub-ac umar-t">
+                            <div class="ub ub-ac ub-pc sc-bc-blue bc-text-head ub-f1 btnReview click2" style="height:2em;border-radius: 0.5em">我要测评</div>
+                            <div class="ub ub-ac ub-pc sc-bc-orange bc-text-head ub-f1 btnIntroduce click2" style="margin:0em 0.5em;height:2em;border-radius: 0.5em">写读后感</div>
+                        </div>
+                        <div class="ub ub-fh ub-ac sc-text ulev-1">
+                            <div class="ub ub-f1 uinn">
+                                <div class="ub">时限：</div>
+                                <div class="ub startDate"></div>
+                                <div class="ub ub-ac ub-pc" style="width:1em">-</div>
+                                <div class="ub endDate"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </body>
+    <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+       if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/user/user_read_tasks_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+            document.write('<script src="../js_server/user/user_read_tasks_content.js"><\/script>');
+        }
+</script>
+</html>

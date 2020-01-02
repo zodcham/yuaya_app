@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style>
+            .icon-call {
+                animation-duration: 100ms;
+                animation-iteration-count: infinite;
+                animation-name: shake-hard;
+                animation-timing-function: ease-in-out;
+            }
+            .icon {
+                width: 1.5em;
+                height: 1.5em;
+                margin: 0.5em;
+            }
+            .my_number {
+                background: url(css/icons/dianhuas.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_weChat {
+                background: url(css/icons/weixins.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_qqs {
+                background: url(css/icons/qqs.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_gongs {
+                background: url(css/icons/gongs.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .backpicture {
+                background-image: url(css/image1/LOGO.jpg);
+            }
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa icon-back fa-lg"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">帮助与客服</h1>
+                <div class="nav-btn nav-bt" id="nav-right"></div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l umar-t">
+                <div class="ub-img backpicture" style="min-height:10.2em;"></div>
+                <div  class="ub ub-ac bc-border ubb ubt uinn-item bc-white"style="margin-top: 0.5em">
+                    <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub icon my_gongs"></div>
+                        </div>
+                        <div class="ub ub-f1">
+                            月芽公众号:
+                            <div class="ub ub-ac ub-pc">
+                                yyydpt
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  class="ub ub-ac bc-border ubb ubt uinn-item bc-white"style="margin-top: 0.5em">
+                    <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub icon my_qqs"></div>
+                        </div>
+                        <div class="ub ub-f1">
+                            月芽客服QQ:
+                            <div class="ub ub-ac ub-pc">
+                                1774587715, 336297833
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  class="ub ub-ac bc-border ubb ubt uinn-item bc-white"style="margin-top: 0.5em">
+                    <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub icon my_weChat"></div>
+                        </div>
+                        <div class="ub ub-f1">
+                            月芽客服微信号:
+                            <div class="ub ub-ac ub-pc">
+                                yueyakefu1, yueyakefu2
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  class="ub ub-ac bc-border ubb ubt uinn-item bc-white"style="margin-top: 0.5em">
+                    <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub icon my_number"></div>
+                        </div>
+                        <div class="ub ub-f1">
+                            月芽客服手机号:
+                            <div class="ub ub-ac ub-pc">
+                                18101287151, 15321665613
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="uinn-at1" style="padding:0 0.5em;margin-top:1em;">
+                <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1" id="feedback">
+                反馈问题与建议
+                </div>
+                </div> -->
+                <div class="uinn-at1" style="padding:0 0.5em;margin-top:1em;">
+                    <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1" id="apphelp">
+                        使用教程
+                    </div>
+                </div>
+                <!-- <div class="uinn-at1" style="padding:0 0.5em;margin-top:1em;">
+                <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1" id="appqa" style="background-color:#2CC185;">
+                常见问题
+                </div>
+                </div>   -->
+            </div>
+            <!--content结束-->
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_student/help.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+    <script></script>
+</html>

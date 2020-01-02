@@ -1,0 +1,15 @@
+.bg {
+    background: url(../css/image1/ico_beijing.png) no-repeat ;
+}
+input{
+    background: rgba(0,0,0,0);
+    border:0px solid white;
+    color:#FFFFFF;
+}
+
+-webkit-input-placeholder {
+color: #FFFFFF; 
+} 
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #FFFFFF; 
+} 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style>
+            .icon {
+                width:3em;
+                height:3em;
+                margin-right: 1em
+            }
+            .icon_rank_list_class {
+                background: url(css/icons/rank_list_class.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+            .icon_rank_list_grade {
+                background: url(css/icons/rank_list_grade.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+            .icon_rank_list_school {
+                background: url(css/icons/rank_list_school.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+            .icon_rank_list_all {
+                background: url(css/icons/rank_list_all.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="" ontouchstart>
+        <div class="bc-bg" tabindex="0" data-control="PAGE" id="Page">
+             <!--header开始-->
+            <div id="header" class="uinn bc-text-head ub bc-head" style="position: fixed;z-index: 999;width: 100%;left: 0;top: 0;overflow: hidden;">
+                <div class="nav-btn" id="nav-left">
+                    <div class=""></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">排行榜</h1>
+                <div class="nav-btn nav-bt" id="nav-right"></div>
+            </div>
+            <!--header结束-->
+            <!--content开始-->
+            <div id="content" class="ub-f1 tx-l" style="margin-top:3em;">
+                  
+                  <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh bc-border ubt click class item umar-t" rankingType="clazz">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc">
+                            <div class="ub icon icon_rank_list_class"></div>
+                    </div>
+                    <div class="ub ub-f1 ub-ac name">
+                                                                                                        班级排名
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                            <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubt click grade item umar-t" rankingType="grade">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc">
+                            <div class="ub icon icon_rank_list_grade"></div>
+                    </div>
+                    <div class="ub ub-f1 ub-ac name">
+                                                                                                        年级排名
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                            <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubt click school item umar-t" rankingType="school">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc">
+                            <div class="ub icon icon_rank_list_school"></div>
+                    </div>
+                    <div class="ub ub-f1 ub-ac name">
+                                                                                                        学校排名
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                            <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubt ubb click platform item umar-t" rankingType="all">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc">
+                            <div class="ub icon icon_rank_list_all"></div>
+                    </div>
+                    <div class="ub ub-f1 ub-ac name">
+                                                                                                        平台排名
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                            <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+            <!--content结束-->
+
+        </div>      
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/entity.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            $(".item").on("click",function(){
+                var rankingType = $(this).attr("rankingType");
+                var rankingName = $(this).find(".name").html();
+                getSysInfo();
+                sysInfo.ranking = {"rankingType":rankingType,"rankingName":rankingName};
+                setSysInfo();
+                appcan.window.open("ranking_details","ranking/ranking_details.html",10);
+            });
+        });
+
+    </script>
+</html>

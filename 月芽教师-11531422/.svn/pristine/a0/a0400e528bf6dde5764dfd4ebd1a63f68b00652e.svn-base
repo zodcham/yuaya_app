@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+             input[type='checkbox'] + .box:before{
+                 content: "\f096";
+                 color:#848484;
+             }
+             input[type='checkbox']:checked + .box:before{
+                  color: #00cc33;
+                 content: "\f14a";
+             }
+             .classSpan
+             {
+                 padding: 0.5em 1em;
+                 margin:0.5em;
+                 display:inline-table !important;
+             }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="main" class="ub ub-fh ub-fv ub-ver"></div>
+        
+        <div id="item" class="item ub ub-fh bc-border ubb uhide click" >
+            <div  class="ub ub-f1"  style="padding:0.5em">
+                <div class="ub ub-ac ub-pc photo" style="background:url(../css/image1/ico_duhougan@3x_57.png) no-repeat;background-size: cover;width:3em;height:3em;border-radius: 50%">
+                    <img class="ub ub-ac ub-pc user-Photo" src="../head.png" style="width:85%;height:85%;border-radius: 50%">
+                </div>
+                <div class="ub ub-f1 name umar-l ub-ac"></div>
+                <div class="ub ub-ac ub-pc" style="margin-right: 2em">
+                    <div class="fa icon-del sc-text fa-1x2 btnDel"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="item2" class="item2 ub ub-fh uhide" >
+            <div class="ub ub-fh ub-f1 letter uinn"></div>
+        </div>
+    
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/pinyin.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var titleHeight=0; 
+        var studentList=[];
+        var g_classId;
+        var letter = "";
+       appcan.ready(function() {
+          getUserInfo();
+          loadFriend();
+        });
+        
+        function loadFriend()
+        {
+            var params={'userId':userInfo.id};
+            common.ajax("/userFriend/friendList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var list=data.obj;
+                if(list&&list.length > 0){
+                    studentList = getDefaultList();
+                    for(var i = 0 ; i < list.length ; i ++){
+                        if(list[i].id == userInfo.id)
+                        {
+                            continue;
+                        }
+                        var py=pinyin.getCamelChars(list[i].name);
+                        if(py.length > 1){
+                            py = py.substr(0,1);
+                        }else{
+                            py = "-";
+                        }
+                        list[i].index = py;
+                        studentList[py].push(list[i]);
+                    }
+                    createView();
+                }else{
+                    myPrompt.show();
+                }
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            },{loadingMsg:'正在加载学生，请稍后...'});
+       }
+        
+        function createView(){
+            $.each(studentList, function(key, list) { 
+                if(list.length > 0){
+                    for(var i = 0 ; i < list.length ; i ++){
+                        var obj = list[i];
+                        /*
+                         * friendId : 好友用户ID
+                            friendName : 好友用户名称
+                            friendPhoto : 好友用户头像
+                         */
+                        var objItem = $("#item").clone();
+                        objItem.removeClass("uhide");
+                        objItem.attr("id",obj.id);
+                        objItem.attr("key",key);
+                        if(obj.photo && obj.photo.length > 0){
+                            objItem.find("img").attr("src",_SERVER_ADDRESS+obj.photo);
+                        }
+                        objItem.find(".name").html(obj.name);
+                        objItem.find(".btnDel").on("click",function(){
+                            var id = $(this).parents(".item").attr("id");
+                             appcan.alert("确认操作", "确认删除该好友？", ["确定", "取消"],   
+                                function del(e, idx) {
+                                if (idx == 1) {
+                                    return;
+                                }
+                                delFriend(id);
+                            });
+                        });
+                        if (letter != key) {
+                            letter = key;
+                            var objItem2 = $("#item2").clone();
+                            objItem2.attr("id","letter_"+key);
+                            objItem2.removeClass("uhide");
+                            objItem2.find(".letter").html(letter);
+                            $("#main").append(objItem2);
+                        }
+                        $("#main").append(objItem);
+                    }
+                }else{
+                     $("#main").append("<div class='item' key='"+key+"'></div>");
+                }
+            });  
+            $("#item").remove();
+        }
+        function getDefaultList(){
+            var list={'-':[]};
+            for(var i=0;i<26;i++){
+                list[getLetterByNum(i)]=[];
+            }
+            return list;
+        }
+       
+       function delFriend(friendId){
+           var params={'userId':userInfo.id,"friendId":friendId};
+            common.ajax("/userFriend/delete", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                $("#"+friendId).remove();
+                toast("删除成功~",config.toastTimeShort);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            },{"type":"POST"});
+       }
+    </script>
+</html>

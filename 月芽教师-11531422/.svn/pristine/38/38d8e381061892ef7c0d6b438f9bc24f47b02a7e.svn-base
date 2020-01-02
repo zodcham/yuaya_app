@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style>
+            .nav {
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.5em 0em;
+                color: #0d6aff;
+                background: #FFFFFF;
+            }
+            .txt-ellipsis{ 
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+             .tabcurrent {
+                color: #1296db;
+            }
+            .bottom{
+                height:0.5em;
+            }
+            .tabcurrent .bottom{
+                background:url(../css/image1/ico_shuchengxiangqing@2x_r13_c3.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .nav2{
+                color: #f94809;
+            }
+            
+            .nav3{
+                color: #0aef8f;
+            }
+            /*.tabcurrent {
+                color: #f94809;
+            }*/
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver sc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="ub ub-ver">
+                <div class="uh bc-text-head ub bc-head">
+                    <div class="nav-btn" id="nav-left">
+                    <div class="fa icon-back fa-w fa-lg"></div>
+                    </div>
+                    <h1 class="ut ub-f1 ulev-3 ut-s tx-c bookName " tabindex="0">&nbsp;</h1>
+                    <div class="nav-btn nav-bt" id="nav-right"></div>
+                </div>
+                <div class="ub ub-ver ub-fh bc-head">
+                    <div class="ub ub-ver ub-f1 uinn" >
+                        <div class="ub ub-fh ub-ac ub-pc" style="height: 8em">
+                         <div class="ub ub-fv ub-ac ub-pc ub-ver umar-r">
+                              <div class="ub ub-f1 ub-ac ub-pc  bc-border umar-l" style="width:5em;height:6em;border-radius: 0.2em">
+                                    <div class="ub ub-ac ub-pc" style="width:5em;height:6em;">
+                                        <img src="../css/icons/noImg.png" class="bookImg" style="width:100%;height:100%">
+                                        <div class="bookBox uhide"></div>
+                                    </div>
+                                </div>
+                                <div class="ub ub-fh umar-t ub-ac ub-pc ulev-1">
+                                    <div style="color:#FFC304" id="info-star">
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                    </div>
+                                </div>
+                         </div>
+                        <div class="ub ub-fv ub-ver ub-f1 umar-l bc-text-head" >
+                            <div class="ub bookName txt-ellipsis ub-fh ub-f1"></div>
+                            <div class="ub ub-fh umar-t ub-f1">
+                                    <div class="ub ub-ac ub-pc ulev-2 bc-text-head grade" style="padding:0.2em 0.3em;margin-right: 1em;border-radius: 0.2em;background:#66e4af"></div>
+                                    <div class="ub ub-ac ub-pc ulev-2 bc-text-head bookCategory" style="padding:0.2em 0.3em;margin-right: 1em;border-radius: 0.2em;background:#f6d101"></div>
+                                    <div class="ub ub-ac ub-pc ulev-1">
+                                        <div class="ub ico_integral umar-r"></div>
+                                        <div class="ub bc-text-head score"></div>
+                                    </div>
+                            </div>
+                            <div class="ub ub-fh umar-t uhide ub-f1">
+                                <div class="ub ulev-1">适合年级:</div>
+                                <div class="ub recommendLevel ulev-1"></div>
+                            </div>
+                            <div class="ub ub-fh ulev-2">
+                                <div class="ub ub-f1 uinn remark"></div>
+                            </div>
+                            
+                            <div class="ub ub-fh umar-t ub-ac ub-f1">
+                                <div class="ub ub-ac ub-pc umar-r sc-border uba favorite" style="width:4.5em;height:1.5em;border-radius: 1em">
+                                    加入书架
+                                </div>
+                                <div class="ub ub-ac ub-pc sc-border uba btnReview" style="width:6.5em;height:1.5em;border-radius: 1em">
+                                    查看测评试题
+                                </div>
+                            </div>
+                            <div class="ub ub-f1"></div>
+                        </div>
+                    </div>
+                </div>
+                
+               <div class="ub ub-ac ub-pc tab umar-t bc-border ubb bc-white" >
+                    <div class="ub ub-ac ub-pc ub-f1 ub-ver nav tabcurrent">
+                        <span class="ub">内容</span>
+                        <div class="ub ub-fh bottom umar-t"></div>
+                    </div>
+                    <div class="ub ub-ac ub-pc ub-f1 nav ub-ver">
+                        <span class="ub">评论</span>
+                        <div class="ub ub-fh bottom umar-t"></div>
+                    </div>
+                    <div class="ub ub-ac ub-pc ub-f1 nav ub-ver">
+                        <span class="ub">读后感</span>
+                        <div class="ub ub-fh bottom umar-t"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+            </div>
+            <!--content结束-->
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+    </body>
+    <script>
+        var dicList={"grade":[],"book_category":[],"recommendLevel":[]};
+        var titHeight;
+        var isOpenComments=false;
+        
+        function isLoadDic(){
+            getCommInfo();
+            if (commInfo.grade.length == 0){
+                return false;
+            }
+            if (commInfo.book_category.length == 0){
+                return false;
+            }
+            if (commInfo.recommendLevel.length == 0){
+                return false;
+            }
+            return true;
+        }
+        
+        function loadDic(){
+            if (isLoadDic())
+            {
+                setBookInfo();
+                return;
+            }
+            $.each(dicList,function(n,obj){
+                if(!obj||obj.length==0){
+                    loadDicData(n);
+                    return false;
+                }
+            });
+        }
+        function loadDicData(name){
+          var params={ "type": name};
+            common.ajax("/dict/getDictList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var dicObj = {};
+                for(var i=0;i<data.obj.length;i++){
+                    var obj=data.obj[i];
+                    dicObj[obj.value] = obj.label;
+                }
+            
+                dicList[name] = dicObj;
+                commInfo[name] = dicObj;
+                setCommInfo();
+                loadDic();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+        }
+        
+        appcan.ready(function() {
+            getUserInfo();
+            getBookInfo();
+            getCommInfo();
+             titHeight = $('#header').offset().height;
+               uexWindow.onKeyPressed = function(keyCode) {
+                if (keyCode == 0) {
+                    if (isOpenComments) {
+                        uexWindow.evaluatePopoverScript("","book_comments","exit();");
+                    } else {
+                    exit();
+                    }
+                }
+            }
+            uexWindow.setReportKey(0, 1);
+            $(".nav").on("click", function() {
+                $(".tab .tabcurrent").removeClass("tabcurrent");
+                $(this).addClass("tabcurrent");
+                appcan.window.selectMultiPopover("content",$(this).index());
+            });
+            init();
+            $(".bookName").html(bookInfo.name);
+             if(bookInfo.image.length>0){
+                $(".bookImg").attr("src",_SERVER_ADDRESS+bookInfo.image);
+             }
+             $(".remark").html("已被推荐"+bookInfo.recommendTimes+"次,"+bookInfo.hits+"人读过");
+             $(".score").html(bookInfo.score);
+                    
+           // if (bookInfo.isPass == "1") {
+               // $(".").html("再次测评");
+           // }
+                       
+             loadDic();
+             
+             var j = 0;
+             var star=bookInfo.score;
+             for (; j < parseInt(star/ 2); j++) {
+                $("#info-star .fa").eq(j).removeClass("icon-star-five-hollow").addClass("icon-star-five");
+             }
+             star =Math.round(bookInfo.score-star);
+             if(star==1){
+                $("#info-star .fa").eq(j).removeClass("icon-star-five-hollow").addClass("icon-star-five-half");
+             }
+             setView();
+                //$("#info-star")
+                //bookInfo.score
+        });
+        
+        
+        appcan.button(".btnReview", "btn-act", function() {
+            if (bookInfo.isFavorite == "1") {
+             appcan.window.open("book_review","book_review.html",10);
+            }else {
+                toast("请先加入书架~",config.toastTimeShort);
+            }
+        });
+        
+        
+        appcan.button(".btnIntroduce", "btn-act", function() {
+            if (bookInfo.isFavorite == "1") {
+                appcan.window.open("book_introduce_add","book_introduce_add.html",10);
+            }else {
+                toast("请先加入书架~",config.toastTimeShort);
+            }
+        });
+        function setBookInfo(){
+             if (bookInfo.recommendLevel.length == 0){
+                  $(".recommendLevel").addClass("uhide");
+             }
+             else{
+                $(".recommendLevel").html(commInfo.recommendLevel[bookInfo.recommendLevel]);
+             }
+             if (bookInfo.bookCategory.length == 0){
+                  $(".bookCategory").addClass("uhide");
+             }
+             else{
+                $(".bookCategory").html(commInfo.book_category[bookInfo.bookCategory]);
+             }
+             $(".grade").html(commInfo.grade[bookInfo.grade]);
+        }
+        
+        function setView(){
+            if(bookInfo.isFavorite=="1"){
+                 $(".favorite").html("移出书架");
+             }else{  
+                 $(".favorite").html("加入书架");
+             }
+        }
+         function init(){
+           titHeight =$('#header')[0].offsetHeight;
+            appcan.frame.open({
+                id : "content",
+                url : [{'inPageName':'introduce','inUrl':'book_index_introduce_content.html'},{'inPageName':'comments','inUrl':'book_index_comments_content.html'},{'inPageName':'content','inUrl':'book_index_content.html'}],
+                top : titHeight,
+                left : 0,
+                index : 0,
+                change:function(index,res){
+                   $(".tab .tabcurrent").removeClass("tabcurrent");
+                   $(".nav:eq("+res.multiPopSelectedIndex+")").addClass("tabcurrent");
+                }
+            });
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, titHeight);
+            };
+        }
+        
+        
+        appcan.button(".btnReview", "btn-act", function() {
+            appcan.window.open("book_review","book_review.html",10);
+        })
+        
+        appcan.button("#nav-left", "btn-act", function() {
+           exit();
+        })
+        
+        appcan.button(".favorite", "btn-act", function() {
+            if(bookInfo.isFavorite=="1"){ 
+                var params={ 'userId' : userInfo.id,'bookId' : bookInfo.id};
+                common.ajax("/favorite/remove", {
+                   params:JSON.stringify(params)
+                }, function(data) {
+                    bookInfo.isFavorite="0";
+                    setBookInfo();
+                    setView();
+                    toast("已移出书架~",config.toastTimeShort);
+                }, function(data){
+                    toast(getMsgByKey(data.msg),config.toastTimeShort);
+                }, {
+                    type : 'POST'
+                });
+            }else{
+                var params={ 'userId' : userInfo.id,'bookId' : bookInfo.id};
+                common.ajax("/favorite/add", {
+                   params:JSON.stringify(params)
+                }, function(data) {
+                    bookInfo.isFavorite="1";
+                    setBookInfo();
+                    setView();
+                    toast("已加入书架~",config.toastTimeShort);
+                }, function(data){
+                    toast(getMsgByKey(data.msg),config.toastTimeShort);
+                }, {
+                    type : 'POST'
+                });
+            }
+        });
+        
+        function exit() {
+            //setOrientation(1);
+            appcan.window.close(-1);
+            //uexWindow.evaluatePopoverScript("","introduce","closePlayer();");
+        }
+        
+        function setOrientation(type){
+            uexWindow.setOrientation(type);
+        }
+       
+    </script>
+</html>

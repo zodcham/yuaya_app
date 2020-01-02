@@ -1,0 +1,90 @@
+var g_json;
+
+appcan.ready(function() {
+    getUserInfo();
+    loadData();
+});
+
+function loadData() {
+    var url = g_ServerUrl + "/a/analyze/class";
+    var par = {
+        "schoolid" : getLocVal("charts_school_id")
+        //"schoolid" : "387fdb0ca13a486eb4341aa8c6c85a46"
+    };
+    var ferr = function(err) {
+    };
+    var fok = function(data) {
+        g_json = JSON.parse(data);
+        var count = g_json.pub_data.class.length;
+        if(count<=1) pHeight=14;
+        else pHeight=5;
+        $("#completation_count").css("height", (pHeight * count) + "em");
+        LoadCharts();
+    };
+    ajaxPOST(url, par, fok, ferr);
+}
+
+function LoadCharts() {
+
+    $("#school_name").html(g_json.school_name);
+    LoadTeacher();
+
+}
+
+function LoadTeacher() {
+    var myChart = echarts.init(document.getElementById('completation_count'));
+
+    var option = {
+
+        legend : {
+            data : ['阅读任务发布数量', '阅读任务完成数量']
+            
+        },
+        grid : {
+            left : '1%',
+            right : '3%',
+            containLabel : true
+        },
+        xAxis : {
+            type : 'value',
+        },
+        yAxis : {
+            type : 'category',
+            data : g_json.completation_data.class
+        },
+        series : [{
+            name : '阅读任务发布数量',
+            type : 'bar',
+            data : g_json.pub_data.score,
+            itemStyle : {
+                normal : {
+                    color : '#0f6fc6',
+                    //以下为是否显示，显示位置和显示格式的设置了
+                    label : {
+                        show : true,
+                        position : 'right',
+                        //                             formatter: '{c}'
+                        formatter : '{c}'
+                    }
+                }
+            }
+        }, {
+            name : '阅读任务完成数量',
+            type : 'bar',
+            data : g_json.completation_data.score,
+            itemStyle : {
+                normal : {
+                    color : '#10cf9b',
+                    //以下为是否显示，显示位置和显示格式的设置了
+                    label : {
+                        show : true,
+                        position : 'right',
+                        //                             formatter: '{c}'
+                        formatter : '{c}'
+                    }
+                }
+            }
+        }]
+    };
+    myChart.setOption(option);
+}

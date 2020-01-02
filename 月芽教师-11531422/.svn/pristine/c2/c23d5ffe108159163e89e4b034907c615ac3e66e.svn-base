@@ -1,0 +1,27 @@
+var titHeight = 0;
+appcan.ready(function() {
+    titHeight = $('#header').offset().height;
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    }
+    resendsmse();
+
+});
+function resendsmse() {
+    //y轴  最小值：min 最大值：max 值间距:step  //x轴  x[]名称，    data名称对应值
+
+    var jsondata = '{ "y":{"min": "10","max": "70","step": "10"},"x": [ "0127","0128", "0129", "0130", "0131","0201", "0202", "0203", "0204",  "0205","0205", "0206", "0207", "0208","0209","0210", "0211","今天", "0213", "0214","0215"],"actx": "17","data": ["25", "34", "41","52","25", "31", "15", "47", "26","25", "34", "41","52","25", "31", "15", "47", "26","25", "34", "41"],"compareY": [{"s": "0","e": "20","v": "40" } ],"xCount": "7"}';
+    uexBrokenLine.setData(jsondata);
+    var divTop = titHeight + $('#divTop').offset().height;
+    var s = window.getComputedStyle(document.body, null);
+    var w1 = parseInt(s.width);
+    w1 = Math.round(w1);
+    var h = parseInt(s.height) / 3;
+    h = Math.round(h);
+    uexBrokenLine.open("10", divTop + 10, w1 - 20, h + 20, "1");
+
+}
+
+appcan.button("#nav-left", "btn-act", function() {
+    appcan.window.close(-1);
+})

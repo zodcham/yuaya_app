@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>添加读后感</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/button.css" />
+        <style>
+            .photo_delete {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/photo_delete.png);
+                background-size: 100% 100%;
+            }
+            .add_photo {
+                width:3.5em;
+                height:3.5em;
+                background: url(../css/icons/add_photo.png);
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+       <div class="ub ub-ver ub-fh ub-fv">
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-f1 ub-fh">
+                   <textarea id="TitleComments" placeholder="请输入分享标题~" class="ub ub-f1 ub-fh ulev0 uinn umar-a" style="resize: none;height: 2em;border-radius: 0.5em;overflow: auto;border:0px"></textarea>
+               </div>
+           </div>
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-f1 ub-fh">
+                   <textarea id="txtComments" placeholder="请输入分享内容~" class="ub ub-f1 ub-fh ulev0 uinn umar-a" style="resize: none;height: 8em;border-radius: 0.5em;overflow: auto;border:0px"></textarea>
+               </div>
+           </div>
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-ac ub-pc ub-f1 ub-fh">
+                   <div id="divImg" class="ub ub-f1 ub-fh bc-white umar-a sc-text ub-ac ub-pc" style="border-radius: 0.5em">
+                       
+                       <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="1">
+                           <div class="add_photo" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                           <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                               <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"  style="width:90%;height:90%"><img src="../css/icons/add_photo.png" style="width:90%;height:90%" /></div>
+                           </div>
+                       </div>
+                       
+                       <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="2">
+                           <div class="add_photo uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                           <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                               <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"><img src="" style="width:90%;height:90%" /></div>
+                           </div>
+                       </div>
+                       
+                       <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="3">
+                           <div class="add_photo uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                           <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                               <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"><img src="" style="width:90%;height:90%" /></div>
+                           </div>
+                       </div>
+                       
+                       <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="4">
+                           <div class="add_photo uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                           <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                               <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"><img src="" style="width:90%;height:90%" /></div>
+                           </div>
+                       </div>
+                       
+                       <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="5">
+                           <div class="add_photo uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                           <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                               <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"><img src="" style="width:90%;height:90%" /></div>
+                           </div>
+                       </div>
+                       
+                   </div>
+               </div>
+           </div>
+           <div id="divAddImg" class="ub ub-fh ub-fv ub-ver uhide" style="position: absolute;top:0;left:0;z-index: 101;background: rgba(0,0,0,0.5)">
+           <div class="ub ub-f1 btnCancel"></div>
+           <div class="ub ub-fh ub-ver bc-white bc-border bc-text-head">
+               <div id="btnPhoto" class="ub ub-ac ub-pc ub-f1 bc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-photoalbum fa-1x2"></div>&nbsp;本地相册</div>
+               <!-- <div id="btnCamera" class="ub ub-ac ub-pc ub-f1 sc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-camera fa-1x2"></div>&nbsp;相机拍照</div> -->
+               <div id="btnCancel" class="btnCancel ub ub-ac ub-pc ub-f1 sc-bg-btn-cancel umar-a" style="padding:0.8em 0;border-radius: 0.3em">取消</div>
+           </div>
+       </div>
+       </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    </body>
+    <script>
+        var reviewId;
+        var addImgNum=1; 
+        var imgList=[];
+        var uploadId=0;
+        var imgLength=0;
+        var loadingMsg="";
+        var upload_image_url;
+        appcan.ready(function() {
+            getUserInfo();
+            getProgramInfo();
+           // loadData();
+            var size=$("#divImg").width() * 0.3;
+            $(".addImg").css("width",size+"px").css("height",size+"px");
+            
+            $("#divImg .remove").on("click",function(){
+                var objParent=$(this).parents(".addImg");
+                objParent.addClass("noAddImg");
+                objParent.removeAttr("value");
+                objParent.find(".add_photo").removeClass("uhide");
+                objParent.find(".imgbox").addClass("uhide");
+                objParent.find("img").attr("src","");
+                //objParent.insertAfter($(".addImg:eq(2)"));
+                
+                // for(var i = 2 ; i >= 0 ; i --){
+                  // $(".addImg:eq("+i+")").attr("num",(i+1));
+                  // if($("#divImg .add_photo:not([class*=uhide])").length > 1){
+                      // $(".addImg:eq("+i+")").find(".add_photo").addClass("uhide");
+                  // }
+                // }
+                // addImgNum -- ;
+               
+                while ($(".add_photo").not(".uhide").length > 1) {
+                    $(".add_photo").not(".uhide").eq($(".add_photo").not(".uhide").length - 1).addClass("uhide");
+                }
+            });
+            $(".add_photo").on("click",function(){
+                addImgNum=$(this).parents(".addImg").attr("num");
+                uexWindow.evaluateScript("",0,"isOpenChooseImg=true;");
+                $("#divAddImg").removeClass("uhide");
+            });
+            $(".btnCancel").on("click",function(){
+                closeAddImg();
+            });
+            
+            uexImage.onPickerClosed=function(info){
+                var data=JSON.parse(info);
+                if(!data.isCancelled){
+                    $.map(data.data,function(imgPath){
+                        var obj = $(".noAddImg:eq(0)");
+                        obj.removeClass("noAddImg");
+                        obj.attr("value",imgPath);
+                        obj.find(".add_photo").addClass("uhide");
+                        obj.find(".imgbox").removeClass("uhide");
+                        obj.find("img").attr("src",imgPath);
+                        // addImgNum++;
+                        // if(addImgNum < 4){
+                            // $(".addImg[num="+addImgNum+"] .add_photo").removeClass("uhide");
+                        // }
+                    });
+                    if ($(".add_photo").not(".uhide").length == 0){
+                        $(".noAddImg:eq(0)").find(".add_photo").removeClass("uhide");
+                    }
+                    
+                }
+                closeAddImg();
+            }
+            uexCamera.cbOpen = function(opCode, dataType, data){
+                closeAddImg();
+           }
+           
+           //图片上传
+           uexUploaderMgr.cbCreateUploader = function(opCode, dataType, data) {
+                if (data == 0) {                  
+                    uexUploaderMgr.uploadFile(uploadId,upload_image_url, "fileInput", 2,800);                    
+                } else {                   
+                    myLoading.close();
+                    delReviewId();
+                    toast("初始化图像失败~", config.toastTimeShort);
+                    
+                }
+           }
+
+           uexUploaderMgr.onStatus = function(opCode, fileSize, percent, serverPath, status) {
+               
+                switch (status) {                  
+                case 0:
+                    myLoading.setTitle(loadingMsg+percent + "%");
+                    break;
+                case 1:
+                    uexUploaderMgr.closeUploader(0);
+                    imgUpLoad();
+                    break;
+                case 2:
+                    myLoading.close();
+                    delReviewId();
+                    toast("图片上传失败，请重试~", config.toastTimeShort);
+                    setTimeout(function() {
+                        uexUploaderMgr.closeUploader(0);
+                    }, config.toastTimeShort);
+                }
+           }
+        });
+        
+      appcan.button("#btnPhoto", "btn-act", function() {
+            var data = {
+                min:1,
+                max:(5-$(".addImg[value]").length),
+                quality:0.8,
+                detailedInfo:true
+            }
+            var json = JSON.stringify(data);
+            uexImage.openPicker(json)
+        })
+        
+        appcan.button("#btnCamera", "btn-act", function() {
+            uexCamera.open(0,0.8);
+        })
+        
+        function doSubmit() {
+            var Title=$("#TitleComments").val();
+            var content=$("#txtComments").val();
+            
+            if(Title.length==0){
+                toast("分享标题不能为空~",config.toastTimeShort);
+                return;
+            }
+            if(content.length==0){
+                toast("分享内容不能为空~",config.toastTimeShort);
+                return;
+            }
+            
+            var checkNum = /[\ud800-\udbff][\udc00-\udfff]/g;
+            if(checkNum.test(content))
+            {
+                toast("请勿添加表情图片~", config.toastTimeShort);
+                return false;
+            }
+            
+           var params={ 'userId' : userInfo.id,'name':Title,'readGuide':content};
+            common.ajax("/interactionshare/add", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                reviewId=data.obj;
+                $.each($("#divImg .addImg[value]"),function(n,obj){
+                   imgList.push($(obj).attr("value")); 
+                });
+                imgLength=imgList.length;
+                if(imgLength==0){
+                    toast("上传成功~", config.toastTimeShort);
+                    setTimeout(function() {
+                        uexWindow.evaluateMultiPopoverScript("bookIndex", "content", "content", "reloadData()");
+                        uexWindow.evaluateScript("",0,"exit()");
+                    },1000);
+                }else{
+                    myLoading.show("上传图片");
+                    imgUpLoad();
+                }
+                
+                toast("发布分享成功~",config.toastTimeShort);
+                setTimeout(function() {
+                        uexWindow.evaluateMultiPopoverScript("share", "content", "content", "reloadData()");
+                        uexWindow.evaluateScript("",0,"exit()");
+                    },1000);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            }, {
+                type : 'POST'
+            });
+        };
+         
+     function loadData(){
+              var params = {'bookId' : bookInfo.id,"studentId":userInfo.id};
+            common.ajax("/programReview/list", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                for(var i=0;i<data.obj.length;i++){
+                    $("#divHistoryBox").removeClass("uhide");
+                    var obj=data.obj[i];
+                    var objItem=$("#item").clone();
+                    objItem.attr("id",obj.id);
+                    objItem.removeClass("uhide");
+                    objItem.find(".time").html("发表于："+obj.createDateText);
+                    var content = obj.content.replace(new RegExp("\n", "g"), "<br><br>");
+                    content = content.replace(new RegExp("<br/>", "g"), "<br><br>");
+     
+                    objItem.find(".content").html(content);
+                    for(var j=1;j<4;j++){
+                        if(obj["image0"+j].length>0){
+                              var divImg=$("<div style='width:5em;height:5em' class='umar-r'><img src='"+_SERVER_ADDRESS+obj["image0"+j]+"' style='width:100%;height:100%'></div>");
+                             objItem.find(".imgs").append(divImg);
+                        }
+                    }
+                    $("#divHistory").append(objItem);
+                }
+                
+            }, function(data) {
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            });
+        }
+               
+        function imgUpLoad(){
+            if(imgList.length==0){
+                myLoading.close();
+                toast("上传成功~", config.toastTimeShort);
+                setTimeout(function() {
+                    uexWindow.evaluateMultiPopoverScript("bookIndex", "content", "content", "reloadData()");
+                    uexWindow.evaluateScript("",0,"exit()");
+                },1000);
+            }else{
+                loadingMsg="上传图片("+uploadId+"/"+imgLength+"):";
+                myLoading.setTitle(loadingMsg+"0%");
+                uploadId++;
+                upload_image_url=imgList[0];
+                imgList.shift();
+                var params = {"programId":reviewId,"imageName":"image0"+uploadId};
+                uexUploaderMgr.createUploader(uploadId, config.serviceUrl + "/interactionshare/uploadImage?params="+JSON.stringify(params));
+            }
+        }
+        function delReviewId(){
+            var params={ 'reviewId' : reviewId};
+            common.ajax("/programReview/delete", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                reviewId="";
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+        } 
+        
+        function closeAddImg(){
+          uexWindow.evaluateScript("",0,"isOpenChooseImg=false;");
+           $("#divAddImg").addClass("uhide");
+        }
+
+    </script>
+</html>

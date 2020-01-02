@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .disable {
+                color: #FFFFFF;
+                background: #dcd8d5;
+            }
+            .icon_headimage {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_06.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .bg_headimage {
+                width: 5em;
+                height: 5em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_03.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_name {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_14.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_nick_name {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_18.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_school {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_28.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_qq {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_22.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_email {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_26.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_class {
+                width: 2em;
+                height: 2em;
+                background: url(../css/image1/ico_gerenzhongxin@2x_30.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="main" class="ub ub-ver ub-fh">
+            <div class="ub ub-ver ub-f1 ub-fh">
+
+                <div class="ub ub-fh  bc-border ubb">
+                    <div class="ub ub-f1 ub-ac ub-pc" style="padding:0.5em">
+                        <div class="ub icon_headimage"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            头像
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac">
+                            <div class="ub ub-ac ub-pc ub-f1 bg_headimage" style="width:5em;height:5em" >
+                                <img id="headImg" class="ub" src="../head.png" style="width:85%;height:85%;border-radius: 50%" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-fh bc-border ubb">
+                    <div class="ub ub-f1 uinn" style="padding:0.5em">
+                        <div class="ub icon_name"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            姓名
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac name sc-text">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ub ub-fh bc-border ubb">
+                    <div class="ub ub-f1 uinn" style="padding:0.5em">
+                        <div class="ub icon_nick_name"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            昵称
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac nickName sc-text">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ub ub-fh bc-border ubb">
+                    <div class="ub ub-f1 uinn" style="padding:0.5em">
+                        <div class="ub icon_qq"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            QQ
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac qq sc-text">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ub ub-fh bc-border ubb">
+                    <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                        <div class="ub icon_email"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            邮箱
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac email sc-text">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ub ub-fh bc-border ubb">
+                    <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                        <div class="ub icon_school"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            学校
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac school sc-text">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ub ub-fh bc-border ubb">
+                    <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                        <div class="ub icon_class"></div>
+                        <div class="ub ub-ac ub-pc sc-text umar-l">
+                            班级
+                        </div>
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac class sc-text">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ub ub-fh">
+                <div class="ub ub-f1 uinn" style="padding: 1em 0.5em">
+                    <div class="ub ub-f1 bc-text-head ub-ac ub-pc bc-head" style="height:2.8em;border-radius: 2.8em" id="btnAdd">
+                        加为好友
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/message/message_other_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

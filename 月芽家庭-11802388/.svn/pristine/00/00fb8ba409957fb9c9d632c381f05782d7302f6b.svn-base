@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>读后感</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .content {
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                -webkit-line-clamp: 3;
+                overflow-y: hidden;
+            }
+            .icon_like {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }
+            .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_integral {
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(../css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             
+             .icon_like {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }
+            .icon_commentss {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/zhuanfa.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                background-size: 100% 100%;*/
+                background: #FE8100;
+                margin-left: 70%
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver umar-t">
+            
+        <div class="ub  ub-ac ub-pc ulev-1 btnIntroduce head_btn_box umar-t umar-b bc-text-head" style="border-radius:  1em 0 0 1em">
+         <div class="ub ub-pc uinn">             
+            <div class="ub ub-f1">写读后感</div>
+        </div>
+       </div>
+       
+           <div id="CommentsList" class="bc-border umar-b"></div>
+           
+           <div id="item" class="item ub ub-fh uhide bc-border ubb ubt bc-white umar-t">
+               <img class="user-Photo umar-l umar-r umar-t" src="../head.png" style="border-radius: 50%;border:0px solid #BABABA;width:3em;height:3em">
+               <div class="ub ub-ver ub-f1 umar-l bc-white">
+                   <div class="ub ub-fh ub-ac ub-pc umar-t">
+                        <div class="ub ub-f1 ub-ac user-Name "></div>
+                        <div class="ub ub-ac sc-text ulev-1" >
+                               <div class="ub ub-ac ub-pc umar-r dateTitle">发表于</div>
+                               <div class="ub ub-ac ub-pc date umar-r"></div>
+                        </div>
+                    </div>
+                   <div class="ub ub-f1 ub-fh contentMain">
+                       <div class="ub ub-f1 ub-ver uinn ub-fh">
+                           <div class="ub ub-fh ub-ver content ulev-1 sc-text" ></div>
+                           <div class="ub ub-fh imgs umar-t"></div>
+                       </div>
+                   </div>
+                   <div class="ub ub-f1 ub-fh umar-b">
+                       <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc umar-r sc-text">
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub comments"></div>
+                                </div>
+                            </div>
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub like"></div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="ub ub-fh uhide">
+                       <div class="ub ub-f1 umar-a sc-bg" style="height: 1px">&nbsp;</div>
+                   </div>
+               </div>
+           </div>
+           
+        </div>
+        
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/yueduquan/Read_index_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+        
+</html>

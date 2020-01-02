@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .icon_del {
+                width:1.5em;
+                height:1.5em;
+                background: url(../css/icons/ico_delete.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_reply {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/ico_reply.png) no-repeat;
+                background-size:  100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" style="padding-bottom: 0.1em" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh sc-bg" style="height:0.5em"></div>
+            <div id="messageList" class="ub ub-fh ub-fv ub-ver"></div>
+        </div>
+
+        <div id="item" class="ub ub-fh item uhide bc-white ub-ver">
+            <div class="ub ub-f1 uinn ub-ver">
+                <div class="ub ub-fh umar-t ub-ac">
+                    <div class="ub ub-ac ub-pc uinn headImg umar-r" style="width:1.5em;height:1.5em;border-radius: 50%">
+                        <img src="../head.png" style="width:100%;height:100%;border-radius: 50%">
+                    </div>
+                    <div class="ub name umar-r"></div>
+                    <div class="ub date sc-text ulev-1  umar-l"></div>
+                    <div class="ub ub-f1"></div>
+                    <div class="ub umar-r icon_del del"></div>
+                </div>
+                <div class="ub ub-fh content umar-t" style="word-break:break-all;"></div>
+               <div class="ub ub-fh umar-t">
+                   <div class="ub ub-f1 umar-a sc-bg" style="height: 1px">&nbsp;</div>
+               </div>
+               <div class="ub ub-fh umar-t sc-text">
+                   <div class="ub icon_reply umar-r"></div>
+                   <div class="ub umar-r">我的回复</div>
+                   <div class="ub date sc-text ulev-1 umar-l"></div>
+               </div>
+                <div class="ub ub-fh replyContent umar-t umar-b sc-text" style="word-break:break-all;"></div>
+            </div>
+            
+            <div class="ub ub-fh ub-f1 bc-border ubt bc-white" style="padding-top: 0.5em;border-radius: 0 0 1em 1em">
+                <div class="ub ub-f1 uinn ub-ver uhide divReply">
+                    <div class="ub ub-f1">
+                        <textarea class="ub replyMsg ulev0 ub-f1" placeholder="回复消息" style="resize: none;border-radius: 0.3em;padding: 0.2em" rows="3"></textarea>
+                    </div>
+                    <div class="ub ub-fh umar-t">
+                        <div class="ub-f1"></div>
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub ub-ac ub-pc bc-btn bc-text-head btnReply" style="width:5em;height:2em;border-radius: 0.3em">回复</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh sc-bg" style="height:0.5em"></div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var pageIndex = 1;
+        var reloadDate = "";
+        var loadDate = "";
+        var reloadJson = {
+            "textColor" : "#000",
+            "imagePath" : "res://refesh_icon.png",
+            "levelText" : "更新日期1",
+            "pullToReloadText" : "拖动刷新",
+            "releaseToReloadText" : "释放刷新",
+            "loadingText" : "刷新中，请稍等"
+        };
+        var loadJson = {
+            "textColor" : "#000",
+            "imagePath" : "res://refesh_icon.png",
+            "levelText" : "更新日期2",
+            "pullToReloadText" : "拖动加载",
+            "releaseToReloadText" : "释放加载",
+            "loadingText" : "加载中，请稍等"
+        };
+
+        appcan.ready(function() {
+            getUserInfo();
+            getBookInfo();
+            loadData();
+            uexWindow.setBounce(1);
+            uexWindow.notifyBounceEvent(0, 1);
+            uexWindow.notifyBounceEvent(1, 1);
+            uexWindow.showBounceView("0", "rgba(0, 0, 0, 0)", 1);
+            uexWindow.showBounceView("1", "rgba(0, 0, 0, 0)", 1);
+            uexWindow.onBounceStateChange = function(type, state) {
+                var time1 = new Date().format("MM-dd HH:mm:ss");
+                switch(type) {
+                case 0:
+                    if (state == 2) {
+                        refreshData();
+                    }
+                    break;
+                case 1:
+                    if (state == 2) {
+                        loadJson.levelText = "上次加载：" + time1;
+                        uexWindow.setBounceParams(1, JSON.stringify(loadJson));
+                        pageIndex++;
+                        loadData();
+                    }
+                    break;
+                }
+            };
+            var time1 = new Date().format("MM-dd HH:mm:ss");
+            reloadJson.levelText = "上次刷新：" + time1;
+            loadJson.levelText = "上次加载：" + time1;
+            uexWindow.setBounceParams(0, JSON.stringify(reloadJson));
+            uexWindow.setBounceParams(1, JSON.stringify(loadJson));
+        });
+
+        function refreshData() 
+        {
+            var time1 = new Date().format("MM-dd HH:mm:ss");
+            reloadJson.levelText = "上次刷新：" + time1;
+            uexWindow.setBounceParams(0, JSON.stringify(reloadJson));
+            $("#messageList .item").remove();
+            pageIndex = 1;
+            loadData();
+        }
+
+        function loadData() {
+            var params = {
+                'userId' : userInfo.id,
+                'type' : "received",
+                pageSize : '20',
+                pageIndex : pageIndex
+            };
+            common.ajax("/message/list", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if (pageIndex == 1 && data.obj.count == 0) 
+                {
+                    myPrompt.show("暂无消息~", "#messageList");
+                } 
+                else 
+                {
+                    myPrompt.hide();
+                    var list = data.obj.list;
+                    if (list) 
+                    {
+                        for (var i = 0; i < list.length; i++) 
+                        {
+                            var obj = list[i];
+                            var objItem = $("#item").clone();
+                            objItem.removeClass("uhide");
+                            objItem.attr("id", obj.id);
+                            if(obj.senderImage.length > 0)
+                            {
+                                objItem.find(".headImg img").attr("src",getHeadImageUrl(obj.senderImage));
+                            }
+                             objItem.find(".name").html(obj.senderName);
+                             objItem.find(".content").html(obj.content);
+                             objItem.find(".date").html(getformatDate(obj.sendDate,"yyyy-MM-dd HH:mm"));
+                             if(obj.reply && obj.reply != "")
+                             {
+                                 objItem.find(".replyContent").html(obj.reply.content);
+                                 objItem.find(".replyDate").html(getformatDate(obj.reply.sendDate,"yyyy-MM-dd HH:mm"));
+                             }
+                             else
+                             {
+                                 objItem.find(".divReply").removeClass("uhide");
+                             }
+                            objItem.find(".del").on("click",function(){
+                                var id = $(this).parents(".item").attr("id");
+                                 appcan.alert("提示", "删除此条消息？", ["删除", "取消"], function(e, idx) {
+                                    if (idx == 1) {
+                                        return;
+                                    }
+                                    delMessage(id);
+                                });
+                            });
+                            objItem.find(".btnReply").on("click",function(){
+                                var msg = $(this).parents(".item").find(".replyMsg").val();
+                                if(msg.length == 0)
+                                {
+                                    toast("请输入回复信息~",config.toastTimeShort);
+                                }else {
+                                    replyMessage($(this).parents(".item").attr("id"),msg);
+                                }
+                            });
+                            $("#messageList").append(objItem);
+                        }
+                    } else {
+                        if (pageIndex > 1) {
+                            pageIndex--;
+                        }
+                        toast("没有更多消息了~", config.toastTimeShort);
+                    }
+                }
+            }, function(data) {
+                if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if (pageIndex > 1) {
+                    pageIndex--;
+                }
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            });
+        }
+        
+        function delMessage(messageId){
+             var params = {
+                'userId' : userInfo.id,
+                'messageId' : messageId
+            };
+            common.ajax("/message/delete", {
+                params : JSON.stringify(params)
+            }, function(data) 
+            {
+                $("#"+messageId).remove();
+                toast("已删除~",config.toastTimeShort);
+            }, function(data) { 
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            },{type : 'POST'});
+        }
+        
+        function replyMessage(messageId,msg){
+             var params = {
+                'userId' : userInfo.id,
+                'content' : msg,
+                'sourceMessageId' : messageId
+            };
+            common.ajax("/message/reply", {
+                params : JSON.stringify(params)
+            }, function(data) 
+            {
+                 $("#"+messageId).find(".divReply").addClass("uhide");
+                 $("#"+messageId).find(".replyContent").html(msg);
+                 $("#"+messageId).find(".replyDate").html(new Date().format("yyyy-MM-dd HH:mm:ss"));
+            }, function(data) { 
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            },{type : 'POST'});
+        }
+    </script>
+</html>

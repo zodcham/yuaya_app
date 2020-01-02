@@ -1,0 +1,88 @@
+/* 整体设置 */
+*{margin:0px;padding:0px;}
+ 
+/**
+ * 设置日历的大小
+ */
+.calendar{
+  width: 18em;
+  height: 18em;
+  display: block;
+}
+ 
+/**
+ * 设置日历顶部盒子
+ */
+.calendar .calendar-title-box{
+  position: relative;
+  width: 100%;
+  height: 2em;
+  line-height: 2em;
+  text-align:center;
+  background:#33A1E6;
+  color:#FFFFFF;
+}
+ 
+/**
+ * 设置上个月的按钮图标
+ */
+.calendar .prev-month {
+  position: absolute;
+  top: 0.3em;
+  left: 0.5em;
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border-left: 0px;
+  border-top: 0.6em solid transparent;
+  border-right: 0.8em solid #FFFFFF;
+  border-bottom: 0.6em solid transparent;
+  cursor: pointer;
+}
+ 
+/**
+ * 设置下个月的按钮图标
+ */
+.calendar .next-month {
+  position: absolute;
+  top: 0.3em;
+  right: 0.5em;
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border-right: 0px;
+  border-top: 0.6em solid transparent;
+  border-left: 0.8em solid #FFFFFF;
+  border-bottom: 0.6em solid transparent;
+  cursor: pointer;
+}
+ 
+ 
+/* 设置日历表格样式 */
+.calendar-table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align:center;
+}
+ 
+/* 表格行高 */
+.calendar-table tr{
+  height: 2.2em;
+  line-height: 2.2em;
+}
+ 
+/* 当前天 颜色特殊显示 */
+.currentDay {
+  color: #FFFFFF;
+  background: #4bdc6d;
+}
+ 
+/* 本月 文字颜色 */
+.currentMonth {
+  color: #999;
+}
+ 
+/* 其他月颜色 */
+.otherMonth{
+  color: #ede;
+}

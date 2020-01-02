@@ -1,0 +1,39 @@
+.dog{
+    width:3em;
+    height:3em;
+    background: url(../images/dog.png) 0 0 no-repeat;
+   -webkit-animation-name: run;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+    -webkit-animation-duration: 500ms;
+}
+
+@-webkit-keyframes run{
+    0%{background-position: 0 0;}
+    50%{background-position: -80px -2px;}
+    100%{background-position: 0 0;}
+}
+ 
+.road{
+    overflow: hidden;
+    background: #00CC33;
+    height:1em;
+}
+.dogmove{
+    -webkit-animation: move 2s linear infinite;  
+}
+.dogmove:before{
+    content: "";    
+    width:1em;
+    height:1em;
+    border-bottom: 1px solid #572E2F;
+    position: absolute;
+    top:1.5em;
+    left:-1em;
+}
+
+@-webkit-keyframes move{
+    0%{margin-left: 0%;}
+    99%{margin-left:99%}
+    100%{margin-left:0%}
+}

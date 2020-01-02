@@ -1,0 +1,101 @@
+
+
+appcan.ready(function() {
+    loadUserInfo();
+});
+
+function loadUserInfo(){
+    getUserInfo();
+    if(userInfo.isActiveValidity==0 && userInfo.type!=2){
+        $("#vip_user_status").html("您是月芽普通会员，欢迎使用月芽平台。");
+    }
+    else{
+        if(userInfo.type!=2) {
+            $("#vip_user_status").html("您已是月芽收费会员，账户将于 " + userInfo.activeValidityDate + " 到期。");
+        }
+        else{
+            $("#vip_user_status").html("您月芽学生用户，欢迎使用月芽家庭版。");
+        }
+    }
+}
+
+appcan.button("#buy", "btn-act", function() {
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy1", "btn-act", function() {
+    sysInfo.keytype = 30;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy2", "btn-act", function() {
+    sysInfo.keytype = 90;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy3", "btn-act", function() {
+    sysInfo.keytype = 180;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#payConfirm", "btn-act", function() {
+    pay();
+});
+
+
+payConfirm
+appcan.button("#upLevel", "btn-act", function() {
+    var sn=$("#sn").val();
+    if(!sn.length) {
+        toast("请输入密钥！",1000);
+        return;
+    }
+
+    var url=_SERVER_ADDRESS+"/phone/register/activateAccount";
+    var par={'code' : sn, 'studentId': userInfo.id};
+    var ferr=function(err){};
+    var fok=function(data){
+        var obj=JSON.parse(data);
+        //userInfo.isActiveValidity=1;
+        //userInfo.activeValidityDate="2020-4-30";
+        userInfo = obj.obj
+        appcan.alert({"title":"提示","content":"您的账户已成功激活，会员到期日为："+userInfo.activeValidityDate});
+        setUserInfo(false);
+        appcan.window.publish(UPDATE_INFO, "0");
+        appcan.window.publish(UPDATE_INDEX, "0");
+        loadUserInfo();
+    };
+    common.ajaxPOST(url, par, fok, ferr);
+});
+
+function setChecked(id) {
+    $("radio").prop("checked",false);
+    $("#"+id).prop("checked",true);
+}
+
+
+function setInfo(){
+    var partner = "2019051564591594";
+    var seller = "454177123@qq.com";
+    var rsaPrivate = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC6OkS0C8xTk/smFpsoULSHM+2/UR2qlmdVTukeiSeluqjVXfNsFnfz1i37puoIkqhmPu/vAbRSXc77cZqhqp1M+CVN9FnP6J847v2E6F3AI3z4Bu8qVqwvJdNOBXjeeDcxw5yL6XO/HPVpAjm5fPfVhj8sPSjeqCiUcdagJeaM6n+d/sWivEUrpGnsOvXS2kBnS7zzm9z1Io5DKjEsPaf8/iBIQqiXWJvijRO/mZWtUaYy4CTst7320z7joe4WsKA6DYCqo8Nk3z8twT8gcReKeQwJBKRPYFdkuWIGeoPuKMRJ/WPN+sGEBoXDatTdIupQWwNVPKbGVbarIGeUAbknAgMBAAECggEBAJWzBUteOI/u4vLJNUyBI72ThshGInzgjoxK9KZxRoe4tsNd1LHMlfxS7X/fuz3M9sXKTgFo81VKx3nk5pKSngQjbYlupUu2CVgw9WaDi+lKHckbeeIk7iCwXV3YlELxjBzay9rEfSDh3HzfJxvuUyM32UxslY/2yTgbEpaGIQCgl+T/bIMeZB8/rbkcZPbfkf9jGzAnzQriw9BLES6n8ZUuMld65qXH8vjCDjOWOgB0bKj7ubFmPgKzsMZFNdYiIJ13fpCqY5vFPKayUlgMFHo2ktAPft2PDUo13pwGsmpVCtgKqr5HCQoo1hP2b3DspWN5jDNB9FQ8ZChsORAc4LECgYEA8LAr4tkHwinVUtPQefRQ8GLoeqSlIheQOi2vP6dgag4KVtYPnemOnfHLziGql3kqZY1hiyHgrJ+/Ni3JlB7PlL/Jw8VtvN1R6BNdpT70ALLCpXjTTJhIRgbwozF3oJNuNIZMjLS6px5ujU1VDC+BEaNRAvaGUNPYeAWnOmkzf1MCgYEAxhMoFRHcrE20AlyQFcmodOyP1fpRpHhmpjYe/Nyvwd5ufNhOv8OOVcFNp1wJ7OurVXUBkQfEUsCHCa6xNrjGmzqMYA1LxkxDlUOe6MGDF8O00jvI0Eo0ysr1UjJzO+f2oIiagLvYXAL6i8rvvPXrXeOxQvzYI6vomuvfqZqKqF0CgYAlTkkfGiCXucA03Fvd6z54Y/xAtjBaPmi+e8JEDX9mMNLtbrRw93iBhq7ePl2gqMkngGh0FkYqu3/5t9McwEHQfoGZdIpz0aIWZJoJON69FPgSic3Ge3wITp8RzGMMYo2cWoyW6pRbvt3HzQq3ns1UnIm7+dYLxSoyQD4RUakHvQKBgQCfLWfpvsgDZBKET1SvXbbV+AIDaL3RmbyMWDQA620HNLS/+akXbJVnDwhTtaB4WFABRh1zKrW39ubOfigGHOnmd1+2FRlPC5zISGZdEJ5EK8+Vn9van7fbPM13N/npK5nEGuNnDw5pqy8jxntw9IQomMGsXrtnt1Afp+y/ROWnNQKBgQCgfaT3G359QMdfAWBKc79C+yjWYIaZ4YRIvJF6OzYtE0XhvXjWe1V5O7e89qcYNvQ9W6wSAO8NG16bkXI2k8gR2pCS56SHwLLo53h41veXdmBsY09l5u8ucxGuvh2+3jPcMCmL0KqSgCoiH/VOqtgkkSTdGN0uxpbIM1sKhxt+bQ==";
+    var rsaPublic = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAujpEtAvMU5P7JhabKFC0hzPtv1EdqpZnVU7pHoknpbqo1V3zbBZ389Yt+6bqCJKoZj7v7wG0Ul3O+3GaoaqdTPglTfRZz+ifOO79hOhdwCN8+AbvKlasLyXTTgV43ng3McOci+lzvxz1aQI5uXz31YY/LD0o3qgolHHWoCXmjOp/nf7ForxFK6Rp7Dr10tpAZ0u885vc9SKOQyoxLD2n/P4gSEKol1ib4o0Tv5mVrVGmMuAk7Le99tM+46HuFrCgOg2AqqPDZN8/LcE/IHEXinkMCQSkT2BXZLliBnqD7ijESf1jzfrBhAaFw2rU3SLqUFsDVTymxlW2qyBnlAG5JwIDAQAB";
+    var notifyUrl = "http://app.yueyabook.com/alipay/payok";
+    uexAliPay.setPayInfo(partner, seller, rsaPrivate, rsaPublic, notifyUrl);
+}
+
+function pay(){
+    setInfo();
+    var subject = "导读视频单集";
+    var body = "假如给我三天光明 导读视频";
+    var fee = "0.01";
+    var num = "20190516001"; //测试需修改单号,避免已经支付的问题
+    alert();
+    uexAliPay.pay(num, subject, body, fee, function(error,data){
+        if(!error){
+            alert("支付成功");
+
+        }else{
+            alert(data);
+        }
+
+    });
+}

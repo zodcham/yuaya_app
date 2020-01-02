@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/font_awesome4.7/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/ui-box.css">
+    <link rel="stylesheet" href="./css/ui-base.css">
+    <link rel="stylesheet" href="./css/ui-color.css">
+    <link rel="stylesheet" href="./css/appcan.icon.css">
+    <link rel="stylesheet" href="./css/appcan.control.css">
+</head>
+<body class="um-vp " >
+<div id="page_0" class="up ub ub-ver" tabindex="0" style="background-color: #e9fbce;">
+    <div class="btn_back" style="z-index: 59999;font-size:1rem;border-radius: 1rem;width:2rem;height:2rem;line-height:2rem; position:fixed;left:1rem;background-color: black;color:#fff;opacity: 0.5; text-align: center;top:1em;" onclick="change_mod('h')"><i class="fa fa-angle-left fa-w fa-lg" style="font-size:1.8em;"></i></div>
+    <!--content开始-->
+    <div id="content" class="ub-f1 tx-c" style="overflow-y: auto;">
+        <img id="img_tree" src="http://www.readseed.cn/static/space/t1.png" style="width:100%;" />
+    </div>
+    <!--content结束-->
+
+    <!--footer开始-->
+    <div id="footer"  class="ub c-wh ub-ac ub-ver  " style="position: fixed;z-index: 999;left:0;bottom:0; border-width: 0;">
+        <div class="" style="width:100%;height:5em; line-height: 5em;text-align: right;"><i class="fa fa-question-circle-o" aria-hidden="true" style="margin-right:1em;" onclick="ShowHelp('person')"></i></div>
+        <div class="ub-f1" style="width:100%;height:100%;margin-top:0em;">
+
+            <div class="" style="height:6rem;margin:0 auto; width:40%;float: left;">
+                <img id="headImg" class="ub" src="head.png" style="height:100%;border-radius: 50%;margin:0 auto;border:1px solid #fff;"/>
+            </div>
+            <div id="div_level1" class=" ub-ver " style="width:60%;float: left;" >
+                <div id="label_name" class="ub-f1 tx-l ulev" style="">
+                </div>
+                <div id="label_level" class="ub-f1 tx-l ulev" style="">
+                    <span id="span_level"></span>
+                </div>
+                <div class="ub-f1 tx-l ulev" style="">
+                    经验值：
+                    <span id="label_exp_current"></span>
+                    /<span id="label_exp_nextlevel"></span>
+                </div>
+
+                <div id="label_gold" class="ub-f1 tx-l ulev" style="">
+                    <span id="span_gold">财富:</span>
+                </div>
+            </div>
+        </div>
+        <div style="width:90%">
+            <img id="img_lv" src="" style="width:100%">;
+        </div>
+
+    </div>
+</div>
+<!--footer结束-->
+</div>
+
+</div>
+
+<script src="js/appcan.js"></script>
+<script src="js/appcan.control.js"></script>
+<script src="js/common.js"></script>
+<script src="js/entity.js"></script>
+<script src="js/tool.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+    document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+    document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/space_level.js?v=' + (new Date().getTime()) + '"><\/script>');
+</script>
+
+</body>
+</html>

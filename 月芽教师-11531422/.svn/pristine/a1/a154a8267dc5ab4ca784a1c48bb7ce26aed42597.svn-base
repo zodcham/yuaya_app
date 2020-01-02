@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="jack"> -->
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,
+                user-scalable=no" />
+        <!-- 适应手机屏幕，防止屏幕缩放 -->
+        
+        <!--样式-->
+        <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../css/calender.css">
+        <link rel="stylesheet" href="css/ranking.css" />
+    </head>
+    <body class="um-vp bc-bg " ontouchstart>
+        
+        <div class="uinn btn ub ub-ac bc-white ub-pc" style="margin: 0.5em 0.5em">
+            <div class="ub ub-fh ub-f2" id="beginDate">
+                <div class="ub ub-f1" style="padding: 0.5em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">开始日期： </div>   
+                    <div class="ub ub-ac ub-pc beginDate sc-text-blue umar-l"></div>                      
+                </div>                
+            </div>
+            <div class="ub ub-fh ub-f2" id="endDate">
+               <div class="ub ub-f1" style="padding: 0.5em 0.5em">
+                 <div class="ub ub-ac ub-pc sc-text">结束日期： </div>   
+                  <div class="ub ub-ac ub-pc endDate sc-text-blue umar-l"></div>                 
+                </div>                               
+            </div>
+            
+          </div>
+          
+          <div class="uinn btn ub ub-ac bc-white ub-pc ub-f1" style="margin: 0.5em 0.5em">
+            <div id="btnSubmit" class="uinn btn ub ub-ac ub-pc ub-f2"  style="margin: 1.5em 0.5em;background: #e3e3de;font-weight: bold">
+                                                     确认查询
+            </div> 
+
+            <div id="ShowCharts" class="uinn btn ub ub-ac ub-pc ub-f2"  style="margin: 1.5em 0.5em;background: #1296DB;font-weight: bold;color:#fff;">
+                                                     查看图表
+            </div>
+          </div> 
+        
+        <div id="dataContent"> 
+             <div id="teacher_left_div">
+                <div id="teacher_left_div1">
+                  <table id="teacher_left_table1" class="table table-bordered">
+                    <tr>
+                      <th>教师姓名</th>
+                    </tr> 
+                  </table>
+                </div>
+                <div id="teacher_left_div2">
+                  <table id="teacher_left_table2" class="table table-bordered">
+                    <!-- 左侧固定列 -->
+                  </table>
+                </div>
+            </div>
+            
+            <div id="teacher_right_div">
+            <div id="teacher_right_div1">
+              <div id="teacher_right_divx">
+                <table id="teacher_right_table1" class="table table-bordered">
+                  <tr>
+                    <th>分配班级</th>
+                    <th>学生人数</th>
+                    <th>布置任务总量</th>
+                    <th>完成任务总量</th>
+                    <th>人均任务量</th>
+                    <th>完成率</th>
+                    <th>读后感</th>
+                    <th>人均读后感</th>
+                    <th>参与阅读率</th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="teacher_right_div2">
+              <table id="teacher_right_table2" class="table">
+                <!-- 滚动部分的数据 -->
+              </table>
+            </div>
+          </div>
+        </div>
+
+   <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/calender.js"></script>
+ </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/ranking/teacher_analysis_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

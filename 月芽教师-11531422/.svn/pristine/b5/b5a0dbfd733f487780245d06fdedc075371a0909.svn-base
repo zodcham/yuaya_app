@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="jack"> -->
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,
+                user-scalable=no" />
+        <!-- 适应手机屏幕，防止屏幕缩放 -->
+        
+        <!--样式-->
+        <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../css/calender.css">
+        <link rel="stylesheet" href="css/ranking.css" />
+        <style type="text/css">
+            .school_title{
+                font-size: 1.2em;
+                line-height: 2em;
+                font-weight: bold;
+            }
+            .color_darkred{
+                color:#572E2F;
+            }
+            #ul_gradelist li {
+                float: left;
+                margin-left:0.2em;
+            }
+            .eachgrade{
+                margin-left:0.5em;
+                margin-bottom:0.5em;
+            }
+            .grade_active{
+                background-color: #00848E !important;
+                color:#fff !important;
+            }
+            .noselect{
+                background-color:#6ccd6e;
+                color:#fff;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg " ontouchstart>
+           <div class="ub ub-f1 ub-ver bc-bg">
+               <div class="ub ub-f1 umar-a bc-white uinn">
+                   <div style="width:25%;">
+                       <div id="grade_all" onclick="LoadAllGrade();" class="btn noselect grade_active">全部年级</div>
+                   </div>
+                   <div class="ub-f1">
+                       <div id="grade_1" onclick="LoadGrade(1);" class="btn noselect uhide eachgrade ">一年级</div>
+                       <div id="grade_2" onclick="LoadGrade(2);" class="btn noselect uhide eachgrade">二年级</div>
+                       <div id="grade_3" onclick="LoadGrade(3);" class="btn noselect uhide eachgrade">三年级</div>
+                       <div id="grade_4" onclick="LoadGrade(4);" class="btn noselect uhide eachgrade">四年级</div>
+                       <div id="grade_5" onclick="LoadGrade(5);" class="btn noselect uhide eachgrade">五年级</div>
+                       <div id="grade_6" onclick="LoadGrade(6);" class="btn noselect uhide eachgrade">六年级</div>
+                   </div>
+               </div>
+            <div class="ub ub-f1 ub-ver umar-a bc-white uinn">
+                <div class="ub-f1 school_title" id="grade_title">人均阅读量</div>
+                <div class="ub-f1" id="grade_books"></div>
+                <div class="ub-f1 school_intro" id="grade_intro"><span class="analyze_name">班内</span>人均阅读书籍册数。单位：本</div>
+
+            </div>
+            <div class="ub ub-f1 ub-ver umar-a bc-white uinn">
+                <div class="ub-f1 school_title" id="completation_count_title">人均阅读字数</div>
+                <div class="ub-f1" id="grade_words"></div>
+                <div class="ub-f1 school_intro" id="completation_count_intro"><span class="analyze_name">班内</span>人均阅读书籍字数。单位：千字</div>
+            </div>
+            <div class="ub ub-f1 ub-ver umar-a bc-white uinn">
+                <div class="ub-f1 school_title" id="school_title">阅读参与率</div>
+                <div class="ub-f1" id="grade_rate"></div>
+                <div class="ub-f1 school_intro" id="school_intro"><span class="analyze_name">班内</span>通过在线测评人数所在全班人数比例</div>
+            </div>
+            <div class="ub ub-f1 ub-ver umar-a bc-white uinn">
+                <div class="ub-f1 school_title" id="person_title">阅读参与率</div>
+                <div class="ub-f1" id="top1_class_rate"></div>
+                <div class="ub-f1 school_intro" id="person_intro">以<span class="gradeorclass">年级/班级</span>阅读参与率为第一指标进行排名。<br/><span class="top1_class_name" style="color:#0000ff"></span> <span id="user_all" style="color:#0000ff"></span> 位学生，共有 <span id="user_count" style="color:#0000ff"></span> 位用户使用软件并通过测评，占全班人数的<span id="user_per" style="color:#0000ff"></span></div>
+            </div>
+            
+        </div>
+    </body>
+   <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <!-- <script src="http://www.readseed.cn/nocache/js_teacher/ranking/class_analysis_content.js"></script> -->
+    <script src="http://www.readseed.cn/nocache/js_teacher/js/echarts.common.min.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/js/yy_charts.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/ranking/grade_charts_content.js"></script>
+ </body>
+    <script>
+        
+ </script>
+</html>

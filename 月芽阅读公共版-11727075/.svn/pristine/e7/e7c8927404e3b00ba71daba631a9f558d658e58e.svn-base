@@ -1,0 +1,214 @@
+var width_screen = document.body.clientWidth;
+
+function openPlayer() {
+    g_videoPath=g_videoArr[g_videoIndex];
+    setLocVal("videoIndex",g_videoIndex);
+
+    var id="videoImage"+g_videoIndex;
+
+
+    //var left=$("#"+id).position().left;
+    $(".bookImage").css("width","3em");
+    $("#"+id).find(".bookImage").css("width","3.5em");
+    var scroolLeft=(g_videoIndex)*5*24;
+
+    $("#videoImageList").scrollLeft(scroolLeft);
+    var param = {
+        src: g_videoPath,
+        startTime: 0,
+        autoStart: true,
+        forceFullScreen: false,
+        showCloseButton: false,
+        showScaleButton: false,
+        isAutoEndFullScreen: false,
+        //width: 972,
+        //height: 972*9/16,
+        width: 1080,
+        height: 1080*9/16,
+        //x: 54,
+        //y: 30,
+        x: 0,
+        y: 0,
+        scrollWithWeb: true
+    };
+    uexVideo.openPlayer(JSON.stringify(param));
+}
+
+
+
+
+var g_videoArr=[],g_ImageArr=[],g_ImageFileNameArr=[];
+var g_videoPath="";
+var g_videoIndex=0;
+appcan.ready(function() {
+
+    appcan.window.evaluateScript({
+        name : "login", //窗口名称
+        scriptContent : 'appcan.window.close();'
+    });
+
+    getUserInfo();
+    getSysInfo();
+
+    AddLog(userInfo.id, logKeys.OpenApp);
+
+    config.currentPath = "";
+    uexWindow.onKeyPressed = function(keyCode) {
+        if (keyCode == 0) {
+            uexWidgetOne.exit();
+        }
+    }
+
+    uexWindow.setReportKey(0, 1);
+
+    validLogin(function(msg) {
+        init();
+    }, function(msg) {
+        appcan.window.open("login", "login.html", 5);
+    });
+
+    //checkUpload(false);
+    //var imei = uexDevice.getInfo(10);
+    var cDeviceToken = uexDevice.getInfo(11);
+
+    var fileList=uexFileMgr.getFileListByPath("wgt://yueyaImage");
+    if(CheckVideoFileList()){
+        var fileList=uexFileMgr.getFileListByPath("/sdcard/yueya/video");
+        if(getLocVal("videoIndex").length>0) g_videoIndex=Number(getLocVal("videoIndex"));
+        if(g_videoIndex>=fileList.values.length) g_videoIndex=-1;
+        $.each(fileList.values, function(idx, obj) {
+            var videopath=obj.nameValuePairs.filePath;
+            g_videoArr.push(videopath);
+        });
+        g_videoArr.sort();
+        LoadVideoImageList();
+        openPlayer();
+    }
+    var titHeight = (width_screen * 9 / 16);
+    appcan.frame.open("content", "default_content.html", 0, 810);
+    
+
+
+    uexVideo.onPlayerClose = function(info){
+        g_videoIndex++;
+        if(g_videoIndex>=g_videoArr.length) g_videoIndex=0;
+        openPlayer();
+    };
+    uexVideo.onPlayerFinish = function() {
+        uexVideo.closePlayer();
+        //openPlayer();
+    };
+    uexVideo.onPlayerEndTime = function(){
+        //openPlayer();
+        //alert("b");
+    }
+})
+
+function CheckVideoFileList(){
+    var file = uexFileMgr.create({
+        path: "/sdcard/yueya/"
+    });
+    var fileList=uexFileMgr.getFileListByPath("/sdcard/yueya/video");
+    if(fileList.values.length==0){
+        alert("请将月芽视频文件复制到 根目录下的 /yueya 文件夹");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
+function CheckVideoFileList_bak(){
+    if(uexFileMgr.getFileTypeByPath("wgt://yueyaVideo")) {
+        uexFileMgr.mkdir({path: "wgt://yueyaVideo"});
+        uexFileMgr.mkdir({path: "wgt://yueyaImage"});
+    }
+
+    var realPath="";
+    if(!uexFileMgr.isFileExistByPath("wgt://1.txt")) {
+        var file = uexFileMgr.create({
+            path: "wgt://1.txt"
+        });
+        realPath = uexFileMgr.getFileRealPath("wgt://1.txt");
+    }
+    else{
+        realPath = uexFileMgr.getFileRealPath("wgt://1.txt");
+    }
+    realPath=realPath.replace("1.txt","");
+
+
+    var fileList=uexFileMgr.getFileListByPath("wgt://yueyaVideo");
+    if(fileList.values.length==0){
+        alert("请将月芽视频文件复制到 "+realPath+"yueyaVideo/");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
+
+
+
+//导读视频列表
+function LoadVideoImageList() {
+    var fileList=uexFileMgr.getFileListByPath("/sdcard/yueya/image");
+    $.each(fileList.values, function(idx, obj) {
+        var videopath=obj.nameValuePairs.filePath;
+        g_ImageArr.push(videopath);
+        var filename=obj.nameValuePairs.fileName;
+        filename=filename.replace(".jpg","");
+        filename=filename.replace(".jpeg","");
+        filename=filename.replace(".png","");
+        filename=filename.replace(".gif","");
+        g_ImageFileNameArr.push(filename);
+    });
+    g_ImageArr.sort();
+    g_ImageFileNameArr.sort();
+
+    var height_screen=document.body.clientHeight;
+    var width_screen=document.body.clientWidth;
+
+    $(".recommendBook").html('');
+    for (var i = 0; i < g_ImageArr.length; i++) {
+
+        var obj = g_ImageArr[i];
+        var bookItem = $("#bookItem").clone();
+        bookItem.attr("id", "videoImage"+i);
+        bookItem.attr("imageIndex", i);
+        bookItem.removeClass("uhide");
+
+        //var real_url = "file://" + g_ImageArr[i];
+        var real_url = "file://" + g_ImageArr[i];
+        //alert(real_url);
+        bookItem.find(".bookImage").attr("src", real_url);
+        bookItem.find(".bookName").html(g_ImageFileNameArr[i]);
+
+        bookItem.bind("click", function() {
+            var id = Number($(this).attr("imageIndex"));
+            g_videoIndex=id-1;
+            uexVideo.closePlayer();
+        });
+
+        $(".recommendBook").append(bookItem);
+    }
+}
+
+
+appcan.button("#btn_index_home", "btn-act", function() {
+    appcan.window.open("default", "default.html", 5);
+});
+appcan.button("#btn_index_mall", "btn-act", function() {
+    appcan.window.open("mall", "index_mall.html", 5);
+});
+appcan.button("#btn_index_rank", "btn-act", function() {
+    appcan.window.open("ph", "Paihang.html", 5);
+});
+appcan.button("#btn_index_my", "btn-act", function() {
+    appcan.window.open("person", "index_person.html", 5);
+});
+appcan.button("#btn_index_club", "btn-act", function() {
+    appcan.window.open("yueduquan", "yueduquan/Reading_circle.html", 5);
+});

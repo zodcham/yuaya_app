@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="margin:0;padding: 0;">
+	    <div id="div_img">
+	        
+	    </div>
+	    
+	<script src="./js/appcan.js"></script>
+<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js"></script>
+        <script src="./js/appcan.control.js"></script>
+        
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tools.js"></script>
+        <script src="http://www.readseed.cn/nocache/js_student/sign_img.js"></script>
+    </body>
+    <script>
+        
+        
+
+    </script>
+</html>

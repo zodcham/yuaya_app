@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style>
+            input[type="range"] {
+                background:-webkit-gradient(linear, left center,right center, color-stop(0%,#00cc33), color-stop(40%,#00cc33), color-stop(40%,#FC7800), color-stop(100%,#FC7800));
+                height:1em;
+                -webkit-appearance: none;
+            }
+            input[type="range"]::-webkit-slider-thumb {
+                 -webkit-appearance: none;
+                height: 1em;
+                width: 0.1em;
+                background: #FFFFFF;
+                border: 0px solid #FFFFFF;
+            }
+            .box{
+                border-radius: 0.5em;
+            }
+            .box .title{
+                border-radius: 0.5em 0.5em 0 0;
+            }
+            .box:before{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                left:-0.5em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-right:0.5em solid #BABABA; 
+            }
+            .box:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                left:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-right:0.5em solid #FFFFFF; 
+            }
+            .year{
+                background:#00848e;
+                border-radius: 0.1em;
+            }
+            .year:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                right:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:0.5em solid #00848e; 
+            }
+            .noyear:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                right:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:0.5em solid transparent; 
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="main" class="ub ub-ver ub-fh ub-fv"></div>
+        
+        <div id="item" class="item uhide ub ub-fh">
+            <div class="ub ub-ac ub-pc ub-ver">
+                <div class="sc-text-1 ulev-1 uinn ub ub-ac ub-pc ub-f1">
+                    <div style="height:1.5em;padding: 0 0.1em" class="ub ub-ac ub-pc bc-text-head year"></div>
+                </div>
+                <div class="sc-text-1 ulev-1 uinn ub ub-ac ub-pc ub-f1">
+                    <div style="height:1.5em" class="ub ub-ac ub-pc date"></div>
+                </div>
+                <div class="sc-text-1 ulev-1 uinn ub ub-ac ub-pc ub-f1">
+                    <div style="height:1.5em"></div>
+                </div>
+            </div>
+            <div class="ub ub-ac ub-ver ub-pc umar-r">
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fv">
+                    <div class="ub ub-f1 ub-fv sc-bg-active" style="width: 1px"></div>
+                    <div style="width:0.5em;height:0.5em;border-radius: 50%" class="sc-bg-1"></div>
+                    <div class="ub ub-f1 ub-fv sc-bg-active" style="width: 1px"></div>
+               </div>
+            </div>
+            
+             <div class='ub ub-ver ub-f1 umar-a bc-border uba box click'>
+               <div class="ub ub-fh sc-bg-active title">
+                    <div class="ub ub-f1 uinn ulev-1 ">
+                        <div class="ub ub-f1 sc-text-active name"></div>
+                        <div class="ub ub-ac ub-pc sc-text-warn state"></div>
+                    </div>
+                </div>
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc">
+                        <img src="../css/icons/noImg.png" style="width:4em;height:4em">
+                    </div>
+                    <div class="ub ub-ver ub-f1 umar-l">
+                        <div class="ub ub-f1 ub-fh sc-text-active ulev-1">
+                            <div class="ub ub-ac ub-pc ub-f1 type"></div>
+                            <div class="ub ub-ac ub-pc ub-f1 isMustReview"></div>
+                        </div>
+                        <div class="ub ub-f1 ub-fh">
+                            <div class="ub ub-ac ub-pc" style="margin-right: -0.1em;z-index: 100">
+                                <div class="ub ub-ac ub-pc sc-bc-green bc-text-head ulev-2 finishCountPer " style="border-radius: 50%;width:3em;height:3em"></div>
+                            </div>
+                           <div class="ub ub-ver ub-f1">
+                               <div class="ub-f1"></div>
+                               <div class="ub ub-fh ulev-2">
+                                   <div class="ub ub-ac ub-pc sc-text-green umar-l">完成</div>
+                                   <div class="ub-f1"></div>
+                                   <div class="ub ub-ac ub-pc sc-text-warn umar-r">未完成</div>
+                               </div>
+                              <input type="range" max="100" value="0" class="ub ub-fh range" />
+                               <div class="ub ub-fh ulev-2">
+                                   <div class="ub ub-ac ub-pc sc-text-green umar-l finishCount"></div>
+                                   <div class="ub-f1"></div>
+                                   <div class="ub ub-ac ub-pc sc-text-warn umar-r notfinishCount"></div>
+                               </div>
+                               <div class="ub-f1"></div>
+                            </div>
+                            <div class="ub ub-ac ub-pc" style="margin-left: -0.1em">
+                                <div class="ub ub-ac ub-pc sc-bc-warn bc-text-head ulev-2 notfinishCountPer" style="border-radius: 50%;width:3em;height:3em"></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var g_PageIndex=1;
+        var yearFlag;
+        appcan.ready(function() {
+            getUserInfo();
+            loadData();
+        });
+        function loadData(){
+            var params={'userId':userInfo.id,'finishState':'','pageSize':10,'pageIndex':g_PageIndex};
+            common.ajax("/recommend/list", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var list=data.obj.list;
+                if(list&&list.length>0){
+                    list=list.sort(function(a, b){return ( getformatDate(a.endDate)<getformatDate(b.endDate));});
+                    for(var i=0;i<list.length;i++){
+                        var obj=list[i];
+                        var objItem=$("#item").clone();
+                        objItem.removeClass("uhide");
+                        objItem.attr("id","item_"+obj.id);
+                        
+                        objItem.find(".box").attr("id",obj.id);
+                        objItem.find(".box").attr("bookId",obj.bookId);
+                        objItem.find(".box").attr("bookName",obj.bookName);
+                        objItem.find(".name").html(obj.bookName);
+                        if(obj.bookImage&&obj.bookImage.length>0){
+                            objItem.find("img").attr("src",_SERVER_ADDRESS+obj.bookImage);
+                        }
+                        var state="";
+                        if(obj.finishState==1){
+                            state="<div class='sc-text-green'>已完成</div>"
+                        }else{
+                            
+                            state='<div class="fa icon-countdown umar-r"></div>剩余'+dateDiff(new Date().format("yyyy-MM-dd"),new Date(obj.endDate).format("yyyy-MM-dd"))+'天';
+                        }
+                        objItem.find(".state").html(state);
+                        var y=getformatDate(obj.endDate,"yyyy");
+                        if(yearFlag!=y){
+                            yearFlag=y;
+                            objItem.find(".year").html(yearFlag);
+                        }else{
+                            objItem.find(".year").removeClass("year").addClass("noyear");
+                        }
+                        objItem.find(".date").html( getformatDate(obj.endDate,"MM-dd"));
+                        objItem.find(".type").html('<div class="fa icon-checkboxchecked umar-r"></div>必读');
+                        objItem.find(".isMustReview").html('<div class="fa icon-checkboxchecked umar-r"></div>读后感');
+                        objItem.find(".notfinishCountPer").html(Math.ceil(obj.notfinishCount/obj.studentCount*100)+"%");
+                        var finishValue = Math.ceil(obj.finishCount/obj.studentCount*100);
+                        objItem.find(".finishCountPer").html(finishValue+"%");
+                        objItem.find(".notfinishCount").html(obj.notfinishCount);
+                        objItem.find(".finishCount").html(obj.finishCount);
+                        objItem.find(".range").css("cssText","background:-webkit-gradient(linear, left center,right center, color-stop(0%,#00cc33), color-stop("+finishValue+"%,#00cc33), color-stop("+finishValue+"%,#FC7800), color-stop(100%,#FC7800));");
+                        if($("#main .item").length==0){
+                            objItem.addClass("ubt");
+                        }
+                        $("#main").append(objItem);   
+                    }
+                    $("#main .box").on("click",function(){
+                        getCommInfo();
+                        commInfo.recommendId=$(this).attr("id");
+                        commInfo.bookInfo={"bookId":$(this).attr("bookId"),"bookName":$(this).attr("bookName")};
+                        setCommInfo();
+                        appcan.window.open("user_task_details","user_task_details.html",10);
+                    })
+                }else{
+                    if(g_PageIndex==1){
+                        myPrompt.show();
+                    }else{
+                        g_PageIndex--;
+                    }
+                }
+            }, function(data){
+                if(g_PageIndex>1){
+                    g_PageIndex--;
+                }
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            },{loadingMsg:'正在加载数据，请稍后...'});
+        }
+
+    </script>
+</html>

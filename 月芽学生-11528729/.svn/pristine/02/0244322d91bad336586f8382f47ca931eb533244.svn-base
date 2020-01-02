@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .imgzoom_pack {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                background: rgba(0,0,0,.7);
+            }
+            .imgzoom_img {
+                width: 100%;
+                height: 100%;
+            }
+            .bgbor{
+                position: absolute;
+                background: rgba(0,0,0,0.3);
+            }
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head" style="position: absolute;z-index: 999">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa icon-back fa-lg fa-w umw1"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">头像处理</h1>
+                <div class="nav-btn nav-bt" id="nav-right">
+                    <div class="fa icon-ok fa-lg fa-w umw1"></div>
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+                <div class="imgzoom_pack">
+                    <div class="imgzoom_img">
+                        <img id="headImg" />
+                    </div>
+                    <canvas id="canvasMask" style="position: absolute;z-index: 99999;left:0;top:0"></canvas>
+                    <div style="position: absolute;bottom: 1em;left:0;color:white;width:100%" class="ulev-1 ub ub-pc ub-ac">提示:双指缩放，长按旋转</div>
+                </div>
+            </div>
+            <!--content结束-->
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/touch-0.2.14.min.js"></script>
+        <script src="../js/entity.js"></script>
+    </body>
+    <script>
+        var imgSrc="";
+        var initialScale = 1;
+        var currentScale = 1;
+        var dx,
+            dy;
+        var boxW = 0;
+        var boxTop = 0;
+        var imgW = 0,
+            imgH = 0;
+        var transX = 0,
+            transY = 0;
+        var natW=0,natH=0;
+        var minLeft=0,minTop=0;
+        var angle = 0;
+        var angle_poor=0;
+        
+        appcan.ready(function() {
+            getUserInfo();
+            imgSrc =userInfo.headImgSrc;
+            $("#headImg").attr("src", imgSrc);
+            var w = $(".imgzoom_pack").width();
+            var h = $(".imgzoom_pack").height();
+            boxW = w - 60;
+            boxTop = (h - boxW) / 2;
+            
+            var canvasMask=document.getElementById("canvasMask");
+            canvasMask.width=$("#content").width();
+            canvasMask.height=$("#content").height();
+            var ctxMask = canvasMask.getContext("2d");
+            ctxMask.width = w;
+            ctxMask.height = h;
+            ctxMask.fillStyle = "rgba(0,0,0,0.5)";
+            ctxMask.fillRect(0,0,w,h);
+            
+            var r=boxW/2;
+            ctxMask.beginPath();
+            ctxMask.arc(w/2 , h/2, r, 0, 2 * Math.PI, false);
+            ctxMask.clip();
+            ctxMask.clearRect(w/2 - r - 1, h/2 - r - 1,r * 2 + 2, r * 2 + 2);
+      
+            
+            $("#nav-left").bind("click",function(){
+                appcan.window.close(-1);
+            });
+            $("#nav-right").bind("click",function(){
+                toast("正在处理图片~", 0);
+                var imageData = getImageData();
+                closeToast();
+                uploadPhoto(imageData);
+            });
+            $(".imgzoom_img img")[0].onload = function() {
+                natW = $("#headImg")[0].naturalWidth;
+                natH = $("#headImg")[0].naturalHeight;
+                
+                if (natW < natH) {
+                    imgW = boxW;
+                    imgH = natH * (boxW/natW);
+                    $(".imgzoom_pack .imgzoom_img img").css("width", boxW + "px").css("height", imgH + "px");
+                } else {
+                    imgH = boxW;
+                    imgW = natW * (boxW/natH );
+                    
+                    $(".imgzoom_pack .imgzoom_img img").css("height", boxW + "px").css("width", imgW + "px");
+                }
+                $(".imgzoom_pack .imgzoom_img img").css("margin-top", boxTop+"px").css("margin-left","30px");
+                
+                //手势操作
+                touch.on('.imgzoom_pack', 'touchstart', function(ev) {
+                    ev.preventDefault();
+                });
+                touch.on('.imgzoom_pack', 'pinch', function(ev) {
+                    currentScale = ev.scale - 1;
+                    currentScale = initialScale + currentScale;
+                    currentScale = currentScale > 2 ? 2 : currentScale;
+                    currentScale = currentScale < 1 ? 1 : currentScale;
+                    setImgLocation();
+                });
+                touch.on('.imgzoom_pack', 'pinchend', function(ev) {
+                    initialScale = currentScale;
+                });
+                touch.on('.imgzoom_pack', 'drag', function(ev) {
+                    dx = dx || 0;
+                    dy = dy || 0;
+                    transX = dx + ev.x;
+                    transY = dy + ev.y;
+                    setImgLocation();
+                });
+                touch.on('.imgzoom_pack', 'dragend', function(ev) {
+                    dx += ev.x;
+                    dy += ev.y;
+                });
+                
+                touch.on('.imgzoom_pack', 'hold', function(ev){
+                     angle+=90;
+                      if(angle>=360){
+                          angle=0;
+                      }
+                      setImgLocation();
+                });
+            }
+        });
+        function setImgLocation() {
+            var tag;
+            angle_poor=(imgW-imgH)/2*currentScale;
+            if(angle==0||angle==180){
+               angle_poor=0;
+            }
+            //左
+            minLeft=((imgW / 2)* (currentScale - 1))-angle_poor;
+            transX = (transX > minLeft) ? minLeft : transX; 
+            //上
+            tag = ((imgH / 2)*(currentScale - 1))+angle_poor;
+            transY = (transY > tag) ? tag : transY;
+            //右
+            tag = boxW - imgW - ((imgW / 2) * (currentScale - 1))+angle_poor;
+            transX = (transX < tag) ? tag : transX;
+            //下
+            minTop = boxW - imgH - ((imgH / 2) * (currentScale - 1))-angle_poor;
+            transY = (transY < minTop) ? minTop : transY;
+
+            $(".imgzoom_img img").css("webkitTransform", "translate3d(" + transX + "px" + "," + transY + "px" + ",0) rotate(" + angle + "deg) scale(" + currentScale + "," + currentScale + ") ");
+        }
+
+        function getImageData() {
+            var img = $(".imgzoom_img img");
+            var imgScale=imgW/natW;
+            
+            var xL=(imgW/2)*(currentScale-1);
+            var xT=(imgH/2)*(currentScale-1);
+            
+            var cL=Math.round(xL-transX-angle_poor);
+            var cT=Math.round(xT-transY+angle_poor);
+            
+            var canvas= document.createElement("canvas");
+            canvas.width = imgW+2;
+            canvas.height = imgH+2;
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#ffffff";
+            ctx.save();
+            ctx.scale(imgScale,imgScale);
+            ctx.drawImage(img[0],0,0);
+            
+            var canvas2=document.createElement("canvas");
+            canvas2.style.border="1px solid white";
+            if(angle==0||angle==180){
+                canvas2.width = imgW*currentScale+1;
+                canvas2.height = imgH*currentScale+1;
+                var ctx2 = canvas2.getContext("2d");
+                ctx2.fillStyle = "#ffffff";
+                ctx2.save();
+                ctx2.translate(canvas2.width/2,canvas2.height/2);
+                ctx2.rotate(angle*Math.PI/180);
+                ctx2.translate(-canvas2.width/2,-canvas2.height/2);
+                ctx2.drawImage(canvas,0,0,imgW,imgH,0,0,canvas2.width,canvas2.height);
+                
+            }else{
+                canvas2.width = imgH*currentScale+1;
+                canvas2.height = imgW*currentScale+1;
+                var ctx2 = canvas2.getContext("2d");
+                ctx2.fillStyle = "#ffffff";
+                ctx2.save();
+                ctx2.translate(canvas2.width/2,canvas2.height/2);
+                ctx2.rotate(angle*Math.PI/180);
+                ctx2.translate(-canvas2.height/2,-canvas2.width/2);
+                ctx2.drawImage(canvas,0,0,imgW,imgH,0,0,canvas2.height,canvas2.width);
+            }
+            
+            var canvas3=document.createElement("canvas");
+            canvas3.width = boxW;
+            canvas3.height = boxW;
+            var ctx3 = canvas3.getContext("2d");
+            ctx3.fillStyle = "#ffffff";
+            ctx3.save();
+            ctx3.translate(-cL,-cT);
+            ctx3.drawImage(canvas2,0,0,canvas2.width,canvas2.height,0,0,canvas2.width,canvas2.height);
+            ctx3.restore();
+            var dataURL = canvas3.toDataURL("image/jpeg");
+            return dataURL.split(',')[1];
+        }
+
+        
+        function uploadPhoto(imgStr) {
+            common.ajax("/student/changeHeadImage", {
+                userId : userInfo.id,
+                img : imgStr
+            }, function(data) {
+                
+                //返回img url
+                //toast("加载新头像中，请稍后...", 0);
+                userInfo.photo = data.obj;
+                setUserInfo(false);
+                
+                //uexWindow.evaluatePopoverScript("user_info", "content", "loadData();");
+                appcan.window.evaluateScript({
+                         name : "user_info", //窗口名称
+                         scriptContent : 'loadData();'
+                 });
+                 uexWindow.evaluateMultiPopoverScript("index", "content", "person", "loadData()");
+                 
+                closeToast();
+                appcan.window.close(-1);
+                /*
+                setUserInfo(false);
+                clearHeadImg(function(msg){
+                    //下载新头像
+                    getHeadImg(function(imgPath){
+                        uexWindow.evaluatePopoverScript("user_info", "content", "loadData();");
+                        appcan.window.publish(UPDATE_INFO, "0");
+                        closeToast();
+                        appcan.window.close(-1);
+                    },function(msg){
+                        toast("获取新头像失败~", config.toastTimeShort);
+                    })
+                },function(msg){
+                    toast("切换头像失败~", config.toastTimeShort);
+                    setTimeout(function(){
+                        appcan.window.close(-1);
+                    },toastTimeShort);
+                });
+                
+                */
+                
+            }, null, {
+                type : 'POST', 
+                beforeSend : function() {
+                    toast("正在上传...", 0);
+                }
+            });
+        }
+        
+    </script>
+</html>

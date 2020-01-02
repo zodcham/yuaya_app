@@ -1,0 +1,130 @@
+﻿
+
+appcan.ready(function() {
+	isIPhoneX();
+	
+    init();
+
+    window.onorientationchange = window.onresize = function() {
+        init();
+    }
+});
+var tabview = appcan.tab({
+    selector : "#tabview",
+    hasIcon : false,
+    hasAnim : false,
+    hasLabel : true,
+    hasBadge : false,
+    data : [{
+        label : '互动分享',
+    }, {
+        label : '月芽社区',
+    }, {
+        label : '消息',
+    }, {
+        label : '直播',
+    }]
+});
+tabview.on("click", function(obj, index) {
+    appcan.window.selectMultiPopover("content", index);
+})
+// appcan.button(".nav-btn", "btn-act", function() {
+// appcan.window.close(-1);
+// })
+appcan.button("#nav-left", "btn-act", function() {
+    exit();
+})
+function exit() {
+    //setOrientation(1);
+    uexWindow.evaluatePopoverScript("", "Interaction", "refreshData()");
+    appcan.window.close(-1);
+}
+function init2(){}
+function init() {
+    var titHeight = $('#header').offset().height + $('#tabview').offset().height ;
+
+    appcan.frame.open({
+
+        id : "content",
+
+        url : [{
+
+            "inPageName" : "Interaction",
+            "inUrl" : "Interaction_content.html",
+
+        }, {
+
+            "inPageName" : "club",
+            "inUrl" : '../club/club_content.html',
+
+        }, {
+
+            "inPageName" : "message_list",
+            "inUrl" : 'sys_message_list_content.html',
+
+        }, {
+
+            "inPageName" : "Livebroadcast",
+            "inUrl" : 'Livebroadcast_content.html',
+
+        }],
+
+        top : titHeight,
+
+        left : 0,
+
+        index : 0,
+
+        change : function(err, res) {
+            tabview.moveTo(res.multiPopSelectedIndex);
+        }
+    });
+
+}
+
+function openWin(index){
+    resetHeadButton();
+    //tabview.moveTo(index);
+    appcan.window.selectMultiPopover("content", index);
+    switch (index) {
+        case 0:
+            $(".btn_share").attr("src","../images/circle/btn_share2.png");
+            break;
+        case 1:
+            $(".btn_club").attr("src","../images/circle/btn_club2.png");
+            break;
+        case 2:
+            $(".btn_message").attr("src","../images/circle/btn_message2.png");
+            break;
+        case 3:
+            $(".btn_live").attr("src","../images/circle/btn_live2.png");
+            break;
+    }
+}
+function resetHeadButton(){
+    $(".btn_share").attr("src","../images/circle/btn_share1.png");
+    $(".btn_club").attr("src","../images/circle/btn_club1.png");
+    $(".btn_message").attr("src","../images/circle/btn_message1.png");
+    $(".btn_live").attr("src","../images/circle/btn_live1.png");
+}
+
+$(".btn_home").on("click", function() {
+    rootopenPlayer();
+    appcan.window.close(-1);
+})
+$(".btn_mall").on("click", function() {
+    appcan.window.open("mall", "../index_mall.html", 5);
+    setTimeout(function(){ appcan.window.close(-1); }, 1000);
+})
+$(".btn_club").on("click", function() {
+    //appcan.window.open("yueduquan", "yueduquan/Reading_circle.html", 5);
+    //appcan.window.close(-1);
+})
+$(".btn_rank").on("click", function() {
+    appcan.window.open("ph", "../Paihang.html", 5);
+    setTimeout(function(){ appcan.window.close(-1); }, 1000);
+})
+$(".btn_person").on("click", function() {
+    appcan.window.open("person", "../index_person.html", 5);
+    setTimeout(function(){ appcan.window.close(-1); }, 1000);
+})

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="index/css/main.css">
+        <style type="text/css">
+            .bodybg {
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body class="um-vp"  class="ub ub-ver" ontouchstart>
+
+    <div id="willesPlay" >
+        <div class="playContent">
+            <video width="100%" height="100%" id="playVideo" class="video videos" type="video/mp4">
+
+            </video>
+            <div class="playTip glyphicon glyphicon-play"></div>
+        </div>
+        <div class="playControll">
+            <div class="playPause playIcon"></div>
+            <div class="timebar">
+                <span class="currentTime" style="color: #FFFFFF">0:00:00</span>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                </div>
+
+                <span class="duration" style="color: #FFFFFF">0:00:00</span>
+            </div>
+            <div class="otherControl">
+                <span class="fullScreen glyphicon glyphicon-fullscreen"></span>
+                <div class="volumeBar">
+                    <div class="volumewrap">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="file" id="localFile" accept="video/mp4"  class="uploadVideo_input">
+
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/entity.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/willesPlay.js"></script>
+    <script src="js/iphone-inline-video.js"></script>
+    <script src="js/iphone-inline-video2.js"></script>
+
+    <script>
+
+
+
+            function openPlayer() {
+                $("#localFile").attr("value","file://"+g_videoArr[g_videoIndex]);
+
+
+                var files = document.getElementById("localFile").files[0];
+                alert(files);
+                var url = URL.createObjectURL(files);
+
+
+
+                g_videoPath = "file://"+g_videoArr[g_videoIndex];
+                //g_videoPath = _SERVER_VIDEO_ADDRESS + "/videoSave/BOOK201612060343.mp4";
+                //var url = window.URL.createObjectURL(g_videoPath);
+                //alert(url);
+                alert(g_videoPath);
+
+                $(".video").src=g_videoPath;
+                $(".video").attr("src",g_videoPath,1);
+
+
+                return false;
+
+                //$(".video").attr("src", g_videoPath, 1);
+
+
+
+
+                //$(".videos").attr("poster", _SERVER_ADDRESS + programInfo.image);
+
+                /*
+                setLocVal("videoIndex", g_videoIndex);
+
+                var id = "videoImage" + g_videoIndex;
+                var left = $("#" + id).position().left;
+                $(".bookImage").css("width", "3em");
+                $("#" + id).find(".bookImage").css("width", "3.5em");
+                var scroolLeft = (g_videoIndex) * 10 * Number(rem_size);
+
+                $("#videoImageList").scrollLeft(scroolLeft);
+                */
+
+            }
+
+
+
+
+
+            var width_screen = document.body.clientWidth;
+            var g_videoArr=[],g_ImageArr=[],g_ImageFileNameArr=[];
+            var g_videoPath="";
+            var g_videoIndex=0;
+            appcan.ready(function() {
+
+                //checkUpload(false);
+
+
+
+                //var imei = uexDevice.getInfo(10);
+                var cDeviceToken = uexDevice.getInfo(11);
+
+                var fileList=uexFileMgr.getFileListByPath("wgt://yueyaImage");
+
+                if(CheckVideoFileList()){
+                    var fileList=uexFileMgr.getFileListByPath("/sdcard/yueya/video");
+                    if(getLocVal("videoIndex").length>0) g_videoIndex=Number(getLocVal("videoIndex"));
+                    if(g_videoIndex>=fileList.values.length) g_videoIndex=-1;
+                    $.each(fileList.values, function(idx, obj) {
+                        var videopath=obj.nameValuePairs.filePath;
+                        g_videoArr.push(videopath);
+                    });
+                    g_videoArr.sort();
+                    LoadVideoImageList();
+
+                    openPlayer();
+                }
+                var titHeight = (width_screen * 9 / 16);
+
+                //appcan.frame.open("content", "default_content.html", 0, 810);
+
+
+                //
+                // uexVideo.onPlayerClose = function(info){
+                //     g_videoIndex++;
+                //     if(g_videoIndex>=g_videoArr.length) g_videoIndex=0;
+                //     openPlayer();
+                // };
+                // uexVideo.onPlayerFinish = function() {
+                //     uexVideo.closePlayer();
+                //     //openPlayer();
+                // };
+                // uexVideo.onPlayerEndTime = function(){
+                //     //openPlayer();
+                //     //alert("b");
+                // }
+            })
+
+            function CheckVideoFileList(){
+
+                var file = uexFileMgr.create({
+                    path: "/sdcard/yueya/"
+                });
+
+                var fileList=uexFileMgr.getFileListByPath("/sdcard/yueya/video");
+                if(fileList.values.length==0){
+                    alert("请将月芽视频文件复制到 根目录下的 /yueya 文件夹");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+
+
+            function CheckVideoFileList_bak(){
+                if(uexFileMgr.getFileTypeByPath("wgt://yueyaVideo")) {
+                    uexFileMgr.mkdir({path: "wgt://yueyaVideo"});
+                    uexFileMgr.mkdir({path: "wgt://yueyaImage"});
+                }
+
+                var realPath="";
+                if(!uexFileMgr.isFileExistByPath("wgt://1.txt")) {
+                    var file = uexFileMgr.create({
+                        path: "wgt://1.txt"
+                    });
+                    realPath = uexFileMgr.getFileRealPath("wgt://1.txt");
+                }
+                else{
+                    realPath = uexFileMgr.getFileRealPath("wgt://1.txt");
+                }
+                realPath=realPath.replace("1.txt","");
+
+
+                var fileList=uexFileMgr.getFileListByPath("wgt://yueyaVideo");
+                if(fileList.values.length==0){
+                    alert("请将月芽视频文件复制到 "+realPath+"yueyaVideo/");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+
+
+
+
+
+            //导读视频列表
+            function LoadVideoImageList() {
+                var fileList=uexFileMgr.getFileListByPath("/sdcard/yueya/image");
+                $.each(fileList.values, function(idx, obj) {
+                    var videopath=obj.nameValuePairs.filePath;
+                    g_ImageArr.push(videopath);
+                    var filename=obj.nameValuePairs.fileName;
+                    filename=filename.replace(".jpg","");
+                    filename=filename.replace(".jpeg","");
+                    filename=filename.replace(".png","");
+                    filename=filename.replace(".gif","");
+                    g_ImageFileNameArr.push(filename);
+                });
+                g_ImageArr.sort();
+                g_ImageFileNameArr.sort();
+
+                var height_screen=document.body.clientHeight;
+                //var width_screen=document.body.clientWidth;
+
+                $(".recommendBook").html('');
+                for (var i = 0; i < g_ImageArr.length; i++) {
+
+                    var obj = g_ImageArr[i];
+                    var bookItem = $("#bookItem").clone();
+                    bookItem.attr("id", "videoImage"+i);
+                    bookItem.attr("imageIndex", i);
+                    bookItem.removeClass("uhide");
+
+                    //var real_url = "file://" + g_ImageArr[i];
+                    var real_url = "file://" + g_ImageArr[i];
+                    //alert(real_url);
+                    bookItem.find(".bookImage").attr("src", real_url);
+                    bookItem.find(".bookName").html(g_ImageFileNameArr[i]);
+
+                    bookItem.bind("click", function() {
+                        var id = Number($(this).attr("imageIndex"));
+                        g_videoIndex=id-1;
+                        uexVideo.closePlayer();
+                    });
+
+                    $(".recommendBook").append(bookItem);
+                }
+            }
+
+
+
+
+        </script>
+
+    </body>
+</html>

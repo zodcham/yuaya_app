@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/button.css" />
+        <style>
+            .photo_delete {
+                width: 1em;
+                height: 1em;
+                background: url(../css/icons/photo_delete.png);
+                background-size: 100% 100%;
+            }
+            .add_photo {
+                width: 3.5em;
+                height: 3.5em;
+                background: url(../css/icons/add_photo.png);
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-ver ub-fh ub-fv">
+            <div class="ub ub-ver ub-fh umar-t">
+                <div class="ub ub-f1 ub-fh">
+                    <textarea id="txtComments" placeholder="请输入内容~" class="ub ub-f1 ub-fh ulev0 uinn umar-a" style="resize: none;height: 8em;border-radius: 0.5em;overflow: auto;border:0px"></textarea>
+                </div>
+            </div>
+            <div class="ub ub-ver ub-fh umar-t">
+                <div class="ub ub-ac ub-pc ub-f1 ub-fh ">
+                    <div id="divImg" class="ub ub-f1 ub-fh bc-white umar-a sc-text ub-ac ub-pc" style="border-radius: 0.5em">
+
+                        <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="1">
+                            <div class="add_photo" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                            <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                                <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"  style="width:90%;height:90%"><img src="../css/icons/add_photo.png" style="width:90%;height:90%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="2">
+                            <div class="add_photo uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                            <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                                <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"><img src="" style="width:90%;height:90%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ub ub-ac ub-pc ub-f1 addImg noAddImg" num="3">
+                            <div class="add_photo uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div>
+                            <div class="ub ub-fh ub-fv ub-ac ub-pc imgbox uhide">
+                                <div class='photo_delete remove' style='position: absolute;top:0.2em;right:0.2em;z-index: 100'></div>
+                                <div class="ub ub-ac ub-pc uinn"><img src="" style="width:90%;height:90%" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb ubt ub-ver bc-white umar-t uhide" id="divHistoryBox">
+                <div class="ub ub-ac ub-fh sc-bg-active bc-border ubb sc-text ">
+                    <div class="ub uinn ub-f1">
+                        <div class="fa icon-history fa-1x2 umar-r"></div>
+                        <div class="ub ub-f1">
+                            读后感记录
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-f1 ub-ver bc-border ubb ub-ver" id="divHistory"></div>
+            </div>
+        </div>
+        <div id="divAddImg" class="ub ub-fh ub-fv ub-ver uhide" style="position: absolute;top:0;left:0;z-index: 101;background: rgba(0,0,0,0.5)">
+            <div class="ub ub-f1 btnCancel"></div>
+            <div class="ub ub-fh ub-ver bc-white bc-border bc-text-head">
+                <div id="btnPhoto" class="ub ub-ac ub-pc ub-f1 bc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em">
+                    <div class="fa icon-photoalbum fa-1x2"></div>
+                    &nbsp;本地相册
+                </div>
+                <!-- <div id="btnCamera" class="ub ub-ac ub-pc ub-f1 sc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-camera fa-1x2"></div>&nbsp;相机拍照</div> -->
+                <div id="btnCancel" class="btnCancel ub ub-ac ub-pc ub-f1 sc-bg-btn-cancel umar-a" style="padding:0.8em 0;border-radius: 0.3em">
+                    取消
+                </div>
+            </div>
+        </div>
+        <div id="item" class="ub ub-fh uhide bc-border ubb">
+            <div class="ub ub-f1 ub-ver uinn">
+                <div class="ub ub-fh content ub-ver" style="padding: 0.5em 0"></div>
+                <div class="ub ub-fh imgs" style="padding: 0.5em 0"></div>
+                <div class="ub ub-fh" style="padding: 0.5em 0">
+                    <div class="ub-f1"></div>
+                    <div class="ub sc-text time ulev-1" ></div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+        <script src="../js/exif.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/book/book_introduce_add_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+</html>

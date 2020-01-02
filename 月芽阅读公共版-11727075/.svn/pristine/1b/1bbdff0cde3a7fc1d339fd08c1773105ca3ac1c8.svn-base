@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="index/css/main.css">
+        <style type="text/css">
+            .bodybg {
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body class="um-vp"  class="ub ub-ver" ontouchstart>
+        <div id="header" class="uh bc-text-head ub">
+        </div>
+        <!--header结束--><!--content开始-->
+        <div style="width:100%;overflow-x:scroll;height:6em;padding:0;" id="videoImageList">
+            <div class="ub ub-fh recommendBook " style=""></div>
+        </div>
+        
+        <div class="ub ub-ver uhide"  id="bookItem" style="width:5em; ">
+            <div class="ub ub-ac " style="width: 3em;height:4em;border-radius: 0.4em  0  0 0.4em;">
+                <img class="bookImage " style="width: 3em;height:4em;border-radius: 0.4em  0.4em  0.4em 0.4em;" />
+            </div>
+            <div class="ub-fh ub-ac txt-e  txt ub-pc bookName" style="width:7em;font-size:0.5em;">
+            </div>
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tool.js"></script>
+        
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+
+            var rem_size=0;
+            var width_screen = document.body.clientWidth;
+            var g_videoArr = [],
+                g_ImageArr = [],
+                g_ImageFileNameArr = [];
+            var g_videoPath = "";
+            var g_videoIndex = 0;
+
+            appcan.ready(function() {
+                
+                rem_size = Number($("html").css('font-size').replace("px", ""));
+            
+
+                var imei = uexDevice.getInfo(10);
+                
+                $("#header").css("height",(width_screen * 9 / 16));
+
+                if (CheckVideoFileList()) {
+                    var fileList = uexFileMgr.getFileListByPath("wgt://yueyaVideo");
+                    
+                    if (getLocVal("videoIndex").length > 0)
+                        g_videoIndex = Number(getLocVal("videoIndex"));
+                    if (g_videoIndex >= fileList.values.length)
+                        g_videoIndex = -1;
+                    
+                    $.each(fileList.values, function(idx, obj) {
+                        var videopath = obj.nameValuePairs.filePath;
+                        g_videoArr.push(videopath);
+                    });
+                    LoadVideoImageList();
+                    openPlayer();
+                }
+
+                uexVideo.onPlayerClose = function(info) {
+                    g_videoIndex++;
+                    if (g_videoIndex >= g_videoArr.length)
+                        g_videoIndex = 0;
+                    openPlayer();
+                };
+                uexVideo.onPlayerFinish = function() {
+                    uexVideo.closePlayer();
+                    //openPlayer();
+                };
+                uexVideo.onPlayerEndTime = function() {
+                    //openPlayer();
+                    //alert("b");
+                }
+            })
+            
+            
+            
+            function openPlayer() {
+                g_videoPath = g_videoArr[g_videoIndex];
+                setLocVal("videoIndex", g_videoIndex);
+
+                var id = "videoImage" + g_videoIndex;
+                var left = $("#" + id).position().left;
+                $(".bookImage").css("width", "3em");
+                $("#" + id).find(".bookImage").css("width", "3.5em");
+                var scroolLeft = (g_videoIndex) * 10 * Number(rem_size);
+
+                $("#videoImageList").scrollLeft(scroolLeft);
+
+                var param = {
+                    src : g_videoPath,
+                    startTime : 0,
+                    autoStart : true,
+                    forceFullScreen : false,
+                    showCloseButton : false,
+                    showScaleButton : false,
+                    isAutoEndFullScreen : false,
+                    width : width_screen,
+                    height : width_screen * 9 / 16,
+                    x : 0,
+                    y : 0,
+                    scrollWithWeb : true
+                };
+                uexVideo.openPlayer(JSON.stringify(param));
+            }
+
+            function openPlayerClick() {
+                g_videoPath = g_videoArr[g_videoIndex];
+                setLocVal("videoIndex", g_videoIndex);
+
+                var id = "videoImage" + g_videoIndex;
+                var left = $("#" + id).position().left;
+                $(".bookImage").css("width", "3em").css("background-color", "#fff");
+                $("#" + id).find(".bookImage").css("width", "3.5em").css("background-color", "#000");
+                var scroolLeft = (g_videoIndex) * 10 * Number(rem_size);
+
+                $("#videoImageList").scrollLeft(scroolLeft);
+
+                var param = {
+                    src : g_videoPath,
+                    startTime : 0,
+                    autoStart : true,
+                    forceFullScreen : false,
+                    showCloseButton : false,
+                    showScaleButton : false,
+                    isAutoEndFullScreen : false,
+                    width : width_screen,
+                    height : width_screen * 9 / 16,
+                    x : 0,
+                    y : 0,
+                    scrollWithWeb : true
+                };
+                uexVideo.openPlayer(JSON.stringify(param));
+            }
+
+            function CheckVideoFileList() {
+                
+                if (uexFileMgr.getFileTypeByPath("wgt://yueyaVideo")) {
+                    uexFileMgr.mkdir({
+                        path : "wgt://yueyaVideo"
+                    });
+                    uexFileMgr.mkdir({
+                        path : "wgt://yueyaImage"
+                    });
+                }
+                
+
+                var realPath = "";
+                if (!uexFileMgr.isFileExistByPath("wgt://1.txt")) {
+                    var file = uexFileMgr.create({
+                        path : "wgt://1.txt"
+                    });
+                    realPath = uexFileMgr.getFileRealPath("wgt://1.txt");
+                } else {
+                    realPath = uexFileMgr.getFileRealPath("wgt://1.txt");
+                }
+                realPath = realPath.replace("1.txt", "");
+
+                var fileList = uexFileMgr.getFileListByPath("wgt://yueyaVideo");
+                if (fileList.values.length == 0) {
+                    alert("请将月芽视频文件复制到 " + realPath + "yueyaVideo/");
+                    return false;
+                } else {
+                    return true;
+                }
+                
+            }
+
+            //导读视频列表
+            function LoadVideoImageList() {
+                var fileList = uexFileMgr.getFileListByPath("wgt://yueyaImage");
+                $.each(fileList.values, function(idx, obj) {
+                    var videopath = obj.nameValuePairs.filePath;
+                    g_ImageArr.push(videopath);
+                    var filename = obj.nameValuePairs.fileName;
+                    filename = filename.replace(".jpg", "");
+                    filename = filename.replace(".jpeg", "");
+                    filename = filename.replace(".png", "");
+                    filename = filename.replace(".gif", "");
+                    g_ImageFileNameArr.push(filename);
+                });
+
+                var height_screen = document.body.clientHeight;
+                var width_screen = document.body.clientWidth;
+                /*
+                if(height_screen>width_screen){
+                if(width_screen<=1080){
+                var len = data.length > 6 ? 6 : data.length;
+                if (len >= 4) {
+                $(".recommendBook").css("width", "146%");
+                } else {
+                $(".recommendBook").width(Math.round((data.length * 0.25) * 10000) / 100.00 + "%");
+                }
+                $(".recommendBook").html('');
+                }
+                else{
+
+                var len = data.length > 6 ? 6 : data.length;
+                if (len >= 4) {
+                $(".recommendBook").css("width", "99%");
+                } else {
+                $(".recommendBook").width(Math.round((data.length * 0.166) * 10000) / 100.00 + "%");
+                }
+                $(".recommendBook").html('');
+                }
+                }
+                else{
+                var len = data.length > 6 ? 6 : data.length;
+                if (len >= 4) {
+                $(".recommendBook").css("width", "99%");
+                } else {
+                $(".recommendBook").width(Math.round((data.length * 0.166) * 10000) / 100.00 + "%");
+                }
+                $(".recommendBook").html('');
+                }
+                */
+                //$(".recommendBook").css("width", "146%");
+                $(".recommendBook").html('');
+
+                for (var i = 0; i < g_ImageArr.length; i++) {
+                    var obj = g_ImageArr[i];
+                    var bookItem = $("#bookItem").clone();
+                    bookItem.attr("id", "videoImage" + i);
+                    bookItem.attr("imageIndex", i);
+                    bookItem.removeClass("uhide");
+                    //图片
+
+                    var real_url = "file://" + g_ImageArr[i];
+
+                    //var wgt_rul="wgt://yueyaImage/"+g_ImageFileNameArr[i];
+                    //alert(real_url);
+                    alert(real_url);
+                    bookItem.find(".bookImage").attr("src", real_url);
+                    bookItem.find(".bookName").html(g_ImageFileNameArr[i]);
+                    
+                    
+                    /*
+
+                     var g_wgt_url = "wgt://data/download" + (obj.image);
+                     var g_img_url = _SERVER_ADDRESS + obj.image;
+                     g_download_list.push((obj.image));
+                     if (uexFileMgr.isFileExistByPath(g_wgt_url)) {
+                     //本地有图片
+                     var real_url = "file:/" + uexFileMgr.getFileRealPath(g_wgt_url);
+                     bookItem.find(".bookImage").attr("src", real_url);
+
+                     } else {
+                     //本地没图片
+                     bookItem.find(".bookImage").attr("src", g_img_url);
+                     }
+
+                     //bookItem.find(".bookName").attr("src",_SERVER_VIDEO_ADDRESS + obj.videoFile);
+
+                     */
+                    bookItem.bind("click", function() {
+                        var id = Number($(this).attr("imageIndex"));
+                        g_videoIndex = id - 1;
+                        uexVideo.closePlayer();
+                        //openPlayerClick();
+
+                    });
+                    
+
+                    $(".recommendBook").append(bookItem);
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

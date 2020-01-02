@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/button.css" />
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+       <div class="ub ub-ver ub-fh ub-fv">
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-f1 ub-fh">
+                   <input type="text" placeholder="取个好听的名字吧~" class="ub uinn ub-f1 ub-fh umar-a ulev0" style="height: 2em;border-radius: 0.5em;overflow: auto;border:0px" />
+               </div>
+           </div>
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-f1 ub-fh">
+                   <textarea id="txtComments" placeholder="说说你的感想吧~" class="ub ub-f1 ub-fh ulev0 uinn umar-a" style="resize: none;height: 10em;border-radius: 0.5em;overflow: auto;border:0px"></textarea>
+               </di>
+           </div>
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-ac ub-pc ub-f1 ub-fh ">
+                   <div class="ub ub-f1 ub-fh bc-white umar-a sc-text" style="height:5em;border-radius: 0.5em">
+                       <div class="ub ub-ac ub-pc ub-f1"><div class="addImg fa icon-camera fa-w fa-2x uinn" style="border:1px dotted #BABABA;border-radius: 0.2em"></div></div>
+                       <div class="ub ub-ac ub-pc ub-f1"><div class="addImg fa icon-camera fa-w fa-2x uinn uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div></div>
+                       <div class="ub ub-ac ub-pc ub-f1"><div class="addImg fa icon-camera fa-w fa-2x uinn uhide" style="border:1px dotted #BABABA;border-radius: 0.2em"></div></div>
+                   </div>
+               </div>
+           </div>
+           <div class="ub-f1"></div>
+           <div class="ub ub-ver ub-fh umar-t">
+               <div class="ub ub-f1 ub-ac ub-pc ub-fh">
+                   <div class="btn ub ub-ac bc-text-head ub-pc bc-btn ub-f1 umar-a" id="btnSubmit">提 交</div>
+               </div>
+           </div>
+       </div>
+       <div id="divAddImg" class="ub ub-fh ub-fv ub-ver uhide" style="position: absolute;top:0;left:0;z-index: 101;background: rgba(0,0,0,0.5)">
+           <div class="ub ub-f1 btnCancel"></div>
+           <div class="ub ub-fh ub-ver bc-white bc-border bc-text-head">
+               <div id="btnPhoto" class="ub ub-ac ub-pc ub-f1 bc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-photoalbum fa-1x2"></div>&nbsp;本地相册</div>
+               <div id="btnCamera" class="ub ub-ac ub-pc ub-f1 sc-btn umar-a" style="padding:0.8em 0;border-radius: 0.3em"><div class="fa icon-camera fa-1x2"></div>&nbsp;相机拍照</div>
+               <div id="btnCancel" class="btnCancel ub ub-ac ub-pc ub-f1 sc-bg-btn-cancel umar-a" style="padding:0.8em 0;border-radius: 0.3em">取消</div>
+           </div>
+       </div>
+      </div>       
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/book/book_introduce_add_content.js"></script>
+    </body>
+    <script>
+        
+
+    </script>
+</html>

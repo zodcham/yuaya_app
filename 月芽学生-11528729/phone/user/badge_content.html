@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        
+        <style type="text/css">
+            
+            .bg-jindutiao{
+                position:relative;
+                width: 90%;
+                height: 0.2em;
+                margin:0 auto;
+                background-color:#D0D0D0;
+                border-radius: 25em;
+                overflow: hidden;
+            }
+            .bg-jindutiao li{
+                width: 10%;
+                height:100%;
+                background-color: #D0D0D0;
+                float: left; 
+            }
+            .bg-jindutiao span{
+                display:block;
+                width: 0;
+                height: 100%;
+                background-color: #ff6666;
+                float: left; 
+            }
+            strong{
+                color: #ff6666;
+            }
+            .gradeParents{
+                margin-left: 5%;
+                margin-top: 10%;
+            }
+            .gradeParents li{
+                color: #FFFFFF;
+                font-size: 0.8em;
+            }
+            .leveView{
+                position: relative;
+                margin-left: 4%;
+                width: 90%;
+                height: 1em;
+                margin-top: 0.5em
+                
+            }
+            .leveView li{
+                font-size: 0.6em;
+                float: left;
+                color: #ffffff;
+                
+            }
+            
+        </style>
+        
+    </head>
+    <body class=""  ontouchstart>
+        <div class="bodyBg" style="width: 100%;height: 100%;">
+            
+        
+        <div class="ub ub-ac ub-pc" style="margin-top: 5%;" >
+            <div class="ub ub-ac ub-pc ub-f1 head-box" style="width:3em;height:5em;">
+                <img id="headImg" class="ub" src="../head.png" style="height:100%;border-radius: 50%;border: 1px solid #E3E3E3;"/> 
+            </div>
+        </div>
+        <div class="ub ub-ac ub-pc" style="margin-top: 5%;" >
+            <span class="ub sc-text-hint" style="display: inline-block">当前等级:</span>
+            <p class="ulev readLevelName" id="more" style="display: inline-block;color: #ffffff;font-weight:bold;"></p>  
+        </div>
+        <div class="ub ub-ac ub-pc" style="margin-top: 5%;" >
+            <div class="ub sc-text-hint">当前经验值：  <div class="ub integral" style="color: #ffffff;"></div></div>
+        </div>
+        <ul class="leveView">
+            <li style="position:absolute;left: 0;">0</li>
+            <li style="position:absolute;left: 10%;">1</li>
+            <li style="position:absolute;left: 20%;">2</li>
+            <li style="position:absolute;left: 30%;">3</li>
+            <li style="position:absolute;left: 40%;">4</li>
+            <li style="position:absolute;left: 50%;">5</li>
+            <li style="position:absolute;left: 60%;">6</li>
+            <li style="position:absolute;left: 70%;">7</li>
+            <li style="position:absolute;left: 80%;">8</li>
+            <li style="position:absolute;left: 90%;">9</li>
+            <li style="position:absolute;left: 100%;">10</li>
+        </ul>
+        
+        <ul class=" bg-jindutiao">
+                <!-- <div class="dqjf"></div> -->
+                <li><span class="meifen"></span></li>
+                <li><span class="baishen"></span></li>
+                <li><span class="xiucai"></span></li>
+                <li><span class="juren"></span></li>
+                <li><span class="gongsheng"></span></li>
+                <li><span class="jinshi"></span></li>
+                <li><span class="tanhua"></span></li>
+                <li><span class="bangyan"></span></li>
+                <li><span class="zhuangyuan"></span></li>
+                <li><span class="hanlin"></span></li>
+                 <!-- <div>
+                    <span class="daxueshi"></span>
+                </div> -->
+        </ul>
+        <div>
+            <ul class="gradeParents">
+                <li class="grade">Lv1. 白身 <strong> 0</strong> 经验值</li>
+                <li class="grade">Lv2. 秀才 需要 <strong>20</strong>经验值</li>
+                <li class="grade">Lv3. 举人 需要 <strong>40</strong> 经验值</li>
+                <li class="grade">Lv4. 贡生 需要 <strong>80</strong> 经验值</li>
+                <li class="grade">Lv5. 进士 需要 <strong>160</strong> 经验值</li>
+                <li class="grade">Lv6. 探花 需要 <strong>320</strong> 经验值</li>
+                <li class="grade">Lv7. 榜眼 需要 <strong>640</strong> 经验值</li>
+                <li class="grade">Lv8. 状元 需要 <strong>1280</strong> 经验值</li>
+                <li class="grade">Lv9. 翰林 需要 <strong>2560</strong> 经验值</li>
+                <li class="grade">Lv10. 大学仕 需要 <strong>5120</strong> 经验值</li>
+            </ul>
+        </div>
+        </div>
+        
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/user/badge_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .close:after{
+                content: '';
+                position: absolute;
+                width: 0.1em;
+                background: white;
+                height:1em;
+                right:0.5em;
+                top:0.9em;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <div class="ub ub-fh bc-white">
+                <div class="ub ub-ac ub-pc " style="margin-left: 1em">评分:</div>
+                <div class="ub ub-ac uinn ub-f1 umar-a" style="color:#C3C3C3" id="start-Score">
+                    <div class="fa icon-star-five-hollow fa-1x8 1"></div>
+                    <div class="fa icon-star-five-hollow fa-1x8 2"></div>
+                    <div class="fa icon-star-five-hollow fa-1x8 3"></div>
+                    <div class="fa icon-star-five-hollow fa-1x8 4"></div>
+                    <div class="fa icon-star-five-hollow fa-1x8 5"></div>
+                </div>
+            </div>    
+            <div class="ub ub-fh">
+                <textarea id="txtComments" class="ub ub-f1 ub-fh ulev0 uinn" placeholder="请输入评论内容"  style="height: 10em;overflow: auto;border:0px;resize: none;"></textarea>
+            </div>
+           <div class="ub ub-fh">
+               <div class="ub ub-f1 uinn" style="padding: 1em 0.5em">
+                   <div class="ub ub-f1 bc-text-head ub-ac ub-pc bc-head" style="height:2.8em;border-radius: 2.8em" id="btnSubmit">提交</div>
+               </div>
+           </div>
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/entity.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            getUserInfo();
+            getProgramInfo();
+               $("#start-Score").bind("touchstart",function(){
+                    var obj=event.target;
+                    if($(obj).hasClass("fa")){
+                        $(obj).prevAll(".icon-star-five-hollow").removeClass("icon-star-five-hollow").addClass("icon-star-five").css("color", "#FFC304");
+                        $(obj).removeClass("icon-star-five-hollow").addClass("icon-star-five").css("color", "#FFC304");
+                        $(obj).nextAll(".icon-star-five").removeClass("icon-star-five").addClass("icon-star-five-hollow").css("color", "#C3C3C3");
+                    }
+               }).bind("touchmove",function(){
+                   if (event.targetTouches.length == 1) {
+                　　　　 event.preventDefault();
+                        var touch = event.targetTouches[0];
+                        $.map($("#start-Score .fa"),function(obj){
+                            if(touch.pageX<=$(obj).position().left){
+                                $(obj).removeClass("icon-star-five").addClass("icon-star-five-hollow").css("color", "#C3C3C3");
+                            }else{
+                                $(obj).removeClass("icon-star-five-hollow").addClass("icon-star-five").css("color", "#FFC304");
+                            }
+                        });
+                   } 
+                   
+               }).bind("touchend",function(){
+                   
+               });
+               $("#btnSubmit").bind("click",function(){
+                   doSubmit();
+               });
+            uexWindow.evaluateScript("",0,"isOpenComments=true;");
+            
+        });
+        
+        function utf16toEntities(str) {  
+             var flag = true;
+            var patt=/[\ud800-\udbff][\udc00-\udfff]/g; // 检测utf16字符正则  
+            str = str.replace(patt, function(char){  
+                    var H, L, code;  
+                    if (char.length===2) {  
+                        H = char.charCodeAt(0); // 取出高位  
+                        L = char.charCodeAt(1); // 取出低位  
+                        code = (H - 0xD800) * 0x400 + 0x10000 + L - 0xDC00; // 转换算法  
+                        flag = false;  
+                    } else {  
+                        return char;  
+                    }  
+                });  
+            return flag;  
+        }  
+        function doSubmit() {
+            var content=$("#txtComments").val();
+             if (content.length == 0) {
+                toast("请输入短评内容~", config.toastTimeShort);
+                return;
+            }
+            if (content.length > 1000) {
+                toast("短评内容超过1000字~", config.toastTimeShort);
+                return;
+            }
+             var star = $("#start-Score .icon-star-five").length;
+             if (star == 0) {
+                toast("请选择评分~", config.toastTimeShort);
+                return;
+             }
+            var checkNum = /[\ud800-\udbff][\udc00-\udfff]/g;
+            if(checkNum.test(content))
+            {
+                toast("请勿添加表情图片~", config.toastTimeShort);
+                return false;
+            }
+            
+              var params = {'userId' : userInfo.id,'programId': programInfo.id,'content' :content,'score' : star};
+            common.ajax("/programEvaluate/add", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                toast("发表成功",config.toastTimeShort);
+                setTimeout(function(){
+                    uexWindow.evaluateMultiPopoverScript("bookIndex", "content", "comments","refreshData();");
+                    uexWindow.evaluateScript("",0,"exit();");
+                },1000);
+            }, function(data) {
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            }, {type:'POST'});
+
+
+            //alert(txt);
+            
+            //
+             //appcan.window.close(-1);
+        };
+        
+        // function exit(){
+            // if($("#txtComments").val().length>0){
+                 // appcan.alert("", "确定要取消评论吗？", ["确定", "取消"], function(e, idx){
+                    // if (idx == 1) {
+                        // return;
+                    // }else{
+                        // uexWindow.evaluateScript("",0,"isOpenComments=false;");
+                        // appcan.window.close(-1);
+                    // }
+                 // });
+            // }else{
+                // uexWindow.evaluateScript("",0,"isOpenComments=false;");
+                // appcan.window.close(-1);
+            // }
+        // }
+
+    </script>
+</html>

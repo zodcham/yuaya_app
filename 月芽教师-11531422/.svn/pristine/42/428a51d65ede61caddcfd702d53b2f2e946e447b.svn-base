@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/calender.css">
+        <style>
+             input[type='radio'] + .box:before{
+                 color:#FFFFFF;
+                 content: "\f1db";
+             }
+             input[type='radio']:checked + .box:before{
+                 color:#33CC33;
+                 font-weight:bold;
+                 content: "\f192";
+             }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh bc-border click" id="date">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">阅读截止日期</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue"></div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="readType">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">阅读类型</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" value="1">必读</div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="introduce">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">写读后感</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" value="1">必须写读后感</div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="student">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">选择学生</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue"></div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub-f1"></div>
+            <div class="ub ub-fh bc-border ubt bc-bg">              
+                 <div id="btnSubmit" class="ub ub-ac ub-pc uinn bc-text-head bc-head ub-f1 umar-a" style="height:1.5em;border-radius: 0.5em">确定发布</div>
+            </div>
+        </div>
+        <div id="divRadio" class="ub ub-fh ub-fv ub-ver uhide" style="position: absolute;z-index: 9999;top:0;background: rgba(0,0,0,0)">
+            <div class="ub ub-ac ub-pc ub-f1 btnCloseRadio"></div>
+            <div id="radioBox" class="ub ub-fh ub-ver bc-white">
+                <div class="ub ub-fh ub-ver bc-white  bc-border ubt uhide" id="divReadType">
+                    <div class="ub ub-fh bc-border ubb ubt radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc " style="padding: 1em">
+                            <input type="radio" name="readType" class="uhide" checked="true" value="1" text="必读"  />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                         <div style="padding: 1em 0">必读</div>
+                    </div>
+                    <div class="ub ub-fh bc-border ubb radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc" style="padding: 1em">
+                            <input type="radio" name="readType" class="uhide" value="2" text="选读"  />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                        <div style="padding: 1em 0">选读</div>
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-ver bc-white  bc-border ubt uhide" id="divIntroduce">
+                    <div class="ub ub-fh bc-border ubb ubt radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc" style="padding: 1em">
+                            <input type="radio" name="introduce" class="uhide" checked="true" value="1" text="必须写读后感" />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                         <div style="padding: 1em 0">必须写读后感</div>
+                    </div>
+                    <div class="ub ub-fh bc-border ubb radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc " style="padding: 1em">
+                            <input type="radio" name="introduce" class="uhide" value="0" text="不必写读后感"  />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                        <div style="padding: 1em 0">不必写读后感</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="divCalender" class="ub ub-fh ub-fv uhide" style="position: absolute;z-index: 9999;top:0;background: rgba(0,0,0,0.5)">
+            <div class="ub ub-ac ub-pc ub-f1">
+                <div class="ub ub-ac ub-pc ub-ver bc-white">
+                    <div class="calendar " id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/calender.js"></script>
+    </body>
+    <script>
+        var nowDate;
+
+        appcan.ready(function() {
+            getUserInfo();
+            getCommInfo();
+            commInfo.selectStudentType = "0";
+            setCommInfo();
+            appcan.window.subscribe(STUDENT_SELECT, getStudentList);
+
+           $(".radioItem").on("click",function(){
+               $(this).find("input").attr("checked",true);
+               if($("#divReadType").hasClass("uhide")){
+                   $("#introduce .item").html($("input[name='introduce']:checked").attr("text"));
+                   $("#introduce .item").attr("value",$("input[name='introduce']:checked").attr("value"));                   
+               }else{
+                   $("#readType .item").html($("input[name='readType']:checked").attr("text"));
+                   $("#readType .item").attr("value",$("input[name='readType']:checked").attr("value"));                 
+               }
+               var flag=$("#radioBox").height();
+               $("#radioBox").animate({bottom:-flag+'px'},300 );
+               setTimeout(function(){
+                    $("#divRadio").css("background","rgba(0,0,0,0)");
+                    $("#divRadio").addClass("uhide");
+               },400);
+           });
+           $(".btnCloseRadio").on("click",function(){
+               var flag=$("#radioBox").height();
+               $("#radioBox").animate({bottom:-flag+'px'},300 );
+               setTimeout(function(){
+                    $("#divRadio").css("background","rgba(0,0,0,0)");
+                    $("#divRadio").addClass("uhide");
+               },400);
+           });
+            $("#readType").on("click",function(){
+                $("#divReadType").removeClass("uhide");
+                $("#divIntroduce").addClass("uhide");
+                $("#divRadio").removeClass("uhide");
+                $("#radioBox").css("bottom","-"+$("#radioBox").height()+"px");
+                $("#radioBox").animate({bottom:'0px'},300 );
+                setTimeout(function(){
+                    $("#divRadio").css("background","rgba(0,0,0,0.3)");
+                },400);
+           });
+           $("#introduce").on("click",function(){
+                $("#divReadType").addClass("uhide");
+                $("#divIntroduce").removeClass("uhide");
+                $("#divRadio").removeClass("uhide");
+                $("#radioBox").css("bottom","-"+$("#radioBox").height()+"px");
+                $("#radioBox").animate({bottom:'0px'},300 );
+                setTimeout(function(){
+                    $("#divRadio").css("background","rgba(0,0,0,0.3)");
+                },400);
+           });
+           $("#student").on("click",function(){
+              uexWindow.evaluateScript("", 0, "openStudent();");
+           });
+            nowDate = new Date();
+            $("#date .item").html(nowDate.getFullYear()+"-"+(nowDate.getMonth()+1)+"-"+nowDate.getDate());
+            
+           // uexControl.cbOpenDatePickerWithConfig=function(data){
+              // data=JSON.parse(data);
+              // $("#date .item").html(data.year+"-"+data.month+"-"+data.day);
+           // }
+           $("#divCalender").bind("click",function(){
+               $("#divCalender").addClass("uhide");
+           });
+           $("#calendar").bind("click",function(){
+                event.stopPropagation();
+           });
+            $("#date").on("click",function(){
+               var nDate = getformatDate($("#date .item").html());
+                initCalendar(nDate,function(dateStr){
+                  var date = getDateByStr(dateStr);
+                   $("#date .item").html(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
+                   $("#divCalender").addClass("uhide");
+                });
+                
+               $("#divCalender").removeClass("uhide");
+               // var params = {
+                    // datePickerId:1,
+                    // initDate:{
+                        // year:nowDate.getFullYear(),
+                        // month:nowDate.getMonth()+1,
+                        // day:nowDate.getDate()
+                    // },
+                    // minDate:{
+                        // limitType:0,
+                        // data:{
+                            // year:nowDate.getFullYear(),
+                            // month:nowDate.getMonth(),
+                            // day:nowDate.getDate()+1
+                        // }
+                    // },
+                    // maxDate:{
+                        // limitType:0,
+                        // data:{
+                            // year:nowDate.getFullYear()+1,
+                            // month:nowDate.getMonth()+1,
+                            // day:nowDate.getDate()
+                        // }
+                    // }
+                // }
+                // var data = JSON.stringify(params);
+                // uexControl.openDatePickerWithConfig(data);
+            });
+            
+        });
+        
+
+
+        function getStudentList(){
+            getBookInfo();
+            $("#student .item").html("已选择" + bookInfo.studentChecked.length + "名学生");
+        }
+        
+       //  uexWindow.alert("提示信息",' '+'推荐图书名称：'+bookInfo.name+';  阅读截止日期：'+$("#date .item").html()+';阅读类型：'+$("#readType .item").html()+';读后感要求：'+$("#introduce .item").html()+';已选择学生：'+dd,"确定");
+        
+          appcan.button("#btnSubmit", "btn-act", function() {
+            getBookInfo();
+            var stuStr = "";
+            var dd="";
+            $.each(bookInfo.studentChecked,function(id,stuObj) {
+               if(stuStr.length> 0) {
+                    stuStr += "|";
+               }
+               stuStr += stuObj.id; 
+               dd += stuObj.name+",";
+           });  
+           appcan.window.alert({
+                    title : "提示信息",
+                    content : '推荐图书名称：'+bookInfo.name+';\n阅读截止日期：'+$("#date .item").html()+';\n阅读类型：'+$("#readType .item").html()+';\n读后感要求：'+$("#introduce .item").html()+';\n已选择学生：'+dd,
+                    buttons : ['确定', '取消'],
+                    callback : function(err, data, dataType, optId) {
+                       
+                        if ("1" == data) {
+                           
+                        }else if ("0" == data) {
+                            Submit();
+                        }
+                    }
+                });                                               
+        });
+        function Submit(){
+            getBookInfo();
+            var stuStr = "";           
+            $.each(bookInfo.studentChecked,function(id,stuObj) {
+               if(stuStr.length> 0) {
+                    stuStr += "|";
+               }
+               stuStr += stuObj.id;              
+           });
+ 
+            var params={'userId':userInfo.id,'bookId':bookInfo.id,'studentIds':stuStr,'type':$("#readType .item").attr("value"),'isMustReview':$("#introduce .item").attr("value"),'endDate':$("#date .item").html()};
+            common.ajax("/recommend/add", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                $("#btnSubmit").addClass("uhide");
+                 toast("任务发布成功~",config.toastTimeShort);             
+                setTimeout(function(){
+                    uexWindow.evaluateScript("", 0, "exit();");
+                },config.toastTimeShort);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            },{'type':'POST',loadingMsg:'正在提交，请稍后...'});      
+        }
+ 
+    </script>
+</html>

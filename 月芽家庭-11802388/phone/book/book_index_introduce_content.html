@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>内容简介</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            body {
+                color: #5f5f5f;
+            }
+            #container, #container img, #video {
+                position: relative
+            }
+            #container, #container img, #video {
+                width: 6em;
+                height: 5em;
+                display: block;
+            }
+            #video, #container img.btn {
+                position: absolute;
+                left: 0px;
+                top: 0px
+            }
+            #video {
+                z-index: 100
+            }
+            #container img.btn {
+                left: 50%;
+                top: 50%;
+                width: 2.2em;
+                height: 2.2em;;
+                margin-left: -1.7em;
+                margin-top: -1.4em;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver bc-white" >
+            <div class="ub ub-fh">
+                <div class="ub ub-f1 umar-a uinn bc-border ubb" >
+                    <div class="ub ub-f1 ub-ver">
+                        <div class="ub ub-fh">
+                            <div class="ub ub-pe" style="width:4em">
+                                作者：
+                            </div>
+                            <div class="ub author"></div>
+                        </div>
+                        <div class="ub ub-fh umar-t">
+                            <div class="ub ub-pe" style="width:4em">
+                                出版社：
+                            </div>
+                            <div class="ub publisher"></div>
+                        </div>
+                        <div class="ub ub-fh umar-t">
+                            <div class="ub ub-pe" style="width:4em">
+                                字数：
+                            </div>
+                            <div class="ub wordCount"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div  id="main" class=" ub-f1 uinn" style="display:inline-block;"></div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/book/book_index_introduce_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

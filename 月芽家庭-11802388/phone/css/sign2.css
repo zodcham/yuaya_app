@@ -1,0 +1,222 @@
+.detailbox{
+    width:90%;
+    margin:0em auto;
+    opacity:0.8;
+}
+
+.calendarbox{
+    margin-top:2em;
+    width:100%;
+    background-color: #fff;
+    
+}
+
+.singer_r_img {
+	display: block;
+	line-height: 45px;
+	background: url(../images/sing_week.gif) right 2px no-repeat;
+	vertical-align: middle;
+	margin-bottom: -10px;
+	text-decoration: none;
+}
+
+.singer_r_img:hover {
+	background-position: right -53px;
+	text-decoration: none;
+}
+
+.singer_r_img span {
+	margin-left: 14px;
+	font-size: 16px;
+	font-family: 'Hiragino Sans GB','Microsoft YaHei',sans-serif !important;
+	font-weight: 700;
+	color: #165379;
+}
+
+.singer_r_img.current {
+	background: url(images/sing_sing.gif) no-repeat 0 2px;
+	border: 0;
+	text-decoration: none;
+}
+
+
+.sign_succ_calendar_title {
+	text-align: center;
+	/*width: 398px;
+	border-left: 1px solid #e3e3e3;
+	border-right: 1px solid #e3e3e3;
+	
+	background: #fff;
+	*/
+	width:100%;
+	margin:0 auto;
+	height: 2.5em;
+	line-height: 2.5em;
+	color:#333;
+}
+
+.sign_main {
+	/*width: 400px;*/
+    background-color: #fff;
+	border-top: 0px solid #e3e3e3;
+	font-family: "Microsoft YaHei",SimHei;
+	display: block;
+	padding-top: 0em;
+	width:100%;
+
+}
+
+.calendar_month_span {
+	display: inline;
+	line-height: 40px;
+	font-size: 1em;
+	color: #333;
+	letter-spacing: 2px;
+	
+	
+}
+.calendar_month_next{width: 3em;height: 1em;cursor: pointer;background:url(images/sign_arrow.png) no-repeat; float: right; font-size: 0.7em;}
+.calendar_month_prev{width: 3em;height: 1em;cursor: pointer;background:url(images/sign_arrow.png) no-repeat; float: left;font-size: 0.7em;}
+
+.sign_month{
+    background-color: #fff;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+
+.sign_equal {
+	display:table;
+	border-collapse:separate;
+	width: 100%;
+}
+
+.sign_row {
+	display:table-row;
+	width:100%;
+}
+.sign_row div {
+	display:table-cell;
+	/*width:14.3%;
+	/*border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;*/
+	border-left: 0px solid #e3e3e3;
+    font-size: 0.8em;
+    padding: 0.8em 0.3em;
+    text-align: center;
+    background-color: #fff;
+}
+.sign_row .bold{
+	background-color: #fff;
+	border: 0px solid #e3e3e3;
+	color: #333;
+	font-size: 0.8em;
+	/*padding: 0.8em 0.3em;*/
+	letter-spacing: 2px;
+	border-right: #fff 0.2em solid;
+	
+}
+.sign_row div:last-child { 
+	border-right: 0px solid #e3e3e3;
+	background-color: #fff;
+}
+.sign_equal .sign_row:last-child div{
+	border-bottom: 0px solid #e3e3e3;
+}
+.sign_equal .on {
+    background-color: #00CC33 !important;
+    border-right:1px solid #e3e3e3;
+    color: #fff;
+    /* background-color: #fff;
+        border:1px solid #e3e3e3;
+    color: #333;*/
+    /*padding: 0.8em 0.3em;*/
+    letter-spacing: 2px;
+	/*background: url(../images/sign.png) no-repeat center;*/
+    /*background-size: 0.8em 0.6em;
+	background:url(../images/sign.png) bottom right no-repeat #fff;*/
+}
+
+.sign_contener,.sign_contener:visited {
+	line-height: 30px;
+	background: #00a0e9;
+	border: none;
+	color: white;
+	border-radius: 30px;
+	padding: 0 10px;
+	font-size: 16px;
+}
+
+.sign_contener:hover{
+	background-color: red;
+} 
+
+
+.calendar_record{
+        background-color: #fff;
+        border:0px solid #ddd;
+    color: #333;
+    font-size: 1em;
+    padding: 0.5em 0.3em;
+    letter-spacing: 2px;
+}
+
+.sign_userimg{
+    width: 3em;
+    height:3em;
+    border-radius: 1.5em;
+    border-width: 0;
+}
+
+.sign_rank_text{
+
+}
+.top3text{
+    font-size: 1.2em;
+    color:#fff;
+}
+.sign_top3_text{
+    color:#fff;
+}
+.rank_name{
+    font-size:1.3em;
+}
+.sign_rank_num{
+    width:2em;
+    text-align: left;
+    font-size: 1.2em;
+    float: left;
+    height: 1.8em;
+    line-height: 1.8em;
+}
+.sign_rank_img{
+    width:1.5em;
+    text-align: center;
+    font-size: 1.5em;
+    float: left;
+    height: 2em;
+    line-height: 2em;
+}
+.sign_list_userimg{
+    width: 1.5em;
+    height:1.5em;
+    border-radius: 0.75em;
+    border-width: 0;
+}
+.sign_list_num{
+    width:2em;
+    text-align: center;
+    font-size: 1.2em;
+    float: left;
+    height: 2em;
+    line-height: 2em;
+}
+.sign_list_box{
+    background-color: #fff;height:2.5em;line-height: 2.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.sign_hat{
+    height:1.3em;
+    width:1.5em;
+}

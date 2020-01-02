@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget appId="11727075" channelCode="0000" height="480" pid="" sreensize="4.5" version="00.00.0000" viewmode="application" widgetId="" width="320">
+    <name>月芽阅读公共版</name>
+    <description/>
+    <author email=""/>
+    <icon src="icon.png"/>
+    <license href=""/>
+    <content encoding="utf-8" src="index.html"/>
+    <updateurl/>
+    <logserverip/>
+    <showmyspace>false</showmyspace>
+    <obfuscation>true</obfuscation>
+    <bgcolor>#fefefe</bgcolor>
+    <orientation>1</orientation>
+    <error src=""/>
+    <removeloading/>
+    <debug/>
+    <partobfuscation/>
+    <webapp>false</webapp>
+    <config desc="uexWeiXin" type="URLSCHEME">
+        <urlScheme name="uexWeiXin" schemes=""/>
+    </config>
+</widget>

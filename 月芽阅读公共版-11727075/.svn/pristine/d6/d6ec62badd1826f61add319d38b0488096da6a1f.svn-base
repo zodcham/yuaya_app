@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            html{
+                font-size:24px;
+            }
+            ::-webkit-calendar-picker-indicator {display: none !important }
+            .date {
+                width:6em;
+                height:1em;
+                border-radius: 1em;
+                background: rgba(0,0,0,0);
+            }
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart  style="background: url(../images/report/body.jpg) no-repeat; ">
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub " style="margin-top:290px;">
+                <input type="month" id="startDate" class="ub ub-ac ub-pc ub-fh ub-fv date uba sc-text" style="width:230px;height:60px;margin-left:300px; font-size:36px;border-width:0;" />
+                <input type="month" id="endDate" class="ub ub-ac ub-pc ub-fh ub-fv   date  uba sc-text" style="width:230px;height:60px;margin-left:130px; font-size:36px;border-width:0;"  />
+            </div>
+
+            <div class="ub ub-fh bc-border ubb  search"  type="1" style="width:535px; height:143px;margin-left:280px;margin-top:65px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name ' id="t1" style="margin-left:65px;"></div>
+                    <div class="ub ub-ac ub-pc">
+
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb  search"  type="6"  style="width:535px; height:143px;margin-left:280px;margin-top:17px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'  id="t2" style="margin-left:65px;"></div>
+                    <div class="ub ub-ac ub-pc">
+
+                    </div>
+                </div>
+            </div>
+            <!--<div class="ub ub-fh bc-border ubb  search uhide"  type="2" style="width:535px; height:143px;margin-left:280px;margin-top:18px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'></div>
+                    <div class="ub ub-ac ub-pc">
+
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb  search uhide" type="3" style="width:535px; height:143px;margin-left:280px;margin-top:18px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'></div>
+                    <div class="ub ub-ac ub-pc">
+
+                    </div>
+                </div>
+            </div>-->
+            <div class="ub ub-fh bc-border ubb  btnTask" type="7"  style="width:535px; height:143px;margin-left:280px;margin-top:18px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'  id="t3" style="margin-left:65px;"></div>
+                    <div class="ub ub-ac ub-pc">
+
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb  search" type="4" style="width:535px; height:143px;margin-left:280px;margin-top:18px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'  id="t4" style="margin-left:65px;"></div>
+                    <div class="ub ub-ac ub-pc">
+
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb  search" type="5" style="width:535px; height:143px;margin-left:280px;margin-top:19px; ">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'  id="t5" style="margin-left:65px;"></div>
+                    <div class="ub ub-ac ub-pc">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+       if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/user/user_report_search_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+            document.write('<script src="../js_server/user/user_report_search_content.js"><\/script>');
+        }
+</script>
+</html>

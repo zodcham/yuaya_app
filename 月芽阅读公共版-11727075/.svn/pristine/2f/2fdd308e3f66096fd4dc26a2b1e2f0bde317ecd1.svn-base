@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style type="text/CSS">           
+            input[type='radio'] + .box{
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.2em 0em ;
+                color: #555555;
+                background: #FFFFFF;                
+             }
+             input[type='radio']:checked + .box{
+                 color:#4dba72;
+             }
+              
+            .bottom{
+                height:0.3em;
+            }
+            
+             input[type='radio']:checked + .box + .bottom{
+                background:url(../css/image1/ico_shuchengxiangqing@2x_r13_c3.png) no-repeat;
+                background-size: 100% 100%;
+             }
+             /*.click2:active {
+                 background: #F16412;
+             }*/
+            input[type='radio'] + .boxs{
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.2em 0em ;
+                margin-top:1px;
+                color: #555555;               
+             }
+             input[type='radio']:checked + .boxs{
+                 color:#4dba72;
+                 background: #FFFFFF;   
+             }
+             input[type='radio']:checked + .boxs{                
+                 background: #FFFFFF;   
+             }
+             /*.click2:active {
+                 background: #F16412;
+             }*/
+ 
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_integral {
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(../css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_search {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/ico_search.png);
+                background-size: 100% 100%;
+            }
+             .icon_re {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/re.png) no-repeat;
+                background-size:  100% 100%;
+            }
+             .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_dianzans{
+                width:1em;
+                height:1em;
+                background: url(../css/image1/dianzans.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_caidan {
+                width:1.7em;
+                height:1.7em;
+                background: url(../css/image1/caidan.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like {
+                width:1.2em;
+                height:1.2em;
+                background: url(../css/image1/dian.png) no-repeat;
+                background-size:  100% 100%;
+            }
+             
+            .icon_ping {
+                width:1.2em;
+                height:1.2em;
+                background: url(../css/image1/ping.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_tianjias {
+                width:1.5em;
+                height:1.5em;
+                background: url(../css/image1/tianjias.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_xiala {
+                width:1em;
+                height:1em;
+                margin-right:2.2em;
+                background: url(../css/image1/xiala.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            
+             .icon_paixus {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/paixus.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_paixuss {
+                width:1em;
+                height:2em;
+                background: url(../css/image1/paixuss.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_cai {
+                width:1.5em;
+                height:1.2em;
+                background: url(../css/image1/cai.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .c-gra1{
+                background-color:#ffffff;
+                }
+            .txt-ellipsis{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+              .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                background-size: 100% 100%;*/
+                background: #FE8100;
+               
+            }
+            
+           .cs-select{
+              border: solid 0px #000;            
+              /*很关键：将默认的select选择框样式清除*/
+              appearance:none;
+              -moz-appearance:none;
+              -webkit-appearance:none;
+              background: rgba(0,0,0,0);    
+            }
+      ul{
+            width: 100%;
+        }        
+        li img{
+           display: inline-block;
+            width: 8em;
+            height: 10em;
+            margin-left:0.2em;
+            margin-bottom:0.2em;
+            float: left;
+        }
+        .umar-ll {
+            margin-left: 3em;
+            margin-right: 1em;
+        }
+        .r {
+            border-bottom: 0.5em solid #EEEEEE;
+            border-left: 0.5em solid transparent;
+            border-right: 0.5em solid transparent;
+            width: 0.2em;         
+            margin-left: 2em;
+        }
+        .commenta{
+            width: 100%;
+            margin: 0 auto;
+            background:#EEEEEE;
+        }
+         .commentss{
+            background:#DDDDDD;
+        } 
+         .prLista{
+           word-wrap:break-word;
+            
+        }        
+        </style>
+
+    </head>
+    <body class="um-vp sc-bg" ontouchstart style="background: url('../images/circle/body_bg.png');">
+    <div id="header2" class="uh ub uhide" style="position: fixed;background: url(../images/circle/header2_2.png) no-repeat;width:100%; height:54px;margin-top:0;z-index: 102;">
+
+    </div>       <!-- 方案1 -->
+     <div class="ub ub-ver ub-fh ub-fv " style=" width:1030px;margin:0 auto;">
+         <div class="ub ub-fh bc-white" style="position: fixed; z-index: 101; width:1030px; height:80px;">
+             <img src="../images/circle/btn0.png" style="margin-left:30px;width:128px;height:59px;" onclick="openShareWin(0);" class="header_btn btn0">
+             <img src="../images/circle/btn1.png" style="margin-left:50px;width:128px;height:59px;" onclick="openShareWin(1);" class="header_btn btn1">
+             <img src="../images/circle/btn2.png" style="margin-left:50px;width:128px;height:59px;" onclick="openShareWin(2);" class="header_btn btn2">
+             <img src="../images/circle/btn3_2.png" style="margin-left:50px;width:128px;height:59px;" onclick="openShareWin(3);" class="header_btn btn3">
+             <!--<img src="../images/circle/btn4.png" style="margin-left:50px;width:128px;height:59px;" onclick="openShareWin(4);" class="header_btn btn4">-->
+         </div>
+
+       <div class="ub ub-fh bc-white uhide" style="position: fixed; z-index: 100; width:1030px;">
+            <div class="ub ub-f1 ">
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money"  class="uhide" />
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="grade">本年级</div>
+                    <div class="ub bottom"></div>
+                </div>
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money"  class="uhide"/>
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="school">本学校</div>
+                    <div class="ub bottom"></div>
+                </div>
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money"  class="uhide"/>
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="area">本市</div>
+                    <div class="ub bottom"></div>
+                </div>
+                <div class="ub ub-f1 ub-ver umar-r">
+                    <input type="radio" name="money" class="uhide" checked="checked"/>
+                    <div class="ub ub-ac ub-pc ub-f1 box" value="plate">全国</div>
+                    <div class="ub bottom"></div>
+                </div>
+                 <div class="ub ub-f1 ub-ver" >
+                    <div class="select ub ub-ac ub-pc ub-f1 sc-text ">
+                       <div class="text" style="color:#8D93A5;margin-right: -1.5em">
+                                                                                             最新
+                       </div>
+                       <div class="icon_xiala"></div>
+                       <select id="AreaId2" selectedindex="0" class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text">
+                            <option value="1">最新 </option>
+                            <option value="2">最热 </option>
+                       </select>
+                   </div>
+                </div>
+            </div>
+        </div>
+       <div class="ub ub-fh " style="position: fixed; z-index: 100;margin-top: 80px;">
+               <div class="nav-btn" id="nav-left">
+           </div>
+            <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0"></h1>
+            <div class="nav-btn shares" id="nav-right">
+                <img src="../images/circle/btn_share.png" style="margin-right:80px;top:60px;">
+            </div>
+        </div>
+
+        <div id="bookList" class="ub ub-ver ub-fh ub-f1"style="margin-top:5em;"></div>
+     </div>
+
+     <div id="item" class="item ub ub-fh uhide bc-white " style=" border-bottom:2px solid #EBEEEF">
+
+       <div class="ub ub-ver ub-f1 bc-white umar-b">
+
+         <div class="ub ub-f1 ub-fh">
+             <div class="ub ub-f1 uinn">
+                <img class="userPhoto" src="../head.png" style=" border:0px solid #BABABA;width:2.5em;height:2.5em;">
+                    <div class="ub ub-ver ub-f1 ub-pc">
+                        <div class="ub ub-f1  umar-l sc-text-tab userName" style="color:#2c62ab;"></div>
+                        <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                          <div class="ub ub-f1 ulev-1 sc-text data"></div>
+                        </div>
+                    </div>
+                 </div>
+
+         </div>
+
+         <div class="umar-ll  umar-r">
+
+           <div class="ub ub-fh ub-ac ub-pc umar-t umar-r">
+                <div class="ub ub-f1 ub-ac shareName abc"></div>
+            </div>
+           <div class="ub ub-f1 ub-fh contentMain ">
+               <div class="ub ub-f1 ub-ver ub-fh">
+                    <!-- style="height:4.5em" -->
+                   <div class="ub ub-fh ub-ver main_content abc sc-text txt-ellipsis">&nbsp;</div>
+                    <div class="ub ub-ac ub-pc umar-b " style="float:left ">
+                        <div class="ub ub-ac ub-pc bc-btn contentquanwen uhide" style="width:4.1em;height:2em;border-radius: 0.2em;color: #2c62ab;background: #EEEEEE">查看全文</div>
+                    </div>
+               </div>
+           </div> 
+           <div  class="umar-r umar-l">
+             <video  class="video uhide" poster="../css/image1/hudong.jpg" controls="controls" preload="true" loop="loop"  width="100%" height="auto" name="media" autoplay playsinline webkit-playsinline>                            
+             </video>
+           </div>
+           <audio id="audio" class="audio uhide"   controls="controls" preload="load" >
+
+           </audio> 
+ 
+            <ul id="btn2">
+                <li>                   
+                    <img  class="image01 uhide">
+                    <a class="image1 uhide"></a>
+                    <img  class="image02 uhide">
+                    <b class="image2 uhide"></b>
+                    <img  class="image03 uhide">
+                    <p class="image3 uhide"></p> 
+                    <img  class="image04 uhide">
+                    <h1 class="image4 uhide"></h1> 
+                    <img  class="image05 uhide">
+                    <h2 class="image5 uhide"></h2> 
+                     <img  class="image06 uhide">
+                    <h3 class="image6 uhide"></h3> 
+                     <img  class="image07 uhide">
+                    <h4 class="image7 uhide"></h4> 
+                     <img  class="image08 uhide">
+                    <h5 class="image8 uhide"></h5> 
+                    <img  class="image09 uhide">
+                    <h6 class="image9 uhide"></h6>                                      
+                </li>
+            </ul>
+ 
+            <div class="ub ub-f1 ub-fh umar-t umar-r">               
+                <!-- 热度  -->
+                <div class="ub ub-ac ub-pc  sc-text umar-b umar-t" style="width: 40%;">                           
+                    <div class="ub" style="border-radius: 0.2em;" >
+                        <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em;">
+                            <div class="ub">浏览</div>
+                            <div class="ub sc-text hits"></div>                           
+                        </div>
+                    </div> 
+                    <div class="ub umar-l sc-text delete deletes" style="color:#2c62ab;"></div> 
+                </div>
+                <div class="ub ub-ac ub-pc  sc-text umar-b umar-t" style="width: 10%;">                           
+                  
+                </div>
+                <!-- 点赞  style="background:#8D93A5"-->
+                <div class="ub ub-f1 ub-fh ufr " style="width: 50%">                                                                                         
+                  <div class="menu" style="background: #FFFFFF;border-radius: 0.2em;" style="position: fixed;z-index: 101">
+                        <div class="ub umar-l umar-t menuBox" style="border-radius: 0.2em;float: right">
+                            <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                <div class="ub umar-r icon_ping"></div>
+                                <div class="ub prLists" style="color:#FFFFFF;"></div>
+                            </div>
+                        </div>
+                         <div class="ub umar-l likeBox click2 umar-t" style="border-radius: 0.2em;float: right">
+                            <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                <div class="ub umar-r icon_like"></div>
+                                 <div class="ub like" style="color:#FFFFFF;" ></div>  
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="ub umar-l menucai" style="border-radius: 0.2em; float: left; ">
+                        <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                            <div class="ub umar-r icon_cai "></div>                           
+                        </div>
+                    </div> 
+                </div>    
+           </div> 
+           
+            <!-- 显示点赞人数   -->
+           <div class="r"></div> 
+           <div class="commenta">
+                <div class="ub ub-f1 ub-fh umar-l umar-r prLista" style="width: 18em;">
+                    <div class="ub ub-ac ub-pc umar-r sc-text umar-t" >                           
+                        <div class="ub " style="border-radius: 0.2em">
+                            <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                <div class="ub umar-r icon_dianzans uhide"></div>
+                                <div class="ub sc-text likesName" style="color:#4dba72;"></div>                                
+                            </div>
+                        </div>
+                    </div>    
+                </div>  
+                <!-- 显示评论人数   -->                                                                          
+               <div class="ub ub-f1 ub-fh contentMain umar-l umar-r">
+                   <div class="ub ub-f1 ub-ver ub-fh">                 
+                       <div class="ub ub-fh ub-ver sc-text prLista  prList" style="width: 18em;">&nbsp;</div> 
+                   </div>
+               </div> 
+               <!-- 评论 -->
+               <div  class="ub ub-f1 uinn Commenttxt uhide">
+                    <div class="ub ub-f1" style="height:2em">
+                        <!--  -->
+                        <textarea placeholder="请输入评论" id="txtComments" class="txtComments ub ub-ac ub-f1 ulev0 bc-border uba" rows="2" style="resize: none;height:100%;border-radius: 0.2em;padding: 0.1em 0.5em;line-height: 2em"></textarea>
+                    </div>
+                    <div class="ub ub-ac ub-pc umar-l btnSubmit">
+                        <div  class="ub ub-ac ub-pc bc-btn commentss" style="width:4em;height:2.2em;border-radius: 0.2em;color: #2c62ab">提交</div>
+                    </div>
+               </div> 
+           </div>                   
+         </div>
+       </div>  
+             
+      </div>
+              
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="../js_server/yueduquan/Interaction_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+
+</html>

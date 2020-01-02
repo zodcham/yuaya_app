@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../js/layer_mobile/need/layer.css">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+        <style>
+            .icon_like {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/dianqu.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .icon_comment {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .c-gra1 {
+                background-color: #ffffff;
+            }
+            .txt-ellipsis {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+
+            .ubb1 {
+                border-bottom: .3em solid #F0F0F0;
+            }
+            .sortNav {
+                width: 25%;
+                height: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                float: left;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                z-index: 2;
+                padding-bottom: 3rem;
+                background: rgba(0,0,0,.02);
+            }
+            .sortNav b.icon-stars {
+                font-size: .9rem;
+                text-align: inherit;
+                color: rgba(0,0,0,.7);
+            }
+            .sortNav p {
+                font-size: 1.1 rem;
+                font-weight: normal text-align : center;
+                vertical-align: middle;
+                border-width: 0 0 1px 0;
+                background: rgba(255,255,255,.5);
+                padding: 0.5 rem 0rem;
+                width: 99.5%;
+                color: rgba(255,159,0,1);
+            }
+            input[type='radio'] + .box {
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                display: block;
+                height: 4rem;
+                line-height: 4rem;
+                text-align: center;
+                color: rgba(0,0,0,.6);
+                font-size: 0.9 rem;
+                font-weight: normal;
+                width: 100%;
+                background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.1),rgba(0,0,0,.1) 60%,transparent 60%);
+                background-size: 100% 1px;
+                background-position: bottom;
+                background-repeat: no-repeat;
+            }
+            input[type='radio']:checked + .box {
+                background: rgba(255,255,255,1);
+                color: #4dba72;
+                width: 100%;
+                background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.12),rgba(0,0,0,.12) 60%,transparent 60%);
+                background-size: 100% 1px;
+                background-position: bottom;
+                background-repeat: no-repeat;
+            }
+
+            .mark_essence {
+                width: 3em;
+                height: 3em;
+                background: url(../css/icons/mark_essence.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .mark_extensive {
+                width: 3em;
+                height: 3em;
+                background: url(../css/icons/mark_extensive.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .mark_choose {
+                width: 3em;
+                height: 3em;
+                background: url(../css/icons/mark_choose.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .container {
+                /*width: 100%;*/
+                border-bottom: 1px solid #ccc;
+                background: #ECE9E7;
+            }
+            .swiper1 {
+                width: 100%;
+            }
+            .swiper1 .selected {
+                font-weight: bold;
+                color: #4dba72 !important;
+                border-bottom: 2px solid #4dba72;
+            }
+            .swiper1 .swiper-slide {
+                text-align: center;
+                font-size: 1em;
+                height: 2.5em;
+                color: #7A7F82;
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                cursor: pointer;
+            }
+            .myPromptList {
+                width: 100%;
+                height: 16em;
+                background: url(../css/image1/tinei.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .listmain {
+                width: 75%;
+                float: right;
+                background-color: #fff;
+            }
+            .listmain .listchild {
+                border-bottom: 1px solid #ddd;
+                height: 4em;
+            }
+            .listmain .div_img {
+                width: 4em;
+                text-align: center;
+                margin-left: 0.5em;
+            }
+            .listmain .div_img .forumimg {
+                width: 3em;
+                height: 3em;
+                border-radius: 1.5em;
+            }
+            .listmain .title {
+                font-size: 1em;
+                height: 1.5em;
+            }
+            .listmain .threads {
+                color: #999;
+                font-size: 0.8em;
+            }
+            .gamebtn {
+                background-color: #00848E;
+                color: #fff;
+                border-radius: 1em;
+                height: 2.5em;
+                line-height: 2.5em;
+                text-align: center;
+                width: 10em;
+                margin: 1em auto;
+            }
+
+            .usericon {
+                width: 2em;
+                height: 2em;
+                border-radius: 1em;
+                border: 0.1em solid #fff;
+            }
+            .explain {
+                width: 100%;
+                height: 8em;
+                border-radius: 0.3em;
+                border: 0em solid #690f07;
+                margin: 0em auto;
+                vertical-align: top;
+                color: #690f07;
+                background-color: #fff;
+                opacity: 0.8;
+                overflow-y:auto;
+            }
+            .touch {
+                width: 15em;
+                margin: 0 auto;
+            }
+            .space {
+                border-radius: 0.4em;
+                width: 2em;
+                height: 2em;
+                line-height: 2em;
+                font-size: 1.3em;
+                border: 0.08em solid #000;
+                background-color: #fff;
+                color: #986b30;
+            }
+            .space2 {
+                border-radius: 0.4em;
+                width: 1.8em;
+                height: 1.8em;
+                line-height: 1.8em;
+                font-size: 1.2em;
+                border: 0.12em solid #690f07;
+                color: #986b30;
+                margin: 0 auto;
+            }
+            .idiom_bg {
+                background-image: url('../css/image1/idiom_bg.jpg') !important;
+                background-size: 100% 100%;
+                -moz-background-size: 100% 100%;
+            }
+            .fontred {
+                color: #f00;
+            }
+            .fontgreen {
+                color: #00848E;
+            }
+
+            @-webkit-keyframes shake {
+                0%{
+                    -webkit-transform:translate(0.5em, 0px);
+                }
+                25%{
+                    -webkit-transform:translate(-0.5em, 0px);
+                }
+                50%{
+                    -webkit-transform:translate(0px, 0px);
+                }
+                75%{
+                    -webkit-transform:translate(0.5em, 0px);
+                }
+                100%{
+                    -webkit-transform:translate(-0.5em, 0px);
+                }
+            }
+            @keyframes shake {
+                0%{
+                    transform:translate(0em, 0px);
+                }
+                25%{
+                    transform:translate(-0.2em, 0px);
+                }
+                50%{
+                    transform:translate(0.2px, 0px);
+                }
+                75%{
+                    transform:translate(-0.2em, 0px);
+                }
+                100%{
+                    transform:translate(0.2em, 0px);
+                }
+            }
+            .shake{
+                -webkit-animation:shake 0.2s 2;
+                animation:shake 0.2s 2;
+            }
+        </style>
+
+    </head>
+    <body class="um-vp idiom_bg" ontouchstart>
+
+        <div class="ub ub-ver ub-pc uinn" id="content1" style="width:85%;margin:0em auto;">
+            <div class="ub tx-l" style="color:#986b30; width:100%; margin:1em auto 0em;">
+                <img class="usericon" id="usericon" style="">
+                <div style="margin-left:1em; padding-top: 0.5em; vertical-align: bottom;" id="username"></div>
+                <div style="margin-left:1em; padding-top: 0.5em;" id="lv_name"></div>
+                <div style="margin-left:1em; padding-top: 0.5em;">
+                    进度 <span id="success">1/10</span>
+                </div>
+            </div>
+
+            <div class="ub ub-pj explain">
+                <div class="ub uinn ub-ver" >
+                    <p>
+                    【释 义】<span id="explain"></span>
+                    </p>
+                    <p>
+                    【出 处】<span id="from"></span>
+                    </p>
+                    <p id="p_synonym" class="uhide">
+                        【同义词】<span id="synonym"></span>
+                    </p>
+                    <p id="p_antonym" class="uhide">
+                    【反义词】<span id="antonym"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ub ub-pj ub-ac tx-c" style="width:100%;height:8em;margin:0 auto;">
+                <div class="touch ub ub-pj ub-ac tx-c" id="w1234">
+                    <div class="space ufl" id="w1"></div>
+                    <div class="space ufl" id="w2"></div>
+                    <div class="space ufl" id="w3"></div>
+                    <div class="space ufl" id="w4"></div>
+                </div>
+            </div>
+
+            <div class="ub ub-pj ub-ac tx-c ub-ver" style="width:100%;margin:0 auto;">
+                <div class="ub ub-pj ub-ac tx-c" style="width:100%;">
+                    <div class="space2 ufl" id="list_w1"></div>
+                    <div class="space2 ufl" id="list_w2"></div>
+                    <div class="space2 ufl" id="list_w3"></div>
+                    <div class="space2 ufl" id="list_w4"></div>
+                    <div class="space2 ufl" id="list_w5"></div>
+                    <div class="space2 ufl" id="list_w6"></div>
+                </div>
+                <div class="ub ub-pj ub-ac tx-c" style="width:100%;margin-top:0.5em;">
+                    <div class="space2 ufl" id="list_w7"></div>
+                    <div class="space2 ufl" id="list_w8"></div>
+                    <div class="space2 ufl" id="list_w9"></div>
+                    <div class="space2 ufl" id="list_w10"></div>
+                    <div class="space2 ufl" id="list_w11"></div>
+                    <div class="space2 ufl" id="list_w12"></div>
+                </div>
+                <div class="ub ub-pj ub-ac tx-c" style="width:100%;margin-top:0.5em;">
+                    <div class="space2 ufl" id="list_w13"></div>
+                    <div class="space2 ufl" id="list_w14"></div>
+                    <div class="space2 ufl" id="list_w15"></div>
+                    <div class="space2 ufl" id="list_w16"></div>
+                    <div class="space2 ufl" id="list_w17"></div>
+                    <div class="space2 ufl" id="list_w18"></div>
+                </div>
+                <div class="ub ub-pj ub-ac tx-c" style="width:100%;margin-top:0.5em;">
+                    <div class="space2 ufl" id="list_w19"></div>
+                    <div class="space2 ufl" id="list_w20"></div>
+                    <div class="space2 ufl" id="list_w21"></div>
+                    <div class="space2 ufl" id="list_w22"></div>
+                    <div class="space2 ufl" id="list_w23"></div>
+                    <div class="space2 ufl" id="list_w24"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+    <script src="../js/layer_mobile/layer.js"></script>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_student/game/gaming_content.js"></script>
+    <script>
+        
+
+    </script>
+</html>

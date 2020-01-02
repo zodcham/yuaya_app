@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>内容简介</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+      
+        <style>
+             body{
+                color:#5f5f5f;
+            }
+            .nav {
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.5em 0em 0.5em 0;
+                color: #555555;
+                background: #FFFFFF;
+                font-weight: bold;
+            }
+            .txt-ellipsis{ 
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .tabcurrent {
+                color: #4dba72;
+            }
+            .bottom{
+                height:0.3em;
+            }
+            .tabcurrent .bottom{
+                background:url(../css/image1/ico_shuchengxiangqing@2x_r13_c3.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            
+            .icon_into {
+                width:1em;
+                height:1em;
+                background: url(css/icons/btn_into.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_remove {
+                width:1em;
+                height:1em;
+                background: url(css/icons/btn_remove.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                background-size: 100% 100%;*/
+                background: #FE8100;
+            }
+                 .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_integral {
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(../css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             
+             .icon_like {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/dianqu.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }
+            .icon_commentss {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/zhuanfa.png) no-repeat;
+                background-size:  100% 100%;
+            }         
+             video{
+                object-fit:fill;
+                width:100%;
+                height: auto;                
+            }
+            .uhide {
+            display: none !important;
+            } 
+        #mains{
+            width: 100%;
+            max-width: 100%;                         
+            word-wrap:break-word;
+            word-break:break-all;                        
+            margin-bottom:5em;
+        }
+         #mains img{
+            width: 98%;
+            height:auto;            
+            margin: 0 auto;
+        }     
+        .main_content{
+            width: 98%;              
+            max-width: 100%;
+            word-wrap:break-word;
+            word-break:break-all; 
+            margin-bottom:5em;        
+        }  
+        table{
+            width: 99%;
+            max-width: 100%;
+            text-align:center;
+            word-wrap:break-word;
+            word-break:break-all; 
+            margin-bottom:5em; 
+        }      
+            
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+         
+        <div class="ub ub-fh ub-fv ub-ver  bc-whitess" >
+   
+            <div  id="mains" class="ub ub-f1">
+                
+                
+                <div class="main_content umar-l">
+                    
+                </div>
+            </div>
+             <!-- <div class="ub ub-ac ub-pc ub-fh" style="height:3em;">
+                .
+           </div> -->
+            <!-- <div class="ub ub-ac ub-pc ub-fh" style="position: fixed;height:3em;bottom:0;left:0;z-index:99999">
+                  <div class="tabs ub ub-ac ub-fh ub-pc ub-f1">           
+                <div  class="ub ub-ac ub-pc ub-f1 sc-text bc-white bc-border ubt ubb" style="height:2.6em;width: 100%">                    
+                    <div class="ub ub-ac tx-l ub-pc " style="color: #3eb173;width: 33%;height:2.6em;" >转发
+                          <div class="ub sc-text"></div>
+                         
+                        </div> 
+                     
+                    <div class="ub ub-ac  ub-pc" id="btnAdd" style="color: #3eb173;width: 33%;height:2.6em;" >评论
+                            <div class="ub sc-text evaluateTimes"></div>
+                        </div>
+                     
+                    <div class="ub ub-ac tx-r ub-pc" style="color: #3eb173;width: 33%;height:2.6em;" >点击
+                        
+                         <div class="ub sc-text  hits"></div>
+                           </div>
+                </div>
+            </div>
+            </div> -->
+         </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/audioplayer.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/willesPlay.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/yueduquan/Read_index_introduce_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

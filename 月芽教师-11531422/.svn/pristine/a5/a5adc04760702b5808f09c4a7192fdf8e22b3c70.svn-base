@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style type="text/css">
+            
+            .progress{
+                height: 1.5em;
+            }
+            .progress_text{
+                text-align:center;
+            }
+            
+            .progress_bar {
+              height: 100%;
+              opacity: 0.5;
+              background-color: rgba(18, 135, 204, 0.95);
+              background-image: -webkit-linear-gradient(0deg, rgba(20, 151, 227, 0) 10%, rgba(37, 162, 236, 0.8) 30%, #3dacee 70%, rgba(37, 162, 236, 0.8) 80%, rgba(20, 151, 227, 0) 90%), -webkit-linear-gradient(left, rgba(61, 172, 238, 0) 0%, #3dacee 100%), -webkit-linear-gradient(right, rgba(61, 172, 238, 0) 0%, #3dacee 100%);
+              background-image: linear-gradient(90deg, rgba(20, 151, 227, 0) 10%, rgba(37, 162, 236, 0.8) 30%, #3dacee 70%, rgba(37, 162, 236, 0.8) 80%, rgba(20, 151, 227, 0) 90%), linear-gradient(to right, rgba(61, 172, 238, 0) 0%, #3dacee 100%), linear-gradient(to left, rgba(61, 172, 238, 0) 0%, #3dacee 100%);
+            }
+            .progress_block{
+               position:relative;
+               height:100%;
+               width:100%;
+               top: 0; left: 0; bottom: 0; right: 0;  
+               background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent), to(transparent));   
+               -webkit-background-size: 40px;  
+               -webkit-animation: blockMove 2s linear infinite;  
+               -webkit-border-top-right-radius: 8px;  
+               -webkit-border-bottom-right-radius: 8px;  
+               -webkit-border-top-left-radius: 20px;  
+               -webkit-border-bottom-left-radius: 20px;  
+               overflow: hidden; 
+            }
+            @-webkit-keyframes blockMove {  
+                0% {  
+                   background-position: 0 0;  
+                } 
+                100% {  
+                   background-position: 50px 50px;  
+                }  
+            }
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa fa-angle-left fa-2x"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">文件下载</h1>
+                <div class="nav-btn nav-bt" id="nav-right"></div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <!-- <div id="content" class="ub ub-fh ub-fv ub-ac ub-pc checkUpdate uhide" style="margin-top: 4em">
+                <div class="ub ub-ver bc-white" style="width:90%">
+                    <div class="ub ub-fh ub-f1 ub-ver">
+                        <div class="ub ub-fh bc-border ubb ub-ac ub-pc" style="height:3em">
+                            <div class="ub ub-f1 uinn  sc-text-active ulev1">下载文件为：</div>
+                        </div>
+                        <div class="ub ub-fh ub-f1" style="min-height: 5em">
+                            <div class="ub ub-f1 ub-ver uinn version ulev0 sc-text-active"></div>
+                        </div>
+                        <div class="ub ub-fh">
+                             <div class='progress ub ub-f1 uinn uhide'>
+                                 <div class="ub ub-f1 ub-fv">
+                                    <div class='progress_bar' style='width:1%'>
+                                        <div class='progress_block'></div>
+                                    </div>
+                                 </div>
+                                <div class='progress_text umar-t ub ub-ac ub-pc ulev-1 sc-text'> 正在下载...</div>
+                             </div>
+                        </div>
+                        <div class="ub ub-fh bc-border ubt downMenu uhide" style="height:3em">
+                            <div class="ub ub-f1 ub-ac ub-pc btnPause click">取消</div>
+                        </div>
+                        <div class="ub ub-fh bc-border ubt btnMenu" style="height:3em">
+                          
+                            <div class="ub ub-f1 ub-ac ub-pc btnOk click">直接下载</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             -->
+            <!--content结束-->
+            
+            
+         <div  class="up ub ub-ver ub-ac ub-pc page_2" style="background: rgba(0,0,0,0.5);" tabindex="0">
+            <div id="content" class="ub ub-fh ub-fv ub-ac ub-pc umar-t">
+                <div class="ub ub-ver bc-white" style="width:90%">
+                    <div class="ub ub-fh ub-f1 ub-ver umar-t">
+                         <div class="ub ub-fh bc-border ubb ub-ac ub-pc" style="height:3em">
+                            <div class="ub ub-f1 uinn sc-text-active ulev0">下载提示：</div>
+                        </div>
+                        <div class="ub ub-fh ub-f1 umar-t uinn" style="min-height: 4em">
+                            <div class="ub ub-f1 ub-ver ulev-1 sc-text-active">文件已收藏到我的资源，请通过电脑登陆下载...</div>
+                        </div>                                               
+                        <div class="ub ub-fh bc-border ubt downMenu" style="height:3em">
+                            <div class="ub ub-f1 ub-ac ub-pc btnPause click">返回</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div  class="up ub ub-ver ub-ac ub-pc complete uhide" style="background: rgba(0,0,0,0.5);" tabindex="0">
+            <div id="content" class="ub ub-fh ub-fv ub-ac ub-pc">
+                <div class="ub ub-ver bc-white" style="width:90%">
+                    <div class="ub ub-fh ub-f1 ub-ver">
+                        <div class="ub ub-fh bc-border ubb ub-ac ub-pc" style="height:3em;text-align: center">
+                            <div class="ub ub-f1 uinn sc-text-active ulev1">下载完成:</div>
+                        </div>
+                        <div class="ub ub-fh ub-f1" style="min-height: 5em">
+                            <div class="ub ub-f1 ub-ver uinn">文件资源保存路径为：wigetone/apps/001/我的资源</div>
+                        </div>                                               
+                        <div class="ub ub-fh bc-border ubt downMenu" style="height:3em">
+                            <div class="ub ub-f1 ub-ac ub-pc btnPause click">返回</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+
+        </div>
+        
+       <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>     
+         <script src="../js/upload.js"></script>
+         <script src="http://www.readseed.cn/nocache/js_teacher/yueduquan/downloaders.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

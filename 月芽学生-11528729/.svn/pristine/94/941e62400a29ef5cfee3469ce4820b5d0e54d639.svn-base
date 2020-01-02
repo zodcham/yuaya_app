@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="ub">&nbsp;</div>
+        <div class="ub ub-fh bc-white bc-border ubt ubb">
+            <input id="itValue" type="text" class="ub ub-fh ub-fv ub-f1 uinn ulev0" style="border:0px;padding: 0.8em 0.5em" />
+        </div>
+        <div class="ub ub-fh umar-t">
+            <div class="ub ub-f1 uinn">
+            <div id="btnSubmit" class="ub ub-ac ub-pc ub-f1 bc-head bc-text-head" style="height: 2.8em;border-radius: 2.8em">保&nbsp;存</div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/user/user_modify_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

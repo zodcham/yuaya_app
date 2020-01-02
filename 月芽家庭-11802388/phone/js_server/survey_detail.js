@@ -1,0 +1,30 @@
+
+
+appcan.ready(function() {
+	var titHeight = $('#header').offset().height+20;
+	
+	var pushTitle=getLocVal("survey_title");
+	var pushUrl=getLocVal("survey_url");
+	getUserInfo();
+	pushUrl=unescape(pushUrl) +"&"+userInfo.id;
+	$("#HeaderTitle").html(pushTitle);
+	uexWindow.openPopover("content", 0, pushUrl, '', 0, titHeight, document.body.clientWidth, '', 0, 512, 0);
+				
+});
+appcan.button("#nav-left", "btn-act", function() {
+	appcan.window.close(-1);
+})
+appcan.button("#nav-right", "btn-act", function() {
+	var titHeight = $('#header').offset().height;
+	var pushUrl="push_share.html";
+	uexWindow.openPopover({
+		  name:"pushshare",
+		  url:pushUrl,
+		  x:0,
+		  y:0,
+		  w:document.body.clientWidth,
+		  h:document.body.clientHeight,
+		  bottomMargin:0,
+		  extraInfo:{opaque:true}
+		});
+})

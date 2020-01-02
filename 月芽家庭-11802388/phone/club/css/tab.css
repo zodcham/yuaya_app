@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+/*清除浏览器默认样式*/
+* {
+    margin:0px;
+    padding:0px;
+}
+.container_style{
+    width:100%;
+    min-height:10em;
+    display:block;
+}
+.li_area_style{
+    width:3em;
+    height:5em;
+    background-color:white;
+    float:left;
+}
+ul,li{
+    margin:0px;
+    padding:0px;
+    list-style:none;
+}
+li{
+    /*float:right;*/
+    background-color:pink;
+    margin-top:2px;
+    width:3em;
+    padding:5px;
+    border:1px solid white;
+    height:3em;
+    color:white;
+    vertical-align: middle;
+}
+.listli{
+    background-color:red;
+    border:1px solid red;
+}
+.tab_area_style{
+    width:400px;
+    height:100px;
+    background-color:white;
+    display:block;
+    float:left;
+}
+.tab_area_style *{
+    width:370px;
+    height:100px;
+    background-color:red;
+    border-top:0px;
+    color:white;
+    display:none;
+    margin-top:2px;
+}
+.content_area{
+    display:block;
+}

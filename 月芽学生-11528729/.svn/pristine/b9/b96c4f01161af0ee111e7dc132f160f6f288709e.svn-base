@@ -1,0 +1,69 @@
+
+        appcan.ready(function() {
+          var titHeight = $('#header').offset().height + $('#tabview').offset().height;
+
+          appcan.frame.open({
+
+               id : "content",
+
+               url : [ {
+
+                   "inPageName" :"Read",
+                   "inUrl" :"Read_content.html",
+
+               }, {
+
+                   "inPageName" :"Interaction",
+                   "inUrl" :'Interaction_content.html',
+
+               },{
+
+                   "inPageName" :"Livebroadcast",
+                   "inUrl" :'Livebroadcast_content.html',
+
+               },],
+
+               top : titHeight,
+
+               left : 0,
+
+               index : 0,
+
+               change : function(err, res) {
+                  tabview.moveTo(res.multiPopSelectedIndex);
+               }
+          });
+
+      window.onorientationchange = window.onresize = function() {
+              appcan.frame.resize("content", 0, titHeight);
+          }
+      });
+        var tabview = appcan.tab({
+            selector : "#tabview",
+            hasIcon : false,
+            hasAnim : false,
+            hasLabel : true,
+            hasBadge : false,
+            data : [{
+                label : '课程领读',
+            }, {
+                label : '互动分享',
+            }, {
+                label : '直播',
+            }]
+        });
+        tabview.on("click", function(obj, index) {
+             appcan.window.selectMultiPopover("content", index);
+        })        
+        // appcan.button(".nav-btn", "btn-act", function() {
+            // appcan.window.close(-1);
+        // })
+        appcan.button("#nav-left", "btn-act", function() {          
+           exit();
+        })
+         function exit() {
+            //setOrientation(1); 
+            uexWindow.evaluatePopoverScript("","Interaction","refreshData()");           
+            appcan.window.close(-1);            
+        }
+        

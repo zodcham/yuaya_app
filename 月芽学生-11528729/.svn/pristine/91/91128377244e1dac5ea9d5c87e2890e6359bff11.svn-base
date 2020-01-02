@@ -1,0 +1,416 @@
+/**
+ * localStorage保存数据
+ * @param String key  保存数据的key值
+ * @param String value  保存的数据
+ */
+function setLocVal(key, value) {
+    window.localStorage[key] = value;
+}
+
+/**
+ * 根据key取localStorage的值
+ * @param Stirng key 保存的key值
+ */
+function getLocVal(key) {
+    if (window.localStorage[key])
+        return window.localStorage[key];
+    else
+        return "";
+}
+
+/**
+ * 清除缓存
+ * @param Striong key  保存数据的key，如果不传清空所有缓存数据
+ */
+function clearLocVal(key) {
+    if (key)
+        window.localStorage.removeItem(key);
+    else
+        window.localStorage.clear();
+}
+
+var locKey={
+    'sysInfo':"sysInfo",
+    'userInfo':'userInfo',
+    'bookInfo':'bookInfo',
+    'programIn':'programInfo',
+    'commInfo':'commInfo'
+}
+
+//系统属性
+var sysInfo={};
+function getDefaultSysInfo(){
+    sysInfo={
+        //是否第一次进入
+        'isFirstInto':true,
+        'phoneType':"",
+        'type':'',
+        //是否添加分布
+        'isAddDistribute':false,
+        //APP版本
+        'appVersion':'',
+        'appId':'',
+        'noUpdateVersion':'',
+        'updateInfo':'',
+        'titleHeight':'',
+        'ranking':'',
+        'report':'',
+        //推荐序号
+        'recommendNO':0,
+        //推荐时间
+        'recommendDate':''
+    };
+}
+getDefaultSysInfo();
+function getSysInfo()
+{
+     var locData=getLocVal(locKey.sysInfo);
+     if(locData.length>0){
+        sysInfo=$.extend(sysInfo,JSON.parse(locData));
+     }else{
+        getDefaultSysInfo();
+     }
+}
+
+function setSysInfo(){
+     setLocVal(locKey.sysInfo,JSON.stringify(sysInfo));
+}
+function clearSysInfo(){
+     clearLocVal(locKey.sysInfo);
+}
+
+//用户属性
+var userInfo={};
+function getDefaultUserInfo(){
+    userInfo={
+        'clazzId': "",
+        'clazzIds': "",
+        'clazzName': "",
+        'email': "",
+        'goldCount': 0,
+        'grade': "",
+        'gradeName': "",
+        'id': "",
+        'loginDate': "",
+        'loginFlag': "",
+        'loginIp': "",
+        'loginName': "",
+        'mobile': "",
+        'name': "",
+        'nickName': "",
+        'oldLoginDate': "",
+        'oldLoginIp': "",
+        'password': "",
+        'phone': "",
+        'photo': "",
+        'qq': "",
+        'readBookCount': 0,
+        'readLevelId': "",
+        'readLevelName': "",
+        'readWordCount': 0,
+        'remarks': "",
+        'schoolId': "",
+        'schoolName': "",
+        'scoreCount': 0,
+        'sex': "",
+        'studentNo': "",
+        'teacher': false,
+        'headImgSrc':""             
+    };
+}
+getDefaultUserInfo();
+function getUserInfo(){
+     var locData = getLocVal(locKey.userInfo);
+     if(locData.length > 0){
+        userInfo = $.extend(userInfo,JSON.parse(locData));
+     }else{
+       getDefaultUserInfo();
+     }
+}
+
+function setUserInfo(isRefreshPerson){
+     var locData=getLocVal(locKey.userInfo);
+     if(locData.length > 0){
+        var oldUserInfo = JSON.parse(locData);
+        if (oldUserInfo.phone != userInfo.phone) {
+            clearHeadImg(function(msg){
+                
+            },function(msg){
+                
+            });
+        }
+     }
+     setLocVal(locKey.userInfo,JSON.stringify(userInfo));
+     //广播
+     if (isRefreshPerson) {
+        appcan.window.publish(UPDATE_INFO, "0");
+     }
+}
+
+
+function clearUserInfo(){
+     clearLocVal(locKey.userInfo);
+}
+
+var bookInfo={};
+function getDefaultBookInfo(){
+    bookInfo={
+        'id':'',
+        'isNewRecord':false,
+        'createDate':'',
+        'updateDate':'',
+        'name':'',
+        'author':'',
+        'score':'',
+        'bookCategory':'',
+        'grade':'',
+        'wordCount':'',
+        'publisher':'',
+        'pageCount':'',
+        'isbn':'',
+        'image':'',
+        'price':'',
+        'language':'',
+        'readGuide':'',
+        'hits':'',//点击数
+        'favTimes':'',
+        'recommendTimes':'',
+        'evaluateTimes':'',
+        'exerciseTimes':'',
+        'evaluateScore':'',
+        'evaluateAvgScore':'',
+        'exercisePassTimes':'',
+        'bookCategoryName':'',
+        'languageName':'',
+        'gradeName':'',
+        'isFavorite':'0',//(0:未收藏, 1:已收藏)，
+        'isPass':'0',//(0:未认证, 1:已认证)
+        'chooseStudent':'' ,
+        'readFeeling':'',
+        'programId':'', //领读ID
+        'audioFile':'', //音频文件url
+        'posterImagePath':'', //音频图片url
+        'videoFile':'', //导读视频文件url
+        'videoFile2':'' //导读高清视频文件url
+    }
+}
+getDefaultBookInfo();
+function getBookInfo(){
+     var locData=getLocVal(locKey.bookInfo);
+     if(locData.length>0){
+        bookInfo=$.extend(bookInfo,JSON.parse(locData));
+     }else{
+       getDefaultBookInfo();
+     }
+}
+
+function setBookInfo(){
+     setLocVal(locKey.bookInfo,JSON.stringify(bookInfo));
+}
+
+//栏目
+var programInfo={};
+function getDefaultProgramInfo(){
+    programInfo={
+        'id':'',
+        'isNewRecord':false,
+        'createDate':'',
+        'updateDate':'',
+        'name':'',
+        'author':'',
+        'score':'',
+        'bookCategory':'',
+        'grade':'',
+        'wordCount':'',
+        'publisher':'',
+        'pageCount':'',
+        'isbn':'',
+        'createBy':'',        
+        'image':'',
+        'price':'',
+        'language':'',
+        'chooseVideoPath':'',
+        'chooseAudioPath':'',
+        'readGuide':'',//阅读指导
+        'introduce':'',//外链视频
+        'hits':'',//点击数
+        'favTimes':'',
+        'recommendTimes':'',
+        'evaluateTimes':'',
+        'exerciseTimes':'',
+        'evaluateScore':'',
+        'evaluateAvgScore':'',
+        'exercisePassTimes':'',
+        'bookCategoryName':'',
+        'languageName':'',
+        'gradeName':'',
+        'isFavorite':'0',//(0:未收藏, 1:已收藏)，
+        'isPass':'0',//(0:未认证, 1:已认证) 
+        'readFeeling':'',
+        'studentChecked':{}
+    }
+}
+getDefaultProgramInfo();
+function getProgramInfo(){
+     var locData=getLocVal(locKey.programInfo);
+     if(locData.length>0){
+        programInfo=$.extend(programInfo,JSON.parse(locData));
+     }else{
+       getDefaultProgramInfo();
+     }
+}
+
+function setProgramInfo(){
+     setLocVal(locKey.programInfo,JSON.stringify(programInfo));
+}
+
+function clearProgramInfo(){
+     clearLocVal(locKey.programInfo);
+}
+
+//公共参数
+var commInfo={};
+function getDefaultCommInfo(){
+    commInfo={
+       'recommendId':'',//推荐Id
+       'mallSearch':'',//查询参数
+       'usermodifyType':'',//修改个人信息类型
+       'grade':'',
+       'book_category':'',
+       'recommendLevel':'',
+       'finishState':'',
+       'studentId':'',
+       'mallId':'',
+       'mallName':'',
+       'activityId':'',
+       'activityAddress':''
+    }
+}
+getDefaultCommInfo();
+function getCommInfo(){
+     var locData=getLocVal(locKey.commInfo);
+     if(locData.length>0){
+        commInfo = $.extend(commInfo,JSON.parse(locData));
+     }else{
+       getDefaultCommInfo();
+     }
+}
+
+function setCommInfo(){
+     setLocVal(locKey.commInfo,JSON.stringify(commInfo));
+}
+
+function clearCommInfo(){
+     clearLocVal(locKey.commInfo);
+}
+
+
+var logKeys={
+    "OpenApp":1, //打开APP  - 登录
+    "LoginSuccess":2, //登录成功  - 登录
+    "LoginFailed":3, //登录失败  - 登录
+    "LoginScanSuccess":4, //扫码登录成功  - 登录
+    "LoginScanFailed":5, //扫码登录失败  - 登录
+    "RegScanSuccess":6, //扫描注册成功  - 注册
+    "FindPasswordSuccess":7, //找回密码成功  - 找回密码
+    "SignSuccess":8, //签到成功  - 签到
+    "SignFailed":9, //签到失败  - 签到
+    "SignReadDetail":10, //查看签到详情  - 签到
+    "SignReadToday":11, //查看签到今日排行  - 签到
+    "SignReadMonth":12, //查看签到月排行  - 签到
+    "SignReadAll":13, //查看签到总排行  - 签到
+    "SignShareToWeixin":14, //分享签到图给好友成功  - 签到
+    "SignShareToWinxinQuan":15, //分享签到图给好友失败  - 签到
+    "BookOpenMall":16, //浏览书城  - 图书
+    "BookLibType":17, //浏览书城-选择分类  - 图书
+    "BookLibGrade":18, //浏览书城-选择年级  - 图书
+    "BookLibSearch":19, //搜索图书  - 图书
+    "BookOpenDetail":20, //查看图书详情  - 图书
+    "BookReadCover":21, //查看图书封面  - 图书
+    "BookPPTStart":22, //浏览领读开始  - 图书
+    "BookPPTEnd":23, //浏览领读结束  - 图书
+    "BookVideoStart":24, //查看视频开始  - 图书
+    "BookVideoEnd":25, //查看视频结束  - 图书
+    "BookAudioStart":26, //收听音频开始  - 图书
+    "BookAudioEnd":27, //收听音频结束  - 图书
+    "BookAddToShelf":28, //加入书架  - 图书
+    "BookReviewList":29, //查看读后感列表  - 图书
+    "BookReviewDetail":30, //查看读后感详情  - 图书
+    "BookReviewLike":31, //给读后感点赞  - 图书
+    "BookReviewAddComment":32, //给读后感写评论  - 图书
+    "BookReviewWriteSuccess":33, //写读后感成功  - 图书
+    "PersonMyFriendsInfo":34, //查看同学信息  - 个人信息
+    "HomeMyBookShelf":35, //查看我的书架  - 首页
+    "HomeMyTask":36, //查看我的任务  - 首页
+    "HomeReadNews":37, //查看新闻  - 首页
+    "HomeTestList":38, //查看测评记录  - 首页
+    "HomeMall":39, //查看财富商城  - 首页
+    "HomeReadReport":40, //查看阅读报告  - 首页
+    "MallBuyGift":41, //兑换礼品  - 商城
+    "MallBuyHistory":42, //查看兑换历史  - 商城
+    "TestStart":43, //测评开始  - 测评
+    "TestEnd":44, //测评提交成功  - 测评
+    "Report":45, //查看基本情况  - 阅读报告
+    "ReportAbility":46, //查看阅读能力  - 阅读报告
+    "ReportReadTasks":47, //查看阅读任务  - 阅读报告
+    "ReportMyBooks":48, //查看书单  - 阅读报告
+    "ReportMyReviews":49, //查看读后感  - 阅读报告
+    "NewsDetail":50, //查看新闻  - 新闻
+    "NewsLike":51, //给新闻点赞  - 新闻
+    "PPTOpenIndex":52, //查看课程领读详情  - 课程领读
+    "PPTChangeGrade":53, //查看分类  - 课程领读
+    "SharingCountry":54, //查看全国  - 互动分享
+    "SharingGrade":55, //查看年级  - 互动分享
+    "SharingSchool":56, //查看学校  - 互动分享
+    "SharingCity":57, //查看本市  - 互动分享
+    "SharingSuccess":58, //分享成功  - 互动分享
+    "SharingDetail":59, //查看分享内容  - 互动分享
+    "SharingLike":60, //给分享内容点赞  - 互动分享
+    "SharingWriteSuccess":61, //给分享写评论  - 互动分享
+    "SharingToWeixinSuccess":62, //转发微信好友成功  - 互动分享
+    "SharingToWeixinFailed":63, //转发微信好友失败  - 互动分享
+    "SharingToWeixinQuanSuccess":64, //转发朋友圈成功  - 互动分享
+    "SharingToWeixinQuanFailed":65, //转发朋友圈失败  - 互动分享
+    "ClubEnter":66, //进入公会  - 社区
+    "ClubThreadAddSuccess":67, //写主题成功  - 社区
+    "ClubThreadReplySuccess":68, //回复主题成功  - 社区
+    "ClubPostsReplySuccess":69, //回复帖子成功  - 社区
+    "ClubClearThread":70, //清空自己的主题内容  - 社区
+    "ClubClearReply":71, //清空自己的回复内容  - 社区
+    "RankClass":72, //查看班级排行  - 排行
+    "RankGrade":73, //查看年级排行  - 排行
+    "RankSchool":74, //查看学校排行  - 排行
+    "RankAll":75, //查看平台排行  - 排行
+    "PersonEnter":76, //进入个人中心  - 个人信息
+    "PersonPhotoSuccess":77, //修改头像成功  - 个人信息
+    "PersonNameSuccess":78, //修改姓名成功  - 个人信息
+    "PersonNicknameSuccess":79, //修改昵称成功  - 个人信息
+    "PersonQQSuccess":80, //修改QQ成功  - 个人信息
+    "PersonEmailSuccess":81, //修改邮箱成功  - 个人信息
+    "PersonMobileSuccess":82, //修改手机号码成功  - 个人信息
+    "PersonLevelDetail":83, //查看等级  - 个人信息
+    "PersonMySpace":84, //进入我的空间  - 个人信息
+    "PersonPasswordSuccess":85, //修改密码成功  - 个人信息
+    "PersonMyFriends":86, //查看我的好友  - 个人信息
+    "PersonMyMessages":87, //查看我的消息  - 个人信息
+    "PersonAbout":88, //查看关于月牙  - 个人信息
+    "PersonCheckVersion":89, //检查更新  - 个人信息
+    "PersonHelp":90, //查看帮助与客服  - 个人信息
+    "PersonLogout":91, //退出登录  - 个人信息
+    "PersonUpdateApp":92, //更新系统  - 个人信息
+    "MessageList":93, //进入消息列表  - 消息
+    "MessageDetail":94, //查看消息  - 消息
+    "MessageBox":95, //查看收件箱  - 消息
+    "MessageSendSuccess":96, //发消息成功  - 消息
+    "MessageNewFriends":97, //查看验证消息  - 消息
+    "MessageReplySuccess":98, //回复消息成功  - 消息
+    "BookCloseDetail":99, //关闭图书详情  - 图书
+    "BookDelFromShelf":100, //移除书架  - 图书
+    "BookReviewDelSuccess":101, //删除读后感成功  - 图书
+    "TestBreak":102, //测评未提交就退出  - 测评
+    "SharingReviewDel":103, //删除自己的互动分享评论  - 互动分享
+    "SharingReviewLike":104, //给互动分享评论点赞
+    "SharingDel":105, //删除自己的互动分享
+    "ClubThreadDetail":106, //查看主题
+    "PersonMyFriendsDel":107 //删除好友
+}

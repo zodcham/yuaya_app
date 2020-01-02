@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-transform" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../information/css/main.css">
+        <link rel="stylesheet" href="../css/datouwang.css">
+        <link rel="stylesheet" href="../css/audioplayer.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/willesPlay.css" />
+        <style>
+            .uhide {
+                display: none !important;
+            }
+            video {
+                object-fit: fill;
+                width: 100%;
+                height: auto;
+            }
+            .markds {
+                margin-bottom: 3em;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                 background-size: 100% 100%;*/
+                background: #FE8100;
+                margin-left: 70%
+            }
+            #mains {
+                width: 99%;
+                max-width: 100%;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+            #mains img {
+                width: 98%;
+                height: auto;
+                margin: 0 auto;
+            }
+            .main_content {
+                width: 99%;
+                max-width: 100%;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+            table {
+                width: 99%;
+                max-width: 100%;
+                text-align: center;
+                word-wrap: break-word;
+                word-break: break-all;
+                margin-bottom: 5em;
+            }
+            @-webkit-keyframes playing {
+            0%   { transform: rotate(0deg);}
+            100% { -webkit-transform: rotate(360deg);}
+            }
+
+            @keyframes playing {
+            100% { transform: rotate(360deg);}
+            }
+            .playdisc {
+                animation-play-state: paused;
+                -webkit-animation: playing 10s infinite linear;
+                -webkit-animation-play-state: paused;
+            }
+        </style>
+    </head>
+    <body class="ub um-vp bc-bg ub-ver uinn" style="height:auto" ontouchstart>
+        <div class="t-bg tx-c uinn Names" style="font-size:1.5em;">
+
+        </div>
+        <div class="t-gra ulev-1 uinn tx-c" style="border-bottom:1px solid#ffffff;">
+            月芽阅读 发布于：<span class="Namdata"></span>
+        </div>
+        <!-- 代码 开始 -->
+        <div id="audio" style="background: url(../css/image1/yueya.jpg) no-repeat;background-size: 100% 100%;padding-top: 2px" class="uhide">
+            <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="height:9em;position: relative;  box-shadow: 3px;">
+                <div class="ub ub-ac ub-pc playdisc">
+                    <div class="ub ub-ac ub-pc ub-f1 audios" style="width:9em;height:9em;background:url(../css/image1/LOGO.jpg) no-repeat; background-size: cover;border-radius: 50%;" >
+
+                    </div>
+                </div>
+            </div>
+            <audio id="audio" class="audio"  controls="controls" preload="load" >
+                <source  class="audio" src="01.mp3">
+            </audio>
+        </div>
+        <!-- 代码 结束 -->
+        <!-- 视频  -->
+        <div id="willesPlay" class="uhide">
+            <div class="playContent">
+                <video width="100%"  height="100%" id="playVideo" class="video videos" type="video/mp4">
+
+                </video>
+                <div class="playTip glyphicon glyphicon-play"></div>
+            </div>
+            <div class="playControll">
+                <div class="playPause playIcon"></div>
+                <div class="timebar">
+                    <span class="currentTime" style="color: #FFFFFF">0:00:00</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+
+                    <span class="duration" style="color: #FFFFFF">0:00:00</span>
+                </div>
+                <div class="otherControl">
+                    <span class="fullScreen glyphicon glyphicon-fullscreen"></span>
+                    <div class="volumeBar">
+                        <div class="volumewrap">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  id="mains" class="ub ub-f1"style="padding:0 0.8em 0 0.8em;">
+            <div class="main_content" style="line-height:1.7em;">
+
+            </div>
+        </div>
+
+
+
+
+        </div>
+
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/tool.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/audioplayer.js"></script>
+        <script src="../js/willesPlay.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="../js_server/pk/pk_detail_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+
+</html>

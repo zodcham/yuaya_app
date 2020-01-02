@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+             input[type='checkbox'] + .box:before{
+                 content: "\f096";
+                 color:#848484;
+             }
+             input[type='checkbox']:checked + .box:before{
+                  color: #00cc33;
+                 content: "\f14a";
+             }
+             .classSpan
+             {
+                 padding: 0.5em 1em;
+                 margin:0.5em;
+                 display:inline-table !important;
+             }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="main" class="ub ub-fh ub-fv ub-ver"></div>
+        
+        <div id="item" class="item ub ub-fh bc-border ubb uhide click" >
+            <div  class="ub ub-f1"  style="padding:0.5em">
+                <div class="ub ub-ac ub-pc photo">
+                  <img class="ub-f1" src="../head.png" style="border-radius: 50%;border:1px solid #BABABA;width:3em;height:3em">
+                </div>
+                <div class="ub ub-f1 name umar-l ub-ac"></div>
+                <div class="ub ub-ac ub-pc" style="margin-right: 2em">
+                    <div class="fa icon-del sc-text fa-1x2 btnDel"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="item2" class="item2 ub ub-fh uhide sc-bg" >
+            <div class="ub ub-fh ub-f1 letter uinn"></div>
+        </div>
+    
+    <script src="../js/appcan.js"></script>
+<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/pinyin.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_student/friend/friend_list_content.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

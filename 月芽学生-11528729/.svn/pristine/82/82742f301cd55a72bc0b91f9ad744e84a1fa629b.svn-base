@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .icon_like {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/dianqu.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .icon_comment {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .c-gra1 {
+                background-color: #ffffff;
+            }
+            .txt-ellipsis {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div id="reviewList"></div>
+
+        <div id="item" class="item uhide ub ub-hor ub-f1 ulev-1 ub-ac txtcolor c-gra1 bc-border ubt ubb umar-t">
+            <div class="ub ub-ac ub-pc ub-f1 uinn">
+                <div class="ub ub-ac ub-pc bc-border uba" style="width:6.7em;height:6.7em;border-radius: 0.4em">
+                    <img class="bookImage" src="../css/icons/noImg.png" style="width:6.7em;height:6.7em;border-radius: 0.4em" />
+                    <div class="bookBox uhide"></div>
+                </div>
+                <div class="ub ub-f1 umar-t">
+                    <div class="ub ub-f1 uinn ub-ver">
+                        <div class="ub ub-fh ">
+                            <div class="ub name txt-ellipsis ub-f1 ulev1">
+                                书名
+                            </div>
+                            <div class="ub"></div>
+                        </div>
+                        <div class="ub ub-fh ">
+                            <div class="ub ub-f1 txt-ellipsis sc-text introduces" style="height:5em;"></div>
+                        </div>
+                        <div class="ub ub-fh umar-t uhide">
+                            <div class="ub ub-f1 ulev-1"></div>
+                            <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/book/book_default_videolist.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

@@ -1,0 +1,56 @@
+appcan.ready(function() {
+    $("#main").removeClass("uhide");
+    appcan.window.subscribe(UPDATE_INFO, loadData);
+    getUserInfo();
+    //appcan.window.open("index","index.html",0);
+    loadData();
+});
+
+function loadData() {
+    $("#name").html(userInfo.name);
+    $("#schoolClass").html(userInfo.schoolName + "&nbsp;&nbsp;" + userInfo.clazzName + "");
+    getHeadImg(function(imgPath) {
+        $("#headImg").attr("src", imgPath);
+    }, function(msg) {
+        toast(msg, config.toastTimeShort);
+    });
+}
+
+appcan.button("#btnUserInfo", "btn-act", function() {
+    appcan.window.open("user_info", "user/user_info.html", 10);
+})
+
+appcan.button("#btnChangePwd", "btn-act", function() {
+    appcan.window.open("changePwd", "changePwd.html", 10);
+})
+
+appcan.button("#btnMsg", "btn-act", function() {
+    appcan.window.open("message_list", "message/message_list.html", 10);
+})
+
+appcan.button("#btnAbout", "btn-act", function() {
+    appcan.window.open("about", "about.html", 10);
+})
+
+appcan.button("#btnAbout", "btn-act", function() {
+    appcan.window.open("about", "about.html", 10);
+})
+
+appcan.button("#btnCustomer", "btn-act", function() {
+    appcan.window.open("help", "help.html", 10);
+})
+appcan.button("#btnFriend", "btn-act", function() {
+    appcan.window.open("friend_list", "friend/friend_list.html", 10);
+})
+
+appcan.button("#btnExit", "btn-act", function() {
+    clearCommInfo();
+    getDefaultUserInfo();
+    setUserInfo(false);
+
+    appcan.window.open("login", "login.html", 10, 4);
+    appcan.window.evaluateScript({
+        name : "index", //窗口名称
+        scriptContent : 'appcan.window.close(5);'
+    });
+})

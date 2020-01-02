@@ -1,0 +1,101 @@
+
+
+appcan.ready(function() {
+    loadUserInfo();
+});
+
+function loadUserInfo(){
+    getUserInfo();
+    if(userInfo.isActiveValidity==0 && userInfo.type!=2){
+        $("#vip_user_status").html("您是月芽普通会员，欢迎使用月芽平台。");
+    }
+    else{
+        if(userInfo.type!=2) {
+            $("#vip_user_status").html("您已是月芽收费会员，账户将于 " + userInfo.activeValidityDate + " 到期。");
+        }
+        else{
+            $("#vip_user_status").html("您月芽学生用户，欢迎使用月芽家庭版。");
+        }
+    }
+}
+
+appcan.button("#buy", "btn-act", function() {
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy1", "btn-act", function() {
+    sysInfo.keytype = 30;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy2", "btn-act", function() {
+    sysInfo.keytype = 90;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#buy3", "btn-act", function() {
+    sysInfo.keytype = 180;
+    setSysInfo();
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});
+appcan.button("#payConfirm", "btn-act", function() {
+    pay();
+});
+
+
+payConfirm
+appcan.button("#upLevel", "btn-act", function() {
+    var sn=$("#sn").val();
+    if(!sn.length) {
+        toast("请输入密钥！",1000);
+        return;
+    }
+
+    var url=_SERVER_ADDRESS+"/phone/register/activateAccount";
+    var par={'code' : sn, 'studentId': userInfo.id};
+    var ferr=function(err){};
+    var fok=function(data){
+        var obj=JSON.parse(data);
+        //userInfo.isActiveValidity=1;
+        //userInfo.activeValidityDate="2020-4-30";
+        userInfo = obj.obj
+        appcan.alert({"title":"提示","content":"您的账户已成功激活，会员到期日为："+userInfo.activeValidityDate});
+        setUserInfo(false);
+        appcan.window.publish(UPDATE_INFO, "0");
+        appcan.window.publish(UPDATE_INDEX, "0");
+        loadUserInfo();
+    };
+    common.ajaxPOST(url, par, fok, ferr);
+});
+
+function setChecked(id) {
+    $("radio").prop("checked",false);
+    $("#"+id).prop("checked",true);
+}
+
+
+function setInfo(){
+    var partner = "2019051564591594";
+    var seller = "454177123@qq.com";
+    var rsaPrivate = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQD3qfnkZG8LPCNVFUIcsGWOhppO6qe+QRwdVB6jgOSJ0pfuiirDS8Pagsslx/tLqvPfvzFY47l+VPJAfUCxElQffq/0FtMu4dGziMUMb3AJnCSbZ9rvgBvBKPWphckUQPaPJHiIvkxTwSUPW23NGO2hptTK+E3xkiWnM1w3Fw7UZVC7/QgHec4JlT1KYRPsAQtw3oUXryXMLxL8S5+BsoGpwxvwrmsiH6YWHlppLG6e9MaGKC0xMxFua77cMheUTbLgTovstb9N9dOgJQcqKx0+/shAK0dNPc5kyqkqtPJSADPk4GsbmtgzbIuyvHYi1QBzVJ9pdCbNGMf0YWh+mnwFAgMBAAECggEBAIg9hS5S4ZM4necsLpZBo1xoR3KqO2S5xJGNuN0RBqeapeGfOC7++tq1oLND88WIYWfwcWEIxP3uFOXNAU1nW8eHlZudAseDiixNTLiuhN+Eec7TruiZfKshsSJ0ak0t/3R3B6eRp8NbONvd2+U7lV2bvOt69MWzM+tqoYvcr1e+3z0YhxzWFHyTu19PxPkFbLXXDtOAGXlkFma3b0wkZKi9iD6N8fJTcLKhnt4trZav5xDyCFlFlg+diC5X87d+6QKP2vNkpIGKtkalWPaDDMI1QHcJGzidja8la4aWeWc9NG93PA46BcpFPDAa4zHlJzVbm7xgXAe1yrnxvUr0GXECgYEA/+vxwrHVHgPcThIgc1d92FCxz4vXRRUL3lBlO/ZiK+eWPCzlGVe3Q/8Qc6I4dvZCjwz8K6Rfdq9SUwDPmscTbzmmLUfayP3QUFdEf/ys8qWWoLAnqyrnv+FoiKZFOHP9vOqzmLR1vnAb2xqFBfsfBGv7dijuctIskQPFDilzVlMCgYEA971id8TypURZsros/5zCyFzKB+0pN9/4dcfV/FuKnPUzXxjA/mVzwF/rx0A0DBQUMi8sVnPuc1Biu2MuNekhJuy5CCHrH";
+    var rsaPublic = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAujpEtAvMU5P7JhabKFC0hzPtv1EdqpZnVU7pHoknpbqo1V3zbBZ389Yt+6bqCJKoZj7v7wG0Ul3O+3GaoaqdTPglTfRZz+ifOO79hOhdwCN8+AbvKlasLyXTTgV43ng3McOci+lzvxz1aQI5uXz31YY/LD0o3qgolHHWoCXmjOp/nf7ForxFK6Rp7Dr10tpAZ0u885vc9SKOQyoxLD2n/P4gSEKol1ib4o0Tv5mVrVGmMuAk7Le99tM+46HuFrCgOg2AqqPDZN8/LcE/IHEXinkMCQSkT2BXZLliBnqD7ijESf1jzfrBhAaFw2rU3SLqUFsDVTymxlW2qyBnlAG5JwIDAQAB";
+    var notifyUrl = "http://app.yueyabook.com/alipay/payok";
+    uexAliPay.setPayInfo(partner, seller, rsaPrivate, rsaPublic, notifyUrl);
+}
+
+function pay(){
+    setInfo();
+    var subject = "导读视频单集";
+    var body = "假如给我三天光明 导读视频";
+    var fee = "0.01";
+    var num = "20190516001"; //测试需修改单号,避免已经支付的问题
+    alert();
+    uexAliPay.pay(num, subject, body, fee, function(error,data){
+        if(!error){
+            alert("支付成功");
+
+        }else{
+            alert(data);
+        }
+
+    });
+}

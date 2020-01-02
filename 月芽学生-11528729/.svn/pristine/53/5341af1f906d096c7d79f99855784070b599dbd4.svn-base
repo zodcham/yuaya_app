@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style >
+            .b-gra3{
+                border-color:#d8d8d8;
+            }
+            .uinn-a6{
+                padding:1em 0.65em 0 0.65em;
+            }
+            .t-gra4{
+                color:#8c8c8c;
+            }
+            .uinn-a1{
+                padding:0.625em;
+            }
+            .uinn-a7{
+                padding:0 0.625em;
+            }
+            .c-wh
+            {
+                background-color:#FFF;
+            }
+            .umar-at1{
+                margin-top:0.625em;
+            }
+            .uinn-at1{
+                padding-top:1em;
+            }
+        </style>
+    </head>
+     <body class="um-vp bc-bg" ontouchstart>
+        <div class="ub ub-ver uinn-a3 ub-fv">
+            <div class="ub ub-ver uinn uinn-at1">
+                <div class="umar-a ubb bc-border">
+                    <div class="ub ub-ac ubb umh5 bc-border ">
+                        <div class=" uinput ub ub-f1 ub-ae">
+                            <div class="uinn fa">
+                                账号 :　　
+                            </div>
+                            <input placeholder="限字母、数字、下划线" type="text" class="ub-f1 " id="username" maxlength="25">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border ">
+                        <div class=" uinput ub ub-f1 ub-ae">
+                            <div class="uinn fa">
+                                密码 :　　
+                            </div>
+                            <input placeholder="不少于6位" type="password" class="umw4 ub-f1 " id="password" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border ">
+                        <div class=" uinput ub ub-f1 ub-ae">
+                            <div class="uinn fa">
+                                重复密码 :
+                            </div>
+                            <input placeholder="请重复输入密码" type="password" class="umw4 ub-f1 " id="confirm_password">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac umh5 bc-border">
+                        <div class=" uinput ub ub-f1 ub-ae">
+                            <div class="uinn fa">
+                                邮箱地址 :
+                            </div>
+                            <input placeholder="请输入邮箱地址" type="text" class="umw4 ub-f1 " id="emailAddress">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ulev-1">
+                        <div style="width:7em">&nbsp;</div>
+                        <div class="sc-text-warn">(用于找回密码，请填写真实常用邮箱。)</div>                                                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-ver umar-a">
+                <div class="uinn-at1">
+                    <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1" id="submit">
+                        注册
+                    </div>
+                </div>
+                <button type="submit" class="uinvisible"></button>
+            </div>
+        </div>
+
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tools.js"></script>
+        <script src="http://www.readseed.cn/nocache/js_student/register_content.js"></script>
+    </body>
+    <script>
+    
+    </script>
+</html>

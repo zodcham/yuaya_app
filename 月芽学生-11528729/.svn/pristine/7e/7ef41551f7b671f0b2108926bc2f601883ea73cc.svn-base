@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="index/css/main.css">
+
+    </head>
+    <body class="um-vp" ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub">
+                <!-- <div class="nav-btn" id="nav-left">
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0" id="title">首页</h1>
+                <div class="nav-btn nav-bt" id="nav-right">
+                <div class="fa icon-search fa-lg uhide"></div>
+                </div> -->
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l ">
+
+            </div>
+            <!--content结束-->
+            <!-- 添加阅读圈和排行 -->
+            <div id="footer" class="ubt bc-border ub bc-white text-color">
+                <div class="tabs ub ub-ac ub-fh ub-pc ub-f1 " >
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem tab-active" id="home" style="padding: 0.5em 0 0.5em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="tabHome"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc umar-t fa-0x8 text" style="padding:0.1em 0.2em;border-radius: 1em">
+                            首页
+                        </div>
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem" id="mall" style="padding: 0.5em 0 0.2em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="tabMall"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc umar-t fa-0x8 text" style="padding:0.1em 0.2em;border-radius: 1em">
+                            书城
+                        </div>
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1" id="yd" style="padding: 0.5em 0 0.2em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="tabreading"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc umar-t fa-0x8 text" style="padding:0.1em 0.2em;border-radius: 1em">
+                            阅读圈
+                        </div>
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem" id="ph" style="padding: 0.5em 0 0.2em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="tabpaihang"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc umar-t fa-0x8 text" style="padding:0.1em 0.2em;border-radius: 1em">
+                            排行
+                        </div>
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem" id="me" style="padding: 0.5em 0 0.2em 0">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="tabMe"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc umar-t fa-0x8 text" style="padding:0.1em 0.2em;border-radius: 1em">
+                            我的
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/upload.js"></script>
+    </body>
+    <script>
+        var g_state = 0;
+        var titHeight;
+        appcan.ready(function(type) {
+            
+            getUserInfo();
+            getSysInfo();
+            config.currentPath = "";
+            uexWindow.onKeyPressed = function(keyCode) {
+                if (keyCode == 0) {
+                    uexWidgetOne.exit();
+                }
+            }
+            uexWindow.setReportKey(0, 1);
+            if (sysInfo.isFirstInto) {
+                appcan.window.open("guide", "guide.html", 0);
+            } else {
+                validLogin(function(msg) {
+                    init();
+                }, function(msg) {
+                    appcan.window.open("login", "login.html", 0);
+                });
+                checkUpload(false);
+            }
+            
+            
+
+            
+            
+            //setTags();
+
+            //以下极光监听方法如果，没有集成插件 （在线不勾选插件的话）会导致setTimeout('delayaaa()', 3000);不执行
+            //uexJPush.onReceiveNotificationOpen = onReceiveNotificationOpen;
+            //uexJPush.cbGetConnectionState = cbGetConnectionState;
+            uexJPush.cbSetAliasAndTags = cbSetAliasAndTags;
+            
+            uexJPush.onReceiveRegistration = onReceiveRegistration;
+            uexJPush.onReceiveMessage = onReceiveMessage;
+            uexJPush.onReceiveNotification = onReceiveNotification;
+            uexJPush.onReceiveNotificationOpen = onReceiveNotificationOpen;
+            uexJPush.onReceiveConnectionChange = onReceiveConnectionChange;
+
+
+        });
+
+        //阅读圈
+        appcan.button("#yd", "btn-act", function() {
+            appcan.window.open("yueduquan", "yueduquan/Reading_circle.html", 10);
+        });
+
+        function init() {
+            titHeight = $('#header')[0].offsetHeight;
+            appcan.frame.open({
+                id : "content",
+                //添加阅读圈和排行
+                url : [{
+                    'inPageName' : 'home',
+                    'inUrl' : 'index_home.html'
+                }, {
+                    'inPageName' : 'mall',
+                    'inUrl' : 'index_mall.html'
+                }, {
+                    'inPageName' : 'ph',
+                    'inUrl' : 'Paihang.html'
+                }, {
+                    'inPageName' : 'person',
+                    'inUrl' : 'index_person.html'
+                }],
+                top : titHeight,
+                left : 0,
+                index : 0,
+                change : function(index, res) {
+                    changeTab(res.multiPopSelectedIndex);
+                }
+            });
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, titHeight);
+            };
+            //添加阅读圈和排行
+            $(".tabs .tabItem").on("click", function() {
+                switch($(this).attr("id")) {
+                case "home":
+                    appcan.window.selectMultiPopover("content", 0);
+                    changeTab(0);
+                    break;
+                case "mall":
+                    appcan.window.selectMultiPopover("content", 1);
+                    changeTab(1);
+                    break;
+                // case "yd":
+                // appcan.window.selectMultiPopover("content",2);
+                // changeTab(2);
+                // break;
+                case "ph":
+                    appcan.window.selectMultiPopover("content", 2);
+                    changeTab(2);
+                    break;
+                case "me":
+                    appcan.window.selectMultiPopover("content", 3);
+                    changeTab(3);
+                    break;
+                }
+            });
+            changeTab(0);
+            Research();
+        }
+        
+        function Research(){
+            var now=new Date();
+            var y=now.getFullYear();
+            var m = now.getMonth()+1;
+            var d = now.getDate();
+            
+            if(y==2018 && m==6 && d==25){
+                /*用户确认提示框*/
+                appcan.window.alert({
+                      title : "“月芽·阅读”APP体验度问卷调查",
+                      content : "尊敬月芽读者您好！为了全方位提升月芽APP的阅读体验，我们诚挚地邀请您加入用户体验计划，您的宝贵意见，将是我们前进的最大动力！?",
+                      buttons : [ '接受', '不接受'],
+                      callback : function(err, data, dataType, optId) {
+                          if(Number(data)!=1){
+                              setLocVal("survey_url", "https%3a%2f%2fwenjuan.readseed.cn%2fresponse!answerMobile.action%3fsurveyId%3d0b449bcc6426f2e601642a1ec4830000");
+                                setLocVal("survey_title", "“月芽·阅读”APP体验度问卷调查");
+                                appcan.window.open("surveydetail", "survey_detail.html", 0);
+                          }
+                          else{
+                          }
+                      }
+                });
+            }
+        }
+
+        function changeTab(index) {
+            $(".tabs .tabItem").removeClass("tab-active ");
+            $(".tabs .tabItem:eq(" + index + ")").addClass("tab-active");
+            $("#title").text($(".tabs .tabItem:eq(" + index + ")").find(".text").text());
+        }
+
+        function goMall() {
+            appcan.window.selectMultiPopover("content", 1);
+            changeTab(1);
+        }
+
+
+        appcan.button("#nav-right", "btn-act", function() {
+            uexWindow.openPopover("filter", 0, "index_mall_filter.html", "", 0, 0, '', '', '', 0);
+        })
+        function openFilter() {
+            uexWindow.openPopover("index_mall_filter", 0, "index_mall_filter.html", "", 0, 0, '', '', '', 0);
+        }
+
+        function closeFilter() {
+            uexWindow.closePopover("index_mall_filter");
+
+        }
+
+        //极光推送接口回调测试
+        function cbIsPushStopped(info) {//停止推送
+            // alert(info);
+        }
+
+        function onReceiveRegistration(info) {//应用程序注册
+            //  alert(info);
+        }
+
+        function onReceiveMessage(info) {//收到了自定义消息
+            // alert(info);
+        }
+
+        function onReceiveNotification(info) {//收到了通知
+            // alert(info);
+        }
+
+        //用户点击了通知设置跳转的页面
+        function onReceiveNotificationOpen(info) {
+            //alert(info);
+            appcan.window.open("uexJPush", "push.html", 5)
+        }
+
+        function cbSetAliasAndTags(info) {//同时设置别名和标签的回调方法
+            // alert(info);
+        }
+
+        function cbSetAlias(info) {//设置别名的回调方法
+            // alert(info);
+        }
+
+        function cbSetTags(info) {//设置标签的回调方法
+            //  alert(info);
+        }
+
+        function cbGetRegistrationID(info) {//取得应用程序对应的RegistrationID的回调方法
+            //  alert(info);
+        }
+
+        //获取连接状态回调
+        function cbGetConnectionState(info) {
+            // alert(info);
+        }
+
+        function onReceiveConnectionChange(info) {//连接状态变化
+            // alert(info);
+        }
+
+        // 停止推送
+        // function sropPush(){
+        // var params = {
+        //
+        // };
+        // var data = JSON.stringify(params);
+        // uexJPush.sropPush(data);
+        // }
+        //恢复推送
+        function reumePush() {
+            var params = {
+
+            };
+            var data = JSON.stringify(params);
+            uexJPush.reumePush(data);
+        }
+
+        setTimeout('delayaaa()', 3000);
+        uexWindow.setSlidingWindowEnabled(1);
+        uexDevice.cbGetInfo = function(opCode, dataType, data) {
+            //注册应用运行中Push事件通知函数
+            uexWidget.setPushNotifyCallback("cbNotify");
+            //绑定当前用户信息到AppCan推送服务器
+            setdeviceToken();
+            //注册获取Push消息内容的回调函数
+            uexWidget.cbGetPushInfo = function(opCode, dataType, data) {
+                if (data != 'null')
+                    pushOpen(data);
+            }
+            //获取应用由Push激活时的Push消息内容
+            uexWidget.getPushInfo();
+        }
+        //获取当前应用的DeviceToken
+        uexDevice.getInfo('11');
+
+        //使用官方封装极光推送插件演示代码区 开始 需要注释这段避免首页无法滑动
+
+        function setAliasAndTags() {//同时设置别名和标签
+            var tags = new Array("tag4", "tag5", "tag6");
+            var params = {
+                alias : "alias66",
+                tags : tags
+            };
+            var data = JSON.stringify(params);
+            uexJPush.setAliasAndTags(data);
+        }
+
+        function setAlias() {//设置别名
+            var params = {
+                alias : "alias22"
+            };
+            var data = JSON.stringify(params);
+            uexJPush.setAlias(data);
+        }
+
+        function setTags() {//设置标签
+            var tags = new Array("holidaypush", "tag2", "tag3");
+            var params = {
+                tags : tags
+            };
+            var data = JSON.stringify(params);
+            uexJPush.setTags(data);
+        }
+
+        function getRegistrationID() {//取得应用程序对应的 RegistrationID
+            var params = {
+
+            };
+            var data = JSON.stringify(params);
+            uexJPush.getRegistrationID(data);
+        }
+
+        function reportNotificationOpened() {//用于上报用户的通知栏被打开，或者用于上报用户自定义消息被展示等客户端需要统计的事件。
+            var params = {
+                msgId : 1222
+            };
+            var data = JSON.stringify(params);
+            uexJPush.reportNotificationOpened(data);
+        }
+
+        function clearAllNotifications() {//清除所有通知
+            var params = {
+
+            };
+            var data = JSON.stringify(params);
+            uexJPush.clearAllNotifications(data);
+        }
+
+        function clearNotificationById() {// 根据Id清除某条通知
+            var id = document.getElementById("clearNotificationById").value;
+            var params = {
+                notificationId : id
+            };
+            var data = JSON.stringify(params);
+            uexJPush.clearNotificationById(data);
+        }
+
+        function setPushTime() {
+            var weekDays = new Array("0", "1", "2", "3", "4");
+            var params = {
+                weekDays : weekDays,
+                startHour : 0,
+                endHour : 18
+            };
+            var data = JSON.stringify(params);
+            uexJPush.setPushTime(data);
+        }
+
+        function setSilenceTime() {
+            var params = {
+                startHour : 0,
+                startMinute : 1,
+                endHour : 13,
+                endMinute : 0
+            };
+            var data = JSON.stringify(params);
+            uexJPush.setSilenceTime(data);
+        }
+
+        function setLatestNotificationNumber() {
+            var params = {
+                maxNum : 4
+            };
+            var data = JSON.stringify(params);
+            uexJPush.setLatestNotificationNumber(data);
+        }
+
+        function getConnectionState() {//获取推送连接状态
+            var params = {
+
+            };
+            var data = JSON.stringify(params);
+            uexJPush.getConnectionState(data);
+        }
+
+        function addLocalNotification() {//添加一个本地通知
+            var params = {
+                builderId : 0,
+                title : "这是title",
+                content : "这是内容",
+                extras : {
+                    "key" : "value"
+                },
+                notificationId : 3,
+                broadCastTime : 10000
+            };
+            var data = JSON.stringify(params);
+            uexJPush.addLocalNotification(data);
+        }
+
+        function removeLocalNotification() {//移除一个本地通知
+            var notificationId = 3;
+            var params = {
+                notificationId : notificationId
+            };
+            var data = JSON.stringify(params);
+            uexJPush.removeLocalNotification(data);
+        }
+
+        function clearLocalNotifications() {// 移除所有的通知
+            var params = {
+
+            };
+            var data = JSON.stringify(params);
+            uexJPush.clearLocalNotifications(data);
+        }
+
+    </script>
+</html>

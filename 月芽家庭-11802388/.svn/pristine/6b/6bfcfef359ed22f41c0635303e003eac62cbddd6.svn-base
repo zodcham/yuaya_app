@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .abs{
+                position: absolute;
+            }
+
+            .layui-m-layerbtn span !important {
+                color: #000000;
+            }
+
+            #xz01 {
+                width: 3em;
+                position: absolute;
+                top: 8em;
+                left: 12em;
+            }
+
+            #img_person_level {
+                width: 13em;
+                position: absolute;
+                top: 16em;
+                left: 32em;
+            }
+            #txt_name {
+                position: absolute;
+                top: 3em;
+                left: 30em;
+                color: #fff;
+                font-size: 1em;
+            }
+            #div_level {
+                position: absolute;
+                top: 6em;
+                left: 37.5em;
+                color: #fff;
+                font-size: 0.8em;
+            }
+            #div_bookshelf {
+
+                position: absolute;
+                top: 0rem;
+                left: 42rem;
+                color: #fff;
+                width: 21rem;
+                height: 100%;
+                overflow-y: scroll;
+                overflow-x: auto;
+            }
+            .div_book {
+                width: 4.2em;
+                text-align: center;
+                height: 8em;
+                float: left;
+            }
+            .div_book .book_img {
+                width: 3.8em;
+                height: 5em;
+            }
+            .div_book .book_name {
+
+            }
+            .transform{
+                transform: perspective(20em) rotateY(-45deg);
+            }
+
+            #img_list{
+                width: 24.5em;
+                position: absolute;
+                top: 2em;
+                left: 3em;
+                text-align: center;
+            }
+            #img_list img{
+                width: 18em;
+                margin:0 auto;
+            }
+
+            /*
+            #img_read {
+                width: 10em;
+                position: absolute;
+                top: 7.85em;
+                left: 11.28em;
+            }
+            #img_word {
+                width: 10em;
+                position: absolute;
+                top: 7.85em;
+                left: 16.38em;
+            }
+            #img_review {
+                width: 10rem;
+                position: absolute;
+                top: 7.85em;
+                left: 21.39rem;
+            }
+            #img_sign {
+                width: 10rem;
+                position: absolute;
+                top: 12.85rem;
+                left: 8.9rem;
+            }
+            */
+            #img_person{
+                width: 12rem;
+                position: absolute;
+                top: 18rem;
+                left: 25rem;
+            }
+
+            #div_position{
+                position:fixed;
+                top:0;
+                left:0;
+                width:100%;
+                background-color: #fff;
+                height:3em;
+                z-index: 999;
+                filter:alpha(Opacity=80);-moz-opacity:0.7;opacity: 0.7;
+                overflow-x: auto;
+            }
+            .div_item_list{
+                position:fixed;
+                top:3em;
+                left:0;
+                width:100%;
+                background-color: #fff;
+                height:3em;
+                z-index: 999;
+                filter:alpha(Opacity=80);-moz-opacity:0.7;opacity: 0.7;
+                overflow-x: auto;
+            }
+
+            #div_position .active{
+                background-color: #00CC33;
+                color:#fff;
+            }
+
+            .div_item_list .used{
+                background-color: #7d0000;
+                color:#fff;
+            }
+
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart >
+        <div id="div_position_block" class="ub ub-f1 uhide">
+            <div id="div_position" class="ub ub-f1">
+
+            </div>
+            <div id="div_position_list" class="ub ub-f1">
+
+            </div>
+        </div>
+
+        <div class="ub bc-white "  id="main" style="background-color: black; overflow-y: hidden;">
+            
+
+            <!-- <div class="ub ub-ac ub-pc" id="space_left" style="width:33%;" onclick="open_left();"></div>
+            <div class="ub ub-ac ub-pc" id="space_center" style="width:34%;" onclick="open_center();"></div>
+            <div class="ub ub-ac ub-pc" id="space_right" style="width:33%;" onclick="open_right();"></div> -->
+
+            <!--<img id="img_person" src="../images/level3.png" onclick="ShowBadge(this);" title="秀才">-->
+            <div id="img_list" style="overflow-y:auto;">
+                <img id="img_read" src="../images/space/bo0.png"  onclick="ShowBadge(this);">
+                <img id="img_word" src="../images/space/shou0.png"  onclick="ShowBadge(this);">
+                <img id="img_review" src="../images/space/miao0.png"  onclick="ShowBadge(this);">
+                <img id="img_sign" src="../images/space/chi0.png"  onclick="ShowBadge(this);">
+            </div>
+            
+            
+            <!--<img id="img_word" src="../images/word0.png"  onclick="ShowBadge(this);">-->
+            
+            <div id="txt_name">
+                某某的神秘空间
+            </div>
+            <div id="div_level" class="ub">
+                <div id="label_level">
+                    秀才
+                </div>
+                <div>
+                    经验：
+                </div>
+                <div id="label_exp_current">
+                    385
+                </div>
+                <div>
+                    /
+                </div>
+                <div id="label_exp_nextlevel">
+                    500
+                </div>
+            </div>
+
+            <div id="div_bookshelf" class="transform"  onclick="MoveBookShelf(0);">
+                <div class="div_book ub ub-ver ub-pc" onclick="ShowBadge(this);"  src="../images/book01.jpg" title="我和小姐姐克拉拉" remark="">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book01.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        我和小姐姐克拉拉
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book02.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        拐角书店
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book03.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        <span>跑猪鲁迪</span>
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book04.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        北京的春节
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book01.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        我和小姐姐克拉拉
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book02.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        拐角书店
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book03.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        <span>跑猪鲁迪</span>
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book04.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        北京的春节
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book01.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        我和小姐姐克拉拉
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book02.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        拐角书店
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book03.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        <span>跑猪鲁迪</span>
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book04.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        北京的春节
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book01.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        我和小姐姐克拉拉
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book02.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        拐角书店
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book03.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        <span>跑猪鲁迪</span>
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book04.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        北京的春节
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book01.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        我和小姐姐克拉拉
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book02.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        拐角书店
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book03.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        <span>跑猪鲁迪</span>
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book04.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        北京的春节
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book01.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        我和小姐姐克拉拉
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book02.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        拐角书店
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book03.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        <span>跑猪鲁迪</span>
+                    </div>
+                </div>
+
+                <div class="div_book ub ub-ver ub-pc">
+                    <div class="ub ub-f1 ub-pc">
+                        <img src="../images/book04.jpg" class="book_img">
+                    </div>
+                    <div class="ub ub-f1 ub-pc" class="book_name" style="font-size:0.7em;text-align: center;">
+                        北京的春节
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <script src="../js/appcan.js"></script>
+
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/layer_mobile/layer.js"></script>
+        <script src="../js_server/space/space_index.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+
+    </script>
+</html>

@@ -1,0 +1,62 @@
+.rank-bg{
+	background-image:url('myImg/r-bg.png');
+}
+.ub-img-rank{
+	background-repeat:repeat-x;
+	background-position:left top;
+}
+.c-blu-rank{
+	background-color:#a0bbed;
+}
+.t-blu-rank{
+	color:#2d4572;
+}
+.uinn-t-rank{
+	padding-top:0.625em;
+}
+
+.uw-rank{
+	width:13%;
+}
+.uw-ranks{
+    width:16%;
+}
+.uw-rank2{
+	width:33%;
+}
+.uw-rank3{
+    width:16%;
+}
+.hl{
+    height:6em;
+    line-height: 6em;
+}
+.h2{
+    height:30px;
+    line-height: 30px;
+}
+.uinn-a6{
+	padding:1em 0.65em 0 0.65em;
+}
+.t-gra5{
+	color:#686868;
+}
+.t-red{
+    color:#f66b0e;
+}
+.t-reds{
+    color:#868D91;
+}
+.umar-fr1{
+	margin-top:-1px;
+}
+.uinn-a1{
+    padding:0.625em;
+}
+.uinn-a2{
+    padding:0.4em;
+}
+.ulev-app1{
+    font-size:0.875em;
+}
+

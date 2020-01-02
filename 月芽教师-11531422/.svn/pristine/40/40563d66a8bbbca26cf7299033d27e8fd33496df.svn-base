@@ -1,0 +1,26 @@
+appcan.ready(function() {
+    getSysInfo();
+    switch(sysInfo.usermodifyType) {
+    case 0:
+        $("#title").html("昵称");
+        break;
+    case 1:
+        $("#title").html("QQ");
+        break;
+    case 2:
+        $("#title").html("邮箱");
+        break;
+    }
+    var titHeight = $('#header').offset().height;
+    appcan.frame.open("content", "user_modify_content.html", 0, titHeight);
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    }
+});
+appcan.button("#nav-left", "btn-act", function() {
+    exit();
+})
+function exit() {
+    uexWindow.evaluatePopoverScript("user_info", "content", "loadData();");
+    appcan.window.close(-1);
+}

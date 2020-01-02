@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .smlb {
+                width: 1em;
+                height: 1em;
+                background: url(../css/icons/lb.png) no-repeat 0 0;
+                background-size: 100% 100%;
+            }
+            .txt {
+                overflow: hidden;
+                /*white-space: nowrap;
+                 text-overflow: ellipsis;*/
+
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+
+            .introduce {
+                overflow: hidden;
+                /*white-space: nowrap;
+                 text-overflow: ellipsis;*/
+
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .book-title {
+                overflow: hidden;
+                /*white-space: nowrap;
+                 text-overflow: ellipsis;*/
+
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                height: 1.2em;
+                text-align: center;
+            }
+            .cs-select {
+                border: solid 0px #000;
+                /*很关键：将默认的select选择框样式清除*/
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                background: rgba(0,0,0,0);
+            }
+            .ico_search {
+                width: 0.7em;
+                height: 0.7em;
+                background: url(../css/icons/ico_search.png);
+                background-size: 100% 100%;
+            }
+            .float-l {
+                float: left;
+                margin-left: 2%;
+                margin-top: 1%;
+                border: none !important;
+            }
+            .float-l > div {
+                margin: 0 auto;
+            }
+            ul {
+                width: 380px;
+            }
+            li {
+                display: inline-block;
+                width: 100px;
+                height: 150px;
+            }
+            li img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .info_tag{
+                height:2.2em;
+            }
+
+            .info_tag div{
+                color: #fff;
+                height: 1.2rem;
+                margin-right:0.5em;
+                /*text-shadow:0.0625rem 0.0625rem 0.0625rem #fff;*/
+                /*border:0.0625rem solid #dce1e6;*/
+                /*background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);*/
+                /*background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);*/
+                /*background: linear-gradient(top,#f2f3f7,#e4e8ec);*/
+            }
+            .tag_read{
+                background-color: #1B9AF7;
+            }
+            .tag_video{
+                background-color: #A5DE37;
+            }
+            .tag_audio{
+                background-color: #599bb3;
+            }
+            .name{
+                height:2.2em;
+                line-height: 2.2em;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg body1" ontouchstart>
+        <div id="page" class="ub ub-ver ub-fh ub-fv">
+            <div id="position" class="uhide" style="position: fixed;z-index: 999;width: 100%;left: 0;top: 0;overflow: hidden;">
+                <div id="box" class="ub ub-ver ub-ac ub-pc bc-head uinn">
+                    <div class="ub ub-fh bc-border uba bc-white" style="height:2em;border-radius: 2em">
+                        <div class="ub ub-f1 ">
+                            <input id="searchText" type="text" class="ub ub-f1 ulev0" placeholder="书名/作者/关键字" style="padding:0.5em 1em;border:0;background: rgba(0,0,0,0)" />
+                        </div>
+                        <div class="ub uinn btnSearch ">
+                            <div class="ico_search"></div>
+                        </div>
+                    </div>
+                    <div class="ub-f1"></div>
+                </div>
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 uinn" style="padding: 1em 1em;background:url(../css/image1/ico_shucheng@2x_r16_c1.png) no-repeat;background-size: 100% 100%">
+                        <div class="ub ub-ac ub-pc ub-f1 bc-white sc-text" style="height:1.8em;border-radius: 0.3em 0 0 0.3em">
+                            <select class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text" style="width: 5em" id="book_category" onchange="change_type(this);">
+                                <option value="">全部分类</option>
+                            </select>
+                        </div>
+                        <div class="ub bc-white" style="width: 0.1em"></div>
+                        <div class="ub ub-ac ub-pc ub-f1 bc-white sc-text"  style="height:1.8em">
+                            <select class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text" style="width: 5em" id="grade" onchange="change_grade(this);">
+                                <option value="">全部年级</option>
+                            </select>
+                        </div>
+                        <div class="ub bc-white" style="width: 0.1em"></div>
+                        <!-- <div class="ub ub-ac ub-pc ub-f1 bc-white sc-text"  style="height:1.8em;border-radius: 0 0.3em 0.3em 0">
+                        <select class="cs-select ub ub-fv ulev0 ub-ac ub-pc sc-text" style="width: 5em" id="recommendLevel">
+                        <option value="">所有等级</option>
+                        </select>
+                        </div> -->
+
+                        <div class="ub bc-white" style="width: 0.1em"></div>
+                        <div id="switchMode" class="ub ub-ac ub-pc ub-f1 bc-white sc-text "  style="height:1.8em;border-radius: 0 0.3em 0.3em 0">
+                            <div class="smlb">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bookList" class="ub-ver ub-fv ub-f1" style="width: 100%;"></div>
+
+            <div id="item" class="ub item ub-fh bc-border ubb bc-white uhide item1">
+                <div class="ub ub-ac ub-pc ub-f1 book uinn umar-b">
+                    <div class="ub ub-ac ub-pc bc-border uba" style="width: 5.5em;height:7em;border-radius: 0.4em  0  0 0.4em;box-shadow: 5px 0px 5px -5px rgba(0,0,0,0.6);">
+                        <img class="bookImage" src="../css/icons/noImg.png" style="width:5.5em;height:7em;border-radius: 0.4em  0  0 0.4em;box-shadow: 5px 0px 5px -5px rgba(0,0,0,0.6);" />
+                        <div class="bookBox uhide"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1 uinn ub-ver">
+                            <div class="ub ub-fh ">
+                                <div class="ub name ub-f1 txt"></div>
+
+                            </div>
+                            <div class="ub ub-fh ub-f1 ulev-2 sc-text uhide introduce">&nbsp;</div>
+                            <div class="ub ub-fh info_tag uhide">
+                                <div class="ub ub-ac ub-pc bc-bg-white ulev-1 bc-text tag_read uhide " style="border-radius: 0.2em;padding: 0.2em 0.3em">课程领读</div>
+                                <div class="ub ub-ac ub-pc bc-bg-white ulev-1 bc-text tag_video uhide " style="border-radius: 0.2em;padding: 0.2em 0.3em">导读视频</div>
+                                <div class="ub ub-ac ub-pc bc-bg-white ulev-1 bc-text tag_audio uhide " style="border-radius: 0.2em;padding: 0.2em 0.3em">听故事</div>
+                            </div>
+
+                            <div class="ub ub-fh">
+                                <div class="ub ub-f1 " style="color:#FFC304" id="info-star">
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                </div>
+                                <div class="ub">
+                                    <img class="ub" src="../css/image1/ico_shucheng@2x_r10_c15.png" style="width:1em;height:1em" />
+                                    <div class="ub ub-f1 score" style="color:#036de3"></div>
+                                </div>
+                            </div>
+                            <div class="ub ub-fh ">
+                                <!-- <div class="ub ub-ac ub-pc bc-btn-orange ulev-1 bc-text-head recommendLevel" style="border-radius: 0.2em;padding: 0.2em 0.3em"></div> -->
+                                <div class="ub ub-ac ub-pc bc-btn-orange ulev-1 bc-text-head grade" style="border-radius: 0.2em;padding: 0.2em 0.3em"></div>
+                                <div class="ub ub-ac ub-pc umar-l bc-head ulev-1 bc-text-head bookCategory" style="border-radius: 0.2em;padding: 0.2em 0.3em "></div>
+                                <div class="ub ub-f1 ulev-1"></div>
+                                <div class="ub ub-ac ub-pc ulev-1 sc-text score recommendTimes"></div>
+                                <div class="ub ub-ac ub-pc ulev-1 umar-l sc-text readNum"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="item"  class="item uhide  bc-white  float-l item2" style="width: 31%;height: 9em;">
+                <div class="ub ub-ac ub-pc uba " style="width:6em;height:6em;border:none;">
+                    <img class="ub ub-f1 ub-fh bookImage umar-t" src="../css/icons/noImg.png" style="width:6em;height:6em;border-radius: 0.4em  0  0 0.4em;box-shadow: 5px 0px 5px -5px rgba(0,0,0,0.6);" />
+                </div>
+                <div class="ub" style="width:4.5em;margin-top:0.3em;">
+                    <div class="ub ub-ac ub-pc ulev-2 txt-e  txt umar-l sc-text readNum">
+                        读过
+                    </div>
+                    <img class="ub" src="../css/image1/ico_shucheng@2x_r10_c15.png"  style="width:0.7em;height: 0.7em;margin-top: 0.1em;" />
+                    <div class="ulev-1 sc-text score"></div>
+                </div>
+                <div class="ub-fh ub-ac txt-e  txt ub-pc name ulev-2 tx-c" style="margin-top:0.3em;text-align: center;">
+                    书名
+                </div>
+            </div>
+
+        </div>
+
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/book/good_book_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+    <script></script>
+</html>

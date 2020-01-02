@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../cssjs/push_share/css/push_share.css">
+    </head>
+    <body class="" ontouchstart style="background-color: ;">
+        <div class="" tabindex="0" data-control="PAGE" id="Page" style="background-color: ;">
+            <div class="img_style"></div>
+            
+            <div class="ub ub-ver ub-ac ub-con" data-control="FLEXBOXVER" id="ContentFlexVer">
+                <div class="ub ub-ver ub-fv ub-fh c-bla-50">
+                    <div class="ub-f1" onclick="closeshare();">
+                        
+                    </div>
+
+                </div>
+                <div class="uinn-4b"></div>
+            </div>
+            <div class="uf ub ub-f1 ub-ver " data-control="FOOTER" id="Footer" style="width:96%;margin:0 auto;" >
+
+                <div class="ub sc-bg ub-ac ub-pc ub-f1" data-control="BOX" id="Box_bottom" style="width:100%;">
+                    <div class="col3 ub-pc" data-control="CUSTOMLISTVIEW" style="width:100%;">
+                        <ul class="umar-t t-a0a sc-bg ub-pc" style="width:80%;;margin:0 auto;">
+                            
+                            <li data-control-scope="CustomListView" mvvm-scope="" class="ub ub-ver ub-ac" id="share_weixin">
+                                <div class="wh100" data-control="SQUAREBOX">
+                                    <div class="bracket"></div>
+                                    <div class="uabs ub-con vector" data-control-scope="SquareBox">
+                                        <div class="ub-img uwh-share share2 umar-t-share"></div>
+                                    </div>
+                                </div>
+                                <div class="wh100" data-control="BOX">
+                                    <div class="t-gra3 ulev-4 umar-at1 tx-c">
+                                        微信好友
+                                    </div>
+                                </div>
+                            </li>
+                            <li data-control-scope="CustomListView" mvvm-scope="" class="ub ub-ver ub-ac" id="share_weixinquan">
+                                <div class="wh100" data-control="SQUAREBOX">
+                                    <div class="bracket"></div>
+                                    <div class="uabs ub-con vector" data-control-scope="SquareBox">
+                                        <div class="ub-img uwh-share share3 umar-t-share"></div>
+                                    </div>
+                                </div>
+                                <div class="wh100" data-control="BOX">
+                                    <div class="t-gra3 ulev-4 umar-at1 tx-c">
+                                        微信朋友圈
+                                    </div>
+                                </div>
+                            </li>
+                           <li data-control-scope="CustomListView" mvvm-scope="" class="ub ub-ver ub-ac" id="share_close">
+                                <div class="wh100" data-control="SQUAREBOX">
+                                    <div class="bracket"></div>
+                                    <div class="uabs ub-con vector" data-control-scope="SquareBox">
+                                        <div class="ub-img uwh-share share6 umar-t-share"></div>
+                                    </div>
+                                </div>
+                                <div class="wh100" data-control="BOX">
+                                    <div class="t-gra3 ulev-4 umar-at1 tx-c">
+                                         取消
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/appcan.listview.js"></script>
+        <script src="../js/appcan.optionList.js"></script>
+        <script src="../js/appcan.slider.js"></script>
+        <script src="../js/appcan.tab.js"></script>
+        <script src="../js/appcan.treeview.js"></script>
+        <script src="../cssjs/push_share/js/push_share.js"></script>
+        <script src="http://www.readseed.cn/nocache/js_teacher/club/posts_add_content.js"></script>
+        <script>
+        
+        </script>    
+    </body>
+</html>

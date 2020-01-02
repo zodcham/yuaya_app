@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+             .paging_prev {
+                width:0em;
+                height:0em;
+                border-top: 0.5em solid transparent;
+                border-right: 0.5em solid #FFFFFF;
+                border-bottom: 0.5em solid transparent;
+            }
+            .paging_next {
+                width:0em;
+                height:0em;
+                border-top: 0.5em solid transparent;
+                border-left: 0.5em solid #FFFFFF;
+                border-bottom: 0.5em solid transparent;
+            }
+            
+            .btnPre_disable .paging_prev {
+                width:0em;
+                height:0em;
+                border-top: 0.5em solid transparent;
+                border-right: 0.5em solid #b6b6b6;
+                border-bottom: 0.5em solid transparent;
+            }
+            .btnPre {
+                background: #428dfb;
+            }
+            .btnPre_disable {
+                background: #e4e4e1;
+                color: #b6b6b6;
+            }
+            .btnNext{
+                background: #428dfb;  
+            }
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver sc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa icon-back fa-w fa-lg"></div>
+                </div>
+                <h1 id="title" class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">PPT查看</h1>
+                <!-- <div class="nav-btn nav-bt" id="nav-right">
+                     <img src="../css/icons/scantron.png" class="umar-r" style="width:1.5em;height:1.5em" />
+                </div> -->
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+            </div>
+            <!--content结束-->
+             <div id="footer" class="ubt bc-border ub bc-white ">
+                <div class=" ub ub-ac ub-pc ub-f1 uinn" >
+                    <div class="ub ub-ac ub-pc sc-bg bc-text-head btnPre" style="width:7em;height:2.5em;border-radius: 2em">
+                        <div class="ub paging_prev umar-r"></div>
+                        <div class="ub text">上一页</div>
+                    </div>
+                    <div class="ub ub-ac ub-pc sc-text" style="width: 5em" id="pageNum"></div>
+                    <div class="ub ub-ac ub-pc bc-head bc-text-head btnNext" style="width:7em;height:2.5em;border-radius: 2em">
+                        <div class="ub text">下一页</div>
+                        <div class="ub paging_next umar-l"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+    </body>
+    <script>
+       if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/yueduquan/preview.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+            document.write('<script src="../js_server/yueduquan/preview.js"><\/script>');
+        }
+</script>
+</html>

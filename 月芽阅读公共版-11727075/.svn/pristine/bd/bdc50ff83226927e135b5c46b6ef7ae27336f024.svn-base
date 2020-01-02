@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style>
+            .layui-m-layerbtn span !important {
+                color: #000000;
+            }
+
+
+        </style>
+    </head>
+    <body class="um-vp sc-bg" style="background-color: white;" >
+
+        <canvas id="canvas"></canvas>
+
+        <script src="js/appcan.js"></script>
+        <script src="http://www.readseed.cn/nocache/js_student/js/common_new.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/layer_mobile/layer.js"></script>
+
+    </body>
+    <script>
+
+
+
+        appcan.ready(function() {
+
+
+            $("#canvas").attr("width", $(window).get(0).innerWidth*3);
+            $("#canvas").attr("height", $(window).get(0).innerHeight-12);
+
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var img = new Image();
+            img.onload = function(){
+                ctx.drawImage(img,0,0);
+                ctx.drawImage(img, 0, 0, $("#canvas").width(), $("#canvas").height());
+            }
+            img.src = 'images/2_1.jpg';
+
+            getUserInfo();
+            AddLogContent(userInfo.id, logKeys.PersonMySpace,{});
+            
+            var width_screen = document.body.clientWidth;
+            var height_screen = document.body.clientHeight;
+            
+            
+            
+            
+            window.scrollTo(document.body.clientWidth, 0);
+
+
+            var fontsize=$("html").css('font-size');
+            appcan.logs(fontsize);
+
+
+
+            var g_json = {
+                "read_count" : 490,
+                "word_count" : 5010,
+                "review_score" : 580,
+                "sign_count" : 55
+            };
+            var json = GetBookLevel(g_json.read_count);
+            var read_level = json.read_level;
+            var read_metel_type = json.read_metel_type;
+            
+            json=GetWordLevel(g_json.word_count);
+            var word_level = json.level;
+            var word_metel_type = json.metel_type;
+            
+            json=GetReviewLevel(g_json.review_score);
+            var review_level = json.level;
+            var review_metel_type = json.metel_type;
+            
+            json=GetSignLevel(g_json.sign_count);
+            var sign_level = json.level;
+            var sign_metel_type = json.metel_type;
+            
+            $("#img_read").attr("src","images/read"+read_metel_type+".png");
+            $("#img_word").attr("src","images/word"+word_metel_type+".png");
+            $("#img_review").attr("src","images/review"+review_metel_type+".png");
+            $("#img_sign").attr("src","images/sign"+sign_metel_type+".png");
+            
+            
+            $("#img_read").attr("title","博览群书 "+read_level+" 级");
+            $("#img_word").attr("title","手不释卷"+word_level+"级");
+            $("#img_review").attr("title","妙笔生花"+review_level+"级");
+            $("#img_sign").attr("title","持之以恒"+sign_level+"级");
+            
+            $("#img_read").attr("remark","由阅读图书的数量决定等级。");
+            $("#img_word").attr("remark","由阅读图书的字数决定等级。");
+            $("#img_review").attr("remark","由读后感的评分决定等级。");
+            $("#img_sign").attr("remark","由阅连续签到的次数决定等级。");
+            
+            $("#img_person").attr("title","秀才");
+            $("#img_person").attr("remark","由个人经验值决定等级");
+        })
+
+        appcan.button("#apphelp", "btn-act", function() {
+
+        })
+        
+        
+        function ShowBadge(obj){
+            var htm='<div class="alert_content">';
+            htm+='<div class="ub ub-f1 ub-pc"><img src="'+ $(obj).attr("src") +'" style="height:6em"></div>';
+            htm+='<div class="ub ub-f1 ub-pc">'+ $(obj).attr("title") +'</div>';
+            htm+='<div class="ub ub-f1 ub-pc ulev-1" style="color:#666;">'+ $(obj).attr("remark") +'</div>';
+            htm+='</div>';
+            layer.open({
+                content: htm
+                ,skin: 'showbadge'
+              });
+        }
+        
+        
+        function openalert() {
+            //询问框
+            layer.open({
+                title : ['获得经验值', 'background-color: #00cc33; color:#fff;'],
+                content : '<div class="ub ub-ver" style="height:5em;"><div class="ub ub-f1">获得</div><div class="ub ub-f1">55经验</div></div>',
+                style : 'background-color:#fff; color:#666; border:none;'//自定风格
+                ,
+                time : 2,
+                btn : ['关闭'],
+                yes : function(index) {
+                    layer.close(index);
+                }
+            });
+        }
+        
+        
+        var BookShelfTransform=true;
+        function MoveBookShelf(sum){
+            var obj=document.getElementById("div_bookshelf");
+            obj.style.transition="-webkit-transform 500ms ";
+            if(BookShelfTransform){
+                obj.style.webkitTransform="perspective(0em) rotateY(0deg)";
+                BookShelfTransform=false;
+            }
+            else
+            {
+                obj.style.webkitTransform="perspective(20em) rotateY(-45deg)";
+                BookShelfTransform=true;
+            }
+        }
+        function shang(sum){
+            var obj=document.getElementById("webkfaid");
+            obj.style.transition="-webkit-transform 500ms ease-out";
+            obj.style.webkitTransform="translate(0px,"+sum+"px) scale(1) translateZ(0px)";
+        }
+        
+
+        function open_left() {
+            appcan.window.open("bookList", "space_left.html", 1);
+        }
+
+        function open_center() {
+            alert("2");
+        }
+
+        function open_right() {
+            appcan.window.open("bookList", "space_right.html", 2);
+        }
+
+
+        appcan.button(".nav-btn", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+        function GetBookLevel(read_count) {
+            var read_level = 0;
+            var read_metel_type = 0;
+            if (read_count > 0 && read_count < 5) {
+                read_level = 0;
+                read_metel_type = 0;
+            } else if (read_count >= 5 && read_count < 10) {
+                read_level = 1;
+                read_metel_type = 1;
+            } else if (read_count >= 10 && read_count < 25) {
+                read_level = 2;
+                read_metel_type = 1;
+            } else if (read_count >= 25 && read_count < 50) {
+                read_level = 3;
+                read_metel_type = 1;
+            } else if (read_count >= 50 && read_count < 80) {
+                read_level = 4;
+                read_metel_type = 2;
+            } else if (read_count >= 80 && read_count < 100) {
+                read_level = 5;
+                read_metel_type = 2;
+            } else if (read_count >= 100 && read_count < 200) {
+                read_level = 6;
+                read_metel_type = 2;
+            } else if (read_count >= 200 && read_count < 300) {
+                read_level = 7;
+                read_metel_type = 3;
+            } else if (read_count >= 300 && read_count < 500) {
+                read_level = 8;
+                read_metel_type = 3;
+            } else if (read_count >= 500) {
+                read_level = 9;
+                read_metel_type = 3;
+            }
+            return {
+                "read_level" : read_level,
+                "read_metel_type" : read_metel_type
+            };
+        }
+        
+        function GetWordLevel(count) {
+            var level = 0;
+            var metel_type = 0;
+            if (count >= 10 && count < 100) {
+                level = 0;
+                metel_type = 0;
+            } else if (count >= 100 && count < 500) {
+                level = 1;
+                metel_type = 1;
+            } else if (count >= 500 && count < 1000) {
+                level = 2;
+                metel_type = 1;
+            } else if (count >= 1000 && count < 2000) {
+                level = 3;
+                metel_type = 1;
+            } else if (count >= 2000 && count < 3000) {
+                level = 4;
+                metel_type = 2;
+            } else if (count >= 3000 && count < 5000) {
+                level = 5;
+                metel_type = 2;
+            } else if (count >= 5000 && count < 10000) {
+                level = 6;
+                metel_type = 2;
+            } else if (count >= 10000 && count < 20000) {
+                level = 7;
+                metel_type = 3;
+            } else if (count >= 20000 && count < 50000) {
+                level = 8;
+                metel_type = 3;
+            } else if (count >= 50000) {
+                level = 9;
+                metel_type = 3;
+            }
+            return {
+                "level" : level,
+                "metel_type" : metel_type
+            };
+        }
+        
+        function GetReviewLevel(count) {
+            var level = 0;
+            var metel_type = 0;
+            if (count >= 0 && count < 1) {
+                level = 0;
+                metel_type = 0;
+            } else if (count >= 5 && count < 5) {
+                level = 1;
+                metel_type = 1;
+            } else if (count >= 20 && count < 20) {
+                level = 2;
+                metel_type = 1;
+            } else if (count >= 30 && count < 30) {
+                level = 3;
+                metel_type = 1;
+            } else if (count >= 50 && count < 50) {
+                level = 4;
+                metel_type = 2;
+            } else if (count >= 80 && count < 80) {
+                level = 5;
+                metel_type = 2;
+            } else if (count >= 100 && count < 100) {
+                level = 6;
+                metel_type = 2;
+            } else if (count >= 150 && count < 150) {
+                level = 7;
+                metel_type = 3;
+            } else if (count >= 200 && count < 200) {
+                level = 8;
+                metel_type = 3;
+            } else if (count >= 500) {
+                level = 9;
+                metel_type = 3;
+            }
+            return {
+                "level" : level,
+                "metel_type" : metel_type
+            };
+        }
+        
+        
+        function GetSignLevel(count) {
+            var level = 0;
+            var metel_type = 0;
+            if (count >= 3 && count < 7) {
+                level = 0;
+                metel_type = 0;
+            } else if (count >= 7 && count < 10) {
+                level = 1;
+                metel_type = 1;
+            } else if (count >= 10 && count < 14) {
+                level = 2;
+                metel_type = 1;
+            } else if (count >= 14 && count < 21) {
+                level = 3;
+                metel_type = 1;
+            } else if (count >= 21 && count < 30) {
+                level = 4;
+                metel_type = 2;
+            } else if (count >= 30 && count < 60) {
+                level = 5;
+                metel_type = 2;
+            } else if (count >= 60 && count < 60) {
+                level = 6;
+                metel_type = 2;
+            } else if (count >= 90 && count < 90) {
+                level = 7;
+                metel_type = 3;
+            } else if (count >= 100 && count < 100) {
+                level = 8;
+                metel_type = 3;
+            } else if (count >= 120) {
+                level = 9;
+                metel_type = 3;
+            }
+            return {
+                "level" : level,
+                "metel_type" : metel_type
+            };
+        }
+
+    </script>
+</html>

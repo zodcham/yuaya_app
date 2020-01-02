@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="user_read_taskss_content/css/main.css">
+         <style>
+            .checkbox_on {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/checkbox_on.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .checkbox_off {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/checkbox_off.png) no-repeat;
+                background-size: 100% 100%;
+            }
+           
+             .mark_new {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_new_task.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .txt-ellipsis{ 
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+                 
+        <div class="ub ub-ver">
+            <div class="ub-img-rank rank-bg uinn-t-rank" style="position: fixed;z-index: 999;width: 100%">
+                <div class="ub c-blu-rank uinn-a1 t-blu-rank umar-fr1">
+                    <div class="uw-rank2 ut-s ulev-4 ubr bc-border ub ub-ac tx-c ub-pc">
+                                                                                图书详情
+                    </div>
+                    
+                    <div class="uw-ranks ulev-4 tx-c ubr bc-border ub ub-ac ub-pc">
+                                                                                发布/截止日期
+                    </div>
+                    <div class="uw-rank ulev-4 tx-c ubr bc-border ub ub-ac ub-pc">
+                        测评正确率
+                    </div>
+                    <div class="uw-rank ulev-4 tx-c ubr bc-border ub ub-ac ub-pc">
+                        读后感
+                    </div>
+                    <div class="uw-rank ulev-4 tx-c ubr bc-border ub ub-ac ub-pc">
+                      读后感评级
+                    </div>
+                    <div class="uw-rank ulev-4 tx-c ub ub-ac ub-pc">
+                        状态
+                    </div>
+                </div>                  
+            </div>
+        </div>
+        
+        <div class="ub ub-ver ub-fh ub-f1" style="top: 10%">
+             <div id="listView" class="ub ub-fh ub-ver ub-f1"></div>
+         </div>
+       
+        
+        <div  id="item"  class="item uhide ub c-wh uinn-a2 ubb ubt bc-border bc-white  umar-t">
+             <!-- 图书详情 -->
+            <div class="uw-rank3 ut-s t-gra5 ulev-app1" >
+                <!--图片  -->
+              <div class="ub ub-ac ub-pc umar-r bc-border  " style="width:3.6em;height:6em;border-radius: 0.3em" >
+                <div class="ub" style="width:3.6em;height:6em">
+                    <img src="../css/icons/noImg.png" class="ub ub-f1 bookImage bookImg" />
+                    <!-- <div class="ub mark" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+                    <div class="bookBox uhide"></div> -->
+                </div>
+              </div>
+            </div>
+            <div class="uw-rank3 t-blu ulev-4 ufm1">
+                <!-- bookName -->
+                 <b class="text-blue bookName txt-ellipsis"></b>        
+                 <p style="padding: 0.2em">
+                     <!-- bookScore 9分-->
+                     <b class="t-red ufl bookScore"> </b>
+                     <!-- 一级 -->
+                     <a class="t-red ufr  recommendLevel"></a>
+                 </p>
+                     <br>
+                 <!-- (8)224阅读 -->
+                 <p class="text-blue ulev-4 tx-c hits"></p>
+                 <!-- 二十一世纪出版社 bookPublisher-->
+                 <p  style="padding: 0.2em" class="tx-c"><b class="t-reds ulev-1 bookPublisher">二十一世纪出版社</b></p>
+            </div>
+            <!-- 发布/截止日期 2017-11-01/2017-12-03 -->
+            <div class="uw-ranks t-blu ulev-4 ufm1  t-blu-rank startDateendDate ufm1 ub ub-ac tx-c ub-pc"> 
+                
+            </div>
+            <!-- 测评正确率  90%-->
+            <div class="uw-rank t-blu ulev-4 ufm1 ub ub-ac tx-c ub-pc t-blu-rank exerciseAccuracy">
+                
+            </div>
+            <!-- 读后感  已写-->
+            <div class="uw-rank t-blu ulev-4 ufm1 ufm1 ub ub-ac tx-c ub-pc t-blu-rank isMustReview">
+                                                                                                  
+            </div>
+            <!-- 读后感评级   优  reviewLevel-->
+            <div class="uw-rank t-blu ulev-4 ufm1 ufm1 ub ub-ac tx-c ub-pc t-blu-rank reviewLevel">
+                                                                        
+            </div>
+             <!-- 状态 完成 -->
+            <div class="uw-rank t-blu ulev-4 ufm1 ufm1 ub ub-ac tx-c ub-pc t-blu-rank finishState">
+                                                                      
+            </div>
+        </div>
+                    
+                                        
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_student/user/user_read_taskss_content.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub ub-ver" style="height:16em;background:url(css/image1/ico_guanyuwomen@2x_01.png) no-repeat;background-size: 100% 100%">
+                <div class="ub ub-fh">
+                    <div class="nav-btn" id="nav-left">
+                        <div class="fa icon-back fa-w fa-lg"></div>
+                    </div>
+                    <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">关于我们</h1>
+                    <div class="nav-btn nav-bt" id="nav-right"></div>
+                </div>
+                <div class="ub ub-fh ub-ac ub-pc umar-t">
+                    <div class="ub ub-ac ub-pc" style="background:url(css/image1/ico_guanyuwomen@2x_13.png) no-repeat;background-size: 100% 100%;width:7em;height:7em;border-radius: 50%">
+                        <img src="css/image1/ico_headimg.png" style="width:6em;height:6em;border-radius: 50%" />
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-ac ub-pc bc-text-head umar-t" style="font-size: 2em">月芽阅读</div>
+                <div class="ub ub-fh ub-ac ub-pc bc-text-head umar-b">www.readseed.cn</div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+                <!--月芽学生  IOS版本信息  -->
+              <div id="checkUpdates" class="ub ub-fh ub-ac ub-pc bc-border ubt ubb" style="margin-top: 2em">
+                  <div class="ub ub-f1 uinn ub-ac ub-pc">
+                      <div class="ub" style="background: url(css/image1/banben.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                      <div class="ub ub-f1 ub-ac  umar-l" style="height:2em">当前版本：</div>
+                      <div class="ub ub-ac ub-pc ulev1 sc-text-active">04.01.0022</div>
+                  </div>
+              </div>
+              <!--月芽学生  安卓版本信息  -->
+               <div class="ub ub-fh ub-ac ub-pc bc-border checkUpdate ubt ubb uhide umar-b">
+                  <div class="ub ub-f1 uinn ub-ac ub-pc">
+                      <div class="ub" style="background: url(css/image1/banben.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                      <div class="ub ub-f1 ub-ac  umar-l" style="height:2em">当前版本：</div>
+                      <div class="ub ub-ac ub-pc ulev1 sc-text-active">04.01.0021</div>
+                  </div>
+              </div>
+              <div class="ub ub-fh ub-ac ub-pc bc-border ubt ubb checkUpdate click uhide">
+                  <div class="ub ub-f1 uinn ub-ac ub-pc">
+                      <div class="ub" style="background: url(css/image1/ico_guanyuwomen@2x_26.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                      <div class="ub ub-f1 ub-ac  umar-l" style="height:2em">检查更新</div>
+                  </div>
+              </div>
+            </div>
+            <!--content结束-->
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/upload.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            // var titHeight = $('#header').offset().height;
+            // appcan.frame.open("content", "about_content.html", 0, titHeight);
+            // window.onorientationchange = window.onresize = function() {
+                // appcan.frame.resize("content", 0, titHeight);
+            // }
+            getSysInfo();
+            if (sysInfo.phoneType == "1") {
+                $(".checkUpdate").removeClass("uhide");
+                $("#checkUpdates").addClass("uhide");
+            }
+            getWidgetInfo();
+            // checkUpload(true);
+        });
+        appcan.button("#nav-left", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+        appcan.button(".checkUpdate", "btn-act", function() {
+            checkUpload(true);
+        })
+        function callWidgetInfo(version){
+            $(".version").html(version);
+        }
+    </script>
+</html>

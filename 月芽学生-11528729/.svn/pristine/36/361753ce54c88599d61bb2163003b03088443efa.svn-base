@@ -1,0 +1,23 @@
+appcan.ready(function() {
+            // var titHeight = $('#header').offset().height;
+            // appcan.frame.open("content", "about_content.html", 0, titHeight);
+            // window.onorientationchange = window.onresize = function() {
+                // appcan.frame.resize("content", 0, titHeight);
+            // }
+            getSysInfo();
+            if (sysInfo.phoneType == "1") {
+                $(".checkUpdate").removeClass("uhide");
+                $("#checkUpdates").addClass("uhide");
+            }
+            getWidgetInfo();
+            // checkUpload(true);
+        });
+        appcan.button("#nav-left", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+        appcan.button(".checkUpdate", "btn-act", function() {
+            checkUpload(true);
+        })
+        function callWidgetInfo(version){
+            $(".version").html(version);
+        }

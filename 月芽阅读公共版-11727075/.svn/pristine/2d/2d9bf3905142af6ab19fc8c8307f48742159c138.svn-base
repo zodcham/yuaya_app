@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh ub-ver">
+                <div class="ub ub-fh ub-ac ub-pc" style="height:10em;background:url(css/image1/ico_guanyuwomen@2x_01.png) no-repeat;background-size: 100% 100%">
+                    <img src="css/image1/ico_headimg.png" style="width:6em;height:6em;border-radius: 50%" />
+                </div>
+                <div class="ub ub-fh ub-ac ub-pc umar-t ub-ver">
+                    <div class="ub ub-ac ub-pc ulev1 sc-text-active">
+                        月芽-学生版
+                    </div>
+                    <div class="ub ub-ac ub-pc ulev1 sc-text-active version">
+                        0.0.0
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh ub-ac ub-pc umar-t bc-border ubt ubb uhide checkUpdate">
+                <div class="ub ub-f1 uinn ub-ac click" style="height:2em">
+                    检查更新
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/entity.js"></script>
+    <script src="js/upload.js"></script>
+
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/about_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+    <script></script>
+</html>

@@ -1,0 +1,76 @@
+.c-gra-e6{
+	background-color:#e6e6e6;
+}
+.c-gra-c2{
+	background-color:#c2c2c2;
+}
+.t-org-f1{
+	color:#f1792a;
+}
+.uwh-bdl{
+	width:2.5em;
+	height:2.5em;
+}
+.uinn-ebt{
+	padding:0.4375em 1.25em;
+}
+.umar-r-ebt{
+	margin-right:0.3125em;
+}
+.uh-ebt1{
+	height:2.5em;
+}
+.ulh-ebt{
+	line-height:1.25em;
+}
+.ut-s-ebt{
+	overflow: hidden; 
+	text-overflow:ellipsis;
+}
+.umar5{
+	margin:0 .3125em 0 0;
+}
+
+.t-9b{
+	color:#9b9b9b;
+}
+.t-82{
+	color:#828282;
+}
+.topdirection
+{
+	width:0;height:0;
+	line-height:0;
+	border-width:.75em;
+	border-style:solid;
+	border-color: transparent transparent #d0d0d0 transparent;
+}
+.uabs-ebt1{
+	position:absolute; 
+	left:1em; 
+	top:-1.3em;
+}
+.umar-t-ebt2{
+	margin-top:1.2em
+}
+.c-d0{
+	background-color:#d0d0d0;
+}
+.ulev-7{
+	font-size:0.75em;
+}
+.ulev-6{
+	font-size:0.625em;
+}
+.umar-tb{
+	margin:.5em 0;
+}
+.b-ad{
+	border-color:#adadad;
+}
+.mar-ar1{
+    margin-right:0.625em;
+}
+.umar-at1{
+    margin-top:0.625em;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+        <link rel="stylesheet" href="book_review_content/css/main.css" />
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="swiper-parent swiper-container ub ub-fh ub-fv">
+            <div id="main" class="swiper-wrapper ub ub-fh ub-fv">
+                <div id='list_loading' class="swiper-slide" style="width:100%;height:100%">
+                    <div class="loading ub ub-ac ub-pc ub-fv">
+                        <i class="fa icon-loading fa-spin"></i> Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="item" class="scroll swiper-slide uhide bc-white" style="width:100%;height:100%" >
+            <div class="scroll-container swiper-container" style="width:100%;height:100%">
+                
+                 <div class="swiper-slide bc-white" style="height: auto;-webkit-box-sizing: border-box; box-sizing: border-box">
+                         <div class="top-title ub ubb ubt bc-border bc-white uhide" >
+                            <div class="ub umh4 ub-fh ub-ac uinn">
+                                <div class="ub-f1 titleName sc-text-green umar-l"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="questionDiv content uinn bc-white umar-t umar-b" >
+                            <div class="titleDiv sc-text-active ulev1" style="display:table;width:100%">
+                            </div>
+                         <div class="typeNames" style="height:2em;float: right;color:#ff8000"></div>
+                        </div>
+                        </div>
+                <div class="swiper-wrapper" style="width:100%;height:100%">
+                   
+                        <ol start="1" class="answerView bc-white"></ol>
+                        <div class="analyzeDiv bc-white"></div>
+                    </div>
+                    <div class="swiper-slide bc-white" style="height: 2em"></div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/book/book_review_content.js"></script>
+    <script>
+        
+    </script>
+</html>

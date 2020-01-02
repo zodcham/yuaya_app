@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="login/css/main.css">
+        <style>
+            .spinner .rect {
+                background-color: #67CF22;
+                height: 4em;
+                width: 0.4em;
+                display: inline-block;
+                -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+                animation: stretchdelay 1.2s infinite ease-in-out;
+            }
+
+            .spinner .rect2 {
+                -webkit-animation-delay: -1.1s;
+                animation-delay: -1.1s;
+            }
+
+            .spinner .rect3 {
+                -webkit-animation-delay: -1.0s;
+                animation-delay: -1.0s;
+            }
+
+            .spinner .rect4 {
+                -webkit-animation-delay: -0.9s;
+                animation-delay: -0.9s;
+            }
+
+            .spinner .rect5 {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            @-webkit-keyframes stretchdelay {
+            0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+            20% { -webkit-transform: scaleY(1.0) }
+            }
+
+            @keyframes stretchdelay {
+            0%, 40%, 100% {
+            transform: scaleY(0.4);
+            -webkit-transform: scaleY(0.4);
+            }  20% {
+            transform: scaleY(1.0);
+            -webkit-transform: scaleY(1.0);
+            }
+            }
+
+        </style>
+    </head>
+    <body class="um-vp" ontouchstart>
+        <div id="page" class="up ub ub-ver ub-fh ub-fv ub-ac ub-pc" style="background: rgba(0,0,0,0.2)" tabindex="0">
+            <div id="box" class="ub ub-ver ub-ac ub-pc uhide" style="background: #2A2D31;border-radius: 1em">
+                <div class="ub-f1"></div>
+                <div class="ub ub-ac ub-pc ub-fh">
+                    <div class="ub ub-f1 ub-ac ub-pc ub-fh spinner uhide">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc">
+                            <div class="rect rect1"></div>
+                            <div class="rect rect2"></div>
+                            <div class="rect rect3"></div>
+                            <div class="rect rect4"></div>
+                            <div class="rect rect5"></div>
+                        </div>
+                        <div class="ub ub-f1"></div>
+                    </div>
+                </div>
+                <div id="title" class="ub ub-fh ub-ac ub-pc uinn bc-text-head ulev-1">
+                    请稍后...
+                </div>
+                <div class="ub ub-f1"></div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tool.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/loading.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+
+</html>

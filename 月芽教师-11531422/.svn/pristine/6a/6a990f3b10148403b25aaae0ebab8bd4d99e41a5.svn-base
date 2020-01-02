@@ -1,0 +1,778 @@
+var g_ServerUrl = "http://www.readseed.cn:8080";
+var Request = new Object();
+Request = GetRequest();
+schoolid = Request['schoolid'];
+if (schoolid == undefined) {
+    schoolid = "";
+}
+
+var ajaxPOST = function (url, cdata, okFun, failFun) {
+    $.ajax({
+        url : url,
+        type : 'POST',
+        data : cdata,
+        dataType : 'html',
+        success : okFun,
+        error : failFun
+    });
+        
+}
+
+
+function LoadSchool() {
+    var school_data = g_json.school_data;
+
+    var myChart = echarts.init(document.getElementById('school'));
+    var option = {
+        grid: {
+            left: '5%',
+            right: '5%',
+            bottom: '5%',
+            containLabel: true
+        },
+        series: [
+            {
+                name: '阅读参与率',
+                type: 'pie',
+                radius: '55%',
+                label: {
+                    normal: {
+                        formatter: '{b|{b}}\n{c}人\n占{per|{d}%}  ',
+                        rich: {
+                            per: {
+                            }
+                        }
+                    }
+                },
+
+                center: ['50%', '55%'],
+                data: school_data,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 1,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    normal: {
+                        color: function (params) {
+                            var colorList = [
+                              '#7cca62', '#999999', '#8bbc22', '#10cf9b', '#7cca62',
+                               '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                               '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                            ];
+                            return colorList[params.dataIndex]
+                        }
+                    }
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+}
+
+
+function LoadPerson() {
+
+    // 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('person'));
+
+    // 指定图表的配置项和数据
+
+    var option = {
+        
+        grid: {
+            left: '5%',
+            right: '5%',
+            bottom: '5%',
+            containLabel: true
+        },
+
+
+        legend: {
+
+            data: ['积分']
+
+        },
+
+        xAxis: {
+
+            data: g_json.person_data.person_name
+
+        },
+
+        yAxis: {},
+
+        series: [{
+
+
+
+            type: 'bar',
+
+            barWidth: '50%',
+
+            data: g_json.person_data.score,
+
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                          '#0f6fc6', '#009dd9', '#0bd0d9', '#10cf9b', '#7cca62',
+                           '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                           '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                        ];
+                        return colorList[params.dataIndex]
+                    },
+                    //以下为是否显示，显示位置和显示格式的设置了
+                    label: {
+                        show: true,
+                        position: 'top',
+                        //                             formatter: '{c}'
+                        formatter: '{c}'
+                    }
+                }
+            }
+
+        }]
+
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+
+    myChart.setOption(option);
+}
+
+
+
+
+function LoadGrade() {
+
+    var grade_data = g_json.grade_data;
+
+    var myChart = echarts.init(document.getElementById('grade'));
+    var option = {
+
+        grid: {
+            left: '15%',
+            right: '15%',
+            bottom: '15%',
+            containLabel: true
+        },
+        
+        series: [
+            {
+                name: '平均阅读量',
+                type: 'pie',
+                radius: ['40%', '60%'],
+                label: {
+                    normal: {
+                        formatter: '{b}\n{c}'
+                    }
+                },
+
+                center: ['50%', '55%'],
+                data: grade_data,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 1,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    normal: {
+                        color: function (params) {
+                            var colorList = [
+                              '#0bd0d9', '#2f7fd8', '#8bbc22', '#10cf9b', '#7cca62',
+                               '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                               '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                            ];
+                            return colorList[params.dataIndex]
+                        }
+                    }
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+}
+
+
+
+
+
+
+
+function LoadBooks() {
+    var myChart = echarts.init(document.getElementById('grade_books'));
+    var option = {
+
+        grid: {
+            left: '5%',
+            right: '5%',
+            bottom: '5%',
+            top: '2%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: GetGradeList(g_json.books.class_list)
+        },
+        series: [
+            {
+                name: '人均阅读量',
+                type: 'bar',
+                barWidth: '50%',
+                data: g_json.books.class_books,
+                itemStyle: {
+                    normal: {
+                        color: '#0f6fc6',
+                        //以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'right',
+                            //                             formatter: '{c}'
+                            formatter: '{c}本'
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+}
+
+
+function LoadWords() {
+    var myChart = echarts.init(document.getElementById('grade_words'));
+    var option = {
+        
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            top: '2%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: GetGradeList(g_json.words.class_list)
+        },
+        series: [
+            {
+                name: '人均阅读字数',
+                type: 'bar',
+                barWidth: '50%',
+                data: g_json.words.class_words,
+                itemStyle: {
+                    normal: {
+                        color: '#7cca62',
+                        //以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'right',
+                            //                             formatter: '{c}'
+                            formatter: '{c}'
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+}
+
+
+function LoadRate() {
+    var myChart = echarts.init(document.getElementById('grade_rate'));
+    var option = {
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            top: '0%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: GetGradeList(g_json.rate.class_list)
+        },
+        series: [
+            {
+                name: '阅读参与率',
+                type: 'bar',
+                barWidth: '50%',
+                data: g_json.rate.class_rate,
+                itemStyle: {
+                    normal: {
+                        color: '#0bd0d9',
+                        //以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'right',
+                            //                             formatter: '{c}'
+                            formatter: '{c}%'
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+}
+
+
+function LoadClass() {
+    $(".gradeorclass").html(g_classname);
+    $(".top1_class_name").html(GetGradeName(g_classjson.top1_class));
+    $("#user_count").html(g_classjson.data[0].value);
+    var user_count = Number(g_classjson.data[0].value);
+    var unuser_count = Number(g_classjson.data[1].value);
+    var per = user_count / (user_count + unuser_count) * 100;
+    $("#user_all").html((user_count + unuser_count));
+    $("#user_per").html(per.toFixed(2) + "%");
+
+    var myChart = echarts.init(document.getElementById('top1_class_rate'));
+    var option = {
+        series: [
+            {
+                name: '阅读参与率',
+                type: 'pie',
+                radius: '45%',
+                label: {
+                    normal: {
+                        formatter: '{b|{b}}\n{c}人\n占{per|{d}%}  ',
+                        rich: {
+                            per: {
+                            }
+                        }
+                    }
+                },
+
+                center: ['50%', '55%'],
+                data: g_classjson.data,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 1,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    normal: {
+                        color: function (params) {
+                            var colorList = [
+                              '#0bd0d9', '#999999', '#8bbc22', '#10cf9b', '#7cca62',
+                               '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                               '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                            ];
+                            return colorList[params.dataIndex]
+                        }
+                    }
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+}
+
+function LoadGrade1() {
+
+    var myChart = echarts.init(document.getElementById('grade'));
+    var option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                crossStyle: {
+                    color: '#999'
+                }
+            }
+        },
+        legend: {
+            data: ['人均阅读量', '阅读参与率']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['401班', '402班', '403班', '404班'],
+                axisPointer: {
+
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '人均阅读量',
+                min: 0,
+                max: 5,
+                interval: 1,
+                axisLabel: {
+                    formatter: '{value} 本'
+                }
+            },
+            {
+                type: 'value',
+                name: '阅读参与率',
+                min: 0,
+                max: 10,
+                interval: 2,
+                axisLabel: {
+                    formatter: '{value} %'
+                }
+            }
+        ],
+        series: [
+            {
+                name: '人均阅读量',
+                type: 'bar',
+                data: [0.1, 0.9, 2.1, 4.5],
+                itemStyle: {
+                    normal: {
+                        color: function (params) {
+                            var colorList = [
+                              '#0f6fc6', '#009dd9', '#0bd0d9', '#10cf9b', '#7cca62',
+                               '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                               '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                        //以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'top',
+                            //                             formatter: '{c}'
+                            formatter: '{c}本'
+                        }
+                    }
+                }
+            },
+            {
+                name: '阅读参与率',
+                type: 'line',
+                yAxisIndex: 1,
+                data: [0, 3.3, 3.7, 6]
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+}
+
+
+
+
+function LoadPub() {
+
+    // 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('pub_count'));
+
+    // 指定图表的配置项和数据
+
+    var option = {
+        title: {
+            text: '阅读任务发布数量',
+        },
+
+        tooltip: {},
+
+        legend: {
+
+            //data: ['积分']
+
+        },
+
+        xAxis: {
+
+            data: g_json.pub_data.class
+
+        },
+
+        yAxis: {},
+
+        series: [{
+
+
+
+            type: 'bar',
+
+            barWidth: '50%',
+
+            data: g_json.pub_data.score,
+
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                          '#0f6fc6', '#009dd9', '#0bd0d9', '#10cf9b', '#7cca62',
+                           '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                           '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                        ];
+                        return colorList[params.dataIndex]
+                    },
+                    //以下为是否显示，显示位置和显示格式的设置了
+                    label: {
+                        show: true,
+                        position: 'top',
+                        //                             formatter: '{c}'
+                        formatter: '{c}'
+                    }
+                }
+            }
+
+        }]
+
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+
+    myChart.setOption(option);
+}
+
+
+function LoadCompletation2() {
+
+    // 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('completation_count'));
+
+    // 指定图表的配置项和数据
+
+    var option = {
+
+        xAxis: {
+
+            data: g_json.completation_data.class
+
+        },
+
+        yAxis: {},
+
+        series: [{
+
+
+
+            type: 'bar',
+
+            barWidth: '50%',
+
+            data: g_json.completation_data.score,
+
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                          '#0f6fc6', '#009dd9', '#0bd0d9', '#10cf9b', '#7cca62',
+                           '#f49100', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                           '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                        ];
+                        return colorList[params.dataIndex]
+                    },
+                    //以下为是否显示，显示位置和显示格式的设置了
+                    label: {
+                        show: true,
+                        position: 'top',
+                        //                             formatter: '{c}'
+                        formatter: '{c}'
+                    }
+                }
+            }
+
+        }]
+
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+
+    myChart.setOption(option);
+}
+
+
+function LoadCompletation() {
+
+    // 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('completation_count'));
+
+    // 指定图表的配置项和数据
+
+    var option = {
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '9%',
+            containLabel: true
+        },
+
+        legend: {
+            data: ['发布数量', '完成数量']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: g_json.completation_data.class,
+                axisPointer: {
+                    type: 'shadow'
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: ''
+            },
+            {
+                type: 'value',
+                name: ''
+            }
+        ],
+        series: [
+            {
+                name: '发布数量',
+                type: 'bar',
+                data: g_json.pub_data.score,
+                itemStyle: {
+                    normal: {
+                        color: '#0f6fc6',
+                        //以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'top',
+                            //                             formatter: '{c}'
+                            formatter: '{c}'
+                        }
+                    }
+                }
+            },
+            {
+                name: '完成数量',
+                type: 'bar',
+                data: g_json.completation_data.score,
+                itemStyle: {
+                    normal: {
+                        color: '#10cf9b',
+                        //以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'top',
+                            //                             formatter: '{c}'
+                            formatter: '{c}'
+                        }
+                    }
+                }
+            }
+        ]
+
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+
+    myChart.setOption(option);
+}
+
+
+
+
+function GetGradeList(list) {
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+        arr.push(GetGradeName(list[i]));
+    }
+    return (arr);
+}
+
+function isRealNum(val) {
+    // isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除
+    if (val === "" || val == null) {
+        return false;
+    }
+    if (!isNaN(val)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function GetGradeName(grade) {
+    if (!isRealNum(grade)) return grade;
+    var grade_name;
+    switch (Number(grade)) {
+        case 1:
+            grade_name = "一年级";
+            break;
+        case 2:
+            grade_name = "二年级";
+            break;
+        case 3:
+            grade_name = "三年级";
+            break;
+        case 4:
+            grade_name = "四年级";
+            break;
+        case 5:
+            grade_name = "五年级";
+            break;
+        case 6:
+            grade_name = "六年级";
+            break;
+        case 7:
+            grade_name = "初一";
+            break;
+        case 8:
+            grade_name = "初二";
+            break;
+        case 9:
+            grade_name = "初三";
+            break;
+        case 10:
+            grade_name = "高一";
+            break;
+        case 11:
+            grade_name = "高二";
+            break;
+        case 12:
+            grade_name = "高三";
+            break;
+    }
+    return grade_name;
+}
+
+
+function GetRequest() {
+
+    var url = location.search; //获取url中含"?"符后的字串
+
+    var theRequest = new Object();
+
+    if (url.indexOf("?") != -1) {
+
+        var str = url.substr(1);
+
+        strs = str.split("&");
+
+        for (var i = 0; i < strs.length; i++) {
+
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+
+        }
+
+    }
+
+    return theRequest;
+
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .pie-legend .label
+            {
+                font-size: 0.8em;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart style="background: url(../images/report/bg.png); font-size:36px;">
+        <div id="main" class="ub ub-fh ub-fv ub-ver" style="width:1040px;margin:0 auto;">
+            <div class="ub ub-f1 ub-ver">
+                <div class="ub ub-fh ub-ver">
+                     <div class="ub ub-fh umar-t umar-b">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub " style="background: url(../css/image1/ico_jibenqingkuang@2x_03.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l" style="font-size:36px;">阅读任务情况分析</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubt">
+                        <div class="ub ub-f1 ub-ver uinn">
+                            <div class="ub ub-fh">
+                                <div class="ub ub-ac ub-pc " style="background: #f6d33e;border-radius:1.5em;height:1.5em;width:7em;">任务完成率</div>
+                                <div class="ub ub-f1"></div>
+                                <div class="ub">
+                                    <div class="ub">（</div>
+                                    <div class="ub bookCountRateName1" style="color:#7ac677">0本</div>
+                                    <div class="ub">/</div>
+                                    <div class="ub bookCountRateName2" style="color:#000000">0本</div>
+                                    <div class="ub">）</div>
+                                </div>
+                            </div>
+                            <div class="ub ub-ac ub-f1 ub-fh value umar-t">
+                                <div class="ub ub-f1" style="height: 0.5em;background: rgba(0,0,0,0.1);border:0px solid #BABABA;border-radius: 0.5em">
+                                    <div class="ub ub-f1" style="position: relative">
+                                        <div class="ub bookCountRate" style="width:0%;border-radius: 0.5em;background: #a8e76d"></div>
+                                        <div class="ub ub-f1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="ub ub-fh ">
+                        <div class="ub ub-f1 ub-ver uinn">
+                            <div class="ub ub-fh">
+                                <div class="ub ub-ac ub-pc ulev-1" style="background: #f7b63e;border-radius:1.5em;height:1.5em;width:7em">字数完成率</div>
+                                <div class="ub ub-f1"></div>
+                                <div class="ub">
+                                    <div class="ub">（</div>
+                                    <div class="ub wordCountRateName1" style="color:#7ac677">0千字</div>
+                                    <div class="ub">/</div>
+                                    <div class="ub wordCountRateName2" style="color:#000000">0千字</div>
+                                    <div class="ub">）</div>
+                                </div>
+                            </div>
+                            <div class="ub ub-ac ub-f1 ub-fh value umar-t">
+                                <div class="ub ub-f1" style="height: 0.5em;background: rgba(0,0,0,0.1);border:0px solid #BABABA;border-radius: 0.5em">
+                                    <div class="ub ub-f1" style="position: relative">
+                                        <div class="ub wordCountRate" style="width:0%;border-radius: 0.5em;background: #a8e76d"></div>
+                                        <div class="ub ub-f1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="ub ub-fh ">
+                        <div class="ub ub-f1 ub-ver uinn">
+                            <div class="ub ub-fh">
+                                <div class="ub ub-ac ub-pc ulev-1" style="background: #3ebaf7;border-radius:1.5em;height:1.5em;width:7em">读后感完成率</div>
+                                <div class="ub ub-f1"></div>
+                                <div class="ub">
+                                    <div class="ub">（</div>
+                                    <div class="ub reviewRateName1" style="color:#7ac677">0篇</div>
+                                    <div class="ub">/</div>
+                                    <div class="ub reviewRateName2" style="color:#000000">0偏</div>
+                                    <div class="ub">）</div>
+                                </div>
+                            </div>
+                            <div class="ub ub-ac ub-f1 ub-fh value umar-t">
+                                <div class="ub ub-f1" style="height: 0.5em;background: rgba(0,0,0,0.1);border:0px solid #BABABA;border-radius: 0.5em">
+                                    <div class="ub ub-f1" style="position: relative">
+                                        <div class="ub reviewRate" style="width:0%;border-radius: 0.5em;background: #a8e76d"></div>
+                                        <div class="ub ub-f1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                
+                <div class="ub ub-fh ub-ver">
+                     <div class="ub ub-fh umar-t umar-b bc-border ubb">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub " style="background: url(../css/image1/ico_jibenqingkuang@2x_03-02.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l">阅读基本情况</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubb ubt sc-text">
+                        <div class="ub ub-f1 uinn">
+                            <div class="ub ub-ac ub-pe name " style="width: 6em;color:#000000">阅读书本数：</div>
+                            <div class="ub ub-ac ub-f1 value bookCount"></div>
+                        </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubb sc-text">
+                        <div class="ub ub-f1 uinn">
+                            <div class="ub ub-ac ub-pe name " style="width: 6em;color:#000000">阅读字数：</div>
+                            <div class="ub ub-ac ub-f1 value wordCount"></div>
+                        </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubb sc-text">
+                        <div class="ub ub-f1 uinn">
+                            <div class="ub ub-ac ub-pe name " style="width: 6em;color:#000000">获得积分：</div>
+                            <div class="ub ub-ac ub-f1 value score"></div>
+                        </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubb sc-text">
+                        <div class="ub ub-f1 uinn">
+                            <div class="ub ub-ac ub-pe name " style="width: 6em;color:#000000">读后感：</div>
+                            <div class="ub ub-ac ub-f1 value reviewCount"></div>
+                        </div>
+                     </div>
+                </div>
+                
+                <div class="ub ub-fh ub-ver">
+                     <div class="ub ub-fh umar-t umar-b bc-border ubb">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub " style="background: url(../css/image1/ico_jibenqingkuang@2x_03-03.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l">阅读质量分析</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubt">
+                        <div class="ub ub-f1 uinn">
+                            <div class="ub ub-f1 ub-ac ub-pc charts" id="readQuality"></div>
+                        </div>
+                     </div>
+                </div>
+                
+                <div class="ub ub-fh ub-ver">
+                     <div class="ub ub-fh umar-t umar-b">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub " style="background: url(../css/image1/ico_jibenqingkuang@2x_03-04.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l">阅读内容分析</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh bc-border ubt">
+                        <div class="ub ub-f1 uinn">
+                            <div id="readContent" class="ub ub-f1 ub-ac ub-pc charts">
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/user/user_report_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

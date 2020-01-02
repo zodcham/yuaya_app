@@ -1,0 +1,29 @@
+document.write("<script src='http://www.readseed.cn/nocache/js_teacher/js/common_new.js'></script>");
+//document.write("<script src='../js/jquery-1.8.3.min.js'></script>");
+
+appcan.ready(function() {
+	isIPhoneX();
+	
+    $("#forum_title").html(getLocVal("forum_title"));
+
+    var titHeight = $('#header').offset().height;
+    appcan.frame.open("content", "forum_content.html", 0, titHeight);
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    }
+});
+appcan.button("#nav-left", "btn-act", function() {
+    appcan.window.close(-1);
+})
+
+appcan.button("#nav-add", "btn-act", function() {
+	toast("教师端暂时不能发帖.", config.toastTimeShort);
+    //appcan.window.open("forumadd", "forumadd.html", 5);
+})
+function reload() {
+    var titHeight = $('#header').offset().height;
+    appcan.frame.open("content", "forum_content.html", 0, titHeight);
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    }
+}

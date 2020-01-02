@@ -1,0 +1,47 @@
+document.write("<script src='http://www.readseed.cn/nocache/js_student/js/common_new.js?time="+ (new Date().getTime()) +"'></"+"script>");
+
+appcan.ready(function() {
+	isIPhoneX();
+
+	getUserInfo();
+});
+        
+        appcan.button("#btnSubmit", "btn-act", function() {
+            var oldPwd=$("#oldPwd").val();
+            var newPwd=$("#newPwd").val();
+            var newPwd2=$("#newPwd2").val(); 
+            if (oldPwd.length == 0) {
+                toast("请输入旧密码~",config.toastTimeShort);
+                return;
+            }
+            if (newPwd.length == 0) {
+                toast("请输入新密码~",config.toastTimeShort);
+                return;
+            }
+            if(newPwd != newPwd2)
+            {
+                toast("两次密码不一致~",config.toastTimeShort);
+                return;
+            }
+            
+          var params={ 'userId' : userInfo.id,'oldPassword' : oldPwd,"newPassword":newPwd};
+            common.ajax("/student/changePassword", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                toast("密码已修改，请重新登录~",config.toastTimeShort);
+                setTimeout(function(){
+                    clearCommInfo();
+                    getDefaultUserInfo();
+                    setUserInfo(false);
+                   appcan.window.open("login","login.html",5);
+                },config.toastTimeShort-500);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            }, {
+                type : 'POST'
+            });
+        })
+        
+        appcan.button("#nav-left", "btn-act", function() {
+            appcan.window.close(-1);
+        })

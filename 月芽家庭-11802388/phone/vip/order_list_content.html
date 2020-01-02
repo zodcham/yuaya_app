@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .div_block{
+                border:0.05em solid #fff;
+                border-radius: 0.5em;
+                margin-top:1em;
+                line-height: 2em;
+                padding:1em;
+                background-color: #fff;
+            }
+            .div_block2{
+                border:0.05em solid #ddd;
+                border-radius: 0.5em;
+                margin-top:1em;
+                padding:0.5em;
+                background-color: #fff;
+            }
+            .btn1 {
+                padding: .2em 0.5em;
+                min-height: 1.5em;
+                font-size: 1em;
+                text-align: center;
+            }
+            .orderTitle{
+                width:5em;
+                text-align:right;
+                color:#666;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="orderList" class="ub-ver ub-fv ub-f1" style="width: 100%;">
+
+        </div>
+        <div id="item" class="ub item ub-fh bc-border ubb bc-white ub-ver uinn item1" style="width:90%;margin:1em auto; border-radius: 0.5em;">
+            <div class="ub ub-ac ub-pc ub-f1 book  umar-b ulev-1">
+                <div class="ub ub-ac  tx-l  ub-f1 orderNumber">
+                    订单编号：
+                </div>
+                <div class=" tx-r ub-ac ub-pc orderStatus" style="width: 5.5em;">
+                    状态
+                </div>
+            </div>
+            <div class="ub ub-ac ub-pc ub-f1 book  umar-b " style="line-height: 3em;height:3em;">
+                <div class="ub ub-ac   tx-l  ub-f1 goodsName">
+                    商品名称
+                </div>
+                <div class="ub-ac ub-pc   tx-r totalMoney" style="width: 5.5em;">
+                    金额
+                </div>
+            </div>
+            <div class="ub ub-ac ub-pc ub-f1 book  umar-b ulev-1">
+                <div class="ub ub-ac   tx-l  ub-f1 payType">
+                    支付方式
+                </div>
+                <div class="ub-ac ub-pc orderDate  ub-f1 tx-r">
+                    时间
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/appcan.listview.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/vip/order_list_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

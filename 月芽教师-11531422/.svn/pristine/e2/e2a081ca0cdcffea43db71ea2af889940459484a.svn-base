@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="jack"> -->
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,
+                user-scalable=no" />
+        <!-- 适应手机屏幕，防止屏幕缩放 -->
+        
+        <!--样式-->
+        <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../css/calender.css">
+        <link rel="stylesheet" href="css/ranking.css" />
+    </head>
+    <body class="um-vp bc-bg " ontouchstart>
+        
+          <div class="uinn btn ub ub-ac bc-white ub-pc" style="margin: 0.5em 0.5em">
+            <div class="ub ub-fh" id="beginDate">
+                <div class="ub ub-f1" style="padding: 0.5em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">选择开始查询日期： </div>   
+                    <div class="ub ub-ac ub-pc beginDate sc-text-blue umar-l"></div>                  
+                </div>                
+            </div>
+          </div>
+          
+          <div class="uinn btn ub ub-ac bc-white ub-pc" style="margin: 0.5em 0.5em">
+            <div class="ub ub-fh" id="endDate">
+               <div class="ub ub-f1" style="padding: 0.5em 0.5em">
+                 <div class="ub ub-ac ub-pc sc-text">选择结束查询日期： </div>   
+                  <div class="ub ub-ac ub-pc endDate sc-text-blue umar-l"></div>                  
+                </div>                               
+            </div>
+          </div>
+            
+            <div id="btnSubmit" class="uinn btn ub ub-ac ub-pc"  style="margin: 1.5em 0.5em;background: #e3e3de;font-weight: bold">
+                                                     确   认   查  询
+            </div> 
+   
+            <div id="divCalender" class="ub ub-fh ub-fv uhide" style="position: absolute;z-index: 9999;top:0;background: rgba(0,0,0,0.5)">
+                <div class="ub ub-ac ub-pc ub-f1">
+                    <div class="ub ub-ac ub-pc ub-ver bc-white">
+                        <div class="calendar " id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        <div id="dataContent"> 
+             <div id="student_left_div">
+                <div id="student_left_div1">
+                  <table id="student_left_table1" class="table table-bordered">
+                    <tr>
+                      <th>姓名</th>
+                    </tr> 
+                  </table>
+                </div>
+                <div id="student_left_div2">
+                  <table id="student_left_table2" class="table table-bordered">
+                      <!-- 左侧固定列 -->
+                  </table>
+                </div>
+            </div>
+            
+            <div id="student_right_div">
+            <div id="student_right_div1">
+              <div id="student_right_divx">
+                <table id="student_right_table1" class="table table-bordered">
+                  <tr>
+                    <th>年级</th>
+                    <th>班级</th>
+                    <th>等级</th>
+                    <th>经验值</th>
+                    <th>财富值</th>
+                    <th>阅读本数</th>
+                    <th>阅读字数</th>
+                    <th>读后感</th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="student_right_div2">
+              <table id="student_right_table2" class="table">
+                <!-- 滚动部分的数据 -->
+              </table>
+            </div>
+          </div>
+        </div>
+    </body>
+   <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/calender.js"></script>
+ </body>
+    <script>
+        var nowDate;
+        var pageIndex=1;
+        var reloadDate="";
+        var loadDate="";        
+        scrollFcn();
+        
+        appcan.ready(function() {
+            getSysInfo();
+            getUserInfo();
+            loadData();
+            nowDate = new Date();
+             $(".beginDate").html((nowDate.getFullYear()-1)+"-"+1+"-"+1); 
+            $(".endDate").html(nowDate.getFullYear()+"-"+(nowDate.getMonth()+1)+"-"+nowDate.getDate());
+            
+            $("#beginDate").on("click",function(){
+               var nDate = getformatDate($("#beginDate .beginDate").html());
+                initCalendar(nDate,function(dateStr){
+                  var date = getDateByStr(dateStr);
+                 
+                   $("#beginDate .beginDate").html(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
+                   $("#divCalender").addClass("uhide");
+                });
+                
+               $("#divCalender").removeClass("uhide");
+                 
+            });
+            $("#endDate").on("click",function(){
+               var nDate = getformatDate($("#endDate .endDate").html());
+                initCalendar(nDate,function(dateStr){
+                  var date = getDateByStr(dateStr);
+                   $("#endDate .endDate").html(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
+                   $("#divCalender").addClass("uhide");
+                });
+                
+               $("#divCalender").removeClass("uhide");
+                 
+            });
+            
+         
+        });
+           
+       function loadData(){
+            // ,'beginDate':$("#beginDate .beginDate").html(),'endDate':$("#endDate .endDate").html()
+            var params={'userId':userInfo.id, dataType:'1', pageSize:'2000', pageIndex:pageIndex,'beginDate':$("#beginDate .beginDate").html(),'endDate':$("#endDate .endDate").html()};
+
+            common.ajax("/ranking/listStudentAnalyse", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                if(pageIndex==1&&data.obj.count==0){
+                    myPrompt.show("暂无分析~","#dataContent");
+                    $(".rank-no-data").css("margin-top","100px");
+                }else{
+                     myPrompt.hide();
+                    var list=data.obj.list;
+                    if(list){
+                        for(var i=0;i<list.length;i++){
+                            var obj=list[i];
+                            var strContent1='<tr>'+
+                                '<th>'+obj.studentName+'</th>' +
+                                '</tr>';
+                            var strContent2 = '<tr>' +
+                                '<td>'+obj.gradeName+'</td>' +
+                                '<td>'+obj.clazzName+'</td>' +
+                                '<td>'+obj.readLevelName+'</td>' +
+                                '<td>'+obj.scoreCount+'</td>' +
+                                '<td>'+obj.goldCount+'</td>' +
+                                '<td>'+obj.readBookCount+'</td>' +
+                                '<td>'+obj.readWordCount+'</td>' +
+                                '<td>'+obj.reviewCount+'</td>' +
+                                '</tr>';
+                            $("#student_left_table2").append(strContent1);//添加左边固定列内容                           
+                            $("#student_right_table2").append(strContent2); //添加右边滚动内容
+                        }
+                    }else{
+                    }
+                }
+            },function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+       }
+       
+       function scrollFcn() {
+        //固定和滚动
+            var right_div2 = document.getElementById("student_right_div2");
+            right_div2.onscroll = function(){
+                var right_div2_top = this.scrollTop;
+                var right_div2_left = this.scrollLeft;
+                document.getElementById("student_left_div2").scrollTop = right_div2_top;
+                document.getElementById("student_right_div1").scrollLeft = right_div2_left;
+            }
+            //设置右边div宽度
+            document.getElementById("student_right_div").style.width=""+document.documentElement.clientWidth-130+"px";  
+            setInterval(function() {
+                document.getElementById("student_right_div").style.width=""+document.documentElement.clientWidth-130+"px";  
+            }, 0);
+       }
+     appcan.button("#btnSubmit", "btn-act", function() {
+         //清除原来数据
+         $("#student_right_table2,#student_left_table2").empty();
+          loadData();
+     });
+ </script>
+</html>

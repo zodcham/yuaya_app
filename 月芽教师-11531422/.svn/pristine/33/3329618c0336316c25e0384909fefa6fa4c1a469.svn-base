@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style type="text/CSS">
+             .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+       <div class="ub ub-ver ub-fh ub-fv">
+        <div id="bookList" class="ub ub-ver ub-fh ub-f1 umar-t" ></div>
+     </div>
+     
+     <div id="item" class="item ub-ver ub ub-fh uhide click">
+            <div class="ub ub-fh ub-f1">
+                <div class="ub ub-ac ub-pc umar-l" >
+                    <div class="ub ub-fh ub-f1 umar-r" style="width:3.7em;height:5.2em">
+                        <img src="../css/icons/noImg.png" class="ub ub-fh ub-fv ub-f1 bookImage" />
+                        <div class="ub mark" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+                        <div class="bookBox uhide"></div>
+                    </div>
+                </div>
+                <div class="ub ub-ver ub-f1">
+                    <div class="ub ub-fh ">
+                        <div class="ub ub-f1 bookName txt-ellipsis umar-t text-blue ulev0"></div>
+                    </div>
+                    <div class="ub ub-fh sc-text ulev-1 umar-t">
+                        <div class="ub ub-f1">
+                            <div class="ub hits"></div>
+                            <div class="ub">人读过 &nbsp;&nbsp;&nbsp;积分：</div>
+                            <div class="ub score"></div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh uhide">
+                        <div class="ub ub-f1 author txt-ellipsis umar-t sc-text"></div>
+                    </div>
+                    <div class="ub ub-fh ub-f1 ulev-1 umar-t">
+                        <div class="ub ub-ac ub-pc uhide" style="margin:0 1em">
+                            <div class="ub ub-ac ub-pc">
+                                <div class="ub ub-ac ub-pc umar-r"><img src="../css/icons/ico_good.png" style="width:1em;height:1.5em" /></div>
+                                <div class="ub score sc-text"></div>
+                            </div>
+                        </div>
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub ub-ac ub-pc timeBox">
+                                <div class="ub ub-ac ub-pc umar-r"><img src="../css/icons/ico_time.png" style="width:1em;height:1em" /></div>
+                                <div class="ub time sc-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ub ub-fh ub-f1">
+                        
+                    </div>
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <!-- <div class="ub ub-ac ub-pc ub-f1" style="border-radius: 50%;border:0.2em solid #4B4B4F;width:3em;height:3em;-webkit-transform: rotate(-20deg);">
+                        <div class="ub ub-ac ub-pc ulev-2 ub-f1" style="border-radius: 50%;border:0.1em solid #4B4B4F;width:2.9em;height:2.9em">通过</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="ub ub-fh">
+                <div class="umar-a sc-bg ub ub-f1" style="height:1px">&nbsp;</div>
+            </div>
+      </div>
+      
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/task/student_info_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

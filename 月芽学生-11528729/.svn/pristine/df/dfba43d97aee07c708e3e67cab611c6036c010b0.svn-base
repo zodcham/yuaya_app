@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/sign2.css">
+        <style type="text/css">
+            .sign_detai_bg {
+                background-image: url('css/image1/sign_bg.jpg') !important;
+                background-size: 100% 100%;
+                -moz-background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg sign_detai_bg" ontouchstart>
+        <div class="um-vp detailbox">
+            <div class='ub c-gra b-bla uinn' style="background-color: #f55;margin-top: 1em;">
+                <div class='ub-f1 ub-ver'>
+                    <div class='ub-pc tx-c ' style=' padding-top:0.5em;'>
+                        <img src="css/icons/ico_headimg.png" class="sign_userimg" id="top3_img_1">
+                    </div>
+                    <div class='ub-pc tx-c uinn ulev-1 sign_top3_text' id="rank2">
+                        <span class="top3text">亚军</span>
+                        <br>
+                        <span id="top3_1"></span>
+                    </div>
+                </div>
+                <div class='ub-f1 ub-ver'>
+                    <div class='ub-pc tx-c'>
+                        <img src="css/icons/ico_headimg.png" class="sign_userimg" id="top3_img_0">
+                    </div>
+                    <div class='ub-pc tx-c uinn ulev-1 sign_top3_text' id="rank1">
+                        <span class="top3text">冠军</span>
+                        <br>
+                        <span id="top3_0"></span>
+                    </div>
+                </div>
+                <div class='ub-f1 ub-ver'>
+                    <div class='ub-pc tx-c ' style=' padding-top:0.8em;'>
+                        <img src="css/icons/ico_headimg.png" class="sign_userimg" id="top3_img_2">
+                    </div>
+                    <div class='ub-pc tx-c uinn ulev-1 sign_top3_text' id="rank3">
+                        <span class="top3text">季军</span>
+                        <br>
+                        <span id="top3_2"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class='ub c-gra b-bla uinn' style="background-color: #fff;height:2.5em;">
+                <div class='ub-f1 ub-ver ub-pc ub-ac tx-c ub-f3' style="height:2.5em; line-height: 2.5em;">
+                    <div class="sign_rank_num"></div>
+                    <div  class="sign_rank_img">
+                        <img src="css/icons/ico_headimg.png" class="sign_list_userimg" style="float:left;" id="current_photo">
+                    </div>
+                    <p class="ub-ver ub-pc ub-ac tx-c ulev-1" style="float:left; line-height: 1.5em; margin-left: 1em;text-align: left;">
+                        <span class="rank_name" id="current_name"></span>
+                        <br>
+                        第<span id="current_rank"></span>名
+                    </p>
+                </div>
+                <div class='ub-f1 ub-ver ub-pc ub-ac tx-c ub-f1' style="height:2.5em;line-height: 2.5em;" id="current_time">
+
+                </div>
+            </div>
+
+            <div class="ub-f1 ub-ver" style="margin-top: 0.5em;" id="sign_list">
+                <!--
+                <div class='ub c-gra b-bla uinn sign_list_box'>
+                <div class='ub-f1 ub-ver ub-pc ub-ac tx-c ub-f3' style="height:2.5em; ">
+                <div class="sign_list_num">4</div>
+                <div  class="sign_rank_img">
+                <img src="css/icons/book1.png" class="sign_list_userimg" style="float:left;">
+                </div>
+                <p class="ub-ver ub-pc ub-ac tx-c" style="float:left; line-height: 2.5em; margin-left: 1em;text-align: left;">
+                林源
+                </p>
+                </div>
+                <div class='ub-f1 ub-ver ub-pc ub-ac tx-c ub-f1 ' style="height:2.5em;line-height: 2.5em;">
+                08:29
+                </div>
+                </div>
+                <div class='ub c-gra b-bla uinn sign_list_box'>
+                <div class='ub-f1 ub-ver ub-pc ub-ac tx-c ub-f3' style="height:2.5em; ">
+                <div class="sign_list_num">4</div>
+                <div  class="sign_rank_img">
+                <img src="css/icons/book1.png" class="sign_list_userimg" style="float:left;">
+                </div>
+                <p class="ub-ver ub-pc ub-ac tx-c" style="float:left; line-height: 2.5em; margin-left: 1em;text-align: left;">
+                林源
+                </p>
+                </div>
+                <div class='ub-f1 ub-ver ub-pc ub-ac tx-c ub-f1 ' style="height:2.5em;line-height: 2.5em;">
+                08:29
+                </div>
+                </div>
+                -->
+            </div>
+
+        </div>
+
+    </body>
+
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/entity.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/tool.js"></script>
+    <script src="js/appcan.tab.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/sign_rank_today.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

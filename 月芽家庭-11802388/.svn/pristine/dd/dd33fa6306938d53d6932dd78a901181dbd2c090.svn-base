@@ -1,0 +1,87 @@
+
+
+appcan.ready(function() {
+
+    loadOrderList();
+
+});
+
+
+function loadOrderList() {
+    var list= [
+        {
+            "id": "1",
+            "orderNumber":"143344343",
+            "goodsName": "月芽激活30天会员",
+            "totalMoney": "30",
+            "createDate": "2019-05-22 14:15:00",
+            "type": "VIP会员",
+            "status": "0"
+        },
+        {
+            "id": "2",
+            "orderNumber":"243344343",
+            "goodsName": "月芽激活一季度会员",
+            "totalMoney": "90",
+            "createDate": "2019-05-22 14:25:00",
+            "type": "VIP会员",
+            "status": "1"
+        },
+        {
+            "id": "3",
+            "orderNumber":"343344343",
+            "goodsName": "月芽激活半年会员",
+            "totalMoney": "180",
+            "createDate": "2019-05-22 14:35:00",
+            "type": "VIP会员",
+            "status": "2"
+        }
+    ];
+
+    for (var i = 0; i < list.length; i++) {
+        var obj = list[i];
+        var objItem = $("#item").clone();
+        objItem.attr("id", obj.id);
+        objItem.removeClass("uhide");
+
+        var orderStatus="";
+        switch (obj.status) {
+            case "0":
+                orderStatus="<span style='color:red;'>未付款</span>";
+                break;
+            case "1":
+                orderStatus="<span style='color:blue;'>已付款</span>";
+                break;
+            case "2":
+                orderStatus="<span style='color:red;'>付款失败</span>";
+                break;
+
+        }
+
+        objItem.find(".orderNumber").html("单号："+obj.orderNumber);
+        objItem.find(".orderStatus").html(orderStatus);
+        objItem.find(".goodsName").html(obj.goodsName);
+        objItem.find(".totalMoney").html("￥：" + obj.totalMoney + "元");
+        objItem.find(".orderDate").html("" + obj.createDate);
+
+
+
+        objItem.on("click", function() {
+            var id = $(this).attr("id");
+            getBookInfoById(userInfo.id, id, function(data) {
+                getBookInfo();
+                bookInfo = data;
+                setBookInfo();
+                appcan.window.open("book_default", "book/book_default.html", 5);
+            }, null);
+
+        })
+
+        $("#orderList").append(objItem);
+    }
+}
+
+
+appcan.button("#buy", "btn-act", function() {
+    appcan.window.open("wechat_shop", "wechat_shop.html", 5);
+});

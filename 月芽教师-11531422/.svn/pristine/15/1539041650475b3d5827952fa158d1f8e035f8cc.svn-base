@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa icon-back fa-w fa-lg"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">修改密码</h1>
+                <div class="nav-btn nav-bt" id="nav-right">
+                    <div class="ub ub-ac ub-pc bc-text-head umar-r">保存</div>
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+           <div id="content" class="ub-f1 tx-l">
+                <div class="ub">&nbsp;</div>
+                <div class="ub ub-fh bc-white bc-border ubt ubb">
+                    <div class="ub ub-ac ub-pe " style="width:6em">原始密码</div>
+                    <input id="oldPwd" type="password" class="ub ub-fh ub-fv ub-f1 uinn ulev0" maxlength="100" style="border:0px;padding: 1em 0.5em" placeholder="请输入" />
+                </div>
+                <div class="ub ub-fh bc-white bc-border ubb">
+                    <div class="ub ub-ac ub-pe " style="width:6em">新密码</div>
+                    <input id="newPwd" type="password" class="ub ub-fh ub-fv ub-f1 uinn ulev0" maxlength="100" style="border:0px;padding: 1em 0.5em" placeholder="请输入" />
+                </div>
+                <div class="ub ub-fh bc-white bc-border ubb">
+                    <div class="ub ub-ac ub-pe " style="width:6em">确认新密码</div>
+                    <input id="newPwd2" type="password" class="ub ub-fh ub-fv ub-f1 uinn ulev0" maxlength="100" style="border:0px;padding: 1em 0.5em" placeholder="请输入" />
+                </div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+    </body>
+    <script>
+         appcan.ready(function() {
+            getUserInfo();
+        });
+        
+        appcan.button("#nav-right", "btn-act", function() {
+            var oldPwd=$("#oldPwd").val();
+            var newPwd=$("#newPwd").val();
+            var newPwd2=$("#newPwd2").val();
+            if (oldPwd.length == 0) {
+                toast("请输入旧密码~",config.toastTimeShort);
+                return;
+            }
+            if (newPwd.length == 0) {
+                toast("请输入新密码~",config.toastTimeShort);
+                return;
+            }
+            if(newPwd != newPwd2)
+            {
+                toast("两次密码不一致~",config.toastTimeShort);
+                return;
+            }
+            
+          var params={'userId':userInfo.id,'oldPassword' : oldPwd,"newPassword":newPwd};
+            common.ajax("/teacher/changePassword", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                toast("密码已修改，请重新登录~",config.toastTimeShort);
+                setTimeout(function(){
+                    clearCommInfo();
+                    getDefaultUserInfo();
+                    setUserInfo(false);
+                   appcan.window.open("login","login.html",10);
+                },config.toastTimeShort - 500);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            }, {
+                type : 'POST'
+            });
+        })
+        
+        appcan.button("#nav-left", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+    </script>
+</html>

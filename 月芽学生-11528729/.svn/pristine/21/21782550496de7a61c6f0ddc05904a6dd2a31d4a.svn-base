@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="grzx_content/css/main.css">
+        <style>
+            .uinn-item {
+                padding: 0.2em 0.2em;
+            }
+            .icon {
+                width: 1.5em;
+                height: 1.5em;
+                margin: 0.5em;
+            }
+            .my_list_research {
+                background: url(css/icons/my_list_research.png) no-repeat;
+                background-size: 90% 100%;
+            }
+            .my_list_password {
+                background: url(css/icons/my_list_password.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_read {
+                background: url(css/icons/toolbar_unread_act.png) no-repeat;
+                background-size: 90% 100%;
+            }
+            .my_list_user {
+                background: url(css/icons/my_list_user.png) no-repeat;
+                background-size: 90% 100%;
+            }
+            .my_list_mms {
+                background: url(css/icons/my_list_mms.png) no-repeat;
+                background-size: 90% 100%;
+            }
+
+            .my_list_mmss {
+                background: url(css/image1/ionce-666.png) no-repeat;
+                background-size: 90% 100%;
+            }
+
+            .my_list_info {
+                background: url(css/icons/my_list_info.png) no-repeat;
+                background-size: 90% 90%;
+            }
+            .my_list_jilu {
+                background: url(css/icons/toolbar_read_act.png) no-repeat;
+                background-size: 90% 90%;
+            }
+            .my_list_friend {
+                background: url(css/icons/my_list_friend.png) no-repeat;
+                background-size: 90% 100%;
+            }
+
+            .my_list_exit {
+                background: url(css/icons/my_list_exit.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_money {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(css/icons/ico_money.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_integral {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(css/icons/ico_integral.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .head-box {
+                background: url(css/image1/ico_gerenzhongxin@2x_03.png) no-repeat;
+                background-size: 100% 100%;
+                border-radius: 50%;
+            }
+            .bg-jindutiao {
+                width: 75%;
+                height: 0.2em;
+                margin-left: 0.5em;
+                margin-top: 0.2em;
+                background-color: #D0D0D0;
+                border-radius: 25em;
+                overflow: hidden;
+            }
+            .dqjf {
+                width: 0%;
+                height: 100%;
+                background-color: #ff6666;
+                border-radius: 25em;
+            }
+            .lvtubiao {
+                width: 1.8em;
+                height: 1em;
+                margin-left: 0.5em;
+                background: url(css/image1/Lv.png) no-repeat 0 0;
+                background-size: 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <!-- <div id="main" class="ub ub-ver ub-fh uhide">
+        <div class="ub ub-ver ub-f1 ub-fh">
+        <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc bc-border ubb ubt bc-text-head" style="height:15em;background:url(css/image1/ico_guanyuwomen@2x_01.png) no-repeat;background-size: 100% 100%">
+        <div class="ub ub-ac ub-pc" style="height:6em;margin-left: 15%;position: relative;" >
+        <div class="ub ub-ac ub-pc ub-f1 head-box" style="width:6em;height:6em;float: right">
+        <img id="headImg" class="ub" src="head.png" style="width:85%;height:85%;border-radius: 50%" />
+        </div>
+        <div style="width:4em;margin-top: 35%;margin-left: -10%">
+        <p class="ub ub-ac ub-pc bc-border uba ulev-2 readLevelName" style="background-color:rgba(255,255,255,0.3);border-radius: 1em;padding: 6px;margin-bottom: 3px;" id="more">
+        进士
+        </p>
+        <p class="ub ub-ac ub-pc bc-border uba ulev-2 " style="background-color:rgba(255,255,255,0.3);border-radius: 1em;padding: 6px;margin-bottom: 3px;" id="more" >
+        未认证
+        </p>
+        </div>
+        </div>
+
+        <div id="name" class="ub ub-ac ub-pc ub-fh umar-t ulev2">姓名</div>
+        <div class="ub ub-ac ub-pc umar-t umar-b uba sc-border" style="border-radius: 1.5em">
+        <div class="ub ub-ac ub-pc" style="position: absolute;width: 100%;height:100%;;left:0;top:0">
+        <div class="ub" style="width:98%;height:90%;background: #FFFFFF;opacity: 0.5;border-radius: 1em"></div>
+        </div>
+        <div id="schoolClass" class="ub ub-f1 " style="padding: 0.5em 1em">学校</div>
+        </div>
+        </div> -->
+
+        <!-- 个人信息开始 -->
+        <div id="btnUserInfo" class="ub ub-fh bc-border ubb ubt bc-white" style="height:13em;background:url(css/image1/ico_guanyuwomen@2x_01.png) no-repeat;background-size: 100%;color:  #FFF0F5;">
+            <div class="ub ub-ac ub-pc ub-f1">
+                <div class="ub ub-ac ub-pc bc-border uba" style="width: 6em;height:6em;border-radius: 8em;margin-left: 0.5em;">
+                    <img id="headImg" src="head.png" style="width:100%;height:100%;border-radius: 50%" />
+                    <div class="bookBox uhide"></div>
+                </div>
+                <div class="ub ub-f1">
+                    <div class="ub ub-f1 uinn ub-ver">
+                        <!-- <div class="ub ub-fh ">
+                        <div id="name" class="ub ub-ac " style="display: inline-block;padding: 0em 0.5em;">姓名</div>
+                        <div class="ub" style="display: inline-block;margin-left: 0.5em">
+                        <p id="more" class="ub ub-ac  ulev-2" style="padding: 0em 0.3em;">未认证</p>
+                        </div>
+                        </div> -->
+
+                        <div class="ub ub-fh ">
+                            <div id="name" class="ulev-3" style="margin-left: 0.5em;">
+                                姓名
+
+                            </div>
+                            <div class="ub" style="display: inline-block;margin-left: 1em">
+                                <div class="ub ub-ac ub-pc">
+                                    <div class="ub ub-ac ub-pc" style="position: absolute;width: 100%;height:100%;;left:0;top:0;border-radius: 1.5em ;">
+                                        <div class="ub" style="width:100%;height:98%;opacity: 0.5;border-radius: 1em;"></div>
+
+                                    </div>
+                                    <p id="more" class="ub ub-ac  ulev-2" style="padding: 0em 0.3em;">
+                                        未认证
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="ub" style="border-radius: 1.5em; position: relative;">
+                        <div  id="schoolClass" class="ub uba bc-border sc-border" style="padding: 0.1em 0.3em;border-radius: 1em;margin-bottom: 0.3em;">学校</div>
+                        </div> -->
+
+                        <div class="ub ub-fh ">
+                            <div class="ulev-4" style="margin-left: 0.5em;">
+                                当前等级:
+                                <p  id="more" class="readLevelName" style="display: inline-block ;padding: 0.1em 0.3em;">
+                                    进士
+                                </p>
+                            </div>
+                            <div class="ub lvtubiao"></div>
+                        </div>
+
+                        <div class=" bg-jindutiao">
+                            <div class="dqjf"></div>
+                        </div>
+
+                        <div class="ub ub-ac ub-pc umar-t umar-b ">
+                            <div class="ub ub-ac ub-pc uba sc-border" style="position: absolute;width: 100%;height:100%;;left:0;top:0;border-radius: 1.5em ;">
+                                <div class="ub" style="width:100%;height:98%;background: #FFFFFF;opacity: 0.5;border-radius: 1em;"></div>
+
+                            </div>
+                            <div id="schoolClass" class="ub ub-f1 " style="padding: 0.2em 0.3em;margin: 0 auto;">
+                                学校
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 个人信息结束 -->
+
+        <div class="ub ub-fh ub-ac ub-pc">
+            <div class="ub ub-ac ub-pc ub-f1">
+                <div class="ub ub-f1 ub-ac ub-pc ub-ver">
+
+                    <div class="ub sc-text">
+                        经验值： <div class="ub integral"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-ac ub-pc ub-f1">
+                <div class="ub ub-f1 ub-ac ub-pc ub-ver">
+
+                    <div class="ub sc-text">
+                        财富值：<div class="ub rich"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--
+        <div id="btnBadge" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_badge"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        我的徽章
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+        <div id="btnResearch" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_research"></div>
+                </div>
+                <div class="ub ub-f1">
+                    调查问卷
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+        -->
+        <div id="btnChangePwd" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_password"></div>
+                </div>
+                <div class="ub ub-f1">
+                    修改密码
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+        <div id="btnFriend" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_friend"></div>
+                </div>
+                <div class="ub ub-f1">
+                    我的好友
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+        <div id="btnMsg" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_mms"></div>
+                </div>
+                <div class="ub ub-f1">
+                    我的消息
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="btnAbout" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_info"></div>
+                </div>
+                <div class="ub ub-f1">
+                    关于月芽
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+        <div id="btnHelp" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_mmss"></div>
+                </div>
+                <div class="ub ub-f1">
+                    帮助与客服
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="btnExit" class="ub ub-ac bc-border ubb uinn-item bc-white">
+            <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc">
+                    <div class="ub icon my_list_exit"></div>
+                </div>
+                <div class="ub ub-f1">
+                    退出登录
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="btnShare" class="ub ub-ac bc-border ubb uinn-item bc-white">
+        <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+        <div class="ub ub-ac ub-pc"><div class="ub icon my_list_exit"></div></div>
+        <div class="ub ub-f1">分享app</div>
+        <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+        </div>
+        </div> -->
+        </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/appcan.listview.js"></script>
+    </body>
+    <script>
+        var num1;
+
+        appcan.ready(function() {
+
+            //uexWindow.setMultilPopoverFlippingEnbaled(1);
+            $("#main").removeClass("uhide");
+            appcan.window.subscribe(UPDATE_INFO, loadData);
+
+            getUserInfo();
+            //appcan.window.open("index","index.html",0);
+            loadData();
+        });
+
+        function loadData() {
+            // 等级数据开始
+            $("#name").html(userInfo.name);
+            $(".readLevelId").html(userInfo.readLevelId);
+            $(".readLevelName").html(userInfo.readLevelName);
+            $("#schoolClass").html(userInfo.schoolName + "&nbsp" + userInfo.clazzName + "");
+            $(".rich").html(userInfo.goldCount);
+            $(".integral").html(userInfo.scoreCount);
+
+            num1 = userInfo.scoreCount;
+            if (num1 >= 0 && num1 < 10) {
+                //白身
+                total = 10;
+                num1 = num1;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 0;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 10 && num1 < 20) {
+                //白身
+                total = 20 - 10;
+                num1 = num1 - 10;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 0em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 20 && num1 < 40) {
+                //秀才
+                total = 40 - 20;
+                num1 = num1 - 20;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -1em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 40 && num1 < 80) {
+                //举人
+                total = 80 - 40;
+                num1 = num1 - 40;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -2em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 80 && num1 < 160) {
+                // 贡生
+                total = 160 - 80;
+                num1 = num1 - 80;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -3em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 160 && num1 < 320) {
+                //进士
+                total = 320 - 160;
+                num1 = num1 - 160;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -4.2em;");
+                $(".lvtubiao").css("background-size", "100%");
+
+            } else if (num1 >= 320 && num1 < 640) {
+                //探花
+                total = 640 - 320;
+                num1 = num1 - 320;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -5.2em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 640 && num1 < 1280) {
+                // 榜眼
+                total = 1280 - 640;
+                num1 = num1 - 640;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -6.2em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 1280 && num1 < 2560) {
+                //状元
+                total = 2560 - 1280;
+                num1 = num1 - 1280;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -7.4em;");
+                $(".lvtubiao").css("background-size", "100%");
+
+            } else if (num1 >= 2560 && num1 < 5120) {
+                //翰林
+                total = 2560;
+                num1 = num1 - 2560;
+                $(".dqjf").width(Math.round(num1 / total * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -8.4em;");
+                $(".lvtubiao").css("background-size", "100%");
+            } else if (num1 >= 5120) {
+                //大学仕
+                $(".dqjf").width(Math.round(1 * 10000) / 100.00 + "%");
+                $(".lvtubiao").css("background", "url(css/image1/Lv.png) no-repeat 0 -9.4em;");
+                $(".lvtubiao").css("background-size", "100%");
+            }
+            // 等级数据结束
+            getHeadImg(function(imgPath) {
+                $("#headImg").attr("src", imgPath);
+            }, function(msg) {
+                toast(msg, config.toastTimeShort);
+            });
+
+        }
+
+        //个人信息
+        appcan.button("#btnUserInfo", "btn-act", function() {
+            appcan.window.open("user_info", "user/user_info.html", 5);
+        })
+        // 我的徽章
+        appcan.button("#btnBadge", "btn-act", function() {
+            appcan.window.open("Research", "user/adge.html", 5);
+        })
+        // 调查问卷
+        appcan.button("#btnResearch", "btn-act", function() {
+            appcan.window.open("Research", "survey.html", 5);
+        })
+        // 修改密码
+        appcan.button("#btnChangePwd", "btn-act", function() {
+            appcan.window.open("changePwd", "changePwd.html", 5);
+        })
+        //我的好友
+        appcan.button("#btnFriend", "btn-act", function() {
+            appcan.window.open("friend_list", "friend/friend_list.html", 5);
+        })
+        // 我的消息
+        appcan.button("#btnMsg", "btn-act", function() {
+            appcan.window.open("message_list", "message/message_list.html", 5);
+        })
+        //关于我们
+        appcan.button("#btnAbout", "btn-act", function() {
+            appcan.window.open("about", "about.html", 5);
+        })
+        //帮助与客服
+        appcan.button("#btnHelp", "btn-act", function() {
+            appcan.window.open("friend_list", "help.html", 5);
+        })
+        //退出登录
+        appcan.button("#btnExit", "btn-act", function() {
+            //alert();
+            clearCommInfo();
+            getDefaultUserInfo();
+            setUserInfo(false);
+            
+            appcan.window.open("login", "login.html", 5);
+             appcan.window.evaluateScript({
+                        name : "index", //窗口名称
+                        scriptContent : 'appcan.window.close(5);'
+                });
+            
+            //uexWindow.close("index", "index.html", 5);
+            //appcan.window.closeMultiPopover("index");
+
+        })
+        appcan.button("#btnShare", "btn-act", function() {
+            appcan.window.open("share", "share.html", 5);
+        })
+        function closeWin(aniId) {
+            aniId = aniId || -1;
+            appWin.close(aniId);
+        }
+
+
+    </script>
+</html>

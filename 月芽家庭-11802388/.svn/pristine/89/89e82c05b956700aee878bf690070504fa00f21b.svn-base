@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style >
+            .b-gra3 {
+                border-color: #d8d8d8;
+            }
+            .uinn-a6 {
+                padding: 1em 0.65em 0 0.65em;
+            }
+            .t-gra4 {
+                color: #8c8c8c;
+            }
+            .uinn-a1 {
+                padding: 0.625em;
+            }
+            .uinn-a7 {
+                padding: 0 0.625em;
+            }
+            .c-wh {
+                background-color: #FFF;
+            }
+            .umar-at1 {
+                margin-top: 0.625em;
+            }
+            .uinn-at1 {
+                padding-top: 1em;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="ub ub-ver uinn-a3 ub-fv">
+            <div class="ub ub-ver uinn uinn-at1">
+                <div class="umar-a ubb bc-border" style="margin-top:2em;">
+
+
+                    <div class="ub ub-ac ubb umh5 bc-border ">
+                        <div class=" uinput ub ub-f1 ub-ac">
+                            <div class="ulev-app1 umw4">
+                                密码 :　　
+                            </div>
+                            <input placeholder="6-20位字母数字组合" type="password" class="ub-f1 " id="password" maxlength="20">
+                        </div>
+                    </div>
+
+                    <div class="ub ub-ac ubb umh5 bc-border " style="margin-top:1em;">
+                        <div class=" uinput ub ub-f1 ub-ac">
+                            <div class="ulev-app1 umw4">
+                                重复 :　　
+                            </div>
+                            <input placeholder="请重复输入密码" type="password" class="ub-f1 " id="confirm_password" maxlength="20">
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="ub ub-ver umar-a">
+                <div class="uinn-at1">
+                    <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1" id="submit">
+                        注册
+                    </div>
+                </div>
+                <button type="submit" class="uinvisible"></button>
+            </div>
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tools.js"></script>
+        <script src="js/layer_mobile/layer.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+    <script>
+        var isSubmiting = false;
+        appcan.ready(function() {
+            getCommInfo();
+        });
+        appcan.button("#agreement", "ani-act", function() {
+            appcan.window.open("agreement", "register_agreement.html", 10, 4);
+        })
+        appcan.button("#submit", "ani-act", function() {
+            var password = $.trim($('#password').val());
+            var confirm_password = $.trim($('#confirm_password').val());
+
+
+
+            if (password == '') {
+                toast("请输入密码！", config.toastTimeShort);
+                $('#password').focus();
+                return;
+            }
+            if (fucCheckLength(password) < 6) {
+                toast("密码不能少于6位！", config.toastTimeShort);
+                $('#password').focus();
+                return;
+            }
+            if (/['"#$%&\^*]/.test(password)) {
+                toast("密码不能包含特殊字符哦~", config.toastTimeShort);
+                $('#password').focus();
+                return;
+            }
+            if (confirm_password == '') {
+                toast("请输入确认密码！", config.toastTimeShort);
+                $('#password').focus();
+                return;
+            }
+            if (password != confirm_password) {
+                toast("密码与确认密码不一致！", config.toastTimeShort);
+                $('#confirm_password').focus();
+                return;
+            }
+
+            var _password = encodeURIComponent(password);
+            var _confirm_password = encodeURIComponent(confirm_password);
+
+            //var MyRequest = new UrlSearch(commInfo.qrCode); //实例化
+
+            Register(getLocVal("reg_phone"), _password);
+            //检查验证码是否正确
+        });
+
+
+
+        function Register(phone, psw) {
+            var params = {
+                'phone' : phone,
+                'password' : psw,
+                'type' : 4
+            };
+            var url = config.serviceUrl + "/register/registerByPhone";
+            var funOK = function(data) {
+                data=JSON.parse(data);
+                if (data.success) {
+                    toast("注册成功，自动登录中...", config.toastTimeShort);
+                    login(phone, psw);
+                } else {
+                    toast(data.msg, config.toastTimeShort);
+                }
+
+            };
+            var funErr = function(data) {
+                toast(data.msg, config.toastTimeShort);
+            };
+
+            common.ajaxPOST(url, params, funOK, funErr);
+        }
+
+        function login(user, pwd) {
+            config.currentPath = "";
+            var params = {
+                'username' : user,
+                'password' : pwd
+            };
+            common.ajax("/student/login", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                userInfo = data.obj;
+                setUserInfo(true);
+
+                AddLog(userInfo.id, logKeys.LoginSuccess);
+                appcan.window.open("index.html", "index.html", 5, 4);
+            }, function(data) {
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            }, {
+                type : 'POST'
+            });
+
+
+            /*
+            var url =  config.serviceUrl + "/student/login";
+            var funOK = function(data) {
+                userInfo = data.obj;
+                setUserInfo(true);
+                $("#username").val("");
+                $("#password").val("");
+                appcan.window.open("index", "index.html", 10, 4);
+
+            };
+            var funErr = function(data) {
+                data=JSON.parse(data);
+                toast("连接错误，请重试！", config.toastTimeShort);
+            };
+            var postType = {
+                type : 'POST'
+            };
+
+            common.ajax(url, params, funOK, funErr, postType);
+
+            */
+
+        }
+
+        function funCheckCellphone(cellphone) {
+            //手机号正则
+            var phoneReg = /(^1[2|3|4|5|7|6|8|9]\d{9}$)|(^09\d{8}$)/;
+            return phoneReg.test(cellphone);
+        }
+
+        //倒计时
+        var countdown = 5;
+        function reg_settime() {
+            if (countdown == 0) {
+                //$("button").click(GetVerification);
+                $("#btn_getverification").attr("disabled", false);
+                $("#btn_getverification").val("获取验证码");
+                countdown = 5;
+                return false;
+            } else {
+                $("#btn_getverification").attr("disabled", "disabled");
+                $("#btn_getverification").val("重新发送(" + countdown + ")");
+                countdown--;
+            }
+            setTimeout(function() {
+                reg_settime();
+            }, 1000);
+        }
+
+        function fucCheckLength(strTemp) {
+            var i,
+                sum;
+            sum = 0;
+            for ( i = 0; i < strTemp.length; i++) {
+                if ((strTemp.charCodeAt(i) >= 0) && (strTemp.charCodeAt(i) <= 255))
+                    sum = sum + 1;
+                else
+                    sum = sum + 2;
+            }
+            return sum;
+        }
+
+        function UrlSearch(str) {
+            var name,
+                value;
+            var num = str.indexOf("?");
+            str = str.substr(num + 1);
+            //取得所有参数   stringvar.substr(start [, length ]
+
+            var arr = str.split("&");
+            //各个参数放到数组里
+            for (var i = 0; i < arr.length; i++) {
+                num = arr[i].indexOf("=");
+                if (num > 0) {
+                    name = arr[i].substring(0, num);
+                    value = arr[i].substr(num + 1);
+                    this[name] = value;
+                }
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget appId="11802388" channelCode="0000" height="480" pid="" sreensize="4.5" version="00.00.0000" viewmode="application" widgetId="" width="320">
+    <name>月芽家庭版</name>
+    <description/>
+    <author email=""/>
+    <icon src="icon.png"/>
+    <license href=""/>
+    <content encoding="utf-8" src="index.html"/>
+    <updateurl/>
+    <logserverip>192.168.0.109</logserverip>
+    <showmyspace>false</showmyspace>
+    <obfuscation>false</obfuscation>
+    <bgcolor>#fefefe</bgcolor>
+    <orientation>1</orientation>
+    <error src=""/>
+    <removeloading/>
+    <debug>true</debug>
+    <partobfuscation>false</partobfuscation>
+    <webapp>false</webapp>
+    <removeloading/>
+    <config desc="privacyConfig" type="AUTHORITY">
+        <permission info="privacy" platform="iOS" type="camera">
+            <string>月芽需要使用摄像头，用来分享您的照片和视频给老师和同学。</string>
+        </permission>
+        <permission info="privacy" platform="iOS" type="photoLibrary">
+            <string>月芽需要使用相册，用来分享您的照片和视频给老师和同学。</string>
+        </permission>
+        <permission info="privacy" platform="iOS" type="microphone">
+            <string>月芽需要使用麦克风，用来分享您的录音给老师和同学。</string>
+        </permission>
+    </config>
+    <config desc="uexWeiXin" type="URLSCHEME">
+        <urlScheme name="uexWeiXin" schemes="['wx009651c6fd586eb2']"/>
+    </config>
+    <config desc="uexJPush" type="KEY">
+        <param name="$UEXJPUSH_PACKAGE$" platform="android" value="com.yueya.yuedu"/>
+        <param name="$UEXJPUSH_APPKEY$" platform="android" value="9d56d9a03c609097470c6bb1"/>
+        <param file="uexGroupfolder/PushConfig.plist" name="$UEXJPUSH_APP_KEY$" platform="ios" value="9d56d9a03c609097470c6bb1"/>
+        <param file="uexGroupfolder/PushConfig.plist" name="$UEXJPUSH_PUSH_CHANNEL$" platform="ios" value="TestPush"/>
+        <param file="uexGroupfolder/PushConfig.plist" name="$UEXJPUSH_APS_ENVIRONMENT$" platform="ios" value="0"/>
+    </config>
+</widget>

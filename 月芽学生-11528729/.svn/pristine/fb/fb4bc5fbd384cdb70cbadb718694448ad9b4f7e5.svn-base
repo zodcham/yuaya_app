@@ -1,0 +1,59 @@
+appcan.ready(function() {
+          var titHeight = $('#header').offset().height + $('#tabview').offset().height;
+
+          appcan.frame.open({
+
+               id : "content",
+
+               url : [ {
+
+                   "inPageName" :"奖励记录",
+                   "inUrl" :"user_reward_list_content.html",
+
+               },{
+
+                   "inPageName" :"礼品兑换",
+                   "inUrl" :"../exchange/mall_content.html",
+
+               }, {
+
+                   "inPageName" :"兑换历史",
+                   "inUrl" :'../exchange/exchange_history_content.html',
+
+               },],
+
+               top : titHeight,
+
+               left : 0,
+
+               index : 0,
+
+               change : function(err, res) {
+                  tabview.moveTo(res.multiPopSelectedIndex);
+               }
+          });
+
+      window.onorientationchange = window.onresize = function() {
+              appcan.frame.resize("content", 0, titHeight);
+          }
+      });
+        var tabview = appcan.tab({
+            selector : "#tabview",
+            hasIcon : false,
+            hasAnim : true,
+            hasLabel : true,
+            hasBadge : false,
+            data : [{
+                label : '奖励记录',
+            },{
+                label : "礼品兑换",
+            }, {
+                label : '兑换历史',
+            }]
+        });
+        tabview.on("click", function(obj, index) {
+             appcan.window.selectMultiPopover("content", index);
+        })        
+        appcan.button(".nav-btn", "btn-act", function() {
+            appcan.window.close(-1);
+        })

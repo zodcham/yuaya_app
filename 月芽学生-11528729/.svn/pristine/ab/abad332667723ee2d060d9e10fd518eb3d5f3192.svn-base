@@ -1,0 +1,101 @@
+
+
+var EXP_LOGIN = '017afb55e4d442feac823825498ed2e4';//每天登录APP
+var EXP_SIGN = 'eb202e0b2e8b4102bd4ff0ce4cefc9fe';//每天签到
+var EXP_SIGN_3 = 'f691308fe9994da88f07853c1ec6c1d3';//连续签到3天
+var EXP_SIGN_5 = '3ea33a56d30646b08d0dcf79728a6bb8';//连续签到5天
+var EXP_SIGN_10 = 'd1d2c4e11585403cba0e773aa8b13697';//连续签到10天
+var EXP_SIGN_20 = 'a3b0f77f91114b5b914da309738f5ac0';//连续签到20天
+var EXP_SIGN_30 = '6e82a8cb85d44dfb80a246eba4a885a5';//连续签到30天
+var EXP_SIGN_SHARE = 'a5a5028238ed4d069e02da7305a3fa3d';//分享签到给好友每日上限10次
+var EXP_SIGN_SHARE_QUAN = '43d09e7fc26d40639f2bb98ae724c990';//分享签到到朋友圈每日限1次
+var EXP_SIGN_SHARE_CLASS = 'b1c43b55c4864fe9b171d79eee43af4e';//分享班级签到排行给好友每天限5次
+var EXP_SIGN_SHARE_CLASS_QUAN = 'ae89310d3cd04be8a9dcc175b9d1866b';//提醒好友签到每天限3次
+var EXP_SIGN_ASK_CLASSMATE = '3570b8b1119543eeb72ee4ac694c2fd3';//测评，取前三次成绩最高分正确率*书本的积分*10
+var EXP_SHARE_RANK = '44232ba5af6c461c95969c51e1cb6f31';//分享本班测评排行每日限1次
+var EXP_SHARE_TEST = '5e8a4871d86c4b46aeeffdbda9abff21';//分享本次测评结果每本限1次
+var EXP_WRITE_REVIEW = 'a1d82f491b7c43c9b9965f3beb21f525';//提交不少于50字的读后感每本书限1篇
+var EXP_REVIEW_LEVEL4 = '6a921ac2c67a45a4981886bcafa49de3';//读后感被教师评为 优秀每本书限1次
+var EXP_REVIEW_LEVEL3 = 'fbfffed36a414102881ec2d95587cca3';//读后感被教师评为 良好每本书限1次
+var EXP_REVIEW_LEVEL2 = '5c34cc58eb2d474484131a146f1bba4c';//读后感被教师评为 合格每本书限1次
+var EXP_REVIEW_LEVEL1 = '6174b4c4744645baa8d1ffab164d4079';//读后感被教师评为 再接再厉每本书限1次
+var EXP_REVIEW_LIKE = 'e58ab0bfbdd74422ba1356ff09a41bf3';//读后感被同学点赞每篇上限10次
+var EXP_REVIEW_COMMENT = '63d417f0d86c4feca41715849c22f0fa';//给别人的读后感写评论每日上限10次
+var EXP_POEM_READ = '1226faf836be4c3ea6abfb2c8340df6a';//读诗每日上限10次
+var EXP_POEM_SHARE = '09cdc0c808e14c86aa47e70d83342892';//读诗分享给好友每日上限10次
+var EXP_READ_VIDEO = '063fa3b80766490badab84ad66c45c65';//完整观看导读视频每日上限10次
+var EXP_READ_PPT = 'f3751f5706804d34a7952ffe86873970';//观看整本书课程、PPT每日上限10次
+
+
+var isIPhoneX = function(fn){
+    var u = navigator.userAgent;
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isIOS) {        
+        if (screen.height == 812 && screen.width == 375){
+            //是iphoneX
+            try{
+                $(".uh").css("padding","2em 0 0");
+                $("#footer").css("padding",".55em 0 1em");
+            }catch(e){}
+        }else{
+            //不是iphoneX
+        } 
+    }
+}
+
+var isIPhoneX2 = function(fn){
+    var u = navigator.userAgent;
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isIOS) {        
+        if (screen.height == 812 && screen.width == 375){
+            //是iphoneX
+            try{
+                $(".uh").css("padding","2em 0 0");
+                $("#footer").css("padding",".55em 0 1em");
+            }catch(e){}
+        }else{
+            //不是iphoneX
+        } 
+    }
+}
+
+
+
+
+
+function open_exp_alert(v, t) {
+    //询问框
+    layer.open({
+        title : ['获得经验值', 'background-color: #00cc33; color:#fff;'],
+        content : '<div class="ub ub-ver" style="height:5em;"><div class="ub ub-f1">通过 '+ t +'</div><div class="ub ub-f1">获得 '+v+' 经验</div></div>',
+        style : 'background-color:#fff; color:#666; border:none;'//自定风格
+        ,
+        time : 2,
+        btn : ['关闭'],
+        yes : function(index) {
+            layer.close(index);
+        }
+    });
+
+}
+
+function AddExp(tid){
+    var url = _SERVER_ADDRESS + "/phone/room/add";
+    var par = {
+        "userid" : userInfo.id
+        ,"typeid": tid
+        ,"usertype":0
+    };
+    var fok = function(data) {
+        var json=JSON.parse(data);
+        
+        if(json.hasOwnProperty("addScore") && json.hasOwnProperty("title")){
+            open_exp_alert(json.addScore, json.title);
+        }
+    };
+    var ferr = function(err) {
+    };
+
+    common.ajaxPOST(url, par, fok, ferr);
+
+}

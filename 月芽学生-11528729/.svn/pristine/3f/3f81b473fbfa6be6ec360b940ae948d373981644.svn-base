@@ -1,0 +1,33 @@
+
+
+appcan.ready(function() {
+	isIPhoneX();
+	
+    getSysInfo();
+    switch(sysInfo.usermodifyType) {
+    case 0:
+        $("#title").html("修改昵称");
+        break;
+    case 1:
+        $("#title").html("修改QQ");
+        break;
+    case 2:
+        $("#title").html("修改邮箱");
+        break;
+	case 3:
+		$("#title").html("修改手机");
+		break;
+    }
+    var titHeight = $('#header').offset().height;
+    appcan.frame.open("content", "user_modify_content.html", 0, titHeight);
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    }
+});
+appcan.button("#nav-left", "btn-act", function() {
+    exit();
+})
+function exit() {
+    uexWindow.evaluatePopoverScript("user_info", "content", "loadData();");
+    appcan.window.close(-1);
+}

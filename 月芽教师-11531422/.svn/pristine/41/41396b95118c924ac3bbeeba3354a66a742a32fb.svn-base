@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style>
+            .nav {
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                padding: 0.5em 0em;
+                color: #0d6aff;
+                background: #FFFFFF;
+            }
+            .txt-ellipsis{ 
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+             .tabcurrent {
+                color: #1296db;
+            }
+            .bottom{
+                height:0.5em;
+            }
+            .tabcurrent .bottom{
+                background:url(../css/image1/ico_shuchengxiangqing@2x_r13_c3.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .nav2{
+                color: #f94809;
+            }
+            
+            .nav3{
+                color: #0aef8f;
+            }
+            /*.tabcurrent {
+                color: #f94809;
+            }*/
+        </style>
+    </head>
+    <body class="um-vp " >
+        <div id="page_0" class="up ub ub-ver sc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="ub ub-ver">
+                <div class="ub ub-ver ub-fh bc-head">
+                    <div class="ub ub-ver ub-f1 uinn" id="book_header" >
+                        <div class="ub ub-fh ub-ac ub-pc" style="height: 10em">
+                         <div class="ub ub-fv ub-ac ub-pc ub-ver umar-r ub-f2">
+                              <div class="ub ub-f1 ub-ac ub-pc  bc-border umar-l" style="width:100%;height:100%;border-radius: 0.2em">
+                                    <div class="ub ub-ac ub-pc" style="width:100%;height:100%;">
+                                        <img src="../css/icons/noImg.png" class="bookImg" style="height:100%;">
+                                        <div class="bookBox uhide"></div>
+                                    </div>
+                                </div>
+                                <div class="ub ub-fh umar-t ub-ac ub-pc ulev-1">
+                                    <div style="color:#FFC304" id="info-star">
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                    </div>
+                                </div>
+                         </div>
+                        <div class="ub ub-fv ub-ver ub-f2 umar-l bc-text-head" >
+                            <div class="ub bookName txt-ellipsis ub-fh ub-f1"></div>
+                            <div class="ub ub-fh umar-t ub-f1">
+                                    <div class="ub ub-ac ub-pc ulev-2 bc-text-head grade" style="padding:0.2em 0.3em;margin-right: 1em;border-radius: 0.2em;background:#66e4af"></div>
+                                    <div class="ub ub-ac ub-pc ulev-2 bc-text-head bookCategory" style="padding:0.2em 0.3em;margin-right: 1em;border-radius: 0.2em;background:#f6d101"></div>
+                                    <div class="ub ub-ac ub-pc ulev-1">
+                                        <div class="ub ico_integral umar-r"></div>
+                                        <div class="ub bc-text-head score"></div>
+                                    </div>
+                            </div>
+                            <div class="ub ub-fh umar-t uhide ub-f1">
+                                <div class="ub ulev-1">适合年级:</div>
+                                <div class="ub recommendLevel ulev-1"></div>
+                            </div>
+                            <div class="ub ub-fh ulev-2">
+                                <div class="ub ub-f1 uinn remark"></div>
+                            </div>
+                            
+                            <div class="ub ub-fh umar-t ub-ac ub-f1">
+                                <div class="ub ub-ac ub-pc umar-r  sc-border uba favorite" style="width:8em;height:2em;border-radius: 1em; background-color: #f60;">
+                                    加入书架
+                                </div>
+                                
+                            </div>
+                            <div class="ub ub-f1"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+                <div class="ub">
+                    <div class="ub ub-f1 umar-a bc-border uba uinn" style="border-radius: 0.5em">
+                        <div class="ub ub-f1 ub-ver">
+                            <div class="ub ub-fh">
+                                <div class="ub">作者：</div>
+                                <div class="ub author"></div>
+                            </div>
+                            <div class="ub ub-fh umar-t">
+                                <div class="ub">出版社：</div>
+                                <div class="ub publisher"></div>
+                            </div>
+                            <div class="ub ub-fh umar-t">
+                                <div class="ub">字数：</div>
+                                <div class="ub wordCount"></div>
+                            </div>
+                        </div>
+                        <div class="ub ub-ac ub-pc video uhide">                     
+                            <!-- <div class="ub ub-f1 uinn ub-ac ub-pc " >
+                                <img src="../css/image1/ico_shipin@2x_03.png" style="width:5em;height:4em" />
+                            </div> -->
+                            <div id="container">
+                            <img src="../css/icons/noImg.png" class="bookImg bc-border uba" />
+                            <img src="../css/image1/Play.png" class="btn" alt="导读视频"/>
+                            <div id="video"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  id="main" class="ub-f1 uinn" style=" height:10em; overflow-y:visible ; overflow-x: none;"></div>
+            </div>
+            <!--content结束-->
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js_server/task/task2_bookshelf.js"></script>
+    </body>
+
+</html>

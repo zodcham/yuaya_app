@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="main" class="ub ub-fh ub-fv ub-ver uhide">
+            <div class="ub ub-fh">
+                <div class="ub ub-f1 uinn" >
+                    <div class="ub ub-f1"></div>
+                    <div class="ub bc-border uba" style="border-radius: 0.3em;border-color: #DFDFDF">
+                        <div class="ub ub-ac ub-pc bc-btn bc-text-head switchItem" style="width:5em;height:1.5em;border-radius: 0.3em 0 0 0.3em" value="1">按月统计</div>
+                        <div class="ub ub-ac ub-pc sc-text switchItem" style="width:5em;height:1.5em;border-radius: 0 0.3em 0.3em 0" value="2">按周统计</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-f1" id="divChart"></div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var queryType = "1";
+        appcan.ready(function() {
+            getUserInfo();
+            getSysInfo();
+            $("#main").removeClass("uhide");
+            loadChartInfo();
+        });
+        
+        //获取阅读图表数据
+        function loadChartInfo(){
+            $("#divChart").empty();
+            //queryType 查询方式类型['1':'按月统计' , '2':'按周统计'](*)
+            //dataType 图表数据类型['1':'阅读积分' , '2':'阅读图书数量'](*)
+            var dataType = "1";
+            if(sysInfo.report.type == "2")
+            {
+                dataType = "2";
+            }
+            var params={'userId':userInfo.id,'beginDate': sysInfo.report.startDate, 'endDate': sysInfo.report.endDate,"queryType":queryType,"dataType":dataType};
+            common.ajax("/readingReport/getChatInfo", {
+               params:JSON.stringify(params)
+            }, 
+            function(data) 
+            {
+                var myChart = echarts.init(document.getElementById('divChart'));
+            
+                option = {
+                    color: ['#3398DB'],
+                    tooltip : {
+                        trigger: 'axis',
+                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : data.obj.labels,
+                            axisTick: {
+                                alignWithLabel: true
+                            }
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:sysInfo.report.name,
+                            type:'bar',
+                            barWidth: '60%',
+                            data:data.obj.values
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            }, 
+            function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+                
+            });
+        }
+        //
+        
+        appcan.button(".switchItem", "btn-act", function() 
+        {
+            var type = $(this).attr("value");
+            if(type != queryType)
+            {
+                $(".switchItem").removeClass("bc-btn bc-text-head").addClass("sc-text");
+                $(this).removeClass("sc-text").addClass("bc-btn bc-text-head");
+                queryType = type;
+                loadChartInfo();
+            }
+        })
+    </script>
+</html>

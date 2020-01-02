@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-transform" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="information/css/main.css">
+        <link rel="stylesheet" href="css/datouwang.css">
+        <link rel="stylesheet" href="css/audioplayer.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/willesPlay.css" />
+        <style>
+            .uhide {
+                display: none !important;
+            }
+            video {
+                object-fit: fill;
+                width: 100%;
+                height: auto;
+            }
+            .markds {
+                margin-bottom: 3em;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                 background-size: 100% 100%;*/
+                background: #FE8100;
+                margin-left: 70%
+            }
+            #mains {
+                width: 99%;
+                max-width: 100%;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+            #mains img {
+                width: 98%;
+                height: auto;
+                margin: 0 auto;
+            }
+            .main_content {
+                width: 99%;
+                max-width: 100%;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+            table {
+                width: 99%;
+                max-width: 100%;
+                text-align: center;
+                word-wrap: break-word;
+                word-break: break-all;
+                margin-bottom: 5em;
+            }
+            @-webkit-keyframes playing {
+            0%   { transform: rotate(0deg);}
+            100% { -webkit-transform: rotate(360deg);}
+            }
+
+            @keyframes playing {
+            100% { transform: rotate(360deg);}
+            }
+            .playdisc {
+                animation-play-state: paused;
+                -webkit-animation: playing 10s infinite linear;
+                -webkit-animation-play-state: paused;
+            }
+        </style>
+    </head>
+    <body class="ub um-vp bc-bg ub-ver uinn" style="height:auto;background: url(./images/read/body.png) fixed;" ontouchstart>
+    <div class="ub ub-f1  ub-ver  uinn" style="width:90% !important;margin:0 auto; font-size:36px;">
+        <div class="t-bg tx-c uinn Names" style="font-weight: bold">
+            新闻内容标题
+        </div>
+        <div class="t-gra uinn tx-r" style="border-bottom:1px solid#ffffff;">
+            <a>月芽阅读 </a>发布于：<a class="Namdata"></a>
+        </div>
+        <!-- 代码 开始 -->
+        <div id="audio" style="background: url(css/image1/yueya.jpg) no-repeat;background-size: 100% 100%;padding-top: 2px" class="uhide">
+            <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="height:9em;position: relative;  box-shadow: 3px;">
+                <div class="ub ub-ac ub-pc playdisc">
+                    <div class="ub ub-ac ub-pc ub-f1 audios" style="width:9em;height:9em;background:url(css/image1/LOGO.jpg) no-repeat; background-size: cover;border-radius: 50%;" >
+
+                    </div>
+                </div>
+            </div>
+            <audio id="audio" class="audio"  controls="controls" preload="load" >
+                <source  class="audio" src="01.mp3">
+            </audio>
+        </div>
+        <!-- 代码 结束 -->
+        <!-- 视频  -->
+        <div id="willesPlay" class="uhide" style="width:1040px;height:685px;">
+            <div class="playContent">
+                <video style="width:1040px;height:585px;" id="playVideo" class="video videos" type="video/mp4">
+
+                </video>
+                <div class="playTip glyphicon glyphicon-play"></div>
+            </div>
+            <div class="playControll">
+                <div class="playPause playIcon"></div>
+                <div class="timebar">
+                    <span class="currentTime" style="color: #FFFFFF">0:00:00</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+
+                    <span class="duration" style="color: #FFFFFF">0:00:00</span>
+                </div>
+                <div class="otherControl">
+                    <span class="fullScreen glyphicon glyphicon-fullscreen"></span>
+                    <div class="volumeBar">
+                        <div class="volumewrap">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  id="mains" class="ub ub-f1"style="padding:0 0.8em 0 0.8em;">
+            <div class="main_content" style="min-height:600px;">
+
+            </div>
+        </div>
+
+        <div class="ub ub-fh bc-border ubb ubt ub-ver bc-white umar-t tx-c" id="divHistoryBox">
+            <div class="ub ub-ac ub-fh sc-bg-active bc-border ubb sc-text ">
+                <div class="ub uinn ub-f1">
+                    <div class="fa fa-1x2 umar-r"></div>
+                    <!-- comments -->
+                    <div class="ub ub-f1 tx-c">
+                        用户评论区 <div class="ub "></div>
+                    </div>
+                    <div class="ub ub-ac ub-pc sc-text ub-pc">
+                        <div class="ub umar-l likeBox click" style="border-radius: 0.2em">
+                            <div class="ub ub-f1" style="padding: 0 0.5em"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ub ub-fh ub-f1 ub-ver bc-border ubb ub-ver " id="divHistory"></div>
+        </div>
+        <div id="btnAdd" class="ub  ub-ac ub-pc  btnIntroduce head_btn_box umar-t umar-b bc-text-head" style="border-radius:  1em 0 0 1em">
+            <div class="ub ub-pc uinn">
+                <div class="ub ub-f1">
+                    去评论
+                </div>
+            </div>
+        </div>
+        <div id="CommentsList" class="ub bc-border ub-ver" style="padding-top: 0.5em">
+            <div class="ub-f1" id="listBottom"></div>
+        </div>
+        <div id="item" class="item ub ub-ver ub-fh uhide bc-white bc-border ubt ubb umar-t" style="padding: 0.5em 0em">
+            <div class="ub ub-f1 ub-ver umar-a">
+                <div class="ub ub-fh user">
+                    <img class="user-Photo" src="../head.png" style="border-radius: 50%;border:0px solid #BABABA;width:3em;height:3em">
+                    <div class="ub ub-f1 ub-ver umar-l">
+                        <div class="ub ub-fh ub-ver umar-l">
+                            <div class="ub ub-fh">
+                                <div class="user-Name  txt-color"></div>
+                            </div>
+                            <div class="ub ub-fh ub-f1 umar-t">
+                                <div class="user-Star " style="color:#FFC304">
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                    <div class="fa icon-star-five-hollow"></div>
+                                </div>
+                                <div class="ub-f1"></div>
+                                <div class="user-pdate time ub sc-text umar-r" title=""></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="content ub ub-f1 uinn"></div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </div>
+        <script src="js/appcan.js"></script><script src="js/tools.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/tool.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/audioplayer.js"></script>
+        <script src="js/willesPlay.js"></script>
+        <script>
+        if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/information_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="js_server/js/common_new.js"><\/script>');
+            document.write('<script src="js_server/information_content.js"><\/script>');
+        }
+    </script>
+</body>
+</html>

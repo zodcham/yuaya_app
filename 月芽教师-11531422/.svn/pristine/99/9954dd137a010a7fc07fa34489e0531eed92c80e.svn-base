@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa icon-back fa-w fa-lg"></div>
+                </div>
+                <h1 id="title" class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">&nbsp;</h1>
+                <div class="nav-btn nav-bt" id="nav-right"></div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+            </div>
+            <!--content结束-->
+            <div id="footer" class="ubt bc-border ub bc-white text-color">
+                <div class="ub ub-f1 uinn ">
+                    <div class="ub ub-f1 ub-ac">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub ub-f1 ub-ac ub-pc bc-border ubl ubt ubb click score" value="0" style="width: 3em;height:2em;border-radius: 0.2em 0 0 0.2em">差</div>
+                            <div class="ub ub-f1 ub-ac ub-pc bc-border ubl ubr ubt ubb click score" value="1" style="width: 3em;height:2em">良</div>
+                            <div class="ub ub-f1 ub-ac ub-pc bc-border ubr ubt ubb click score" value="2" style="width: 3em;height:2em;border-radius:0 0.2em 0.2em 0">优</div>
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div id="btnSubmit" class="ub ub-ac ub-pc bc-btn bc-text-head" style="width: 5em;height:2em;border-radius: 0.2em">提交</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+    </body>
+    <script>
+        var reviewLevel;
+        appcan.ready(function() {
+            getCommInfo();
+            $("#title").html(commInfo.taskData.userName);
+            reviewLevel = commInfo.taskData.reviewLevel;
+            if(reviewLevel.length > 0){
+                $("#footer .score").eq(parseInt(reviewLevel)).addClass("bc-btn bc-text-head selected");
+                $("#btnSubmit").addClass("uhide");
+                
+            }
+            var titHeight = $('#header').offset().height;
+            appcan.frame.open("content", "user_task_review_content.html", 0, titHeight);
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, titHeight);
+            }
+        });
+        appcan.button("#nav-left", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+        
+        appcan.button(".score", "btn-act", function() {
+            if(reviewLevel.length==0){
+                $(".score").removeClass("bc-btn bc-text-head selected");
+                $(this).addClass("bc-btn bc-text-head selected");
+            }
+        })
+        
+        appcan.button("#btnSubmit", "btn-act", function() {
+            if($(".selected").length==0){
+                toast("请选择评分",config.toastTimeShort);
+                return;
+            }
+            var reviewLevel=$(".selected").attr("value");
+           var params={ 'recommendId' : commInfo.recommendId,'studentId' : commInfo.taskData.userId,'reviewLevel':reviewLevel};
+            common.ajax("/bookReview/updateLevel", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                uexWindow.evaluatePopoverScript("user_task_student","content","updateData('"+reviewLevel+"');");
+                appcan.window.close(-1);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            }, {
+                type : 'POST'
+            });
+        })
+
+    </script>
+</html>

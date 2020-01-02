@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh">
+                <div class="ub ub-f1 uinn bc-border ubt ubb bc-white umar-t">
+                    <div class="ub ub-ac ub-pc">收件人</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1 sc-text-active" id="userList" style="display:inline-table !important;"></div>
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-add2 fa-w fa-lg sc-text-active" id="addUser"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-f1 ub-fh ub-ver">
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1">
+                        <textarea id="sendMsg" class="ub ub-fh ub-fv ub-f1 uinn ulev0" style="resize: none;border:0px solid white" rows="8" placeholder="请输入消息内容"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="item" class="item ub ub-ac ub-pc bc-border uba uhide umar-a">
+            <div class="ub ub-f1 uinn">
+                <div class="ub ub-f1 ub-ac ub-pc name"></div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-iclose fa-w delete"></div>
+                </div>
+            </div>
+        </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/message/message_add_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

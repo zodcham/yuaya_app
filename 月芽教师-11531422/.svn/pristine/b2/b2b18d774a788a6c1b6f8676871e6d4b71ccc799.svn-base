@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>我的收藏</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style type="text/CSS">
+             input[type='radio'] + .box{
+                 padding: 0.3em;
+                 color:#999999;
+                 background: #eeeff3;
+             }
+             input[type='radio']:checked + .box{
+                 padding: 0.3em;
+                 background: #78c1ee;
+                 color:#FFFFFF;
+             }
+             .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+        </style>
+
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+     <div class="ub ub-ver ub-fh ub-fv  umar-t">
+        <div id="bookList" class="ub ub-ver ub-fh ub-f1" ></div>
+     </div>
+     
+        <div id="item" class="item ub-ver ub ub-fh uhide click bc-white umar-b bc-border ubb ubt ">
+            <div class="ub ub-fh ub-ac ub-pc ub-f1">
+                <div class="ub ub-ac ub-pc umar-l umar-t umar-r bc-border uba" style="width:5em;height:6em;border-radius: 0.2em" >
+                    <div class="ub ub-fh ub-f1" style="width:5em;height:6em">
+                        <img src="../css/icons/noImg.png" class="ub ub-fh ub-fv ub-f1 bookImage" />
+                        <div class="ub mark" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+                        <div class="bookBox uhide"></div>
+                    </div>
+                </div>
+                <div class="ub ub-ver ub-f1 umar-l">
+                    <div class="ub ub-fh ub-ae">
+                        <div class="ub bookName txt-ellipsis umar-t ulev0"></div>
+                        <div class="ub ulev-2 sc-text umar-l">-作者:</div>
+                        <div class="ub ub-f1 author txt-ellipsis sc-text ulev-2"></div>
+                    </div>
+                    <div class="ub ub-fh ub-f1 ulev-1 umar-t">
+                        <div class="ub ub-ac ub-pc">
+                            <div class="ub ub-ac ub-pc sc-text">
+                                <div class="ub ub-ac ub-pc umar-r hits"></div>
+                                <div class="ub time">人读过</div>
+                            </div>
+                        </div>
+                        <div class="ub ub-ac ub-pc" style="margin:0 1em">
+                            <div class="ub ub-ac ub-pc">
+                                <div class="ub ub-ac ub-pc umar-r"><img src="../css/image1/ico_duhougan@2x_19.png" style="width:1.5em;height:1.5em" /></div>
+                                <div class="ub score sc-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh">
+                        <div class="ub ub-ac ub-pc bc-text-head ub-f1 btnRecommended click2" style="height:2em;border-radius: 0.2em;background: #2fd4e8">
+                            <div class="ub ub-ac ub-pc" style="width: 5em">推荐给学生</div>
+                        </div>
+                        <div class="ub ub-ac ub-pc bc-text-head ub-f1 btnRemove click2" style="margin:0em 0.2em;height:2em;border-radius: 0.2em;background: #3f84fe">
+                            <div class="ub ub-ac ub-pc" style="width: 5em">移除书架</div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh ub-f1">
+                        
+                    </div>
+                </div>
+                <div class="ub ub-ac ub-pc">
+                    <!-- <div class="ub ub-ac ub-pc ub-f1" style="border-radius: 50%;border:0.2em solid #4B4B4F;width:3em;height:3em;-webkit-transform: rotate(-20deg);">
+                        <div class="ub ub-ac ub-pc ulev-2 ub-f1" style="border-radius: 50%;border:0.1em solid #4B4B4F;width:2.9em;height:2.9em">通过</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="ub ub-fh">
+                <div class="umar-a sc-bg ub ub-f1" style="height:1px">&nbsp;</div>
+            </div>
+      </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script> 
+    var isLoading=false;
+        var pageIndex=1;        
+        var loadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期2","pullToReloadText":"拖动加载","releaseToReloadText":"释放加载","loadingText":"加载中，请稍等"};
+        var searchType='0';
+        appcan.ready(function() {
+            getUserInfo();
+            uexWindow.setBounce(1);
+            uexWindow.notifyBounceEvent(1,1);
+            uexWindow.showBounceView("1","rgba(0,0,0,0)", 1);
+            uexWindow.onBounceStateChange = function(type, state){
+                switch(type) {
+                    case 1:
+                        if (state == 2) {
+                            pageIndex++;
+                            loadData();
+                         }
+                     break;
+                }
+            };
+            loadData();
+        });
+        
+        function loadData(){
+            isLoading=true;
+            var time1 = new Date().format("HH:mm:ss"); 
+            loadJson.levelText="上次更新："+time1;
+            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+            var params={'userId':userInfo.id,'pageSize': 12, 'pageIndex': pageIndex,'type':searchType,'isRead':0};
+            common.ajax("/myBookshelf/listForTeacher", {
+               params:JSON.stringify(params)
+            }, function(data) {
+               if(!data.obj||!data.obj.list||data.obj.list.length==0){
+                   if(pageIndex>1){
+                        pageIndex--;
+                   }
+                   if($("#bookList .item").length>0){
+                        toast("已全部加载~",config.toastTimeShort);
+                   }else{
+                       myPrompt.show("未找到数据","#bookList");
+                   }
+               }else{
+                   myPrompt.hide();
+                   var lineObj=$('<div class="ub ub-fh umar-t"></div>');
+                    var index=0;
+                   for(var i=0;i<data.obj.list.length;i++){
+                       var obj=data.obj.list[i];
+                       var objItem=$("#item").clone();
+                       objItem.attr("id",obj.bookId);
+                       objItem.removeClass("uhide");
+                       if(obj.book.image.length>0){
+                            objItem.find(".bookImage").attr("src",_SERVER_ADDRESS+obj.book.image);
+                       }
+                       objItem.find(".bookName").html(obj.book.name);
+                       objItem.find(".author").html(obj.book.author);
+                       objItem.find(".hits").html(obj.book.hits);
+                       objItem.find(".score").html(obj.book.score);
+                       //
+                        // switch(obj.type){
+                           // case "1":
+                                // objItem.find(".mark").addClass("mark_integrant");
+                           // break;
+                           // case "2":
+                                // objItem.find(".mark").addClass("mark_selective");
+                           // break;
+                           // case "3":
+                                // objItem.find(".mark").addClass("mark_self");
+                           // break;
+                       // }
+                       $("#bookList").append(objItem);
+                    }
+                    
+                   $(".click2").on("touchstart",function(){
+                      $(this).parents(".item").removeClass("click");
+                   }).on("touchend",function(){
+                      setTimeout(function(){
+                            $(this).parents(".item").addClass("click");
+                       },500);
+                   }).on("touchcancel",function(){
+                       setTimeout(function(){
+                            $(this).parents(".item").addClass("click");
+                       },500);
+                   });
+                       
+                    $(".item").on("click",function(){
+                         var id=$(this).attr("id");
+                        getBookInfoById(userInfo.id,id,function(data){  
+                                getBookInfo();
+                                bookInfo=data;
+                                setBookInfo();
+                                appcan.window.open("bookIndex","../book/book_index.html",10);
+                        },null);
+                    });
+                    
+                    $(".btnRecommended").on("click",function(){
+                        event.stopPropagation();
+                         var id=$(this).parents(".item").attr("id");
+                         getBookInfoById(userInfo.id,id,function(data){  
+                            getBookInfo();
+                            bookInfo=data;
+                            setBookInfo();
+                            appcan.window.open("book_recommended","../book/book_recommended.html",10);
+                        },null);
+                    });
+                    
+                    $(".btnRemove").on("click",function(){
+                        event.stopPropagation();
+                         var id=$(this).parents(".item").attr("id");
+                         removeFavorite(id);
+                    });
+                    
+               }
+               
+               isLoading=false;
+               uexWindow.resetBounceView("1");
+               
+               /*userId:用户ID
+                bookId:图书ID
+                isPass:是否认证('0':未认证, '1':已认证)
+                type:图书的阅读类型(1:必读、2:选读, 3:自选)
+                endDate:任务结束日期（待读才有的，如果为空则为非任务的）
+                book: 图书对象基本信息{name,author,score,book_category,grade,isbn,image,recommend_times,evaluate_avg_score}
+
+               {"success":true,"msg":"操作成功","obj":[
+                * {"id":"0b5252db96ca4c88b8884097c991d08c",
+                * "isNewRecord":false,
+                * "createDate":"2016-05-20 22:55:16",
+                * "updateDate":"2016-05-26 19:56:22",
+                * "name":"出走的泰奥",
+                * "author":"彼特·赫尔特林",
+                * "score":6,
+                * "bookCategory":"1",
+                * "grade":"2",
+                * "wordCount":7.8,
+                * "publisher":"二十一世纪出版社",
+                * "pageCount":127,
+                * "isbn":"9787539137827",
+                * "image":"/yueya/userfiles/1/images/book/book/2016/bookface/9787539137827.jpg",
+                * "price":8.8,
+                * "language":"1",
+                * "readGuide":"<p>\r\n\t《出走的泰奥》内容简介：泰奥因为受不了家里吵吵闹闹的气氛，出走了&hellip;&hellip;他在汽车的肚子底下和树林中吓人的小木房里过夜，认识了慈爱的咹咹老爸、好心的货 车司机，也遭遇了犯罪团伙&hellip;&hellip;最后终于懂得了葡萄酒并不全是甜的，生活尤其是这样的道理。 家里吵吵闹闹的气氛真让泰奥受不了，虽然他的老师佩尔希夫人能理解他，有心事他也能向天花板上的小人儿倾诉；可是，他还是决定离开这里所有的一切。他把书 包往教室外的大柜子里一塞，出走了&hellip;&hellip; 他在汽车的肚子底下和树林中吓人的小木屋里过夜，他认识了慈爱的经营欢乐转盘的咹咹老爸、好心的货车司机凯玛尔，也被一个倒卖汽车的犯罪团伙幽禁在一个黑 暗的阁楼上&hellip;&hellip;所幸的是，这一切都如恶梦一般过去了，咹咹老爸的故事和他说的一句话却久久地留在了泰奥的心里&mdash;&mdash;葡萄酒并不全是甜的，生活尤其是这样。</p>",
+                * "hits":0,
+                * "favTimes":0,
+                * "recommendTimes":0,
+                * "evaluateTimes":0,
+                * "evaluateScore":0,
+                * "evaluateAvgScore":0,
+                * "exerciseTimes":0,
+                * "exercisePassTimes":0,
+                * "bookCategoryName":"成长教育",
+                * "languageName":"汉语",
+                * "gradeName":"二年级"}]}*/
+              
+            }, function(data){
+                isLoading=false;
+                if(pageIndex>1){
+                    pageIndex--;
+                }
+                uexWindow.resetBounceView("1");
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+                
+            },{loadingMsg:'正在查询，请稍后...'});
+        }
+        function removeFavorite(bookId){
+            var params={ 'userId' : userInfo.id,'bookId' : bookId};
+            common.ajax("/favorite/remove", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                $("#"+bookId).remove();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            }, {
+                type : 'POST'
+            });
+        }
+
+    </script>
+</html>

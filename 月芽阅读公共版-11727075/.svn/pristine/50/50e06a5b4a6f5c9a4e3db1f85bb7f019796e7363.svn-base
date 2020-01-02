@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <!--<link rel="stylesheet" href="../css/fonts/font-awesome.min.css">-->
+        <link rel="stylesheet" href="../css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/willesPlay.css">
+        <link rel="stylesheet" href="../css/book2.css" />
+
+        <style>
+            html{
+                font-size:24px !important;
+            }
+            .icon {
+                width: 3em;
+                height: 3em;
+            }
+            .booksheet {
+                background: url(../css/image1/ico_index@2x-01.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .evaluating {
+                background: url(../css/image1/ico_index@2x-03.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .rank {
+                background: url(../css/image1/ico_index@2x-05.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .report {
+                background: url(../css/image1/ico_index@2x-06.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .task {
+                background: url(../css/image1/ico_index@2x-02.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .news1 {
+                width: 3em;
+                height: 3em;
+                background: url(../css/image1/news1.jpg) no-repeat;
+                background-size: 100% 100%;
+                margin-bottom: 0;
+                margin-left: 0;
+            }
+            .news2 {
+                width: 2.2em;
+                height: 2.2em;
+                background: url(../css/image1/news2.jpg) no-repeat;
+                background-size: 100% 100%;
+            }
+            .news3 {
+                width: 3em;
+                height: 3em;
+                background: url(../css/image1/news3.jpg) no-repeat;
+                background-size: 100% 100%;
+                float: right;
+                margin-right: 0;
+                margin-top: 0;
+            }
+            .wealth {
+                background: url(../css/image1/ico_index@2x-04.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon-edit {
+                background: url(../css/image1/saoma.png) no-repeat;
+                background-size: 70% 70%;
+                margin-top: 1em;
+            }
+            .swiper-pagination .swiper-pagination-bullet {
+                background: #FFFFFF;
+                opacity: 0.5;
+            }
+            .swiper-pagination .swiper-pagination-bullet-active {
+                background: #FFFFFF;
+                opacity: 1;
+            }
+
+            .ico_search {
+                width: 1em;
+                height: 1em;
+                background: url(../css/icons/ico_search.png);
+                background-size: 100% 100%;
+            }
+            .icon_saoma {
+                background: url(../css/image1/saoma.png) no-repeat;
+                background-size: 100% 100%;
+                width: 1.2em;
+                height: 1.2em;
+            }
+
+            input:focus {
+                outline: none;
+            }
+            .uinn14 {
+                padding: 0.29em;
+                margin: 0;
+            }
+            .click2:active {
+                background: #F16412;
+            }
+            .mark_self {
+                width: 3em;
+                height: 3em;
+                background: url(../css/icons/mark_self.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .mark_selective {
+                width: 3em;
+                height: 3em;
+                background: url(../css/icons/mark_selective.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .mark_integrant {
+                width: 3em;
+                height: 3em;
+                background: url(../css/icons/mark_integrant.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_integral {
+                width: 1.2em;
+                height: 1.2em;
+                background: url(../css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .icon_like {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/dianqu.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_like_pressed {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_comment {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }
+            .txt-ellipsis {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .txt-e {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            video {
+                object-fit: fill;
+            }
+            .bg-jindutiao {
+                width: 94%;
+                height: 0.4em;
+                margin-right: 3%;
+                margin-left: 3%;
+                background-color: #EEEEEE;
+                border-radius: 25em;
+                overflow: hidden;
+            }
+            .dqjf {
+                width: 30%;
+                height: 100%;
+                background-color: #FF5F00;
+                border-radius: 25em;
+            }
+
+            .sign {
+                background: url(../css/image1/sign.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .answer {
+                background: url(../css/image1/answer.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .write {
+                background: url(../css/image1/write.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .Completed {
+                width: 3em;
+                height: 3em;
+                background: url(../css/image1/Completed.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .Have {
+                width: 3em;
+                height: 3em;
+                background: url(../css/image1/Have.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .Release {
+                width: 3em;
+                height: 3em;
+                background: url(../css/image1/Release.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .details {
+                width: 1.8em;
+                height: 1.8em;
+                background: url(../css/image1/details.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon-sign {
+                background-image: url('icons/sign.png') !important;
+            }
+            
+            .badge-dot{
+                
+            }
+
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+
+        <div id="main" class="ub ub-fh ub-fv ub-ver" style="width:95%;margin:0 auto;">
+
+            <!-- 月芽课程推荐
+            <div class="ub ub-fh ub-ver umar-t bc-white slides uhide" id="course" onclick="OpenCourse();">
+            <img src="" style="height:6em;width:100%" id="img_course">
+            </div>-->
+
+            <!-- 课程领读  -->
+            <div class="ub ub-fh ub-ver umar-t  slides ">
+                <div class="ub ub-f1 uinn ub-ac ub-pc ">
+                    <div class="ub ub-f1 umar-l" style="font-weight: bold;color:#fff;font-size:28px;">
+                        课程领读
+                    </div>
+                    <div class="ub ub-ac ub-pc "  style="border-radius: 0.2em;padding:0.2em 0.3em;color: #fff" id="Readbut">
+                        更多>>
+                        <div class="ub fa fa-w "></div>
+                    </div>
+
+                </div>
+                <div style="width:100%;overflow-x:scroll;">
+                    <div class="ub ub-fh Reads umar-b"></div>
+                </div>
+
+                <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide "  id="ReadItems" style="min-height:7em;">
+                    <img  id="" class="ub ub-f1 ub-fh ReadImages  umar-l" style="height:241px; width:430px;border-radius: 0.3em;" />
+                    <!-- ReadNames 书名  -->
+                    <div class="ub-fh ub-ac ub-pc ub  txt-e txt ulev-1" style="height: 0.3em"></div>
+                </div>
+            </div>
+
+            <!-- 导读视频 -->
+            <div class="ub ub-fh ub-ver umar-t  slides ">
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 ">
+
+                        <div class="ub ub-f1 umar-l" style="font-weight: bold;color:#fff;font-size:28px;">
+                            导读视频
+                        </div>
+
+                        <div class="ub ub-ac ub-pc ulev-1"  style="border-radius: 0.2em;padding:0.2em 0.3em;color: #fff" id="introduction">
+                            更多>>
+                            <div class="ub fa fa-w"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="width:100%;overflow-x:scroll; height:320px;">
+                    <div class="ub ub-fh recommendBook  umar-t umar-b umar-l"></div>
+                </div>
+
+                <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide"  id="bookItem">
+                    <ul class="umar-l">
+                        <li>
+                            <figure class='book'>
+                                <ul class='paperback_front'>
+                                    <li>
+                                        <img class="ub ub-f1 ub-fh bookImage bc-border uba" src="img/paper.jpg" alt="" style="width: 245px;height:260px;">
+                                    </li>
+                                    <li></li>
+                                </ul>
+                                <ul class='ruled_paper'>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+
+                                <!--<ul class='paperback_back '>-->
+                                    <!--<li>-->
+                                        <!--&lt;!&ndash;<img class="ub ub-f1 ub-fh bookImage" src="img/paper.jpg" alt="" style="width: 5.4em;height:6.6em;">&ndash;&gt;-->
+                                    <!--</li>-->
+                                    <!--<li></li>-->
+                                <!--</ul>-->
+                            </figure>
+                        </li>
+                    </ul>
+
+                    <!-- <div class="ub ub-ac ub-pc " style="width: 4.95em;height:6.6em;border-radius: 0.4em  0  0 0.4em;">
+                    <img class="ub ub-f1 ub-fh bookImage " style="width: 4.95em;height:6.6em;border-radius: 0.4em  0  0 0.4em;" />
+                    </div> -->
+                    <div class="ub-fh ub-ac txt-e  txt ub-pc bookName" style="width:200px;color:#fff;font-size:24px;">
+                        书名
+                    </div>
+                    <div class="ub-fh ub-ac ub-pc ub  txt-e txt" style="height: 0.5em"></div>
+                </div>
+            </div>
+
+            <!-- 精读资源  -->
+            <div class="ub ub-fh ub-ver umar-t umar-b  slides ">
+                <div class="ub ub-f1 uinn ub-ac ub-pc  ">
+                    <div class="ub ub-f1 umar-l" style="font-weight: bold;color:#fff;font-size:28px;">
+                        精读资源
+                    </div>
+                    <div class="ub ub-ac ub-pc ulev-1" id="Famousteache" style="border-radius: 0.2em;padding:0.2em 0.3em;color: #fff" id="more">
+                        更多>>
+                        <div class="ub fa fa-w "></div>
+                    </div>
+
+                </div>
+                <div style="width:100%;overflow-x:scroll;">
+                    <div class="ub ub-fh recommendBooks umar-t umar-b"></div>
+                </div>
+                <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide umar-b"  id="bookItems">
+                    <div class="ub ub-ac ub-pc " style="width:240px;height:260px;border-radius: 0.3em;">
+                        <img  id="but_teacher" class="ub ub-f1 ub-fh bookImages " style="width:240px;height:260px;border-radius: 0.3em;" />
+                    </div>
+                    <div class="ub-fh ub-ac ub-pc ub bookNames txt-e txt " style="width:240px;font-size:36px; color:#fff;font-size:24px;">
+                        书名
+                    </div>
+                </div>
+            </div>
+
+            <div class="ub ub-f1 uinn umar-b uhide">
+
+            </div>
+
+            <div class="ub ub-fh ub-ver uhide">
+                <div class="ub ub-f1 uinn ub-ac ub-pc bc-border ubt  ">
+                    <div class="ub ub-f1 umar-l" style="font-weight: bold">
+                        新闻资讯
+                    </div>
+                    <img src="../css/image1/xialai.png" style=" width:2.5em;height:1.1em;"/>
+                </div>
+            </div>
+
+            <div id="bookLists " class="ub ub-ver ub-fh ub-f1 umar-t uhide"></div>
+            <div id="items" class="items  ub ub-fh uhide   bc-border ubb uhide">
+                <div class="ub ub-ac ub-pc ub-f1 uinn3 uhide">
+                    <img class="NewImage uhide abc" src="../css/icons/noImg.png" style="width:7.3em;height:5.5em;" />
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1 uinn ub-ver">
+                            <div class="ub ub-fh">
+                                <div class="ub NewName txt-ellipsis ub-f1 abc"></div>
+                                <div class="ub"></div>
+                            </div>
+                            <div class="ub ub-fh ">
+                                <div class="ub ub-f1 txt-ellipsis sc-text NewImages uhide" style="height:1em;"></div>
+                                <!-- 三张图  -->
+                                <img class="Image01 uhide abc" src="../css/icons/noImg.png" style="width:32%;height:5.5em;" />
+                                <img class="Image02 uhide abc" src="../css/icons/noImg.png" style="width:32%;height:5.5em;" />
+                                <img class="Image03 uhide abc" src="../css/icons/noImg.png" style="width:32%;height:5.5em;" />
+                                <!-- 视频  -->
+                                <video  class="video videos uhide" poster="../css/image1/hudong.jpg" controls preload="true"  style="width:100%;height:11em;"></video>
+                            </div>
+                            <div class="ub ub-fh umar-t">
+                                <!-- Namdata   -->
+                                <div class="ub ub-f1 ulev-1 sc-text "></div>
+                                <!-- 评论 -->
+                                <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                    <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                        <div class="ub umar-r icon_comment"></div>
+                                        <div class="ub sc-text evaluateTimes"></div>
+                                    </div>
+                                </div>
+                                <!-- 点击 -->
+                                <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                    <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                        <div class="ub umar-r icon_like"></div>
+                                        <div class="ub sc-text hits"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <!-- <script src="../js/index_home.js"></script> -->
+        <script src="../js/entity.js"></script>
+        <script src="../js/swiper.min.js"></script>
+        <script src="../js/tool.js"></script>
+        <script src="../js/appcan.tab.js"></script>
+        <script>
+        if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/tv/tv_home.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+            document.write('<script src="../js_server/tv/tv_home.js"><\/script>');
+        }
+        </script>
+    </body>
+</html>

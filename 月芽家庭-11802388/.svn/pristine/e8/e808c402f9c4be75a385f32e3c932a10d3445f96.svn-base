@@ -1,0 +1,13 @@
+.backpicture{
+	background-image:url('myImg/backpicture.png');
+}
+.t-gra
+{
+	color:gray;
+}
+.t-bg{
+	color:#434343;
+}
+.ulh-a{
+	line-height:1.4em;
+}

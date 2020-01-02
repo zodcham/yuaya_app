@@ -1,0 +1,58 @@
+document.write("<script src='http://www.readseed.cn/nocache/js_student/js/common_new.js?time="+ (new Date().getTime()) +"'></"+"script>");
+
+appcan.ready(function() {
+	isIPhoneX();
+	
+    var titHeight = $('#header').offset().height + 20;
+    //var url = config.serviceUrl+"/event/newest";
+    var url = "http://www.readseed.cn/phone/event/newest";
+    //var url = "http://192.168.0.134/push.php";
+    //var url="http://www.readseed.cn/survey/query";
+    var par = {};
+    var fok = function(data) {
+        var obj = eval("(" + data + ")");
+        var pushTitle = obj.PUSH_TITLE;
+        var pushUrl = unescape(obj.PUSH_URL);
+        alert(pushTitle);
+        //pushUrl="https://wenjuan.readseed.cn/response!answerMobile.action?surveyId=0b449bcc641b3e0e01641c47e14f0005";
+        setLocVal("pushTitle", pushTitle);
+        setLocVal("pushUrl", pushUrl);
+
+        $("#HeaderTitle").html(pushTitle);
+        uexWindow.openPopover("content", 0, pushUrl, '', 0, titHeight, document.body.clientWidth, '', 0, 512, 0);
+
+    };
+    var ferr = function(err) {
+        $("#HeaderTitle").html("月芽当前无活动");
+        $("#content").html("月芽当前无活动！");
+    };
+
+    $.ajax({
+        url : url,
+        type : 'POST',
+        data : par,
+        dataType : "html",
+        success : fok,
+        error : ferr
+    });
+
+});
+appcan.button("#nav-left", "btn-act", function() {
+    appcan.window.close(-1);
+})
+appcan.button("#nav-right", "btn-act", function() {
+    var titHeight = $('#header').offset().height;
+    var pushUrl = "push_share.html";
+    uexWindow.openPopover({
+        name : "pushshare",
+        url : pushUrl,
+        x : 0,
+        y : 0,
+        w : document.body.clientWidth,
+        h : document.body.clientHeight,
+        bottomMargin : 0,
+        extraInfo : {
+            opaque : true
+        }
+    });
+})

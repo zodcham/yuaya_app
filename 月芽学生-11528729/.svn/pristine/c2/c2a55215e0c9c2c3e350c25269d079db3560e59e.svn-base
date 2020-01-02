@@ -1,0 +1,64 @@
+appcan.ready(function() {
+    /*
+     var titHeight = $('#header').offset().height;
+     appcan.frame.open("content", "sign_rank_content.html", 0, titHeight);
+     window.onorientationchange = window.onresize = function() {
+     appcan.frame.resize("content", 0, titHeight);
+     }
+     */
+    init();
+});
+appcan.button(".nav-btn", "btn-act", function() {
+    appcan.window.close(-1);
+})
+function changeTab(index) {
+    $(".tabItem").removeClass("tab-active");
+    $(".tabItem").eq(index).addClass("tab-active");
+    $("#title").text($(".tabItem").eq(index).find(".text").text());
+}
+
+function init() {
+    titHeight = $('#header')[0].offsetHeight;
+    appcan.frame.open({
+        id : "content",
+        //添加阅读圈和排行
+        url : [{
+            'inPageName' : 'sign_rank_today',
+            'inUrl' : 'sign_rank_today.html'
+        }, {
+            'inPageName' : 'sign_rank_month',
+            'inUrl' : 'sign_rank_month.html'
+        }, {
+            'inPageName' : 'sign_rank_all',
+            'inUrl' : 'sign_rank_all.html'
+        }],
+        top : titHeight,
+        left : 0,
+        index : 0,
+        change : function(index, res) {
+            changeTab(res.multiPopSelectedIndex);
+        }
+    });
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    };
+    //添加阅读圈和排行
+    $(".tabItem").on("click", function() {
+        switch($(this).attr("id")) {
+        case "today":
+            appcan.window.selectMultiPopover("content", 0);
+            changeTab(0);
+            break;
+        case "month":
+            appcan.window.selectMultiPopover("content", 1);
+            changeTab(1);
+            break;
+        case "all":
+            appcan.window.selectMultiPopover("content", 2);
+            changeTab(2);
+            break;
+        }
+    });
+    changeTab(0);
+    //Research();
+}

@@ -1,0 +1,161 @@
+var g_PageIndex = 1;
+var loadJson = {
+    "textColor" : "#000",
+    "imagePath" : "res://refesh_icon.png",
+    "levelText" : "更新日期1",
+    "pullToReloadText" : "下拉加载",
+    "releaseToReloadText" : "释放加载",
+    "loadingText" : "加载中，请稍等..."
+};
+var refreshJson = {
+    "textColor" : "#000",
+    "imagePath" : "res://refesh_icon.png",
+    "levelText" : "更新日期1",
+    "pullToReloadText" : "下拉刷新",
+    "releaseToReloadText" : "释放刷新",
+    "loadingText" : "刷新中，请稍等..."
+};
+
+appcan.ready(function() {
+    getUserInfo();
+    getCommInfo();
+    uexWindow.setBounce(1);
+    uexWindow.notifyBounceEvent(0, 1);
+    uexWindow.notifyBounceEvent(1, 1);
+    uexWindow.showBounceView(0, "rgba(0,0,0,0)", 1);
+    uexWindow.showBounceView(1, "rgba(0,0,0,0)", 1);
+    uexWindow.onBounceStateChange = function(type, state) {
+        switch (type) {
+        case 0:
+            if (state == 2) {
+                reloadData();
+            }
+            break;
+        case 1:
+            if (state == 2) {
+                var time1 = new Date().format("HH:mm:ss");
+                loadJson.levelText = "上次加载: " + time1;
+                uexWindow.setBounceParams(1, JSON.stringify(loadJson));
+                loadReview();
+            }
+            break;
+        }
+    };
+
+    var time1 = new Date().format("HH:mm:ss");
+    loadJson.levelText = "上次更新: " + time1;
+    refreshJson.levelText = "上次加载: " + time1;
+    uexWindow.setBounceParams(0, JSON.stringify(refreshJson));
+    uexWindow.setBounceParams(1, JSON.stringify(loadJson));
+    reloadData();
+
+});
+
+function reloadData() {
+    var time1 = new Date().format("HH:mm:ss");
+    refreshJson.levelText = "上次刷新: " + time1;
+    uexWindow.setBounceParams(0, JSON.stringify(refreshJson));
+    $("#listView").empty();
+    g_PageIndex = 1;
+    loadReview();
+}
+
+function loadReview() {
+    var params = {
+        'userId' : userInfo.id,
+        'pageSize' : 20,
+        "finishState" : "", //commInfo.finishState
+        'pageIndex' : g_PageIndex
+    };
+    common.ajax("/recommend/list", {
+        params : JSON.stringify(params)
+    }, function(data) {
+        if (g_PageIndex == 1) {
+            uexWindow.resetBounceView("0");
+        } else {
+            uexWindow.resetBounceView("1");
+        }
+        if (data.obj) {
+            if (!data.obj.count || data.obj.count == 0) {
+                myPrompt.show("暂无推荐~");
+                return;
+            } else if (!data.obj.list || data.obj.list.length == 0) {
+                toast("没有更多推荐了~", config.toastTimeShort);
+                return;
+            }
+        } else {
+            if (g_PageIndex == 1) {
+                myPrompt.show("暂无推荐~");
+            }
+            return;
+        }
+        //hideNoData();
+        var arr = [];
+        var list = data.obj.list;
+        for (var i = 0; i < list.length; i++) {
+            var obj = list[i];
+            var objItem = $("#item").clone();
+            objItem.removeClass("uhide");
+            objItem.attr("id", obj.id).attr("bookId", obj.bookId).attr("bookName", obj.bookName);
+            if (obj.bookImage && obj.bookImage.length > 0) {
+                objItem.find(".bookImage").attr("src", _SERVER_ADDRESS + obj.bookImage);
+            }
+            objItem.find(".bookName").html(obj.bookName);
+            objItem.find(".recommendedNum").html(obj.bookRecommendTimes);
+            objItem.find(".readNum").html(obj.bookReadTimes);
+            if (obj.isMustReview == "1") {
+                objItem.find(".isMustReview").removeClass("uhide");
+            }
+            objItem.find(".startDate").html(getformatDate(obj.createDate, "yyyy-MM-dd"));
+            objItem.find(".endDate").html(getformatDate(obj.endDate, "yyyy-MM-dd"));
+
+            switch(obj.type) {
+            case "1":
+                objItem.find(".mark").addClass("mark_integrant");
+                break;
+            case "2":
+                objItem.find(".mark").addClass("mark_selective");
+                break;
+            case "3":
+                objItem.find(".mark").addClass("mark_self");
+                break;
+            }
+
+            $(".click2").on("touchstart", function() {
+                $(this).parents(".item").removeClass("click");
+            }).on("touchend", function() {
+                setTimeout(function() {
+                    $(this).parents(".item").addClass("click");
+                }, 500);
+            }).on("touchcancel", function() {
+                setTimeout(function() {
+                    $(this).parents(".item").addClass("click");
+                }, 500);
+            });
+
+            $("#listView").append(objItem);
+        }
+        $(".btnDetails").on("click", function() {
+            getCommInfo();
+            commInfo.recommendId = $(this).parents(".item").attr("id");
+            commInfo.bookInfo = {
+                "bookId" : $(this).parents(".item").attr("bookId"),
+                "bookName" : $(this).parents(".item").attr("bookName")
+            };
+            setCommInfo();
+            appcan.window.open("user_task_details", "user_task_details.html", 10);
+        });
+        g_PageIndex++;
+
+    }, function(data) {
+        toast(data.msg, config.toastTimeShort);
+        if (g_PageIndex == 1) {
+            uexWindow.resetBounceView("0");
+        } else {
+            uexWindow.resetBounceView("1");
+        }
+        if (g_PageIndex > 1) {
+            g_PageIndex--;
+        }
+    });
+}

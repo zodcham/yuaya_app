@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="applyPass/css/main.css" />    
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+           <!--content1开始-->
+        <div class="ub ub-ver ub-fh ub-f1 ub-fv " id="content1">
+            <div class="ub ub-ver ub-f1 ub-fh ub-fv umar-t">                  
+                <div class="ub  ub-ver ub-fh sc-bg">                        
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">                               
+                            <input placeholder="请输入登录账号" type="text" class="ub ub-f1 " id="username" value="">
+                        </div>
+                    </div>    
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">                               
+                            <input placeholder="请输入手机号（用于接收验证码）" type="number" class="ub ub-f1 " id="userPhoneNo" value="">
+                        </div>
+                    </div>                                                       
+                </div>                   
+              <div class="ub ub-fh umar-t" id="btnVerification">
+                <div class="ub ub-f1 uinn">
+                <div id="address" class="ub ub-ac ub-pc ub-f1 bc-head bc-text-head" style="height: 2.8em;border-radius: 2.8em">获取验证码</div>
+                </div>
+              </div>      
+            </div>                
+        </div>
+         <!--content2开始-->
+        <div class="ub ub-ver uinn-a3 ub-fv uhide" id="content2">
+            <div class="ub ub-ver uinn uinn-at1">
+                 <div class="uinn"> 
+                    <div class="ub ub-ac ubb ubt ubl ubr umh5 bc-border umar-t" style="border-radius: 0.8em">
+                        <div class="uinput ub ub-f1 umar-l">                               
+                            <input placeholder="请输入验证码~" type="number" class="ub ub-f1 " id="Verification" value="">
+                        </div>
+                    </div>                    
+                    <div class="ub ub-ac ubb ubt ubl ubr umh5 bc-border umar-t" style="border-radius: 0.8em">
+                        <div class="uinput ub ub-f1 umar-l">                               
+                            <input placeholder="新密码" type="password" class="ub ub-f1 " id="Pass1" value="">
+                        </div>
+                    </div>  
+                     <div class="ub ub-ac ubb ubt ubl ubr umh5 bc-border umar-t" style="border-radius: 0.8em">
+                        <div class="uinput ub ub-f1 umar-l">                               
+                            <input placeholder="确认新密码" type="password" class="ub ub-f1 " id="Pass2" value="">
+                        </div>
+                    </div> 
+                </div>
+                 
+              <div class="ub ub-fh umar-t" id="applyReset">
+                <div class="ub ub-f1 uinn">
+                <div  class="ub ub-ac ub-pc ub-f1 bc-head bc-text-head" style="height: 2.8em;border-radius: 2.8em">提 交 重 置</div>
+                </div>
+              </div>               
+            </div>
+        </div>
+        <!--content结束-->
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+    </body>
+    <script>    
+        var userPhoneNo;//userPhoneNo手机号
+        var usernames;//usernames登录账号
+        
+        appcan.ready(function() {
+            getUserInfo();
+            
+        });
+        //发送验证
+        appcan.button("#btnVerification", "ani-act", function() { 
+            usernames = $("#username").val();                    
+            userPhoneNo = $("#userPhoneNo").val();  
+           
+            if(usernames.length == 0){
+                toast("登录账号不能为空~",config.toastTimeShort);
+                return;
+            }           
+            if(userPhoneNo.length == 0){
+                toast("手机号不能为空~",config.toastTimeShort);
+                return;
+            }                                       
+           
+            common.ajax("/user/resetPasswordByPhone", {
+                phone  : userPhoneNo,
+                username : usernames 
+            }, function(data){
+                  $("#userPhoneNo").val("");
+                  $("#username").val("");                                     
+                  appcan.window.alert({
+                    title : '提示操作成功！',
+                    content :'验证码5秒后,发送至手机请查收并进行下步操作~',
+                    buttons : '确定'                  
+                  });
+                    
+                  $("#content1").addClass("uhide");
+                  $("#content2").removeClass("uhide");                                  
+            }, function(data){
+                var msg = data.msg.code;
+                if (msg.indexOf('BUSINESS_LIMIT_CONTROL') > -1) {
+                    toast(getMsgByKey("手机号码不能连续发送短信验证码，请5分钟后重试~"),config.toastTimeShort);
+                } else {
+                    toast(getMsgByKey("手机号码不存在或手机号码不正确哦~"),config.toastTimeShort);
+                }
+            },{"type":"POST"});
+        });
+        //重置密码
+        appcan.button("#applyReset", "ani-act", function() {           
+            
+            var Verification = $("#Verification").val();//验证码
+            var Pass1 = $("#Pass1").val();//密码1
+            var Pass2 = $("#Pass2").val();//密码2 
+            
+            if(Verification.length == 0){
+                toast("验证码不能为空~",config.toastTimeShort);
+                return;
+            } 
+            if(Pass1.length == 0&&Pass2.length == 0){
+                toast("两次密码不能想同,请重试~",config.toastTimeShort);
+                return;
+            } 
+
+            common.ajax("/user/resetPasswordByCode", {
+                phone  : userPhoneNo,
+                code   : Verification,
+                password : Pass1
+            }, function(data){
+                 $("#userPhoneNo").val("");
+                 $("#Verification").val("");
+                // toast("成功...",config.toastTimeShort);              
+                appcan.window.alert({
+                    title : '提示信息！',
+                    content :'密码已重置成功~',
+                    buttons : ['确定', '取消'],
+                    callback : function(err, data, dataType, optId) {
+                       
+                        if ("1" == data) {
+                           
+                        }else if ("0" == data) {
+                            appcan.window.open("login","login.html",10,4);
+                        }
+                    }                    
+                });
+ 
+ 
+                $("#content1").removeClass("uhide");
+                $("#content2").addClass("uhide");  
+                
+                 
+            }, function(data){
+                toast(getMsgByKey("重置密码失败,请检查验证码是否有误~"),config.toastTimeShort);
+            },{"type":"POST"});
+        });
+ 
+ </script>
+</html>

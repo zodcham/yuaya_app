@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css"> 
+        <link rel="stylesheet" href="../css/main.css" />
+        <style>
+             .year{
+                background:#00848e;
+                border-radius: 0.1em;
+            }
+            .year:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                right:-0.45em;
+                width:0;
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:0.5em solid #33A1E6; 
+            }
+            .noyear:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                right:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:0.5em solid transparent; 
+            }
+            
+            .box{
+                border-radius: 3.5em;
+            }
+            .leftBox .content{
+                border-radius: 0.5em 0.5em 0 0;
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .leftBox:before{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:0.2em;
+                right:-0.8em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:1.5em solid #c5c5c5; 
+                transform:rotate(20deg);
+                -webkit-transform:rotate(20deg); 
+            }
+            
+            .rightBox .title{
+                border-radius: 0.5em 0.5em 0 0;
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .rightBox:before{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:0.2em;
+                left:-0.8em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-right:1.5em solid #c5c5c5; 
+                transform:rotate(-20deg);
+                -webkit-transform:rotate(-20deg); 
+            }
+            .month {
+                background: -webkit-gradient(linear, 0 0, right bottom, from(#6ecd6c), to(#3db072));
+            }
+            .point {
+                width:1.2em;
+                height:1.2em;
+                border-radius:50%;
+                background:#bff986;
+                border:0.2em solid #d0d0d0;
+            }
+            .leftBox,.rightBox {
+                background: #c5c5c5;
+            }
+           .icon_time {
+               width:0.8em;
+               height:0.8em;
+               background: url(../css/image1/ico_jifenyucaifu@2x_19.png) no-repeat;
+               background-size: 100% 100%;
+           }
+           .true {
+               width:1em;
+               height:1em;
+               background: url(../css/image1/ico_jifenyucaifu@2x_16.png) no-repeat;
+               background-size: 100% 100%;
+           }
+           .false {
+               width:1em;
+               height:1em;
+               background: url(../css/image1/ico_jifenyucaifu@2x_24.png) no-repeat;
+               background-size: 100% 100%;
+           }
+            
+           .toolbar_rich {
+               width:3em;
+               height:3em;
+               background: url(../css/image1/ico_jifenyucaifu@2x_05.png) no-repeat;
+               background-size: 100% 100%;
+           }
+           .btnExchange {
+                width:1.5em;
+                height:1.5em;
+                border-radius: 50%;
+                border: 0.1em solid #6ecd6c;  
+                color:#6ecd6c;
+           }
+        </style>
+    </head>
+    <body class="um-vp  sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh ">
+                <div class="ub ub-ac ub-pc umar-r" style="width:3em">&nbsp;</div>
+                <div class="ub ub-f1 ub-ver uinn ub-ac ub-pc">
+                    <div class="ub toolbar_rich"></div>
+                    <div class="ub sc-text umar-t">
+                        <div class="ub umar-r sc-text">我的财富：</div>
+                        <div class="ub myScore" style="color:#000000"></div>
+                    </div>
+                </div>
+                
+                <div class="ub ub-ac ub-pc umar-r" style="width:3em">
+                    <div class="ub ub-f1 uinn">
+                        <div class="ub ub-ac ub-pc sc-text-blue btnExchange" >兑</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh ub-ver ub-f1 bc-border ubt"  id="main" style="padding-top: 0.5em"></div>
+        </div>
+        
+         <div id="item" class="item uhide ub ub-fh">
+              <div class="ub"  style="width: 45%">
+                  <div class="ub ub-f1" style="padding: 0.5em 1em">
+                      <div class="ub box leftBox ub-ver ub-f1 uinn" >
+                          <div class="ub ub-fh ub-f1 ub-ac ub-pc">
+                              <div class="ub ub-ac ub-pc content ulev-1"></div>
+                              <div class="ub score ub-ac ub-pc ulev-1"></div>
+                              <div class="ub icon"></div>
+                          </div>
+                          
+                          <div class="ub ub-ac ub-pc ub-fh" style="margin-top: 0.2em">
+                              <div class="ub icon_time umar-r"></div>
+                              <div class="ub time bc-text-head ulev-2">&nbsp;</div>
+                          </div>
+                      </div>
+                  </div>    
+              </div>
+              <div class="ub ub-ac ub-pc ub-ver" style="width:10%">
+                  <div class="ub ub-fv sc-bg ub-f1" style="width:0.2em;background:#bff986">&nbsp;</div>
+                  <div class="ub point" style="width:1em;height:1em;border-radius: 50%">&nbsp;</div>
+                  <div class="ub ub-fv sc-bg ub-f1 uhide" style="width:0.2em">&nbsp;</div>
+              </div>
+              <div class="ub ub-ac ub-pc sc-text ulev-1" style="width: 45%">&nbsp;</div>
+        </div>
+        
+        <div id="item2" class="item uhide ub ub-fh">
+              <div class="ub ub-ac ub-pc sc-text ulev-1"  style="width: 45%">&nbsp;</div>
+              <div class="ub ub-ac ub-pc ub-ver" style="width:10%">
+                  <div class="ub ub-fv sc-bg ub-f1" style="width:0.2em;background:#bff986">&nbsp;</div>
+                  <div class="ub point" style="width:1em;height:1em;border-radius: 50%">&nbsp;</div>
+                  <div class="ub ub-fv sc-bg ub-f1 uhide" style="width:0.2em">&nbsp;</div>
+              </div>
+              <div class="ub"  style="width: 45%">
+                  <div class="ub ub-f1" style="padding: 0.5em 1em">
+                      <div class="ub box rightBox ub-ver ub-f1 uinn" >
+                          <div class="ub ub-fh ub-f1 ub-ac ub-pc">
+                              <div class="ub ub-ac ub-pc content ulev-1"></div>
+                              <div class="ub score ub-ac ub-pc ulev-1"></div>
+                              <div class="ub icon"></div>
+                          </div>
+                          <div class="ub ub-ac ub-pc ub-fh" style="margin-top: 0.2em">
+                              <div class="ub icon_time umar-r"></div>
+                              <div class="ub time bc-text-head ulev-2">&nbsp;</div>
+                          </div>
+                      </div>
+                  </div>    
+              </div>
+        </div>
+        
+        <div id="divMonth" class="item uhide ub ub-fh">
+            <div class="ub ub-f1"></div>
+            <div class="ub ub-ac ub-pc ub-ver">
+                  <div class="ub ub-fv sc-bg ub-f1" style="width:0.2em;background:#D0D0D0">&nbsp;</div>
+                <div class="ub ub-ac ub-pc month bc-text-head ulev-1" style="width: 3em;height:3em;border-radius: 50%"></div>
+            </div>
+            <div class="ub ub-f1"></div>
+        </div>
+        
+    </body>
+    <script src="../js/appcan.js"></script>
+<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/user/user_reward_list_wealth_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

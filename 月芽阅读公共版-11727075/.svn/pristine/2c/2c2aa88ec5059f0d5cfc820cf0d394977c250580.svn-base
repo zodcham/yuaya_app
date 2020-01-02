@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .disable {
+                color:#FFFFFF;
+                background: #dcd8d5;
+            }
+            .icon_headimage {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_06.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .bg_headimage {
+                width: 5em;
+                height:5em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_03.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_name {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_14.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_nick_name {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_18.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_school {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_28.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_qq {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_22.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_email {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_26.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_mobile {
+               
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/mobile.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_class {
+                width: 2em;
+                height:2em;
+                background:url(../css/image1/ico_gerenzhongxin@2x_30.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_grade{
+                width: 2em;
+                height:2em;
+                background:url(../css/icons/grade.png) no-repeat;
+                background-size:100% 100%;
+            }
+            .icon_achievement{
+                width: 2em;
+                height:2em;
+                background:url(../css/icons/achievement.png) no-repeat;
+                background-size:95% 95%;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart style="background: url(../images/read/body.png) fixed;">
+        <div class="ub ub-fh ub-ver" style="width:90%;margin:0 auto; font-size:36px;">
+           <div class="ub ub-ver ub-f1 ub-fh">
+               
+               <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="headImg">
+                   <div class="ub ub-f1 ub-ac ub-pc" style="padding:0.5em">
+                       <div class="ub icon_headimage"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">头像</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac">
+                           <div class="ub ub-ac ub-pc ub-f1 bg_headimage" style="width:5em;height:5em" >
+                               <img class="ub" src="../head.png" style="width:85%;height:85%;border-radius: 50%" />
+                           </div>
+                       </div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                    </div>
+               </div>
+               <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="name">
+                   <div class="ub ub-f1 uinn" style="padding:0.5em">
+                       <div class="ub icon_name"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">姓名</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac name sc-text value">&nbsp;</div>
+                       <div class="fa">&nbsp;</div>
+                   </div>
+               </div>
+ 
+               <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="nickName">
+                   <div class="ub ub-f1 uinn" style="padding:0.5em">
+                       <div class="ub icon_nick_name"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">昵称</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac nickName sc-text value">&nbsp;</div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                   </div>
+               </div>
+               <!-- 等级 开始-->
+                <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="grade">
+                   <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                       <div class="ub icon_grade"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">等级</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac email sc-text value">&nbsp;</div>
+                       <div class="fa sc-text readLevelName" style="line-height: 2em">num</div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                   </div>
+                </div>
+               <!-- 等级 结束-->
+                <!-- <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="achievement">
+                   <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                       <div class="ub icon_achievement"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">成就</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac school sc-text value">&nbsp;</div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                       <div class="fa">&nbsp;</div>
+                   </div>
+               </div> -->
+               <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="qq">
+                   <div class="ub ub-f1 uinn" style="padding:0.5em">
+                       <div class="ub icon_qq"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">QQ</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac qq sc-text value">&nbsp;</div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                   </div>
+               </div>
+               
+               <div class="ub ub-fh ub-ac ub-pc bc-border ubb"  id="email">
+                   <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                       <div class="ub icon_email"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">邮箱</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac email sc-text value">&nbsp;</div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                   </div>
+               </div>
+           
+                <div class="ub ub-fh ub-ac ub-pc bc-border ubb"  id="mobile">
+                   <div class="ub ub-f1 uinn">
+                       <div class="ub icon_mobile"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">手机号码</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac mobile sc-text value">&nbsp;</div>
+                       <div class="fa icon-angle-right fa-2x sc-text"></div>
+                   </div>
+               </div>
+           
+               <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="school">
+                   <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                       <div class="ub icon_school"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">学校</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac school sc-text value">&nbsp;</div>
+                       <div class="fa">&nbsp;</div>
+                   </div>
+               </div>
+               
+                <div class="ub ub-fh ub-ac ub-pc bc-border ubb" id="class">
+                   <div class="ub ub-f1 uinn" style="padding: 0.5em">
+                       <div class="ub icon_class"></div>
+                       <div class="ub ub-ac ub-pc sc-text umar-l">班级</div>
+                       <div class="ub ub-f1"></div>
+                       <div class="ub ub-ac class sc-text value">&nbsp;</div>
+                       <div class="fa">&nbsp;</div>
+                   </div>
+               </div>
+ 
+           </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+       if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/user/user_info_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+            document.write('<script src="../js_server/user/user_info_content.js"><\/script>');
+        }
+</script>
+</html>

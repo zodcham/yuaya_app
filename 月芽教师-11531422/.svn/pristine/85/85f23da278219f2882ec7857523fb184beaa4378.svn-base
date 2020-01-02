@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget appId="11531422" channelCode="0000" height="480" pid="" sreensize="4.5" version="04.01.0061" viewmode="application" widgetId="" width="320">
+    <name>月芽教师</name>
+    <description/>
+    <author email=""/>
+    <icon src="icon.png"/>
+    <license href=""/>
+    <content encoding="utf-8" src="index.html"/>
+    <updateurl/>
+    <logserverip>192.168.0.134</logserverip>
+    <showmyspace>false</showmyspace>
+    <obfuscation>true</obfuscation>
+    <bgcolor>#fefefe</bgcolor>
+    <orientation>1</orientation>
+    <debug>false</debug>
+    <partobfuscation/>
+    <webapp>false</webapp>
+    <error/>
+    <removeloading/>
+    <config desc="privacyConfig" type="AUTHORITY">
+        <permission info="privacy" platform="iOS" type="camera">
+            <string>月牙需要使用摄像头，用来分享您的照片和视频给学生。</string>
+        </permission>
+        <permission info="privacy" platform="iOS" type="photoLibrary">
+            <string>月牙需要使用相册，用来分享您的照片和视频给学生。</string>
+        </permission>
+        <permission info="privacy" platform="iOS" type="microphone">
+            <string>月牙需要使用麦克风，用来分享您的录音给学生。</string>
+        </permission>
+    </config>
+    <config desc="uexWeiXin" type="URLSCHEME">
+        <urlScheme name="uexWeiXin" schemes="['wxdd94041dd73a8049']"/>
+    </config>
+    <config desc="uexJPush" type="KEY">
+        <param name="$UEXJPUSH_PACKAGE$" platform="android" value="com.yueya.teacher"/>
+        <param name="$UEXJPUSH_APPKEY$" platform="android" value="7580991c376550dd98f58237"/>
+    </config>
+</widget>

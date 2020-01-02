@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .checkbox_on {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/checkbox_on.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .checkbox_off {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/checkbox_off.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+             .click2:active {
+                 background: #F16412;
+             }
+             
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .icon_time { 
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(../css/icons/ico_time.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-ver ub-fh ub-f1 umar-t">
+             <div id="listView" class="ub ub-fh ub-ver ub-f1" ></div>
+         </div>
+        
+        <div id="item" class="item click bc-white ub ub-fh uhide  ub-ver bc-border ubt ubb umar-t umar-b" style="padding:0.5em 0em;">
+            <div class="ub ub-f1 ub-ac ub-pc ">
+                <div class="ub ub-ac ub-pc umar-l umar-r bc-border uba " style="width:5em;height: 7em;border-radius: 0.2em" >
+                    <div class="ub" style="width:5em;height: 7em;">
+                        <img src="../css/icons/noImg.png" class="ub ub-fh ub-fv ub-f1 bookImage" />
+                        <div class="bookBox uhide"></div>
+                    </div>
+                    <div class="ub mark" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+                </div>
+                <div class="ub ub-f1 umar-l">
+                    <div class="ub ub-f1 ub-ver">
+                        <div class="ub ub-fh ub-ac">
+                            <div class="ub ub-f1 bookName ub-pc sc-text-active txt-ellipsis"></div>
+                       </div>
+                        <div class="ub ub-fh ub-ac">
+                            <div class="ub ub-f1 uinn ulev-1 ub-ac ub-ver">
+                                <div class="ub ub-ac ub-fh sc-text">
+                                    <div class="ub">已被推荐</div>
+                                    <div class="ub recommendedNum" style="color:#60dd62"></div>
+                                    <div class="ub ">次，</div>
+                                    <div class="ub readNum" style="color:#60dd62"></div>
+                                    <div class="ub ub-f1">人读过</div>
+                                </div>
+                                <div class="ub isMustReview uhide ub-fh">
+                                    <div class="ub ub-ac ub-pc bc-text-head sc-bg-alert" style="border-radius: 0.5em;padding:0.1em 0.5em">写读后感</div>
+                                    <div class="ub ub-f1">&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ub ub-fh ub-ac sc-text ulev-1">
+                            <div class="ub ub-f1 ">
+                                <div class="ub icon_time umar-r"></div>
+                                <div class="ub startDate"></div>
+                                <div class="ub ub-ac ub-pc" style="width:1em">至</div>
+                                <div class="ub endDate"></div>
+                            </div>
+                        </div>
+                        <div class="ub ub-fh ub-ac">
+                            <div class="ub ub-ac ub-pc sc-bc-blue bc-text-head ub-f1 btnDetails click2" style="margin:0em 0.5em;height:2em;border-radius: 0.5em">完成情况</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var g_PageIndex = 1;
+        var loadJson = {
+            "textColor" : "#000",
+            "imagePath" : "res://refesh_icon.png",
+            "levelText" : "更新日期1",
+            "pullToReloadText" : "下拉加载",
+            "releaseToReloadText" : "释放加载",
+            "loadingText" : "加载中，请稍等..."
+        };
+        var refreshJson = {
+            "textColor" : "#000",
+            "imagePath" : "res://refesh_icon.png",
+            "levelText" : "更新日期1",
+            "pullToReloadText" : "下拉刷新",
+            "releaseToReloadText" : "释放刷新",
+            "loadingText" : "刷新中，请稍等..."
+        };
+        
+        appcan.ready(function() {
+            getUserInfo();
+            getCommInfo();
+            uexWindow.setBounce(1);
+            uexWindow.notifyBounceEvent(0, 1);
+            uexWindow.notifyBounceEvent(1, 1);
+            uexWindow.showBounceView(0, "rgba(0,0,0,0)", 1);
+            uexWindow.showBounceView(1, "rgba(0,0,0,0)", 1);
+            uexWindow.onBounceStateChange = function(type, state) {
+                switch (type) {
+                case 0:
+                    if (state == 2) {
+                      reloadData();
+                    }
+                    break;
+                case 1:
+                    if (state == 2) {
+                        var time1 = new Date().format("HH:mm:ss");
+                        loadJson.levelText = "上次加载: " + time1;
+                        uexWindow.setBounceParams(1, JSON.stringify(loadJson));
+                        loadReview();
+                    }
+                    break;
+                }
+            };
+            
+            var time1 = new Date().format("HH:mm:ss");
+            loadJson.levelText = "上次更新: " + time1;
+            refreshJson.levelText = "上次加载: " + time1;
+            uexWindow.setBounceParams(0, JSON.stringify(refreshJson));
+            uexWindow.setBounceParams(1, JSON.stringify(loadJson));
+            reloadData();
+            
+        });
+        
+        function reloadData(){
+            var time1 = new Date().format("HH:mm:ss");
+            refreshJson.levelText = "上次刷新: " + time1;
+            uexWindow.setBounceParams(0, JSON.stringify(refreshJson));
+            $("#listView").empty();
+            g_PageIndex = 1;
+            loadReview();
+        }
+        
+        function loadReview(){
+             var params = {
+                'userId' : userInfo.id,
+                'pageSize' : 20,
+                "finishState":"",//commInfo.finishState
+                'pageIndex' : g_PageIndex
+            };
+            common.ajax("/recommend/list", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                if (g_PageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if (data.obj) {
+                    if (!data.obj.count || data.obj.count == 0) {
+                        myPrompt.show("暂无推荐~");
+                        return;
+                    }else  if (!data.obj.list || data.obj.list.length == 0) {
+                        toast("没有更多推荐了~", config.toastTimeShort);
+                        return;
+                    }
+                } else {
+                    if (g_PageIndex == 1) {
+                        myPrompt.show("暂无推荐~");
+                    }
+                    return;
+                }
+                //hideNoData();
+                var arr = [];
+                var list=data.obj.list;
+                for(var i=0;i<list.length;i++){
+                    var obj=list[i];
+                    var objItem=$("#item").clone();
+                    objItem.removeClass("uhide");
+                    objItem.attr("id",obj.id).attr("bookId",obj.bookId).attr("bookName",obj.bookName);
+                    if(obj.bookImage && obj.bookImage.length > 0){
+                        objItem.find(".bookImage").attr("src",_SERVER_ADDRESS+obj.bookImage);
+                    }
+                    objItem.find(".bookName").html(obj.bookName);
+                    objItem.find(".recommendedNum").html(obj.bookRecommendTimes);
+                    objItem.find(".readNum").html(obj.bookReadTimes); 
+                    if (obj.isMustReview == "1"){
+                        objItem.find(".isMustReview").removeClass("uhide");
+                    }
+                    objItem.find(".startDate").html(getformatDate(obj.createDate,"yyyy-MM-dd"));
+                    objItem.find(".endDate").html(getformatDate(obj.endDate,"yyyy-MM-dd"));
+                    
+                    switch(obj.type){
+                       case "1":
+                            objItem.find(".mark").addClass("mark_integrant");
+                       break;
+                       case "2":
+                            objItem.find(".mark").addClass("mark_selective");
+                       break;
+                       case "3":
+                            objItem.find(".mark").addClass("mark_self");
+                       break;
+                    }
+                       
+                    $(".click2").on("touchstart",function(){
+                      $(this).parents(".item").removeClass("click");
+                   }).on("touchend",function(){
+                      setTimeout(function(){
+                            $(this).parents(".item").addClass("click");
+                       },500);
+                   }).on("touchcancel",function(){
+                       setTimeout(function(){
+                            $(this).parents(".item").addClass("click");
+                       },500);
+                   });
+                   
+                    $("#listView").append(objItem);   
+                }
+                $(".btnDetails").on("click",function(){
+                    getCommInfo();
+                    commInfo.recommendId = $(this).parents(".item").attr("id");
+                    commInfo.bookInfo={"bookId":$(this).parents(".item").attr("bookId"),"bookName":$(this).parents(".item").attr("bookName")};
+                    setCommInfo();
+                    appcan.window.open("user_task_details","user_task_details.html",10);
+                });
+                g_PageIndex++;
+
+            }, function(data) {
+                toast(data.msg,config.toastTimeShort);
+                if (g_PageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if (g_PageIndex > 1) {
+                    g_PageIndex--;
+                }
+            });
+        }
+    </script>
+</html>

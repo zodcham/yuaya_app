@@ -1,0 +1,167 @@
+/*****************************************/
+/*基础header颜色*/
+.bc-head {
+   background: -webkit-gradient(linear, 0 0, right bottom, from(#6ccd6e), to(#3eb172));
+}
+/*****************************************/
+/*基础body背景颜色*/
+.bc-white{
+    background-color: #FFFFFF;
+}
+
+.bc-bg {
+    background-color: #f4f6f7;
+}
+/*辅助控件背景颜色*/
+.sc-bg {
+    background-color: #f6f6f6;
+}
+/*辅助控件背景颜色*/
+.sc-bg-active {
+    background-color: #DFDFDF;
+}
+/*警告背景色*/
+.sc-bg-alert {
+    background-color: #F16412;
+}
+/*背景白色*/
+.bc-bg-white {
+    background-color: #fff;
+}
+/*****************************************/
+/*基础字体颜色*/
+.bc-text {
+    color: black;
+}
+.text-color{
+    color:#636363;
+}
+/*基础标题字体颜色*/
+.bc-text-head {
+    color: white;
+}
+.text-blue {
+    color: #33a1e6;
+}
+/*辅助字体颜色*/
+.sc-text {
+    color: #999999;
+}
+/*辅助字体颜色更改*/
+.sc-text-active {
+    color: #67d16a !important;
+}
+/*辅助字体颜色*/
+.sc-text-hint {
+    color: #E3E3E3;
+}
+/*辅助字体颜色*/
+.sc-text-warn {
+    color: #FC7800;
+}
+/*辅助字体颜色*/
+.sc-text-tab {
+    color: #636363;
+}
+.sc-text-green {
+    color: #67d16a;
+}
+.sc-text-blue {
+    color: #5485fe;
+}
+.sc-text-yellow{
+    color:#ffd34e;
+}
+.sc-text-1{
+    color:#00848e;
+    
+}
+.sc-text-red {
+    color:#f07878;
+}
+
+/*****************************************/
+/*基础边框颜色*/
+.bc-border {
+    border-color: #DDDDDD;
+}
+/*辅助边框颜色*/
+.sc-border {
+    border-color: #FFFFFF;
+}
+.sc-border-tab {
+    border-color: #00A1EA;
+}
+.sc-border-green{
+    border-color: #33a1e6;
+}
+.sc-border-green2{
+    border-color: #40ba70;
+}
+
+/*****************************************/
+/*基础按钮颜色*/
+.bc-red-btn {
+    background-color:#ff0000;
+}
+.bc-gray-btn{
+    background-color:#BABABA;
+}
+.bc-btn {
+    background-color: #00cc33;
+}
+/*辅助按钮颜色*/
+.sc-btn {
+    background-color: #00cc33;
+}
+.sc-bc-red{
+    background-color: #f07878;
+}
+.sc-bc-green{
+    background-color: #96de3a;
+}
+.bc-btn-orange {
+    background-color: #fd8100;
+}
+.sc-bc-blue{
+    background-color: #46d2e8;
+}
+.sc-bc-blue2{
+    background-color: #33A1E6;
+}
+.sc-bc-orange {
+    background-color: #fe8100;
+}
+.sc-bc-orange2{
+    background-color: #e69739;
+}
+.sc-bc-warn {
+    background-color: #FC7800;
+}
+.sc-bc-yellow {
+    background-color: #cf855b;
+}
+.sc-bc-yellow2 {
+    background-color: #fffccf;
+}
+.sc-bc-white{
+    background-color: #FFFFFF;
+}
+.bc-warning-btn{
+  background: #FF3366;
+  color: rgba(255, 255, 255, 0.8);
+}
+/*按钮背景色*/
+.sc-bg-btn-sec{
+    background-color: #BAD538
+}
+/*取消按钮背景色*/
+.sc-bg-btn-cancel{
+    background-color: #BABABA
+}
+.sc-bg-1{
+    background-color:#00848e;
+}
+
+
+

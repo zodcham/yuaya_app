@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .box {
+                   background: #6fce6d;
+                   border-radius: 0  0 0.5em 0.5em;
+            }
+            .hot{
+                position: absolute;
+                right:0.5em;
+                top:0.5em;
+                width:3em;
+                height:3em;
+                z-index: 100;
+            }
+
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="page" class="ub ub-ver ub-fh ub-fv">
+          <div id="listview" class="ub ub-ver ub-fh ub-fv ub-f1 "></div>
+          </div>
+          <!-- uhide -->
+        <div id="item" class="ub ub-fh ub-ver ub-f1 item uhide">
+                <div class="ub ub-f1 umar-a">
+                    <div class="ub bc-border uba ub-f1 ub-ver" style="border-radius: 0.5em">
+                        <div class="ub ub-fh box" style="border-radius: 0.5em 0.5em 0 0">
+                            <div class="ub ub-f1 uinn ub-ver bc-text-head" style="height: 1em;text-align: center;">
+                                <div class="ub ub-fh ub-ac">
+                                <div class="ub name book-title"></div>
+                                <div class="ub num ulev-1 umar-l"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="ub hot uhide" src="../css/image1/ico_caifuduihuan@2x_10.png" />
+                        <img class="ub image" style="width:100%;height:auto;"/>
+                        <div class="ub ub-fh box">
+                            <div class="ub ub-f1 uinn ub-ver bc-text-head" style="height: 1.5em">                               
+                                <div class="ub ub-fh ulev-1">
+                                    <div class="ub ub-f1 ub-ac ub-pc  ">
+                                        <div class="ub">
+                                            <div class="ub">所需财富:</div>                                           
+                                            <div class="ub money"></div>
+                                        </div>
+                                        <div class="ub ub-f1"></div>
+                                        <div class="ub ub-ac ub-pc exchange ulev-1" style="width:6em;height:1.5em;background: #f3ed32;border-radius: 1.5em;color:#000000">财富值不足</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+        <script src="../js_server/exchange/mall_content.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

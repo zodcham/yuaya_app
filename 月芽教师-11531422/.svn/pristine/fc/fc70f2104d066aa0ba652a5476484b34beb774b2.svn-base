@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/calender.css">
+        <style>
+             input[type='radio'] + .box:before{
+                 color:#FFFFFF;
+                 content: "\f1db";
+             }
+             input[type='radio']:checked + .box:before{
+                 color:#33CC33;
+                 font-weight:bold;
+                 content: "\f192";
+             }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh bc-border click" id="date">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">阅读截止日期</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue"></div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="readType">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">阅读类型</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" value="1">必读</div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="introduce">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">写读后感</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" value="1">必须写读后感</div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="student">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">选择学生</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue"></div>
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub-f1"></div>
+            <div class="ub ub-fh bc-border ubt bc-bg">              
+                 <div id="btnSubmit" class="ub ub-ac ub-pc uinn bc-text-head bc-head ub-f1 umar-a" style="height:1.5em;border-radius: 0.5em">确定发布</div>
+            </div>
+        </div>
+        <div id="divRadio" class="ub ub-fh ub-fv ub-ver uhide" style="position: absolute;z-index: 9999;top:0;background: rgba(0,0,0,0)">
+            <div class="ub ub-ac ub-pc ub-f1 btnCloseRadio"></div>
+            <div id="radioBox" class="ub ub-fh ub-ver bc-white">
+                <div class="ub ub-fh ub-ver bc-white  bc-border ubt uhide" id="divReadType">
+                    <div class="ub ub-fh bc-border ubb ubt radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc " style="padding: 1em">
+                            <input type="radio" name="readType" class="uhide" checked="true" value="1" text="必读"  />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                         <div style="padding: 1em 0">必读</div>
+                    </div>
+                    <div class="ub ub-fh bc-border ubb radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc" style="padding: 1em">
+                            <input type="radio" name="readType" class="uhide" value="2" text="选读"  />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                        <div style="padding: 1em 0">选读</div>
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-ver bc-white  bc-border ubt uhide" id="divIntroduce">
+                    <div class="ub ub-fh bc-border ubb ubt radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc" style="padding: 1em">
+                            <input type="radio" name="introduce" class="uhide" checked="true" value="1" text="必须写读后感" />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                         <div style="padding: 1em 0">必须写读后感</div>
+                    </div>
+                    <div class="ub ub-fh bc-border ubb radioItem click bc-white">
+                        <div class="ub ub-ac ub-pc " style="padding: 1em">
+                            <input type="radio" name="introduce" class="uhide" value="0" text="非必须写"  />
+                            <div class="box fa fa-1x5"></div>
+                        </div>
+                        <div style="padding: 1em 0">非必须写</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="divCalender" class="ub ub-fh ub-fv uhide" style="position: absolute;z-index: 9999;top:0;background: rgba(0,0,0,0.5)">
+            <div class="ub ub-ac ub-pc ub-f1">
+                <div class="ub ub-ac ub-pc ub-ver bc-white">
+                    <div class="calendar " id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/calender.js"></script>
+    <script src="../js_server/book/book_recommended_content.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

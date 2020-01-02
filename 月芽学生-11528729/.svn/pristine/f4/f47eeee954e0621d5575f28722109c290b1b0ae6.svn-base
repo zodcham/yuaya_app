@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">  
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+       <style>
+            .icon_like {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/dianqu.png) no-repeat;
+                background-size:  100% 100%;
+            }
+          
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .c-gra1{
+                background-color:#ffffff;
+            }
+            .txt-ellipsis{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            
+            .ubb1{
+                border-bottom: .3em solid #F0F0F0;
+            }
+               .sortNav {
+                width: 24%;
+                height: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                float:left;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                z-index: 2;
+                padding-bottom: 3rem;
+                background: rgba(0,0,0,.02);
+            }
+            .sortNav b.icon-stars {
+                font-size: .9rem;
+                text-align: inherit;
+                color: rgba(0,0,0,.7);
+            }                        
+            .sortNav p {
+                font-size: 1.1rem;
+                text-align: center;
+                vertical-align: middle;
+                border-width: 0 0 1px 0;
+                background: rgba(255,255,255,.5);
+                padding: 0.5rem 0rem;
+                width: 99.5%;
+                color: rgba(255,159,0,1);  
+            }
+          input[type='radio'] + .box{
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                display: block;
+                height: 2.5rem;
+                line-height: 2.5rem;
+                text-align: center;
+                color: rgba(0,0,0,.6);
+                font-size: .75rem;
+                width: 100%;
+                background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.1),rgba(0,0,0,.1) 60%,transparent 60%);
+                background-size: 100% 1px;
+                background-position: bottom;
+                background-repeat: no-repeat;               
+             }
+             input[type='radio']:checked + .box{
+                 background: rgba(255,255,255,1);
+                color: #4dba72;
+                width: 100%;
+                background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.12),rgba(0,0,0,.12) 60%,transparent 60%);
+                background-size: 100% 1px;
+                background-position: bottom;
+                background-repeat: no-repeat;
+             }
+             
+             .mark_essence{
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_essence.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_extensive{
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_extensive.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_choose{
+                 width:3em;
+                 height:3em;
+                 background: url(../css/icons/mark_choose.png) no-repeat;
+                 background-size: 100% 100%;
+             } 
+               
+            .container {
+                /*width: 100%;*/
+                border-bottom: 1px solid #ccc;
+                background:#ECE9E7;
+            }
+            .swiper1 {
+                width: 100%;
+            }
+            .swiper1 .selected {
+                font-weight: bold;
+                color: #4dba72 !important;               
+                border-bottom: 2px solid #4dba72;
+            }
+            .swiper1 .swiper-slide {
+                text-align: center;
+                font-size: 1em;
+                height: 2.5em;
+                color: #7A7F82;
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                cursor: pointer;
+            }
+            .myPromptList{
+                 width:100%;
+                 height:16em;
+                 background: url(../css/image1/tinei.png) no-repeat;
+                 background-size: 100% 100%;
+            }
+        </style>
+         
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        
+    <div  class="" id="content1">
+       <div class="sortNav" id="sortNav">          
+            <p class="icon-sort line" style="border-bottom:2px solid #DFDFDF">年级<img src="../css/image1/nianxia.png" style="width:0.8em;height:1em;"/></p>
+            <div>
+                <input type="radio" name="money"  class="uhide" checked="checked"/>
+                <b class="box" value="0">全部 </b>
+            </div>
+            <div>
+                <input type="radio" name="money"  class="uhide"/>
+                <b class="box" value="1">一年级 </b>
+            </div>
+            <div>
+                 <input type="radio" name="money"  class="uhide"/>
+                 <b class="box" value="2">二年级</b>
+            </div>
+            <div>
+                <input type="radio" name="money"  class="uhide"/>
+                <b class="box" value="3">三年级</b>
+            </div>
+            <div>
+                <input type="radio" name="money"  class="uhide"/>
+                <b class="box" value="4">四年级 </b>
+            </div>
+            <div>
+                 <input type="radio" name="money"  class="uhide"/>
+                 <b class="box" value="5">五年级 </b>
+            </div>
+            <div>
+                 <input type="radio" name="money"  class="uhide"/>
+                 <b class="box" value="6">六年级 </b>
+            </div> 
+     
+        </div>
+ 
+        <div id="reviewList1" style="width: 72.5%;float: right"></div>
+           
+        <div id="item" class="item uhide   uinn ub-hor ub-f1 ulev-1 ub-ac txtcolor c-gra1 bc-border ubb1" style=" float: right;width:100%;">
+         <div class="ub mark mark_self" style="position: absolute;top:0em;left:0em;z-index: 100"></div>
+         <!-- 视频 -->
+         <div id="videoFile"  class="ub ub-ac ub-pc ub-f1 umar-l uhide">                  
+                  <div class="ub ub-f1 umar-l ">
+                      <div class="ub ub-f1  ub-ver ">
+                          <div class="ub ub-fh umar-l" style="width: 100%;float: left">
+                                <div class="ub name txt-ellipsis ub-f1 ulev1"></div>
+                                <div class="ub">
+                                </div>
+                          </div>                                           
+                        <img class="ImagePoster" src="../css/icons/noImg.png" style="width:19em;height:10.17em;border-radius: 0.3em;" />
+                                                                                                
+                          <div class="ub ub-fh ">                              
+                              <div class="ub ub-f1 ulev-1"></div>
+                              <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>                  
+              </div>      
+         <!-- 音频  -->
+          <div id="audioplay" class="ub ub-ac ub-pc ub-f1 umar-l uhide">
+                  <div class="ub ub-ac ub-pc" style="width:8.9em;height:7.15em;border-radius: 0.3em;">
+                        <img class="bookImage" src="../css/icons/noImg.png" style="width:8.9em;height:7.15em;border-radius: 0.3em;" />
+                        <div class="bookBox uhide"></div>
+                  </div>  
+                  <div class="ub ub-f1 umar-l ">
+                      <div class="ub ub-f1  ub-ver umar-l ">
+                          <div class="ub ub-fh ">
+                                <div class="ub name txt-ellipsis ub-f1 ulev1"></div>
+                                <div class="ub">
+                                </div>
+                          </div>
+                          <div class="ub ub-fh ">
+                                <div class="ub ub-f1 txt-ellipsis sc-text introduces" style="height:2.8em;">                                                                                                                                               
+                                </div>                               
+                          </div>                                                                          
+                          <div class="ub ub-fh ">                              
+                              <div class="ub ub-f1 ulev-1"></div>
+                              <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>                  
+              </div> 
+          <!-- PPT -->
+         <div id="SlidePPT"  class="ub ub-ac ub-pc ub-f1 umar-l uhide">                  
+                  <div class="ub ub-f1 umar-l ">
+                      <div class="ub ub-f1  ub-ver ">
+                          <div class="ub ub-fh umar-l" style="width: 100%;float: left">
+                                <div class="ub name txt-ellipsis ub-f1 ulev1"></div>
+                                <div class="ub">
+                                </div>
+                          </div>
+                                                 
+                        <!-- <img class="bookImage01" src="../css/icons/noImg.png" style="width:9.5em;height:8.17em;border-radius: 0.3em;" /> --> 
+                        <!-- <img class="bookImage02" src="../css/icons/noImg.png" style="width:9.5em;height:8.17em;border-radius: 0.3em;" /> -->
+                         <img class="bookImage01" src="../css/icons/noImg.png" style="width:98%;border-radius: 0.3em;" />
+                                                                                                
+                          <div class="ub ub-fh ">                              
+                              <div class="ub ub-f1 ulev-1"></div>
+                              <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>                  
+              </div>                                      
+       </div>
+   </div>
+    
+    <div class="uhide"  id="content2">
+    
+  <div class="container  bc-white" style="position: fixed;z-index: 999;width: 100%;left: 0;top: 0;overflow: hidden;">
+        <div class="swiper-container swiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide selected umar-l">全部</div>
+                <div class="swiper-slide">一年级</div>
+                <div class="swiper-slide">二年级</div>
+                <div class="swiper-slide">三年级</div>
+                <div class="swiper-slide">四年级</div>
+                <div class="swiper-slide">五年级</div>
+                <div class="swiper-slide">六年级</div>  
+                <div class="swiper-slide"> </div>                               
+            </div>
+        </div>
+   </div>
+    
+  <div id="reviewList2" style="margin-top:3em;"></div> 
+            
+            
+  <div id="item2" class="item2 uhide umar-l  uinn ub-hor ub-f1 ulev-1 ub-ac txtcolor c-gra1 bc-border ubb1" style=" float: right;width:100%;">
+         <div class="ub mark mark_self uinn" style="position: absolute;top:0em;left:1em;z-index: 100"></div>
+         <!-- 视频 -->
+          <div id="videoFile"  class="ub ub-ac ub-pc ub-f1 umar-l uinn uhide">                  
+                  <div class="ub ub-f1 umar-l ">
+                      <div class="ub ub-f1  ub-ver ">
+                          <div class="ub ub-fh umar-l" style="width: 100%;float: left">
+                                <div class="ub name txt-ellipsis ub-f1 ulev1"></div>
+                                <div class="ub">
+                                </div>
+                          </div>                                           
+                        <img class="ImagePoster" src="../css/icons/noImg.png" style="width:100%;height:11.8em;border-radius: 0.3em;" />
+                                                                                                
+                          <div class="ub ub-fh ">                              
+                              <div class="ub ub-f1 ulev-1"></div>
+                              <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>                  
+              </div>      
+         <!-- 音频  -->
+          <div id="audioplay" class="ub ub-ac ub-pc ub-f1 umar-l uinn uhide">
+                  <div class="ub ub-ac ub-pc" style="width:8.9em;height:7.15em;border-radius: 0.3em;">
+                        <img class="bookImage" src="../css/icons/noImg.png" style="width:8.9em;height:7.15em;border-radius: 0.3em;" />
+                        <div class="bookBox uhide"></div>
+                  </div>  
+                  <div class="ub ub-f1 umar-l ">
+                      <div class="ub ub-f1  ub-ver umar-l ">
+                          <div class="ub ub-fh ">
+                                <div class="ub name txt-ellipsis ub-f1 ulev1"></div>
+                                <div class="ub">
+                                </div>
+                          </div>
+                          <div class="ub ub-fh ">
+                                <div class="ub ub-f1 txt-ellipsis sc-text introduces" style="height:2.8em;">                                                                                                                                               
+                                </div>                               
+                          </div>                                                                          
+                          <div class="ub ub-fh ">                              
+                              <div class="ub ub-f1 ulev-1"></div>
+                              <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>                  
+              </div> 
+          <!-- PPT -->
+         <div id="SlidePPT"  class="ub ub-ac ub-pc ub-f1 umar-l uinn uhide">                  
+              <div class="ub ub-f1 umar-l ">
+                  <div class="ub ub-f1  ub-ver "> 
+                      <div class="ub ub-fh umar-l" style="width: 100%;float: left;left: 1em">
+                            <div class="ub name txt-ellipsis ub-f1 ulev1"></div>
+                            <div class="ub">
+                            </div>
+                      </div>                        
+                    <img class="bookImage01" src="../css/icons/noImg.png" style="width:98%;border-radius: 0.3em;" /> 
+                    <!-- <img class="bookImage02" src="../css/icons/noImg.png" style="width:49%;height:8.17em;border-radius: 0.3em;" /> -->
+                                                                                            
+                      <div class="ub ub-fh ">                              
+                          <div class="ub ub-f1 ulev-1"></div>
+                          <!-- 评论 -->
+                        <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                            <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                <div class="ub umar-r icon_comment"></div>
+                                <div class="ub sc-text evaluateTimes"></div>
+                            </div>
+                        </div>
+                        <!-- 点击 -->
+                        <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                            <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                <div class="ub umar-r icon_like"></div>
+                                <div class="ub sc-text hits"></div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>                  
+          </div>                                      
+       </div>
+ </div>
+ 
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/swiper.min.js"></script>
+ 
+   <script>
+
+        var yearFlag;
+        var pageIndex=1;
+        var reloadDate="";
+        var isbnType='1'; 
+        var reloadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期1","pullToReloadText":"拖动刷新","releaseToReloadText":"释放刷新","loadingText":"刷新中，请稍等"};
+        var loadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期2","pullToReloadText":"拖动加载","releaseToReloadText":"释放加载","loadingText":"加载中，请稍等"};
+        var gradeType='0';
+        var content1='0';
+        var content2='0';
+        
+        appcan.ready(function() {
+            
+            getSysInfo();
+            config.isMainWin=true;
+            getUserInfo();
+            getProgramInfo();
+            loadData();
+ 
+            uexWindow.setBounce(1);
+            uexWindow.notifyBounceEvent(0,1);
+            uexWindow.notifyBounceEvent(1,1);
+            uexWindow.showBounceView("0","rgba(0, 0, 0, 0)", 1);
+            uexWindow.showBounceView("1","rgba(0, 0, 0, 0)", 1);
+            uexWindow.onBounceStateChange = function(type, state){
+                var time1 = new Date().format("MM-dd HH:mm:ss");   
+                switch(type) {
+                    case 0:
+                        if (state == 2) {
+                             refreshData();
+                        }
+                        break;
+                    case 1:
+                        if (state == 2) {
+                            loadJson.levelText="上次加载："+time1;
+                            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+                            pageIndex++;
+                            loadData();
+                            
+                         }
+                     break;
+                }
+            };
+             $(".box").on("click",function(){                 
+                   $(this).siblings("input").trigger("click");
+                   gradeType=$(this).attr("value");
+                   content1=$(this).attr("value");
+                   // alert(gradeType);
+                   $("#reviewList1").empty();
+                   $("#reviewList2").empty();
+                   pageIndex=1;
+                   myPrompt.hide();
+                   loadData();                
+            }); 
+            
+            var swiper1 = new Swiper('.swiper1', {
+                    slidesPerView: 5.5,
+                    paginationClickable: false, 
+                    spaceBetween: 13, 
+                    freeMode: true, 
+                    loop: false, 
+                    onTab: function(swiper) {
+                        var n = swiper1.clickedIndex;
+                    }
+                });
+                swiper1.slides.each(function(index, val) {
+                    var ele = $(this);
+                    
+                    ele.on("click", function() {
+                        
+                        setCurrentSlide(ele, index);
+                           gradeType = index;
+                           content2  = index;
+                             $("#reviewList2").empty();
+                             pageIndex=1;
+                             myPrompt.hide();
+                             loadData();  
+                        swiper2.slideTo(index, 500, false);
+                        
+                        //mySwiper.initialSlide=index;
+                    });
+                });           
+                function setCurrentSlide(ele, index) {                          
+                    $(".swiper1 .swiper-slide").removeClass("selected");
+                    ele.addClass("selected");
+                 }
+ 
+            var time1 = new Date().format("MM-dd HH:mm:ss");   
+            reloadJson.levelText="上次刷新："+time1;
+            loadJson.levelText="上次加载："+time1;
+            uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+            
+            switchs();
+        });
+        
+       function refreshData(){
+            var time1 = new Date().format("MM-dd HH:mm:ss");   
+            reloadJson.levelText="上次刷新："+time1;
+             uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+            
+             $("#reviewList1 .item").remove();
+             $("#reviewList2 .item2").remove();
+ 
+             pageIndex=1;
+             loadData();
+            
+       }
+       
+       function loadData(){  
+              var params={'programCategory' : '4',pageSize:'10', pageIndex:pageIndex,'grade':gradeType,'month':sysInfo.ranking.grade,'year':sysInfo.ranking.report};
+            common.ajax("/program/getProgramInfoMore", {
+               params:JSON.stringify(params)
+            }, function(data) {                 
+                if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if(pageIndex==1&&data.obj.count==0){
+                    myPrompt.show("内容将按时发布，敬请期待~~","#reviewList1");
+                    $("#reviewList2").addClass("myPromptList");
+                }else{
+                    $("#reviewList2").removeClass("myPromptList");
+                    myPrompt.hide();
+                     var list=data.obj.list;
+                    for(var i = 0 ; i < list.length ; i ++){
+                          
+                         var obj=list[i];
+                         //appcan.alert(obj.image);
+                         var objItem=$("#item").clone();
+                         objItem.removeClass("uhide");
+                         objItem.attr("id",obj.id);
+                         // 视频
+                         if(obj.videoFile.length>0){                                 
+                             objItem.find("#videoFile").removeClass("uhide");
+                         }
+                         objItem.find(".ImagePoster").attr("src",_SERVER_ADDRESS+obj.posterImagePath);
+                         if(obj.remarks.length>0){                                 
+                             objItem.find("#videoFile").removeClass("uhide");
+                         }
+                         
+                         // 音频                           
+                         if(obj.audioFile.length>0){
+                             // choose_audio_path
+                                                            
+                             objItem.find("#audioplay").removeClass("uhide");
+                         }
+                         //PPT  
+                         objItem.attr("pptPath",obj.pptPath);
+                         if(obj.pptPath.length>0){                                 
+                             objItem.find("#SlidePPT").removeClass("uhide");
+                         }
+                         objItem.find(".bookImage01").attr("src",_SERVER_ADDRESS+obj.image01);
+                         objItem.find(".bookImage02").attr("src",_SERVER_ADDRESS+obj.image02);
+                         
+                         objItem.find(".name").html(obj.name);
+                         objItem.find(".bookImage").attr("src",_SERVER_ADDRESS + obj.image);              
+                         objItem.find(".hits").html(obj.hits);
+                         objItem.find(".evaluateTimes").html(obj.evaluateTimes);                         
+                         objItem.find(".introduces").html(obj.introduce); 
+ 
+                             //1精读，2泛读，3选读
+                         switch(obj.readType){
+                               case "1":
+                                    objItem.find(".mark").addClass("mark_essence");
+                               break;
+                               case "2":
+                                    objItem.find(".mark").addClass("mark_extensive");
+                               break;
+                               case "3":
+                                    objItem.find(".mark").addClass("mark_choose");
+                               break;
+                           }
+                          
+                            objItem.bind("click",function(){
+                               var id = $(this).attr("id"); 
+ 
+                                            getProgramInfoById(id,function(data){  
+                                                    getProgramInfo();
+                                                    programInfo=data;
+                                                    setProgramInfo(); 
+                                                appcan.window.open("Read_index","Read_index.html",5);
+                                
+                                            },null);
+ 
+                                });
+                                
+                               
+                             $("#reviewList1").append(objItem);
+                          
+                    } 
+                     var list2=data.obj.list;
+                    for(var j = 0 ; j < list.length ; j ++){
+               
+                             var obj2=list2[j];
+                             var objItem2=$("#item2").clone();
+                             objItem2.removeClass("uhide");
+                             objItem2.attr("id",obj2.id);
+                             // 视频
+                             if(obj2.videoFile.length>0){                                 
+                                 objItem2.find("#videoFile").removeClass("uhide");
+                             }
+                             objItem2.find(".ImagePoster").attr("src",_SERVER_ADDRESS+obj2.posterImagePath);
+                             if(obj2.remarks.length>0){                                 
+                                 objItem2.find("#videoFile").removeClass("uhide");
+                             }
+                             
+                             // 音频                           
+                             if(obj2.audioFile.length>0){
+                                 // choose_audio_path
+                                                                
+                                 objItem2.find("#audioplay").removeClass("uhide");
+                             }
+                             //PPT  
+                             objItem2.attr("pptPath",obj2.pptPath);
+                             if(obj2.pptPath.length>0){                                 
+                                 objItem2.find("#SlidePPT").removeClass("uhide");
+                             }
+                             objItem2.find(".bookImage01").attr("src",_SERVER_ADDRESS+obj2.image01);
+                             objItem2.find(".bookImage02").attr("src",_SERVER_ADDRESS+obj2.image02);
+                             
+                             objItem2.find(".name").html(obj2.name);
+                             objItem2.find(".bookImage").attr("src",_SERVER_ADDRESS + obj2.image);              
+                             objItem2.find(".hits").html(obj.hits);
+                             objItem2.find(".evaluateTimes").html(obj2.evaluateTimes);                         
+                             objItem2.find(".introduces").html(obj2.introduce); 
+ 
+                             //1精读，2泛读，3选读
+                             switch(obj2.readType){
+                                   case "1":
+                                        objItem2.find(".mark").addClass("mark_essence");
+                                   break;
+                                   case "2":
+                                        objItem2.find(".mark").addClass("mark_extensive");
+                                   break;
+                                   case "3":
+                                        objItem2.find(".mark").addClass("mark_choose");
+                                   break;
+                               }
+                              
+                                objItem2.bind("click",function(){
+                                   var id = $(this).attr("id"); 
+ 
+                                            getProgramInfoById(id,function(data){  
+                                                    getProgramInfo();
+                                                    programInfo=data;
+                                                    setProgramInfo(); 
+                                                appcan.window.open("Read_index","Read_index.html",5);
+                                
+                                            },null);
+ 
+                                });
+                             
+                             $("#reviewList2").append(objItem2); 
+                        }   
+                }
+                
+            },function(data){
+                if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if(pageIndex>1){
+                    pageIndex--;
+                }
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+       }
+       
+          
+        //模式切换
+        var i = false; 
+        function switchs() {
+            if (i === false) {                    
+                    i = true;                     
+                    $("#content1").removeClass("uhide");
+                    $("#content2").addClass("uhide"); 
+                    $("#reviewList2 .item2").remove();  
+                    gradeType=content1;
+ 
+                   $("#reviewList1").empty();
+                   $("#reviewList2").empty();
+                   pageIndex=1;
+                   myPrompt.hide();
+                   loadData(); 
+                }else {                    
+                    i = false;                   
+                    $("#content2").removeClass("uhide");
+                    $("#content1").addClass("uhide");
+                    $("#reviewList1 .item").remove(); 
+                    gradeType=content2;
+ 
+                   $("#reviewList1").empty();
+                   $("#reviewList2").empty();
+                   pageIndex=1;
+                   myPrompt.hide();
+                   loadData(); 
+                }
+        };
+    </script>
+</html>

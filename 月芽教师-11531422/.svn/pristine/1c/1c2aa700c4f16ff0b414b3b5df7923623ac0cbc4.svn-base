@@ -1,0 +1,32 @@
+appcan.ready(function() {
+    getCommInfo();
+    loadData();
+});
+function loadData() {
+    var params = {
+        'bookId' : commInfo.bookInfo.bookId,
+        "studentId" : commInfo.taskData.userId
+    };
+    common.ajax("/bookReview/list", {
+        params : JSON.stringify(params)
+    }, function(data) {
+        for (var i = 0; i < data.obj.length; i++) {
+            var obj = data.obj[i];
+            var objItem = $("#item").clone();
+            objItem.attr("id", obj.id);
+            objItem.removeClass("uhide");
+            objItem.find(".time").html("发表于：" + obj.createDateText);
+            objItem.find(".content").html(obj.content);
+            for (var j = 1; j < 4; j++) {
+                if (obj["image0" + j].length > 0) {
+                    var divImg = $("<div style='width:5em;height:5em' class='umar-r'><img src='" + _SERVER_ADDRESS + obj["image0" + j] + "' style='width:100%;height:100%'></div>");
+                    objItem.find(".imgs").append(divImg);
+                }
+            }
+            $("#divIntroduceBox").append(objItem);
+        }
+
+    }, function(data) {
+        toast(getMsgByKey(data.msg), config.toastTimeShort);
+    });
+}

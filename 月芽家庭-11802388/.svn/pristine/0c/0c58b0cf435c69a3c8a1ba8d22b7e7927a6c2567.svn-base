@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/font_awesome4.7/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/ui-box.css">
+    <link rel="stylesheet" href="./css/ui-base.css">
+    <link rel="stylesheet" href="./css/ui-color.css">
+    <link rel="stylesheet" href="./css/appcan.icon.css">
+    <link rel="stylesheet" href="./css/appcan.control.css">
+    <style>
+        .tabel_level{
+            border-collapse: separate;
+            width:90%;
+            margin:1em auto;
+            font-size:0.9em;
+            border-spacing: 0;
+            border-radius: 1em;
+            /*border: 0.16em solid #000;*/
+            background-color: #d7c8b1;
+            opacity: 0.8;
+        }
+        .tabel_level td{
+            padding: 0.2em;
+            border: 1px solid #81511c;
+
+        }
+        .div_help_content{
+            padding-top:3em;
+            width:100%;
+        }
+        .tl{border-top-left-radius: 1em;}
+        .tr{border-top-right-radius: 1em;}
+        .bl{border-bottom-left-radius: 1em;}
+        .br{border-bottom-right-radius: 1em;}
+
+
+    </style>
+</head>
+<body class="um-vp " >
+
+<div id="page_0" class="up ub ub-ver" tabindex="0" >
+    <div class="btn_back" style="z-index: 59999;font-size:1rem;border-radius: 1rem;width:2rem;height:2rem;line-height:2rem; position:fixed;left:1rem;background-color: black;color:#fff;opacity: 0.5; text-align: center;top:1em;" onclick="change_mod('h')"><i class="fa fa-angle-left fa-w fa-lg" style="font-size:1.8em;"></i></div>
+    <!--content开始-->
+    <!--<div id="content" class="ub-f1 tx-c" style="overflow-y: auto;background:url(http://www.readseed.cn/static/space/bg_help.jpg) no-repeat;margin:0 auto; background-position:0 0; background-size: 100% 100%;">-->
+    <div id="content" class="ub-f1 tx-c" style="overflow-y: auto;background:url(images/space/bg_help1.jpg) no-repeat;margin:0 auto; background-position:0 0; background-size: 100% 100%;">
+        <div class=" div_help_content">
+            <h2 style="text-align: left; line-height: 1.2em;padding-left:0.6em;"><span id="span_title" style="color:#7c5b0b;"></span></h2>
+            <table id="div_test" class="tabel_level uhide">
+                <tr>
+                    <td class="td_title tl">成就/徽章</td>
+                    <td class="td_title">测评积分<br>（分）</td>
+                    <td class="td_title">升级所需<br>积分</td>
+                    <td class="td_title tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td>白卷</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>铜榜1星</td>
+                    <td>10</td>
+                    <td>40</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>铜榜2星</td>
+                    <td>50</td>
+                    <td>150</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>铜榜3星</td>
+                    <td>200</td>
+                    <td>300</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>银榜1星</td>
+                    <td>500</td>
+                    <td>500</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>银榜2星</td>
+                    <td>1000</td>
+                    <td>1000</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>银榜3星</td>
+                    <td>2000</td>
+                    <td>2000</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>金榜1星</td>
+                    <td>4000</td>
+                    <td>3000</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>金榜2星</td>
+                    <td>7000</td>
+                    <td>3000</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td class="bl">金榜3星</td>
+                    <td>10000</td>
+                    <td>　</td>
+                    <td class="br">1000</td>
+                </tr>
+            </table>
+            <table id="div_read" class="tabel_level uhide">
+                <tr>
+                    <td class="td_title tl">成就/徽章</td>
+                    <td>阅读册数<br>（册）</td>
+                    <td>升级所需<br>册数</td>
+                    <td class="tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td>白卷</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>铜榜1星</td>
+                    <td>10</td>
+                    <td>40</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>铜榜2星</td>
+                    <td>50</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>铜榜3星</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>银榜1星</td>
+                    <td>300</td>
+                    <td>200</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>银榜2星</td>
+                    <td>500</td>
+                    <td>100</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>银榜3星</td>
+                    <td>600</td>
+                    <td>100</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>金榜1星</td>
+                    <td>700</td>
+                    <td>100</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td>金榜2星</td>
+                    <td>800</td>
+                    <td>200</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td class="bl">金榜3星</td>
+                    <td>1000</td>
+                    <td>　</td>
+                    <td class="br">1000</td>
+                </tr>
+            </table>
+            <table id="div_word" class="tabel_level uhide">
+                <tr>
+                    <td class="tl">成就/徽章</td>
+                    <td>阅读字量<br>（千字）</td>
+                    <td>升级所需<br>字数</td>
+                    <td class="tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td>白卷</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>铜榜1星</td>
+                    <td>1</td>
+                    <td>49</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>铜榜2星</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>铜榜3星</td>
+                    <td>100</td>
+                    <td>400</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>银榜1星</td>
+                    <td>500</td>
+                    <td>500</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>银榜2星</td>
+                    <td>1000</td>
+                    <td>500</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>银榜3星</td>
+                    <td>1500</td>
+                    <td>500</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>金榜1星</td>
+                    <td>2000</td>
+                    <td>500</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td>金榜2星</td>
+                    <td>2500</td>
+                    <td>500</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td class="bl">金榜3星</td>
+                    <td>3000</td>
+                    <td>　</td>
+                    <td class="br">1000</td>
+                </tr>
+            </table>
+            <table id="div_review" class="tabel_level uhide">
+                <tr>
+                    <td class="tl">成就/徽章</td>
+                    <td>读后感评价<br>（总分）</td>
+                    <td>升级所需<br>评价</td>
+                    <td class="tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td>白卷</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>铜榜1星</td>
+                    <td>10</td>
+                    <td>20</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>铜榜2星</td>
+                    <td>30</td>
+                    <td>20</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>铜榜3星</td>
+                    <td>50</td>
+                    <td>30</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>银榜1星</td>
+                    <td>80</td>
+                    <td>20</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>银榜2星</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>银榜3星</td>
+                    <td>150</td>
+                    <td>50</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>金榜1星</td>
+                    <td>200</td>
+                    <td>100</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td>金榜2星</td>
+                    <td>300</td>
+                    <td>700</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td class="bl">金榜3星</td>
+                    <td>1000</td>
+                    <td>　</td>
+                    <td class="br">1000</td>
+                </tr>
+            </table>
+            <table id="div_game" class="tabel_level uhide">
+                <tr>
+                    <td class="tl">成就/徽章</td>
+                    <td>阅读计划参<br>加次数</td>
+                    <td>升级所需<br>次数</td>
+                    <td class="tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td>白卷</td>
+                    <td>0</td>
+                    <td>5</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>铜榜1星</td>
+                    <td>5</td>
+                    <td>15</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>铜榜2星</td>
+                    <td>20</td>
+                    <td>10</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>铜榜3星</td>
+                    <td>30</td>
+                    <td>20</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>银榜1星</td>
+                    <td>50</td>
+                    <td>30</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>银榜2星</td>
+                    <td>80</td>
+                    <td>20</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>银榜3星</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>金榜1星</td>
+                    <td>150</td>
+                    <td>50</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td>金榜2星</td>
+                    <td>200</td>
+                    <td>300</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td class="bl">金榜3星</td>
+                    <td>500</td>
+                    <td>　</td>
+                    <td class="br">1000</td>
+                </tr>
+            </table>
+            <table id="div_sign" class="tabel_level uhide">
+                <tr>
+                    <td class="tl">成就/徽章</td>
+                    <td>签到<br>总天数（天）</td>
+                    <td>升级所需<br>天数</td>
+                    <td class="tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td>白卷</td>
+                    <td>0</td>
+                    <td>12</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>铜榜1星</td>
+                    <td>12</td>
+                    <td>28</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>铜榜2星</td>
+                    <td>40</td>
+                    <td>80</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>铜榜3星</td>
+                    <td>120</td>
+                    <td>120</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>银榜1星</td>
+                    <td>240</td>
+                    <td>160</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>银榜2星</td>
+                    <td>400</td>
+                    <td>240</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>银榜3星</td>
+                    <td>640</td>
+                    <td>280</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>金榜1星</td>
+                    <td>920</td>
+                    <td>280</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td>金榜2星</td>
+                    <td>1200</td>
+                    <td>300</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td class="bl">金榜3星</td>
+                    <td>1500</td>
+                    <td>　</td>
+                    <td class="br">1000</td>
+                </tr>
+            </table>
+
+
+
+            <table  id="div_person" class="tabel_level uhide">
+                <tr>
+                    <td class="tl">等级</td>
+                    <td>功名星级</td>
+                    <td>升级总<br>经验值</td>
+                    <td>升级所需<br>经验值</td>
+                    <td class="tr">升级获得<br>月芽银币</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">1</td>
+                    <td>白丁1星</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>白丁2星</td>
+                    <td>10</td>
+                    <td>20</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>白丁3星</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">2</td>
+                    <td>书童1星</td>
+                    <td>60</td>
+                    <td>40</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>书童2星</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>书童3星</td>
+                    <td>200</td>
+                    <td>100</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">3</td>
+                    <td>秀才1星</td>
+                    <td>300</td>
+                    <td>300</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>秀才2星</td>
+                    <td>600</td>
+                    <td>400</td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td>秀才3星</td>
+                    <td>1000</td>
+                    <td>500</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">4</td>
+                    <td>举人1星</td>
+                    <td>1500</td>
+                    <td>500</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>举人2星</td>
+                    <td>2000</td>
+                    <td>2000</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>举人3星</td>
+                    <td>4000</td>
+                    <td>2000</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">5</td>
+                    <td>进士1星</td>
+                    <td>6000</td>
+                    <td>2000</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>进士2星</td>
+                    <td>8000</td>
+                    <td>2000</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>进士3星</td>
+                    <td>10000</td>
+                    <td>2000</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">6</td>
+                    <td>状元1星</td>
+                    <td>12000</td>
+                    <td>3000</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>状元2星</td>
+                    <td>15000</td>
+                    <td>3000</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>状元3星</td>
+                    <td>18000</td>
+                    <td>3000</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">7</td>
+                    <td>翰林1星</td>
+                    <td>21000</td>
+                    <td>3000</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>翰林2星</td>
+                    <td>24000</td>
+                    <td>4000</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>翰林3星</td>
+                    <td>28000</td>
+                    <td>5000</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">8</td>
+                    <td>太傅1星</td>
+                    <td>33000</td>
+                    <td>5000</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>太傅2星</td>
+                    <td>38000</td>
+                    <td>5000</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>太傅3星</td>
+                    <td>43000</td>
+                    <td>7000</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">9</td>
+                    <td>圣贤1星</td>
+                    <td>50000</td>
+                    <td>10000</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>圣贤2星</td>
+                    <td>60000</td>
+                    <td>10000</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td class="bl">圣贤3星</td>
+                    <td>70000</td>
+                    <td>　</td>
+                    <td class="br">　</td>
+                </tr>
+            </table>
+
+
+            <h2 style="text-align: center; line-height: 3em;" class="obj_exp uhide"><span id="span_title_exp">经验获得方式</span></h2>
+            <table id="div_personup" class="tabel_level uhide obj_exp">
+                <tr>
+                    <td width="32" class="tl">序号</td>
+                    <td width="368">操作</td>
+                    <td width="112">经验值</td>
+                    <td width="96" class="tr">备注</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>每天登录APP</td>
+                    <td>+2</td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>每天签到</td>
+                    <td>+1</td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>连续签到<br>(3天,5天,10天,20,30)</td>
+                    <td>1，2，3，4，5</td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>分享签到给好友</td>
+                    <td>+2</td>
+                    <td>每日上限10次</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>分享签到到朋友圈</td>
+                    <td>+2</td>
+                    <td>每日上限10次</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>分享班级签到排行给好友</td>
+                    <td>+2</td>
+                    <td>每周一次</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>提醒好友签到</td>
+                    <td>+5</td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>测评，取前三次成绩最高分</td>
+                    <td>测评积分*10</td>
+                    <td>/次/本</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>分享本次测评结果</td>
+                    <td>2</td>
+                    <td>/本</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>分享本班测评排行</td>
+                    <td>5</td>
+                    <td>每日上限5</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>提交读后感，不少于50字</td>
+                    <td>10</td>
+                    <td>/篇/本</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>读后感被教师评为（优秀，良好，合格，再接再厉）</td>
+                    <td>20，10，5，0</td>
+                    <td>/篇/本</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>读后感被同学点赞</td>
+                    <td>2</td>
+                    <td>每篇上限10次</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>给别人的读后感写评论</td>
+                    <td>2</td>
+                    <td>每日上限10次</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>读诗</td>
+                    <td>5</td>
+                    <td>每日上限10次</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>完整观看导读视频</td>
+                    <td>3</td>
+                    <td>每日上限10次</td>
+                </tr>
+                <tr>
+                    <td class="bl">22</td>
+                    <td>观看整本书课程、PPT</td>
+                    <td>5</td>
+                    <td class="br">每日上限10次</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--content结束-->
+</div>
+<!--footer结束-->
+</div>
+
+</div>
+
+<script src="js/appcan.js"></script>
+<script src="js/appcan.control.js"></script>
+<script src="js/common.js"></script>
+<script src="js/entity.js"></script>
+<script src="js/tool.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+    document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+    document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/space_levelup.js?v=' + (new Date().getTime()) + '"><\/script>');
+</script>
+
+</body>
+</html>

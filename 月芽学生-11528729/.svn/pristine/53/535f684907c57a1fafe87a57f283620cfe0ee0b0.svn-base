@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5cde3bf7-c473-41fc-a333-022a24b110bb" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1391143585">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.0" value="6" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="3" />
+          <entry key="html" value="42" />
+          <entry key="js" value="57" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="3" />
+          <entry key="HTML" value="42" />
+          <entry key="JavaScript" value="57" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="982" />
+          <entry key="js" value="1164" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="982" />
+          <entry key="JavaScript" value="1164" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1434324027">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="23" />
+          <entry key="project.open.time.0" value="7" />
+          <entry key="project.open.time.1" value="12" />
+          <entry key="project.open.time.2" value="14" />
+          <entry key="project.open.time.3" value="16" />
+          <entry key="project.open.time.4" value="13" />
+          <entry key="project.open.time.5" value="7" />
+          <entry key="project.open.time.6" value="6" />
+          <entry key="project.open.time.7" value="9" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="90" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="19" />
+          <entry key="html" value="260" />
+          <entry key="js" value="370" />
+          <entry key="png" value="3" />
+          <entry key="ts" value="1" />
+          <entry key="xml" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="19" />
+          <entry key="HTML" value="260" />
+          <entry key="Image" value="3" />
+          <entry key="JavaScript" value="370" />
+          <entry key="TypeScript" value="1" />
+          <entry key="XML" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="155" />
+          <entry key="html" value="2066" />
+          <entry key="js" value="7213" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="155" />
+          <entry key="HTML" value="2066" />
+          <entry key="JavaScript" value="7213" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/pk2/article_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="40" column="106" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="106" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/article_detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1394">
+              <caret line="82" selection-start-line="82" selection-end-line="86" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/index_home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11526">
+              <caret line="678" column="101" selection-start-line="678" selection-start-column="101" selection-end-line="678" selection-end-column="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1026">
+              <caret line="84" column="91" lean-forward="true" selection-start-line="84" selection-start-column="91" selection-end-line="84" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/phone/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1128">
+              <caret line="106" column="7" lean-forward="true" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/xampp/htdocs/catalog3/js/yueya_login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="36" selection-start-column="36" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/css/pk.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3315">
+              <caret line="195" selection-start-line="195" selection-end-line="195" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/pk_detail_content.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/pk_detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phone/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>label_name</find>
+      <find>ShowLefeTop</find>
+      <find>position_type</find>
+      <find>img_person</find>
+      <find>myBookshelf/listForStudent</find>
+      <find>img_lv</find>
+      <find>ShowUserItems</find>
+      <find>任务</find>
+      <find>likesname</find>
+      <find>book/newindex</find>
+      <find>update</find>
+      <find>OpenAudioList</find>
+      <find>本次测评</find>
+      <find>rankToday</find>
+      <find>pk/</find>
+      <find>share(</find>
+      <find>home</find>
+      <find>shareWeixin</find>
+      <find>tab-active</find>
+      <find>changeTab</find>
+      <find>tabText</find>
+      <find>border</find>
+      <find>tabIcon</find>
+      <find>alert</find>
+      <find>tabItem</find>
+      <find>sign_list</find>
+      <find>hide</find>
+      <find>script</find>
+      <find>showAdd</find>
+      <find>js_server</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>../js/</replace>
+      <replace>../css/</replace>
+      <replace>http://www.readseed.cn/nocache/js_student_v230/pk/</replace>
+      <replace>js_student_v230</replace>
+      <replace>http://www.readseed.cn/nocache/js_student_v230</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\AppCan\AppCanStudioPersonalV4.0\widgetapp\月芽学生-11528729</dir>
+      <dir>E:\AppCan\AppCanStudioPersonalV4.0\widgetapp\月芽学生-11528729\phone\pk2</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/phone/exchange/mall_content.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/exchange/mall_content.js" />
+        <option value="F:/技术运营部文档/传给他人的文件/H5网站相关/20191010/兑换历史.js" />
+        <option value="F:/技术运营部文档/传给他人的文件/H5网站相关/20191010/兑换表单.js" />
+        <option value="F:/技术运营部文档/传给他人的文件/H5网站相关/20191010/奖励记录.js" />
+        <option value="$PROJECT_DIR$/phone/about.html" />
+        <option value="$PROJECT_DIR$/phone/newslist_content.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/newslist_content.js" />
+        <option value="F:/技术运营部文档/传给他人的文件/H5网站相关/20191011/日历.js" />
+        <option value="$PROJECT_DIR$/phone/pk/pk_detail_content.html" />
+        <option value="$PROJECT_DIR$/phone/ranking/ranking_details.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/ranking/ranking_details.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/club/club_content.js" />
+        <option value="$PROJECT_DIR$/phone/club/club_content.html" />
+        <option value="$PROJECT_DIR$/phone/club/forumadd.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/club/posts_add.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/club/forumadd.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/book/book_index_content.js" />
+        <option value="$PROJECT_DIR$/phone/book/book_index_content.html" />
+        <option value="$PROJECT_DIR$/phone/ranking/ranking_details_month_content.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/ranking/ranking_details_month_content.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/book/book_review_content.js" />
+        <option value="$PROJECT_DIR$/phone/space_index.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/space_index.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/index_home.js" />
+        <option value="$PROJECT_DIR$/phone/css/pk.css" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk/article_detail.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk/article_rank.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk/pk_detail.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk/pk_detail_content.js" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_detail.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_detail_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_list.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_mylist.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_rank.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/detail.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/detail_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_detail_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_list.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_list_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_share.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_submit.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_submit_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_list_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/article_mylist_content.html" />
+        <option value="$PROJECT_DIR$/phone/pk2/pk_detail.html" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk/article_mylist_content.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk2/article_mylist_content.js" />
+        <option value="$PROJECT_DIR$/phone/js_server/pk2/article_list_content.js" />
+        <option value="$PROJECT_DIR$/phone/js/common.js" />
+        <option value="D:/xampp/htdocs/catalog3/js/yueya_login.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
+    <option name="width" value="1613" />
+    <option name="height" value="1407" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="月芽学生-11528729" type="b2602c69:ProjectViewProjectNode" />
+              <item name="月芽学生-11528729" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="月芽学生-11528729" type="b2602c69:ProjectViewProjectNode" />
+              <item name="月芽学生-11528729" type="462c0819:PsiDirectoryNode" />
+              <item name="phone" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="article_detail&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk2/article_detail.js&#10;article_rank&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk2/article_rank.js&#10;article_list_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk2/article_list_content.js&#10;article_mylist_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk/article_mylist_content.js&#10;pk_list_con&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk/pk_list_content.js&#10;index.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/index.js&#10;index_home&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/index_home.html&#10;book_review_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/book/book_review_content.js&#10;user_read_taskss&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_read_taskss_content.js&#10;user_read_taskss_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_read_taskss_content.js&#10;book_index_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/book/book_index_content.js&#10;default&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/book/book_default.js&#10;Interaction_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/yueduquan/Interaction_content.js&#10;book_def&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/book/book_default.html&#10;ranking_details_month_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/ranking/ranking_details_month_content.html&#10;rank_d&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/ranking/ranking_details.js&#10;book_index_content.html&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/book/book_index_content.html&#10;information_content.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/information_content.js&#10;information&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/information_content.html&#10;book_review&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/book/book_review.html&#10;headImgCut.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/headImgCut.js&#10;headImgCut.html&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/user/headImgCut.html&#10;user_headImg_actionSheet&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_headImg_actionSheet.js&#10;forum.ht&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/club/forumadd.html&#10;club_con&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/club/club_content.html&#10;club_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/club/club_content.js&#10;Reading_circle&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/yueduquan/Reading_circle.js&#10;ook_introduce_add_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/book/book_introduce_add_content.js&#10;space_index&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/space_index.html&#10;space_room&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/space_room.html&#10;index_home.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/index_home.js&#10;pk_detail_content.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk/pk_detail_content.js&#10;pk_list_content.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk/pk_list_content.js&#10;sign_detail_content.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/sign_detail_content.js&#10;sign_detail_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/sign_detail_content.js&#10;forumadd.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/club/forumadd.js&#10;interaction_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/yueduquan/Interaction_content.html&#10;newslist_content.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/newslist_content.js&#10;book_read_feeling_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/book/book_read_feeling_content.js&#10;user_reward_list_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_reward_list_content.js&#10;newslist&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/newslist.js&#10;user_report_de&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/user/user_report_details_content.html&#10;user_repo&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_report_book_report_content.js&#10;user_report_details_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_report_details_content.js&#10;book_review.&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/book/book_review.js&#10;articl_&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/pk/article_rank.html&#10;article_rank.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/pk/article_rank.js&#10;user_report_book_list_content&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/user/user_report_book_list_content.js&#10;index_per&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/index_person.html&#10;essage_other_content.js&#9;FILE&#9;file://E:/AppCan/AppCanStudioPersonalV4.0/widgetapp/月芽学生-11528729/phone/js_server/message/message_other_content.js" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/phone/pk2" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\AppCan\AppCanStudioPersonalV4.0\widgetapp\月芽学生-11528729\phone\js_server\book" />
+      <recent name="E:\AppCan\AppCanStudioPersonalV4.0\widgetapp\月芽学生-11528729\phone\book" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\LY\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5cde3bf7-c473-41fc-a333-022a24b110bb" name="Default Changelist" comment="" />
+      <created>1548321561667</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548321561667</updated>
+      <workItem from="1548321563020" duration="958000" />
+      <workItem from="1548376816011" duration="17880000" />
+      <workItem from="1548407913778" duration="744000" />
+      <workItem from="1549937837836" duration="2478000" />
+      <workItem from="1550037676635" duration="444000" />
+      <workItem from="1550105236716" duration="9462000" />
+      <workItem from="1550218095285" duration="3869000" />
+      <workItem from="1550277678919" duration="606000" />
+      <workItem from="1550280885307" duration="1094000" />
+      <workItem from="1550451472122" duration="3967000" />
+      <workItem from="1551745680488" duration="2059000" />
+      <workItem from="1551775624673" duration="495000" />
+      <workItem from="1551831959616" duration="1111000" />
+      <workItem from="1551842903686" duration="156000" />
+      <workItem from="1552362542683" duration="1683000" />
+      <workItem from="1556596494522" duration="5836000" />
+      <workItem from="1557201058394" duration="1869000" />
+      <workItem from="1557791741660" duration="10090000" />
+      <workItem from="1557880406176" duration="1531000" />
+      <workItem from="1557967998882" duration="4640000" />
+      <workItem from="1558072802366" duration="1865000" />
+      <workItem from="1558312838622" duration="4394000" />
+      <workItem from="1558399558645" duration="2104000" />
+      <workItem from="1558420121997" duration="3246000" />
+      <workItem from="1558485693878" duration="6031000" />
+      <workItem from="1558572248818" duration="1128000" />
+      <workItem from="1558597589842" duration="4673000" />
+      <workItem from="1558658722432" duration="11896000" />
+      <workItem from="1558749238899" duration="1220000" />
+      <workItem from="1559013332257" duration="12376000" />
+      <workItem from="1559178308426" duration="3498000" />
+      <workItem from="1559264368094" duration="2758000" />
+      <workItem from="1559807313409" duration="635000" />
+      <workItem from="1560126296849" duration="1394000" />
+      <workItem from="1562208438301" duration="2289000" />
+      <workItem from="1562288635353" duration="4538000" />
+      <workItem from="1562374152006" duration="859000" />
+      <workItem from="1562546721708" duration="2809000" />
+      <workItem from="1562572938421" duration="1585000" />
+      <workItem from="1562632103593" duration="3663000" />
+      <workItem from="1562640999393" duration="6353000" />
+      <workItem from="1562717648131" duration="599000" />
+      <workItem from="1562738152500" duration="4974000" />
+      <workItem from="1562805201614" duration="11049000" />
+      <workItem from="1562892717331" duration="6982000" />
+      <workItem from="1562979879388" duration="4825000" />
+      <workItem from="1563154122177" duration="4975000" />
+      <workItem from="1563237625707" duration="8261000" />
+      <workItem from="1563323700709" duration="6914000" />
+      <workItem from="1563411547242" duration="9445000" />
+      <workItem from="1563496556746" duration="11919000" />
+      <workItem from="1563583480645" duration="1235000" />
+      <workItem from="1563760648428" duration="3218000" />
+      <workItem from="1563847653649" duration="6658000" />
+      <workItem from="1563928877789" duration="15043000" />
+      <workItem from="1564014888405" duration="13074000" />
+      <workItem from="1564104293971" duration="11249000" />
+      <workItem from="1564188342737" duration="4169000" />
+      <workItem from="1564362056512" duration="12256000" />
+      <workItem from="1564534345579" duration="11053000" />
+      <workItem from="1564622852539" duration="13417000" />
+      <workItem from="1564736383813" duration="1225000" />
+      <workItem from="1564795862161" duration="3051000" />
+      <workItem from="1564966247623" duration="8947000" />
+      <workItem from="1565051917951" duration="17559000" />
+      <workItem from="1565831783867" duration="2513000" />
+      <workItem from="1565835485860" duration="13000" />
+      <workItem from="1566438243518" duration="13739000" />
+      <workItem from="1566519968197" duration="8798000" />
+      <workItem from="1566793353658" duration="11500000" />
+      <workItem from="1566952868794" duration="4518000" />
+      <workItem from="1567038255305" duration="5853000" />
+      <workItem from="1567125104408" duration="8145000" />
+      <workItem from="1567156151248" duration="599000" />
+      <workItem from="1567211751484" duration="3233000" />
+      <workItem from="1567732450244" duration="3332000" />
+      <workItem from="1567816669715" duration="599000" />
+      <workItem from="1567996612964" duration="1198000" />
+      <workItem from="1568184618785" duration="1228000" />
+      <workItem from="1568253763393" duration="5440000" />
+      <workItem from="1569201893831" duration="15669000" />
+      <workItem from="1569379441389" duration="5691000" />
+      <workItem from="1569461962792" duration="8862000" />
+      <workItem from="1569548040685" duration="718000" />
+      <workItem from="1569741042027" duration="1050000" />
+      <workItem from="1569813725351" duration="5255000" />
+      <workItem from="1570517416276" duration="4476000" />
+      <workItem from="1570586304173" duration="8162000" />
+      <workItem from="1570670196026" duration="9032000" />
+      <workItem from="1570774741425" duration="6987000" />
+      <workItem from="1570851426035" duration="627000" />
+      <workItem from="1571012912129" duration="8767000" />
+      <workItem from="1571101573544" duration="2496000" />
+      <workItem from="1571197424505" duration="1889000" />
+      <workItem from="1571275720701" duration="7589000" />
+      <workItem from="1571367953372" duration="1545000" />
+      <workItem from="1571647057114" duration="599000" />
+      <workItem from="1571802414474" duration="7738000" />
+      <workItem from="1571882152730" duration="4781000" />
+      <workItem from="1571969312022" duration="12484000" />
+      <workItem from="1572226452052" duration="1902000" />
+      <workItem from="1572310301988" duration="3343000" />
+      <workItem from="1572406142883" duration="1784000" />
+      <workItem from="1573866869903" duration="23131000" />
+      <workItem from="1574474016855" duration="1534000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="559202000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12844759" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15753424" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/phone/js_server/book/book_index_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3995">
+          <caret line="235" column="25" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/yueduquan/Readcontents_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/book/book_default.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3179">
+          <caret line="187" column="14" selection-start-line="187" selection-start-column="14" selection-end-line="187" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/book/book_review_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1989">
+          <caret line="117" column="74" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/book/book_review_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2601">
+          <caret line="153" column="75" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/ranking/ranking_details_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2686">
+          <caret line="158" column="16" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/yueduquan/Read_index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3757">
+          <caret line="221" column="41" selection-start-line="221" selection-start-column="41" selection-end-line="221" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/yueduquan/share_index_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2465">
+          <caret line="145" column="43" selection-start-line="145" selection-start-column="43" selection-end-line="145" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/user/user_read_taskss_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="132" column="105" selection-start-line="132" selection-start-column="89" selection-end-line="132" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/user/user_read_taskss.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/wgtRes/pk/tab2_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/wgtRes/pk/tab1_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/wgtRes/pk/tab1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/index_home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="631" lean-forward="true" selection-start-line="631" selection-end-line="631" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="256" column="52" lean-forward="true" selection-start-line="256" selection-start-column="52" selection-end-line="256" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/sign_rank_today.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk/article_rank.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1716">
+          <caret line="200" column="86" selection-start-line="200" selection-start-column="86" selection-end-line="200" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk/pk_list_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="124" column="82" selection-start-line="124" selection-start-column="82" selection-end-line="124" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/index_person.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="225" column="4" selection-start-line="225" selection-start-column="4" selection-end-line="228" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk/pk_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1135">
+          <caret line="210" column="18" selection-start-line="210" selection-start-column="9" selection-end-line="210" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk/article_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk/pk_detail_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="126" column="15" selection-start-line="123" selection-start-column="12" selection-end-line="126" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/detail_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1043">
+          <caret line="235" column="91" selection-start-line="235" selection-start-column="91" selection-end-line="235" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_detail_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1043">
+          <caret line="152" column="91" selection-start-line="152" selection-start-column="91" selection-end-line="152" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1077">
+          <caret line="89" column="91" selection-start-line="89" selection-start-column="91" selection-end-line="89" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_list_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1077">
+          <caret line="97" column="87" selection-start-line="97" selection-start-column="87" selection-end-line="97" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_submit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="91" selection-start-line="41" selection-start-column="91" selection-end-line="41" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_submit_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="119" column="22" lean-forward="true" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_share.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1077">
+          <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk/article_mylist_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/article_mylist_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/article_list_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_detail_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1084">
+          <caret line="191" column="87" selection-start-line="191" selection-start-column="87" selection-end-line="191" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1101">
+          <caret line="194" column="91" selection-start-line="194" selection-start-column="91" selection-end-line="194" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_list_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1060">
+          <caret line="169" column="33" selection-start-line="169" selection-start-column="33" selection-end-line="169" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_mylist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1101">
+          <caret line="186" column="91" selection-start-line="186" selection-start-column="91" selection-end-line="186" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_mylist_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1060">
+          <caret line="169" column="67" selection-start-line="169" selection-start-column="67" selection-end-line="169" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/pk_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_rank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="141" column="96" selection-start-line="141" selection-start-column="84" selection-end-line="141" selection-end-column="96" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/article_rank.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3434">
+          <caret line="202" column="13" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/pk2/article_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="106" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/article_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" selection-start-line="82" selection-end-line="86" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/index_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11526">
+          <caret line="678" column="101" selection-start-line="678" selection-start-column="101" selection-end-line="678" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/css/pk.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3315">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/pk_detail_content.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js_server/pk2/pk_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="84" column="91" lean-forward="true" selection-start-line="84" selection-start-column="91" selection-end-line="84" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/xampp/htdocs/catalog3/js/yueya_login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="106" column="7" lean-forward="true" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

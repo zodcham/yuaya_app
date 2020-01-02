@@ -1,0 +1,308 @@
+.tabs ul {
+    position: relative;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1200px;
+    list-style: none;
+    -ms-box-orient: horizontal;
+    -ms-box-pack: center;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+}
+.tabs ul li {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0;
+    text-align: center;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.tabs ul li a {
+    overflow: visible;
+    padding: 2em 0;
+    line-height: 1;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+.tabs a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 2.5;
+}
+.tab-active{
+    color:#5fc46f;
+}
+.tab-active .text {
+    border:1px solid #9ee09e;
+}
+a {
+    color: #2CC185;
+    text-decoration: none;
+    outline: none;
+}
+.tabMySign{
+    width:2em;
+    height:2em;
+    background: url(../cssjs/push_share/css/myImg/articlewrite.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.articledetail{
+    width:2em;
+    height:2em;
+    background: url(../cssjs/push_share/css/myImg/articledetail.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.tabSignRank{
+    width:2em;
+    height:2em;
+    background: url(../cssjs/push_share/css/myImg/articlelist.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tabWeixin{
+    width:2em;
+    height:2em;
+    background: url(../cssjs/push_share/css/myImg/wx.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tabWeixinquan{
+    width:2em;
+    height:2em;
+    background: url(../cssjs/push_share/css/myImg/wxq.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabHome
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/ico_shouye@2x_r23_c5.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabMall
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/ico_shouye@2x_r23_c14.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabMe
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/ico_shouye@2x_r22_c24.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+/*阅读圈图标添加*/
+.tabreading{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/icon-95.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabreading
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/icon-710.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+/*排行图标添加*/
+.tabpaihang{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/ico_jibenqingkuang@2x_03-788.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.tab-active .tabpaihang
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/ico_jibenqingkuang@2x_03-088.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.tabToday{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/sign_t1.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabToday
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/sign_t1_active.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.tabMonth{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/sign_t2.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabMonth
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/sign_t2_active.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.tabAll{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/sign_t3.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tab-active .tabAll
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(image1/sign_t3_active.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.sign_userimg{
+    width: 5em;
+    height:5em;
+    border-radius: 2.5em;
+    border-width: 0;
+}
+.sign_rank_text{
+
+}
+.top3text{
+    font-size: 2em;
+}
+
+
+.tab-active_tabDetail
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a1.png) 0 0 no-repeat !important;
+    background-size: 100%;
+}
+.tab-active_tabList
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a2.png) 0 0 no-repeat !important;
+    background-size: 100%;
+}
+.tab-active_tabRank
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a4.png) 0 0 no-repeat !important;
+    background-size: 100%;
+}
+.tab-active_tabMy
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a5.png) 0 0 no-repeat !important;
+    background-size: 100%;
+}
+.tab-active_tabShare
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/b5.png) 0 0 no-repeat !important;
+    background-size: 100%;
+}
+
+
+
+.tabDetail
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a1_grey.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tabList
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a2_grey.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tabRank
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a4_grey.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tabMy
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/a5_grey.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.tabShare
+{
+    width:1.5em;
+    height:1.5em;
+    background: url(../wgtRes/pk/b4_grey.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.tabText{
+    color:#0f9e60;
+    border:1px solid #0f9e60;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

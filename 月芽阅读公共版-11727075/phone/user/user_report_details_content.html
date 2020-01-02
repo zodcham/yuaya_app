@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .pie-legend .label{
+                font-size: 0.8em;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart style="background: url(../images/report/bg.png); font-size:36px;" >
+        <div id="main" class="ub ub-fh ub-fv ub-ver" style="width:1040px;margin:0 auto;">
+            <div class="ub ub-f1 ub-ver">
+                <div class="ub ub-fh ub-ver">
+                    
+                     <div class="ub ub-fh umar-t umar-b">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub" style="background: url(../css/image1/ico_yuedunengli@2x_r4_c2.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l">从小学语文课程标准维度分析</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh">
+                        <div class="ub ub-f1 uinn">
+                            <div id="courseStandard" class="ub ub-f1 ub-ac ub-pc charts "></div>
+                        </div>
+                     </div>
+                </div>
+                
+                <div class="ub ub-fh ub-ver">
+                     <div class="ub ub-fh umar-t umar-b">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub " style="background: url(../css/image1/ico_yuedunengli@2x_r4_c6.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l">从儿童文学鉴赏维度分析</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh bc-white">
+                        <div class="ub ub-f1 uinn">
+                            <div id="literatureAppreciate" class="ub ub-f1 ub-ac ub-pc charts "></div>
+                        </div>
+                     </div>
+                </div>
+                
+                <div class="ub ub-fh ub-ver">
+                     <div class="ub ub-fh umar-t umar-b">
+                         <div class="ub ub-f1 uinn ub-ac">
+                             <div class="ub " style="background: url(../css/image1/ico_yuedunengli@2x_r5_c8.png) no-repeat;background-size: 100% 100%;width:1.5em;height:1.5em"></div>
+                             <div class="ub umar-l">从儿童阅读认知心理学维度分析</div>
+                         </div>
+                     </div>
+                     <div class="ub ub-fh bc-white">
+                        <div class="ub ub-f1 uinn">
+                            <div id="cognizeFeel" class="ub ub-f1 ub-ac ub-pc charts "></div>
+                        </div>
+                     </div>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+       if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/user/user_report_details_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+            document.write('<script src="../js_server/user/user_report_details_content.js"><\/script>');
+        }
+</script>
+</html>

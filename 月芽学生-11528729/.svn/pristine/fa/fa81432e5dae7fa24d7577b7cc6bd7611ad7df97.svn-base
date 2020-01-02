@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .click2:active {
+                background: #F16412;
+            }
+            .ico_wrong {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/ioc_cepingjilu@2x_r5_c9.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_ok {
+                width: 1em;
+                height: 1em;
+                background: url(../css/image1/ioc_cepingjilu@2x_r5_c7.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" style="padding-bottom: 0.1em" ontouchstart>
+        <div id="reviewList" class="ub ub-fh ub-fv ub-ver"></div>
+
+        <div id="item" class="item uhide ub ub-fh ub-ver click bc-white bc-border ubb ubt umar-t">
+            <div class="ub ub-f1 uinn">
+                <div class="ub umar-r ub-ac ub-pc bc-border uba" style="width:5em;height:6em;border-radius: 0.2em">
+                    <div class="ub ub-ac ub-pc umar-r" style="width:3.7em;height:5.2em">
+                        <img class="ub ub-fh ub-fv ub-f1 bookImage" src="../css/icons/noImg.png" >
+                        <div class="bookBox uhide"></div>
+                    </div>
+                </div>
+                <div class="ub ub-f1 ub-fh ub-ver umar-l">
+                    <div class="ub ub-fh txt-ellipsis name"></div>
+                    <div class="ub ub-fh umar-t sc-text ub-ac">
+                        <div class="ub umar-r ub-ac uhide isOk"  style="color:#5dc46e">
+                            <div class="ub umar-r ub-ac ub-pc" style="width:4em;height:1.5em;border-radius: 0.5em">
+                                <div class="ub ico_ok umar-r"></div>
+                                <div class="ub">
+                                    通过
+                                </div>
+                            </div>
+                            <div class="ub score sc-text-green"></div>
+                        </div>
+                        <div class="ub umar-r ub-ac uhide isWrong" style="color:#fa522b">
+                            <div class="ub umar-r ub-ac ub-pc uhide isWrong" style="width:5em;height:1.5em;border-radius: 0.5em">
+                                <div class="ub ico_wrong umar-r"></div>
+                                <div class="ub" >
+                                    未通过
+                                </div>
+                            </div>
+                            <div class="ub score sc-text-red"></div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh ub-ac umar-t ulev0 sc-text date"></div>
+                    <div class="ub ub-fh umar-t">
+                        <div class="ub ub-ac ub-pc bc-head bc-text-head ub-f1 btnReview click2" style="height:2em;border-radius: 0.5em">
+                            我要测评
+                        </div>
+                        <div class="ub ub-ac ub-pc sc-bc-orange bc-text-head ub-f1 btnIntroduce click2" style="margin:0em 0.2em;height:2em;border-radius: 0.5em">
+                            写读后感
+                        </div>
+                    </div>
+                    <div class="ub ub-fh umar-t sc-text uhide">
+                        <div class="ub">
+                            正确率
+                        </div>
+                        <div class="ub accuracy"></div>
+                    </div>
+                    <div class="ub ub-fh umar-t umar-b uhide">
+                        <div class="ub ub-f1" style="height: 1em;background: rgba(0,0,0,0.1);border:0px solid #BABABA;border-radius: 1em">
+                            <div class="ub ub-f1" style="position: relative">
+                                <div class="ub rate" style="width:0%;border-radius: 1em"></div>
+                                <div class="ub ub-f1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/book/book_review_history_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

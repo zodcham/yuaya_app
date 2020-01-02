@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style type="text/CSS">
+             input[type='radio'] + .fa:before{
+                 content:'';
+             }
+             input[type='radio']:checked + .fa:before{
+                 content:'\e616';
+             }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+       <div id="main" class="ub ub-ver ub-fh ub-fv ub-f1" >
+          <div class="ub ub-ver ub-f1">
+            <div class="ub bc-border uba umar-t umar-l umar-r" style="height:2em;border-radius: 2em">                
+                <div class="fa icon-search fa-lg fa-btn sc-text"></div>
+                <input id="txtSearch" type="text" class="ub ub-f1 uinn ulev0 ub-ac" style="background: rgba(0,0,0,0);border:0px solid white;padding:0.5em 0.5em;" />
+            </div>
+            
+            <div id="orderBy" class="item ub ub-fh bc-border ubb umar-t ubt bc-white click" style="padding: 0.3em 0">
+                <div class="ub ub-ac ub-pc umar-l">排序方式</div>
+                <div class="ub-f1"></div>
+                <div class="ub ub-ac ub-pc value sc-text-active">默认</div>
+                <div class="ub ub-ac ub-pc">
+                    <div class="fa icon-angle-right fa-lg fa-w"></div>
+                </div>
+            </div>
+            
+            <div class="ub ub-ver ub-fh umar-t bc-white">
+                <div id="book_category" class="item ub ub-fh bc-border ubt ubb click" style="padding: 0.3em 0">
+                    <div class="ub ub-ac ub-pc umar-l">分类</div>
+                    <div class="ub-f1"></div>
+                    <div class="ub ub-ac ub-pc value sc-text-active">全部</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-lg fa-w"></div>
+                    </div>
+                </div>
+                <div id="grade" class="item ub ub-fh bc-border ubb click" style="padding: 0.3em 0">
+                    <div class="ub ub-ac ub-pc umar-l">年级</div>
+                    <div class="ub-f1"></div>
+                    <div class="ub ub-ac ub-pc value sc-text-active">全部</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-lg fa-w"></div>
+                    </div>
+                </div>
+                <div id="scoreSeg" class="item ub ub-fh bc-border ubb click" style="padding: 0.3em 0">
+                    <div class="ub ub-ac ub-pc umar-l">积分</div>
+                    <div class="ub-f1"></div>
+                    <div class="ub ub-ac ub-pc value sc-text-active">全部</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-lg fa-w"></div>
+                    </div>
+                </div>
+                <div id="language" class="item ub ub-fh bc-border ubb click" style="padding: 0.3em 0">
+                    <div class="ub ub-ac ub-pc umar-l">语言</div>
+                    <div class="ub-f1"></div>
+                    <div class="ub ub-ac ub-pc value sc-text-active">全部</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-lg fa-w"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh umar-t" style="margin-top: 2em">
+                <div class="ub ub-f1 uinn">
+                    <div id="btnSearch" class="ub ub-fh ub-ac ub-pc bc-btn bc-text-head" style="height:2.8em;border-radius: 2.8em">搜&nbsp;索</div>
+                </div>
+            </div>
+            <div class="ub ub-fh umar-t" style="margin-top: 1em">
+                <div class="ub ub-f1 uinn ub-ac ub-pc sc-text">
+                    <div id="btnDefault" class="ub ub-ac ub-pc">恢复默认</div>
+                </div>
+            </div>
+            <div class="ub-f1"></div>
+        </div>
+       </div>
+       <div id="listItem" class="ub ub-fv ub-fh uhide" style="background:rgba(0,0,0,0.5);position: absolute;top:0;right:0;z-index: 100">
+           <div class="ub-f1" id="closeItem"></div>
+           <div for="orderBy" class="listBox orderBy ub bc-white ub-ver uhide" style="width:0px;overflow-y: auto;padding-bottom: 1em"></div>
+           <div for="grade" class="listBox grade ub bc-white ub-ver uhide" style="width:0px;overflow-y: auto;padding-bottom: 1em"></div>
+           <div for="book_category" class="listBox book_category ub bc-white ub-ver uhide" style="width:0px;overflow-y:auto;padding-bottom: 1em"></div>
+           <div for="language" class="listBox language ub bc-white ub-ver uhide" style="width:0px;overflow-y: auto;padding-bottom: 1em"></div>
+           <div for="scoreSeg" class="listBox scoreSeg ub bc-white ub-ver uhide" style="width:0px;overflow-y: auto;padding-bottom: 1em"></div>
+           <div id="boxItem" class="boxItem ub ub-fh uhide click bc-border ubb">
+               <div class="ub ub-f1" style="padding: 0.8em">
+                   <input type="radio" class="uhide" />
+                   <div class="fa fa-w sc-text-green"></div>
+                   <div class="ub-f1"></div>
+                   <div class="ub ub-pc ub-ac text"></div>
+               </div>
+           </div>
+       </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/entity.js"></script>
+    </body>
+    <script>
+        var listItemWidth=0;
+        var dicList={"orderBy":[],"grade":[],"book_category":[],"language":[],"scoreSeg":[]};
+        var operateDivId="";
+        appcan.ready(function() {
+            getCommInfo();
+            if(commInfo.mallSearch.key){
+                $("#txtSearch").val(commInfo.mallSearch.key.value);
+            }
+            listItemWidth=$("#main").width();
+            loadSort();
+             $(".item").on("click",function(){
+                 operateDivId=$(this).attr("id");
+                $("#listItem .listBox").addClass("uhide").css("width","0px");
+                $("#listItem ."+operateDivId).removeClass("uhide");
+                $("#listItem").removeClass("uhide")
+                $("#listItem ."+operateDivId).animate({'width':(listItemWidth*0.7)+'px'},200);
+             });
+        });
+        function loadDic(){
+            $.each(dicList,function(n,obj){
+                if(!obj||obj.length==0){
+                    loadData(n);
+                    return false;
+                }
+            });
+        }
+        function loadSort(){
+            var list=[];
+            list.push({'id':name+'_all','value':'','label':'默认'});
+            list.push({'id':name+'_evaluate_score','value':'evaluate_score','label':'评分'});
+            list.push({'id':name+'_fav_times','value':'fav_times','label':'收藏'});
+            list.push({'id':name+'_recommend_times','value':'recommend_times','label':'推荐'});
+            list.push({'id':name+'_score','value':'score','label':'积分'});
+            createItem(list,"orderBy");
+        }
+        function loadData(name){
+          var params={ "type": name};
+            common.ajax("/dict/getDictList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                //id remarks value label description sort parentId
+                data.obj.splice(0,0,{'id':name+'_all','value':'','label':'全部'});
+                createItem(data.obj,name);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+        }
+        function createItem(list,name){
+            var checkedValue=commInfo.mallSearch[name];
+            for(var i=0;i<list.length;i++){
+                var obj=list[i];
+                var objItem=$("#boxItem").clone();
+                objItem.find("input").attr("name",name);
+                if(i==0){
+                    objItem.addClass("ubt");
+                    objItem.find("input").attr("checked",true);
+                    $("#"+name).find(".value").html(obj.label);
+                    $("#"+name).attr("value",obj.value);
+                }
+                if(checkedValue&&obj.value==checkedValue.value){
+                    objItem.find("input").attr("checked",true);
+                    $("#"+name).find(".value").html(obj.label);
+                    $("#"+name).attr("value",obj.value);
+                }
+                objItem.removeClass("uhide");
+                objItem.attr("id",obj.id);
+                objItem.attr("value",obj.value);
+                objItem.find(".text").html(obj.label);
+                objItem.on("tap",function(){
+                    $(this).find("input").attr("checked",true);
+                    var forId=$(this).parents(".listBox").attr("for");
+                    $("#"+forId).find(".value").html($(this).find(".text").html());
+                    $("#"+forId).attr("value",$(this).attr("value"));
+                    
+                    $(this).parents(".listBox").animate({'width':'0px'},200);
+                    setTimeout(function(){
+                        $("#listItem").addClass("uhide");
+                    },200);
+            
+                });
+                $("#listItem").find("."+name).append(objItem);
+            }
+            dicList[name]=list;
+            loadDic();
+        }
+        function exit(){
+           if($("#listItem").hasClass("uhide")){
+                uexWindow.evaluateScript("",0,"close()");
+           }else{
+               $("#listItem ."+operateDivId).animate({'width':'0px'},200);
+                setTimeout(function(){
+                    $("#listItem").addClass("uhide");
+                },200);
+           }
+        }
+        
+        appcan.button("#closeItem", "btn-act", function() {
+            exit();
+        })
+        
+        appcan.button("#btnSearch", "btn-act", function() {
+            var txtSearch=$("#txtSearch").val();
+            var searchObj={};
+            searchObj.key={"value":txtSearch,"text":txtSearch};
+            $.each(dicList,function(n,obj){
+                
+                searchObj[n]={"value":$("#"+n).attr("value"),"text":$("#"+n).find(".value").html()};
+            });
+            commInfo.mallSearch=searchObj;
+            setCommInfo();
+            uexWindow.evaluateMultiPopoverScript("index", "content", "mall", "search()");
+            uexWindow.evaluateScript("",0,"close()");
+        })
+        
+        appcan.button("#btnDefault", "btn-act", function() {
+            $("#txtSearch").val("");
+            $.each(dicList,function(n,obj){
+                $("#"+n).find(".value").html(obj[0].label);
+                $("#"+n).attr("value",obj[0].value);
+            });
+        });
+        
+    </script>
+</html>

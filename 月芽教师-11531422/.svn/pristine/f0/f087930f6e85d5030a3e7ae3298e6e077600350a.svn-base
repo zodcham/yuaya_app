@@ -1,0 +1,46 @@
+appcan.ready(function() {
+    getUserInfo();
+});
+
+appcan.button("#nav-right", "btn-act", function() {
+    var oldPwd = $("#oldPwd").val();
+    var newPwd = $("#newPwd").val();
+    var newPwd2 = $("#newPwd2").val();
+    if (oldPwd.length == 0) {
+        toast("请输入旧密码~", config.toastTimeShort);
+        return;
+    }
+    if (newPwd.length == 0) {
+        toast("请输入新密码~", config.toastTimeShort);
+        return;
+    }
+    if (newPwd != newPwd2) {
+        toast("两次密码不一致~", config.toastTimeShort);
+        return;
+    }
+
+    var params = {
+        'userId' : userInfo.id,
+        'oldPassword' : oldPwd,
+        "newPassword" : newPwd
+    };
+    common.ajax("/teacher/changePassword", {
+        params : JSON.stringify(params)
+    }, function(data) {
+        toast("密码已修改，请重新登录~", config.toastTimeShort);
+        setTimeout(function() {
+            clearCommInfo();
+            getDefaultUserInfo();
+            setUserInfo(false);
+            appcan.window.open("login", "login.html", 10);
+        }, config.toastTimeShort - 500);
+    }, function(data) {
+        toast(getMsgByKey(data.msg), config.toastTimeShort);
+    }, {
+        type : 'POST'
+    });
+})
+
+appcan.button("#nav-left", "btn-act", function() {
+    appcan.window.close(-1);
+})

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+             .click2:active {
+                 background: #F16412;
+             }
+            .ico_wrong {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ioc_cepingjilu@2x_r5_c9.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_ok {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ioc_cepingjilu@2x_r5_c7.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" style="padding-bottom: 0.1em" ontouchstart>
+        <div id="reviewList" class="ub ub-fh ub-fv ub-ver"></div>
+        
+        
+        <div id="item" class="item uhide ub ub-fh ub-ver click bc-white bc-border ubb ubt umar-t">
+            <div class="ub ub-f1 uinn">
+                <div class="ub umar-r ub-ac ub-pc bc-border uba" style="width:5em;height:6em;border-radius: 0.2em">
+                    <div class="ub ub-ac ub-pc umar-r" style="width:3.7em;height:5.2em">
+                        <img class="ub ub-fh ub-fv ub-f1 bookImage" src="../css/icons/noImg.png" >
+                            <div class="bookBox uhide"></div>
+                    </div>
+                </div>
+                <div class="ub ub-f1 ub-fh ub-ver umar-l">
+                    <div class="ub ub-fh txt-ellipsis name"></div>
+                    <div class="ub ub-fh umar-t sc-text ub-ac">
+                        <div class="ub umar-r ub-ac uhide isOk"  style="color:#5dc46e">
+                            <div class="ub umar-r ub-ac ub-pc" style="width:4em;height:1.5em;border-radius: 0.5em">
+                                <div class="ub ico_ok umar-r"></div>
+                                <div class="ub">通过 </div>
+                            </div>
+                            <div class="ub score sc-text-green"></div>
+                        </div>
+                        <div class="ub umar-r ub-ac uhide isWrong" style="color:#fa522b">
+                            <div class="ub umar-r ub-ac ub-pc uhide isWrong" style="width:5em;height:1.5em;border-radius: 0.5em">
+                                <div class="ub ico_wrong umar-r"></div>
+                                <div class="ub" >未通过 </div>
+                            </div>
+                            <div class="ub score sc-text-red"></div>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh ub-ac umar-t ulev0 sc-text date"></div>
+                    <div class="ub ub-fh umar-t">
+                         <div class="ub ub-ac ub-pc bc-head bc-text-head ub-f1 btnReview click2" style="height:2em;border-radius: 0.5em">我要测评</div>
+                         <div class="ub ub-ac ub-pc sc-bc-orange bc-text-head ub-f1 btnIntroduce click2" style="margin:0em 0.2em;height:2em;border-radius: 0.5em">写读后感</div>
+                    </div>
+                    <div class="ub ub-fh umar-t sc-text uhide">
+                        <div class="ub">正确率</div>
+                        <div class="ub accuracy"></div>
+                    </div>
+                    <div class="ub ub-fh umar-t umar-b uhide">
+                        <div class="ub ub-f1" style="height: 1em;background: rgba(0,0,0,0.1);border:0px solid #BABABA;border-radius: 1em">
+                            <div class="ub ub-f1" style="position: relative">
+                                <div class="ub rate" style="width:0%;border-radius: 1em"></div>
+                                <div class="ub ub-f1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var yearFlag;
+        var pageIndex=1;
+        var reloadDate="";
+        var loadDate="";
+        var reloadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期1","pullToReloadText":"拖动刷新","releaseToReloadText":"释放刷新","loadingText":"刷新中，请稍等"};
+        var loadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期2","pullToReloadText":"拖动加载","releaseToReloadText":"释放加载","loadingText":"加载中，请稍等"};
+        
+        appcan.ready(function() {
+            getUserInfo();
+            getBookInfo();
+            loadData();
+            uexWindow.setBounce(1);
+            uexWindow.notifyBounceEvent(0,1);
+            uexWindow.notifyBounceEvent(1,1);
+            uexWindow.showBounceView("0","rgba(0, 0, 0, 0)", 1);
+            uexWindow.showBounceView("1","rgba(0, 0, 0, 0)", 1);
+            uexWindow.onBounceStateChange = function(type, state){
+                var time1 = new Date().format("MM-dd HH:mm:ss");   
+                switch(type) {
+                    case 0:
+                        if (state == 2) {
+                             refreshData();
+                        }
+                        break;
+                    case 1:
+                        if (state == 2) {
+                            loadJson.levelText="上次加载："+time1;
+                            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+                            pageIndex++;
+                           loadData();
+                         }
+                     break;
+                }
+            };
+            var time1 = new Date().format("MM-dd HH:mm:ss");   
+            reloadJson.levelText="上次刷新："+time1;
+            loadJson.levelText="上次加载："+time1;
+            uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+        });
+        
+       function refreshData(){
+            var time1 = new Date().format("MM-dd HH:mm:ss");   
+            reloadJson.levelText="上次刷新："+time1;
+             uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+             $("#reviewList .item").remove();
+             pageIndex=1;
+            loadData();
+       }
+       
+       function loadData(){
+           //{userId: '学生Id', bookId: '图书Id', isPass: '1', pageSize:'20', pageIndex:'1'}
+            var params={'userId':userInfo.id,pageSize:'20', pageIndex:pageIndex};
+            common.ajax("/exercise/getExerciseList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if(pageIndex==1&&data.obj.count==0){
+                    myPrompt.show("暂无测评记录~","#reviewList");
+                }else{
+                     myPrompt.hide();
+                    var list=data.obj.list;
+                    if(list){
+                        /*
+                                * id: 测评id,
+                                bookId:图书ID
+                                book.name:图书名称
+                                book.image:图书图片
+                                book.author:图书作者
+                                book.wordCount:图书字数
+                                isPass:是否通过（1=通过、2=通过）
+                                createDate:测评时间
+                                exerciseTimest:测评次数
+                                firstPassTimes:首次通过在第几次
+                                quantity:总题目数量
+                                rightQuantity:正确题目数量
+                                accuracy:正确率
+                         */
+                        
+                        for(var i = 0 ; i < list.length ; i ++){
+                            var obj=list[i];
+                            var objItem=$("#item").clone();
+                            objItem.removeClass("uhide");
+                            objItem.attr("id",obj.id).attr("bookId",obj.bookId);
+                            
+                            if(obj.book.image&&obj.book.image.length>0){
+                                objItem.find("img").attr("src",_SERVER_ADDRESS+obj.book.image);
+                            }
+                            objItem.find(".name").html("《"+obj.bookName+"》");
+                            var finishValue = Math.ceil(obj.accuracy * 100);
+                            objItem.find(".score").html("("+finishValue+"分)");
+                            objItem.find(".accuracy").html(finishValue+"%");
+                            
+                            objItem.find(".rate").css("width",finishValue+"%");
+                            if(obj.isPass=="1")
+                            {
+                                objItem.find(".rate").addClass("sc-bc-green");
+                                objItem.find(".isOk").removeClass("uhide");
+                                objItem.find(".btnReview").html("再次测评");
+                                
+                            }
+                            else{
+                                objItem.find(".rate").addClass("sc-bc-blue2");
+                                objItem.find(".isWrong").removeClass("uhide")
+                            }
+                           
+                            objItem.find(".date").html(getformatDate(obj.exerciseDate,"yyyy-MM-dd HH:mm"));
+                            objItem.on("click",function(){
+                                var id=$(this).attr("bookId");
+                                getBookInfoById(userInfo.id,id,function(data){  
+                                        getBookInfo();
+                                        bookInfo=data;
+                                        setBookInfo();
+                                        appcan.window.open("bookIndex","../book/book_index.html",5);
+                                },null);
+                            });
+                             objItem.find(".click2").on("touchstart",function(){
+                                  $(this).parents(".item").removeClass("click");
+                             }).on("touchend",function(){
+                                   setTimeout(function(){
+                                        $(this).parents(".item").addClass("click");
+                                   },500);
+                             }).on("touchcancel",function(){
+                                  setTimeout(function(){
+                                        $(this).parents(".item").addClass("click");
+                                   },500);
+                             });
+                               
+                            $("#reviewList").append(objItem);
+                        }
+                        
+                       $(".btnReview").on("click",function(){
+                         var id=$(this).parents(".item").attr("bookId");
+                        getBookInfoById(userInfo.id,id,function(data){  
+                            getBookInfo();
+                            bookInfo=data;
+                            setBookInfo();
+                            appcan.window.open("book_review","../book/book_review.html",5);
+                        },null);
+                    });
+                    $(".btnIntroduce").on("click",function(){
+                         var id=$(this).parents(".item").attr("bookId");
+                        getBookInfoById(userInfo.id,id,function(data){  
+                            getBookInfo();
+                            bookInfo=data;
+                            setBookInfo();
+                            appcan.window.open("book_introduce_add","../book/book_introduce_add.html",5);
+                        },null);
+                    });
+            
+                    }else{
+                        pageIndex--;
+                        toast("没有更多记录了~",config.toastTimeShort);
+                    }
+                }
+            },function(data){
+                if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+                if(pageIndex>1){
+                    pageIndex--;
+                }
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+       }
+    </script>
+</html>

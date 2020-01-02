@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/swiper.min.css" />
+        <style>
+
+            
+             .header{
+                background-color: #fff;
+            }
+            .header .listchild{
+                border-bottom: 1px solid #ddd; height:6em;
+            }
+            .header .div_img{
+                width:5em;text-align: center;margin-left:0.5em;
+            }
+            .header .div_img .forumimg{
+                width:4em;
+                height:4em;
+                border-radius: 0.5em;
+            }
+            .header .title{
+                font-size: 1em;height:1.5em;
+            }
+            .header .threads{
+                color:#999; font-size:0.8em;
+            }
+            .usericon{
+                width:2.5em;
+                height:2.5em;
+                border-radius: 0.5em;
+            }
+            .contentimg{
+                width:6em;
+                height:6em;
+                margin-right:0.5em;
+                margin-top:0.5em;
+            }
+            
+        </style>
+
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div  id="content"  class="ub ub-ver">
+            <div class="ub ub-ver header">
+                <div class="ub ub-ac listchild">
+                    <div class="div_img"><img src="http://192.168.0.134/bbs/data/attachment/common/c8/common_2_icon.jpg" class="forumimg" id="forumicon">
+                    </div>
+                    <div class="ub ub-ver">
+                        <div class="title" id="forumtitle">
+                            
+                        </div>
+                        <div class="threads">
+                            <span id="forummember">0</span>成员<span id="forumthreads" style="margin-left:1em">0</span>话题<span style="margin-left:1em" id="forumposts">0</span>帖子
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ub ub-ver umar-t header uhide ">
+                <div class="ub ub-ac" style="border-bottom:0.1em #f2f2f2 solid;width:95%;margin:0 auto;">
+                    <div  class="ub ub-ac" style="width:2.5em;text-align: center;height:2.5em; margin-left:0.5em;">
+                        <div style="border:0.1em solid #00848E; height:1.4em; width:2.5em;font-size:0.6em;border-radius: 0.2em;">置顶</div>
+                     </div>
+                    <div style="font-size:0.9em">小组公告</div>
+                </div>
+                <div class="ub ub-ac" style="border-bottom:0.1em #f2f2f2 solid;width:95%;margin:0 auto;">
+                    <div  class="ub ub-ac" style="width:2.5em;text-align: center;height:2.5em; margin-left:0.5em;">
+                        <div style="border:0.1em solid #00848E; height:1.4em; width:2.5em;font-size:0.6em;border-radius: 0.2em;">置顶</div>
+                     </div>
+                    <div style="font-size:0.9em">小组规则</div>
+                </div>
+                
+            </div>
+            
+            <div class="ub ub-ver umar-t  " id="newlist">
+                
+            </div>
+            
+            <div id="list_div" class="uhide ">
+                <div class="ub ub-ver uinn umar-t" style="background-color: #fff;" onclick="open_threads(|id|)">
+                <div class="ub ub-ac" style="width:95%;margin:0.5em auto;">
+                    <div  class="ub ub-ac" style="width:2.5em;text-align: left;height:3em;">
+                        <img src="|usericon|" class="usericon">
+                     </div>
+                    <div style="font-size:0.8em; color:#999; width:5em; text-align: left; margin-left:1em;" class="ub ub-ver">
+                        <div style="height:1.8em;">|username|</div>
+                        <div style="font-size:0.9em">|lasttime|</div>
+                    </div>
+                    <div style="width:4em;float: right;font-size: 0.8em; color:#999;" class="ub ub-pe ub-f1">
+                        <i class="fa fa-weixin" aria-hidden="true"></i> |replies|
+                    </div>
+                </div>
+                <div class="ub ub-ver uinn" style="width:95%;margin:0 auto;">
+                    <p id="threads_title">|title|</p>
+                    <p  id="threads_content" >|content|</p>
+                    <p>
+                        |imglist|
+                    </p>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!-- <script src="http://www.readseed.cn/nocache/js_teacher/club/forum_content.js"></script> -->
+    <script src="http://www.readseed.cn/nocache/js_teacher/club/forum_content.js?a"></script>
+   <script>
+        
+
+    </script>
+</html>

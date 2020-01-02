@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/font_awesome4.7/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .icon{
+                width:1.5em;
+                height:1.5em;
+            }
+            .unread
+            {
+                background: url(../css/icons/toolbar_unread.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .read
+            {
+                background: url(../css/icons/toolbar_read.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .tab-active .unread
+            {
+                background: url(../css/icons/toolbar_unread_act.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .tab-active .read
+            {
+                background: url(../css/icons/toolbar_read_act.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .foot1_a,.foot2_a{
+                background: url(../images/bookshelf/footer_menu2.png) no-repeat;
+                width:182px;
+                height:138px;
+            }
+            .foot1,.foot2{
+                background: url(../images/bookshelf/footer_menu1.png) no-repeat;
+                width:182px;
+                height:138px;
+            }
+            .foot1,.foot1_a{
+                background-position: 0px 0px;
+            }
+            .foot2,.foot2_a{
+                background-position: -286px 0px;
+            }
+
+        </style>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head" style="background: url(../images/bookshelf/header.jpg) no-repeat;background-size: 100% 100%; height:382px;" >
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa fa-angle-left fa-w fa-2x" style="font-size:72px;font-weight: bolder;"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0" style="height:381px;line-height: 381px;"><img src="../images/bookshelf/header_bookshelf.png"></h1>
+                <div class="nav-btn nav-bt" id="nav-right">
+                    <i class="fa fa-question-circle-o" aria-hidden="true" style="font-size:72px;margin-right:20px;"></i>
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+            </div>
+            <!--content结束-->
+            <div id="footer" class="ubt bc-border ub bc-white text-color" style="background: url(../images/bookshelf/footer.png) no-repeat;background-size: 100% 100%; height:207px;">
+                    <div class="tabs ub ub-ac ub-fh ub-pc ub-f1" style="padding: 0.5em 0 0.2em 0" >
+                        <div class="ub  ub-f1 " style="width:300px;"></div>
+                        <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem f1 foot1_a" id="teacherList">
+                            <div class="ub ub-ac ub-pc"><div class="icon unread uhide"></div></div>
+                            <div class="ub ub-ac ub-pc umar-t fa-0x8 text " ></div>
+                        </div>
+                        <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem f2 foot2" id="myList">
+                            <div class="ub ub-ac ub-pc"><div class="icon read uhide"></div></div>
+                            <div class="ub ub-ac ub-pc umar-t fa-0x8 text "></div>
+                        </div>
+                        <div class="ub  ub-f1 " style="width:85px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="../js_server/user/user_book_list.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="book_review_historys_content/css/main.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div class="ub ub-hor ub-f1 ulev-1 uinn ub-ac bc-border ubb sc-bg-active" style="position: fixed;z-index: 999;width: 100%">
+            <div class="ub-f1 ub-con ub-ac ub-pc ub">
+                序号
+            </div>
+
+            <div class="ub-f1 ub-con ub-ac ub-pc ub">
+                图书详情
+            </div>
+
+            <div class="ub-f1 ub-con ub-ac ub-pc ub">
+                正确率
+            </div>
+
+            <div class="ub-f1 ub-con ub-ac ub-pc ub">
+                测试时间
+            </div>
+        </div>
+
+        <div id="reviewList" style="top:2.1em;"></div>
+
+        <div id="item" class="item ub uhide ub-hor ub-f1 ulev-1 ub-ac txtcolor c-gra1 ab">
+            <!-- 1 -->
+            <div class="ub-f1 ub-con ub-ac ub-pc ub id">
+
+            </div>
+            <!-- 不可思议的旅程 -->
+            <div class="ub-f1 ub-con ub-ac ub-pc ub tx-c name">
+
+            </div>
+            <!-- 100% -->
+            <div class="ub-f1 ub-con ub-ac ub-pc ub accuracy">
+
+            </div>
+            <!-- 2017-8-28 16:08:38 -->
+            <div class="ub-f1 ub-con ub-ac ub-pc ub tx-c date">
+
+            </div>
+        </div>
+
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/book/book_review_historys_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

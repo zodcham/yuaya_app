@@ -1,0 +1,72 @@
+var titHeight;
+var isOpenClass = false;
+appcan.ready(function() {
+    getSysInfo();
+    getUserInfo();
+    $(".btnClass").html(userInfo.clazzIds[0].name);
+    if (sysInfo.ranking.rankingType == "clazz") {
+        $(".btnClass").removeClass("uhide");
+        $("#nav-right").on("click", function() {
+            uexWindow.openPopover("ranking_class_list", 0, "ranking_class_list.html", "", 0, 0, '', '', '', 0);
+        });
+    }
+    config.isMainWin = true;
+    $("#title").html(sysInfo.ranking.rankingName);
+    init();
+});
+appcan.button("#nav-left", "btn-act", function() {
+    appcan.window.close(-1);
+})
+function init() {
+    titHeight = $('#header')[0].offsetHeight;
+    appcan.frame.open({
+        id : "content",
+        url : [{
+            'inPageName' : 'month',
+            'inUrl' : 'ranking_details_month_content.html'
+        }, {
+            'inPageName' : 'total',
+            'inUrl' : 'ranking_details_content.html'
+        }],
+        top : titHeight,
+        left : 0,
+        index : 0,
+        change : function(index, res) {
+            changeTab(res.multiPopSelectedIndex);
+
+        }
+    });
+    window.onorientationchange = window.onresize = function() {
+        appcan.frame.resize("content", 0, titHeight);
+    };
+
+    $(".tabs .tabItem").on("click", function() {
+        switch($(this).attr("id")) {
+        case "month":
+            appcan.window.selectMultiPopover("content", 0);
+            changeTab(0);
+            break;
+        case "total":
+            appcan.window.selectMultiPopover("content", 1);
+            changeTab(1);
+            break;
+        }
+    });
+    changeTab(0);
+}
+
+function changeTab(index) {
+    $(".tabs .tabItem").removeClass("tab-active");
+    $(".tabs .tabItem:eq(" + index + ")").addClass("tab-active");
+    $("#title").text($(".tabs .tabItem:eq(" + index + ")").find(".text").text());
+}
+
+function closeClass(classObj) {
+    if (classObj && classObj.length > 0) {
+        classObj = JSON.parse(classObj);
+        $(".btnClass").html(classObj.name);
+        uexWindow.evaluateMultiPopoverScript("", "content", "month", "refreshData('" + classObj.id + "')");
+        uexWindow.evaluateMultiPopoverScript("", "content", "month", "refreshData('" + classObj.id + "')");
+    }
+    uexWindow.closePopover("ranking_class_list");
+}

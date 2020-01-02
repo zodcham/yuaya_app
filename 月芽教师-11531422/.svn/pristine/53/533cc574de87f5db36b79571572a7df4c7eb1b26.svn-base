@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>搜索图书</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        
+    </head>
+    <body class="um-vp bc-white body1" ontouchstart>
+        <div id="page" class="ub ub-ver" style="width:80%;">
+            <div class="ub ub-fh bc-border click" id="book">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">推荐的图书</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" id="task_bookname"></div>
+                        
+                    </div>
+                </div>
+            </div>
+          <div class="ub ub-fh bc-border click" id="date">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">任务截止日期</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" id="task_enddate"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="readType">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">阅读类型</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" value="1" id="task_readtype"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="introduce">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">写读后感</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" value="1" id="task_review"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border click" id="student">
+                <div class="ub ub-f1" style="padding: 1em 0.5em">
+                    <div class="ub ub-ac ub-pc sc-text">已选择的学生</div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1"></div>
+                        <div class="ub ub-ac ub-pc item sc-text-blue" id="task_studentcount"></div>
+                    </div>
+                </div>
+            </div>
+          <div class="ub-f1 tx-c ub-ac ub-pc uinn" style="line-height:3em;font-size:2em;">
+                    任务发布成功！
+          </div>
+        </div>
+        
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js_server/task/task4_success.js"></script>
+    </body>
+    <script>
+        
+     </script>
+        
+</html>

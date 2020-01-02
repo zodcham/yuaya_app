@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="grzx_content/css/main.css">
+        <style>
+            .uinn-item {
+
+            }
+            .icon {
+                width: 98px;
+                height: 98px;
+                margin: 49px;
+            }
+            .my_list_research {
+                background: url(css/icons/my_list_research.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_password {
+                background: url(images/person/ico03.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_read {
+                background: url(css/icons/toolbar_unread_act.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_user {
+                background: url(images/person/ico01.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_mms {
+                background: url(images/person/ico05.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .my_list_mmss {
+                background: url(images/person/ico07.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .my_list_info {
+                background: url(images/person/ico06.png) no-repeat;
+                background-size: 90% 90%;
+            }
+            .my_list_jilu {
+                background: url(css/icons/toolbar_read_act.png) no-repeat;
+                background-size: 90% 90%;
+            }
+            .my_list_friend {
+                background: url(images/person/ico04.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .my_list_exit {
+                background: url(images/person/ico08.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_money {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(css/icons/ico_money.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_integral {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(css/icons/ico_integral.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .head-box {
+                background: url(css/image1/ico_gerenzhongxin@2x_03.png) no-repeat;
+                background-size: 100% 100%;
+                border-radius: 50%;
+            }
+            .bg-jindutiao {
+                width: 75%;
+                height: 0.2em;
+                margin-left: 0.5em;
+                margin-top: 0.2em;
+                background-color: #D0D0D0;
+                border-radius: 25em;
+                overflow: hidden;
+            }
+            .dqjf {
+                width: 0%;
+                height: 100%;
+                background-color: #ff6666;
+                border-radius: 25em;
+            }
+            .lvtubiao {
+                width: 1.8em;
+                height: 1em;
+                margin-left: 0.5em;
+                background: url(css/image1/Lv.png) no-repeat 0 0;
+                background-size: 100%;
+            }
+            .bc-list{
+                height:160px;line-height: 160px;border-bottom:2px solid #509802;font-size:42px;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg ub ub-ver" style="background:url(images/person/bg.png);">
+
+        <div id="btnUserInfo" class="ub ub-fh ub-ver ubb ubt bc-white" style="margin-top:-10px;margin-left:-10px; position: fixed;z-index: 999;height:777px;background:url(images/person/header.png) no-repeat;background-size: 100%;border-width:0;">
+            <div class="ub" style="width:100%;height:425px;">
+                <div class="" style="width:311px;">
+                    <img id="headImg" src="head.png" style="width: 290px;height:290px;border-radius: 145px;margin-top:131px; margin-left:26px; border-radius: 50%" />
+                </div>
+                <div class="ub-f1 ub ub-ver">
+                    <div class="" style="height:50px;width:100%;margin-left: 40px;margin-top:165px;">
+                        <span style="font-size:48px;" id="name"></span>
+                        <span style="font-size:36px;" id="more">未认证</span>
+                    </div>
+                    <div class="ub-pc ub" style="height:50px;width:100%;margin-left: 40px;margin-top:20px;">
+                        <div class="ub" style="width:300px;">
+                        <span style="font-size:36px;" >当前等级：</span>
+                        <span style="font-size:36px;" class="readLevelName">进士</span>
+                        </div>
+                        <div class="lvtubiao" style="width:80px;height:40px;"></div>
+                        <div class="ub-f1"></div>
+                    </div>
+                    <div class=" bg-jindutiao" style="margin-left:40px; margin-top:20px;">
+                    <div class="dqjf"></div>
+                    </div>
+                    <div class="" style="height:50px;width:100%;margin-left: 55px;margin-top:50px;">
+                        <span style="font-size:36px;" id="schoolClass"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ub" style="margin-top:210px;">
+                <span style="margin-left:150px; font-size:36px;color:#ec6908;font-weight:bold;">经验值：</span> <span class="ub integral" style="font-size:36px;color:#ec6908;font-weight:bold;"></span>
+                <span style="margin-left:350px; font-size:36px;color:#ec6908;font-weight:bold;">财富值：</span><span class="ub rich" style="font-size:36px;color:#ec6908;font-weight:bold;"></span>
+            </div>
+
+        </div>
+
+
+
+
+        <div style="width:1048px;margin-left:16px; margin:700px auto;height:700px;">
+            <div id="btnUserCenter" class="ub ub-ac bc-border ubb uinn-item bc-list">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" >
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_user"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        个人中心
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <!--<div id="btnSpace" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_user"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        我的空间
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>-->
+            <div id="btnChangePwd" class="ub ub-ac bc-border ubb uinn-item bc-list" style="">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_password"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        修改密码
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="btnFriend" class="ub ub-ac bc-border ubb uinn-item bc-list">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_friend"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        我的好友
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="btnMsg" class="ub ub-ac bc-border ubb uinn-item bc-list">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding:  0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_mms"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        我的消息
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="btnAbout" class="ub ub-ac bc-border ubb uinn-item bc-list">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding:  0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_info"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        关于月芽
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="btnHelp" class="ub ub-ac bc-border ubb uinn-item bc-list">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding:  0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_mmss"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        帮助与客服
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="btnExit" class="ub ub-ac bc-border ubb uinn-item bc-list">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0">
+                    <div class="ub ub-ac ub-pc">
+                        <div class="ub icon my_list_exit"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        退出登录
+                    </div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-1x2"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="footer" class="ubt bc-border " style=" background-image: url(images/footer.png);height:206px;width:100%;position: fixed;z-index: 999;left:0;bottom:0; border-width: 0;">
+            <div class="tabs ub ub-ac ub-fh ub-pc ub-f1 " style="padding-top:56px;">
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem tab-active btn_home" id="home" style="padding: 0.5em 0 0.5em 0">
+
+                </div>
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem" btn_mall id="mall" style="padding: 0.5em 0 0.2em 0">
+
+                </div>
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 btn_club" id="yd" style="padding: 0.5em 0 0.2em 0">
+
+                </div>
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem btn_rank" id="ph" style="padding: 0.5em 0 0.2em 0">
+
+                </div>
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem btn_person" id="me" style="padding: 0.5em 0 0.2em 0">
+
+                </div>
+            </div>
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/appcan.listview.js"></script>
+        <script src="js/tool.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="js_server/index_person.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+
+    </body>
+    
+</html>

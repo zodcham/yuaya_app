@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            .div_block{
+                border:0.05em solid #fff;
+                border-radius: 0.5em;
+                margin-top:1em;
+                line-height: 2em;
+                padding:1em;
+                background-color: #fff;
+            }
+            .div_block2{
+                border:0.05em solid #ddd;
+                border-radius: 0.5em;
+                margin-top:1em;
+                padding:0.5em;
+                background-color: #fff;
+            }
+            .btn1 {
+                padding: .2em 0.5em;
+                min-height: 1.5em;
+                font-size: 1em;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div class="ub ub-ver uinn" id="">
+            <div class="ub-f1" style="font-weight:bold;">订单信息</div>
+            <div class="ub ub-ver ub-f1 div_block" id="orderInfo">
+                <div class="ub ub-f1">
+                    <div  style="width:7em;">购买产品：</div>
+                    <div class="ub-f1 tx-l " id="itemName">窗边的小豆豆导读视频观看权限</div>
+                </div>
+                <div class="ub ub-f1">
+                    <div  style="width:7em;">订单号：</div>
+                    <div class="ub-f1 tx-l " id="orderNo">85165651</div>
+                </div>
+                <div class="ub ub-f1">
+                    <div  style="width:7em;">下单日期：</div>
+                    <div class="ub-f1 tx-l" id="addTime">2019-05-14 15:58:01</div>
+                </div>
+                <div class="ub ub-f1">
+                    <div  style="width:7em;">总金额：</div>
+                    <div class="ub-f1 tx-l" id="money">￥1.00</div>
+                </div>
+                <div class="ub ub-f1">
+                    <div style="width:7em;">订单状态：</div>
+                    <div class="ub-f1 tx-l" style="text-align:left;" id="orderStatus">待支付</div>
+                </div>
+            </div>
+
+            <div class="ub-f1" style="font-weight:bold;margin-top:2em;">支付方式</div>
+            <div class="ub ub-ver ub-f1 div_block2" onclick="setChecked('alipay');">
+                <div class="ub ub-f1">
+                    <div  style="width:9em;"><img src="../images/alipay.jpg" style="width:7em;"></div>
+                    <div  class="ub-f1 tx-l ulev-1 " ><label for="alipay" style="height:100%;line-height: 3em;">支付宝（中国）网络技术有限公司</label></div>
+                    <div style="width:3em;height: 3em;line-height: 3em;"><input type="radio" name="payType" id="alipay" checked="checked" style="width:2em;height: 2em;line-height: 3em;"></div>
+                </div>
+            </div>
+
+            <div class="ub ub-ver ub-f1 div_block2" onclick="setChecked('weixinpay');">
+                <div class="ub ub-f1">
+                    <div  style="width:9em;"><img src="../images/weixinpay.jpg" style="width:7em;"></div>
+                    <div  class="ub-f1 tx-l ulev-1 " ><label for="weixinpay" style="height:100%;line-height: 3em;">腾讯公司-微信支付</label></div>
+                    <div style="width:3em;height: 3em;line-height: 3em;"><input type="radio" name="payType" id="weixinpay" style="width:2em;height: 2em;line-height: 3em;"></div>
+                </div>
+            </div>
+
+            <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1 " id="payConfirm" style="width:90%;margin-top:2em;">
+                确定支付
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_family_v200/vip/order_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

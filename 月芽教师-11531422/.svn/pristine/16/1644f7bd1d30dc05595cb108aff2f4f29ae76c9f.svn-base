@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css"> 
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style>
+            .uinn-item{
+                padding: 0.2em 0.2em;
+            }
+            .icon {
+                width:1.5em;
+                height:1.5em;
+                margin: 0.5em
+            }
+            .my_list_password {
+                background: url(css/image1/ico_wode@2x_04.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_user {
+                background: url(css/image1/ico_wode@2x_12.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .my_list_mms {
+                background: url(css/image1/ico_wode@2x_16.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+            .my_list_info {
+                background: url(css/image1/ico_wode@2x_17.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+            .my_list_friend {
+                background: url(css/image1/ico_wode@2x_12.png) no-repeat;
+                background-size: 90% 100%;
+            }
+            
+            .my_list_exit {
+                background: url(css/image1/ico_wode@2x_20.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_money {
+                width:1.5em;
+                height:1.5em;
+                background: url(css/image1/ico_money.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_integral {
+                width:1.5em;
+                height:1.5em;
+                background: url(css/icons/ico_integral.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+       <div id="main" class="ub ub-ver ub-fh uhide">
+           <div class="ub ub-ver ub-f1 ub-fh">
+                <div id="btnUserInfo" class="ub ub-ver ub-ac ub-pc" style="height:15em;background:url(css/image1/ico_wode_01.png) no-repeat;background-size:100% 100%">
+                   <div class="ub ub-ac ub-pc">
+                       <div class="ub ub-ac ub-pc ub-f1" style="width:8em;height:8em;background:url(css/image1/ico_duhougan@3x_57.png) no-repeat; background-size: cover;border-radius: 50%;" >
+                            <img id="headImg" class="ub" src="head.png" style="width:80%;height:80%;border-radius: 50%;" />
+                       </div>
+                   </div>
+                   <div id="name" class="ub ub-ac ub-pc ub-fh umar-t ulev2 bc-text-head"></div>
+                   <div class="ub ub-ac ub-pc umar-t umar-b">
+                       <div id="schoolClass" class="ub ubt ubb sc-border ulev-2 bc-text-head" style="padding: 0.5em 0"></div>
+                   </div>
+               </div>
+               <div id="btnChangePwd" class="ub ub-ac bc-border ubb ubt uinn-item bc-white" style="margin-top: 1em">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                       <div class="ub ub-ac ub-pc"><div class="ub icon my_list_password"></div></div>
+                       <div class="ub ub-f1">修改密码</div>
+                       <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+                   </div>
+               </div>
+               <div id="btnFriend" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                       <div class="ub ub-ac ub-pc"><div class="ub icon my_list_friend"></div></div>
+                       <div class="ub ub-f1">我的好友</div>
+                       <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+                       </div>
+               </div>
+               <div id="btnMsg" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                       <div class="ub ub-ac ub-pc"><div class="ub icon my_list_mms"></div></div>
+                       <div class="ub ub-f1">我的消息</div>
+                       <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+                       </div>
+               </div>
+               <div id="btnCustomer" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                       <div class="ub ub-ac ub-pc"><div class="ub icon my_list_friend"></div></div>
+                       <div class="ub ub-f1">月芽客服</div>
+                       <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+                   </div>
+               </div>
+               <div id="btnAbout" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                       <div class="ub ub-ac ub-pc"><div class="ub icon my_list_info"></div></div>
+                       <div class="ub ub-f1">关于月芽</div>
+                       <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+                   </div>
+               </div>
+               
+               <div id="btnExit" class="ub ub-ac bc-border ubb uinn-item bc-white">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc" style="padding: 0.3em 0">
+                       <div class="ub ub-ac ub-pc"><div class="ub icon my_list_exit"></div></div>
+                       <div class="ub ub-f1">退出登录</div>
+                       <div class="ub ub-ac ub-pc"><div class="fa icon-angle-right fa-1x2"></div></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="http://www.readseed.cn/nocache/js_teacher/index_person.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

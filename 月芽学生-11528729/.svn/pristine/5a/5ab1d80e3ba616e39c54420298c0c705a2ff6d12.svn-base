@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .icon_del {
+                width:1.5em;
+                height:1.5em;
+                background: url(../css/image1/ico_shoujianxiang.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_reply {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shoujianxiang@2x_22.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .headImg {
+                background: url(../css/image1/ico_shoujianxiang@2x_07.png) no-repeat;
+                background-size:  100% 100%;
+                border-radius: 50%;
+                width:2em;
+                height:2em;
+            }
+            .icon_time{
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shoujianxiang@2x_13.png) no-repeat;
+                background-size:  100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" style="padding-bottom: 0.1em" ontouchstart>
+         <div class="ub ub-fh ub-fv ub-ver">
+            <div id="messageList" class="ub ub-fh ub-fv ub-ver"></div>
+        </div>
+        
+        <div id="item" class="ub ub-fh item ub-ver uhide bc-border ubb click">
+            <div class="ub ub-fh" >
+                <div class="ub ub-f1 ub-ver uinn">
+                    <div class="ub ub-f1 ub-ver">
+                        <div class="ub ub-fh ub-ac">
+                            <div class="ub ub-ac ub-pc headImg umar-r">
+                                <img src="../head.png" class="ub" style="width:85%;height:85%;border-radius: 50%">
+                            </div>
+                            <div class="ub userName umar-r "></div>
+                            <div class="ub icon_time umar-l"></div>
+                            <div class="ub date sc-text ulev-1 umar-l"></div>
+                        </div>
+                        <div class="ubcontent umar-t ub-fh"></div>
+                    </div>
+                    <div class="ub ub-ac umar-t msg sc-text"></div>
+                </div>
+            </div>
+            <div class="ub ub-fh divBtn uhide">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-f1 ub-ac ub-pc bc-text-head sc-bc-green uinn umar-r agreed" style="border-radius: 2em">同意</div>
+                    <div class="ub ub-f1 ub-ac ub-pc bc-text-head sc-bc-red uinn umar-r refused" style="border-radius: 2em">拒绝</div>
+                    <div class="ub ub-f1 ub-ac ub-pc bc-text-head sc-bg uinn ignore" style="border-radius: 2em">忽略</div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js_server/message/message_valid_list_content.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+
+        <style>
+
+        </style>
+    </head>
+    <body class=""  style="background: #e9fbce;">
+            <!--header开始-->
+            <div id="header" class="" style="background: url('images/rank/header.jpg'); position: fixed;z-index: 999;width: 100%;height:296px; left: 0;top: 0;overflow: hidden;">
+
+            </div>
+            <!--header结束-->
+            <!--content开始-->
+            <div class="ub ub-ver" style="margin-top:310px;">
+                <div class="ub ub-fh click class umar-t tx-c" onclick="opengame();" >
+                    <img src="images/rank/btn0.jpg" style="margin-left:180px;">
+                </div>
+                <div class="ub ub-fh click class item umar-t" rankingType="clazz">
+                    <img src="images/rank/btn1.jpg" style="margin-left:180px;">
+                </div>
+                <div class="ub ub-fh bc-border click grade item umar-t" rankingType="grade">
+                    <img src="images/rank/btn2.jpg" style="margin-left:180px;">
+                </div>
+                <div class="ub ub-fh click school item umar-t" rankingType="school">
+                    <img src="images/rank/btn3.jpg" style="margin-left:180px;">
+                </div>
+                <div class="ub ub-fh ubb click platform item umar-t" rankingType="all">
+                    <img src="images/rank/btn4.jpg" style="margin-left:180px;">
+                </div>
+            </div>
+            <!--content结束-->
+            <div id="footer" class="ubt bc-border " style=" background-image: url(images/footer.png);height:206px;width:100%;position: fixed;z-index: 999;left:0;bottom:0; border-width: 0;">
+                <div class="tabs ub ub-ac ub-fh ub-pc ub-f1 " style="padding-top:56px;">
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem tab-active btn_home" id="home" style="padding: 0.5em 0 0.5em 0">
+
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem" btn_mall id="mall" style="padding: 0.5em 0 0.2em 0">
+
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 btn_club" id="yd" style="padding: 0.5em 0 0.2em 0">
+
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem btn_rank" id="ph" style="padding: 0.5em 0 0.2em 0">
+
+                    </div>
+                    <div class="ub ub-ver ub-ac ub-pc ub-f1 tabItem btn_person" id="me" style="padding: 0.5em 0 0.2em 0">
+
+                    </div>
+                </div>
+            </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/entity.js"></script>
+    <script src="js/tool.js"></script>
+
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="js_server/Paihang.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

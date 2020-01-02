@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/swiper.min.css" />
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+            }
+            .swiper-slide {
+                background-size: 100% 100%;
+            }
+            .image1 {
+                background: url(css/image1/ico_yindaoye1@2x.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .image2 {
+                background: url(css/image1/ico_yingdaoye2@2x.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .image3 {
+                background: url(css/image1/ico_yindaoye3@2x.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .image4 {
+                background: url(css/image1/ico_yindaoye4@2x.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .image5 {
+                background: url(css/image1/ico_yindaoye5@2x.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            /*.swiper-pagination-bullet {
+             width: 8px;
+             height: 8px;
+             display: inline-block;
+             border-radius: 100%;
+             background: #000;
+             opacity: .2;
+             }*/
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+                background: #FFFFFF;
+            }
+        </style>
+    </head>
+    <body class="um-vp" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide image1"></div>
+                    <div class="swiper-slide image2"></div>
+                    <div class="swiper-slide image3"></div>
+                    <div class="swiper-slide image4"></div>
+                    <div class="swiper-slide image5">
+                        <div class="ub ub-ac ub-pc ub-fh" style="position: absolute;bottom: 1em;left:0em">
+                            <div class="ub ub-ac ub-pc ub-f1 uinn">
+                                <div class="ub bc-text-head bc-head uinn ub-ac ub-pc bc-border uba" id="btnEntry" style="width:10em;height:1.5em;border-radius: 1.5em">
+                                    进入应用
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <script src="js/appcan.js"></script>
+            <script src="js/appcan.control.js"></script>
+            <script src="js/jquery-1.8.3.min.js"></script>
+            <script src="js/common.js"></script>
+            <script src="js/entity.js"></script>
+            <script src="js/swiper.min.js"></script>
+            <script>
+                document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+                document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/guide.js?v=' + (new Date().getTime()) + '"><\/script>');
+            </script>
+    </body>
+</html>

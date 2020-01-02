@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .content {
+                overflow: auto;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .icon_like {
+                width: 1em;
+                height: 1em;
+                background: url(../css/icons/dianzanbai.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon_comment {
+                width: 1em;
+                height: 1em;
+                background: url(../css/icons/ico_comment.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_delete {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(../css/icons/ico_delete.png);
+                background-size: 100% 100%;
+            }
+            .ico_comment {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(../css/icons/ico_comment.png);
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="main" class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh  bc-white umar-t">
+                <div class="ub ub-f1 uinn ub-ver">
+                    <div class="ub ub-fh">
+                        <span class="ub pk_title ub-ver umar-t ub-f1 tx-c" style="font-size:1.5em;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-white">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc uinn headImg umar-r" style="width:2em;height:2em;border-radius: 50%">
+                        <img src="../head.png" style="width:100%;height:100%;border-radius: 50%">
+                    </div>
+                    <div class="ub ub-ver ub-f1 ub-pc">
+                        <div class="ub ub-ac name text-blue"></div>
+                        <div class="ub ub-ac sc-text ulev-1">
+                            <div class="ub umar-r dateTitle uhide">
+                                发表于
+                            </div>
+                            <div class="ub date"></div>
+                        </div>
+                    </div>
+                    <div id="score" class="ub ub-ver ub-f1 ub-pc" style="font-size:1em;">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="ub ub-fh bc-white">
+                <div class="ub ub-f1 uinn ub-ver">
+                    <div class="ub ub-fh ub-f1">
+                        <div class="ub content ub-ver umar-t ub-f1" style="line-height:2.5em;"></div>
+                    </div>
+                    <div class="ub ub-fh images uhide ub-ver" style="width:100%;">
+
+                    </div>
+                    <div class="ub ub-fh ub-f1 ub-ver other"></div>
+                </div>
+            </div>
+
+            <div id="item" class="ub ub-fh ub-ac ub-pc ub-ver uhide bc-white umar-t">
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 umar-a bc-border ubb" style="border-style:dashed;border-width: 1px;border-color: rgba(0,0,0,0.1)"></div>
+                </div>
+                <div class="ub ub-fh uhide">
+                    <div class="ub umar-t uinn ub-f1 sc-text ulev-1 ">
+                        <div class="ub umar-r">
+                            更新于
+                        </div>
+                        <div class="ub date"></div>
+                    </div>
+                </div>
+                <div class="ub ub-fh">
+                    <div class="ub content ub-ver ub-f1"></div>
+                </div>
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 uinn images umar-t uhide"></div>
+                </div>
+
+            </div>
+            <div class="ub ub-fh umar-t bc-white bc-border ubt " style="height:3em;">
+                <div class="ub ub-f1 uinn" >
+                    <div class="ub ub-f1" style="height:2em">
+                        <textarea placeholder="请输入评论" id="content" class="ub ub-ac ub-f1 ulev0 bc-border uba" rows="2" style="resize: none;height:100%;border-radius: 0.2em;padding: 0.1em 0.5em;line-height: 2em"></textarea>
+                    </div>
+                    <div class="ub ub-ac ub-pc umar-l">
+                        <div id="btnSubmit" class="ub ub-ac ub-pc bc-btn bc-text-head" style="width:4em;height:2.2em;border-radius: 0.2em">
+                            提交
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb ubt ub-ver bc-white umar-t tx-c uhide" id="divHistoryBox0">
+                <div class="ub ub-ac ub-fh sc-bg-active bc-border ubb sc-text ">
+                    <div class="ub uinn ub-f1">
+                        <div class="fa fa-1x2 umar-r"></div>
+                        <div class="ub ub-f1 tx-c">
+                            名师点评 <div class="ub teacherComments"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-f1 ub-ver bc-border ubb ub-ver" id="divHistory1"></div>
+            </div>
+            <div class="ub ub-ver ub-fh ub-f1">
+                <div id="listTeacherView" class="ub ub-fh ub-ver ub-f1" ></div>
+            </div>
+
+
+
+            <div class="ub ub-fh bc-border ubb ubt ub-ver bc-white umar-t tx-c" id="divHistoryBox">
+                <div class="ub ub-ac ub-fh sc-bg-active bc-border ubb sc-text ">
+                    <div class="ub uinn ub-f1">
+                        <div class="fa fa-1x2 umar-r"></div>
+                        <div class="ub ub-f1 tx-c">
+                            评论记录 <div class="ub comments"></div>
+                        </div>
+                        <div class="ub ub-ac ub-pc sc-text ub-pc">
+                            <div class="ub umar-l likeBox click" style="border-radius: 0.2em">
+                                <div class="ub ub-f1" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub like"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-f1 ub-ver bc-border ubb ub-ver" id="divHistory"></div>
+            </div>
+            <div class="ub ub-ver ub-fh ub-f1">
+                <div id="listView" class="ub ub-fh ub-ver ub-f1" ></div>
+            </div>
+            <div class="ub ub-f1 divInputBlock" style="height:8em;">&nbsp;</div>
+
+            <div id="itemReview" class="ub ub-fh item uhide ub-ver click bc-white bc-border ubb ubt umar-t umar-b">
+                <div class="ub ub-f1 ub-ver uinn" style="padding: 0 0.5em">
+                    <div class="ub ub-fh ub-ac umar-t user">
+                        <div class="ub ub-ac ub-pc umar-r" style="width:1.5em;height:1.5em;border-radius: 50%">
+                            <img class="ub ub-fh ub-fv img" src="../head.png" style="border-radius: 50%">
+                        </div>
+                        <div class="ub ub-f1 ub-ver">
+                            <div class="ub userName text-blue ub-f1 umar-r"></div>
+                            <div class="ub sc-text ulev-1 date"></div>
+                        </div>
+                        <div id="content_btn" class="ub ub-ac ub-pc bc-btn bc-text-head sc-bg-btn-cancel uhide" style="width:3em;height:2em;border-radius: 0.2em">
+                            回复
+                        </div>
+                        <div class="ub ico_delete delete click uhide"></div>
+                    </div>
+                    <div class="ub ub-fh  umar-t ub-ac ub-pc">
+                        <div class="ub ub-f1 content umar-r uinn" style="line-height: 2em;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ub ub-f1 divInputBlock" style="height:8em;">&nbsp;</div>
+
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/pk/article_detail_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

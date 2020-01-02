@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="css/sign2.css">
+    </head>
+    <body class="um-vp bc-bg" style="background-color: #fafafa;">
+        <div id="calendar" style="box-shadow: 0.3em 0.3em #f3f3f3;"></div>
+
+        <div class='ub c-gra b-bla uinn umar-a' style="background-color: #fff;margin-top: 1em;border-radius: 0.2em;box-shadow: 0.3em 0.3em #f3f3f3;">
+            <div class='ub-f1 ub-ver'>
+                <div class='ub-pc tx-c ulev-1 uinn'>
+                    已签到
+                </div>
+                <div class='ub-pc tx-c uinn' style="color:#f00">
+                    5天
+                </div>
+            </div>
+            <div class='ub-f1 ub-ver'>
+                <div class='ub-pc tx-c ulev-1 uinn'>
+                    最长连续签到
+                </div>
+                <div class='ub-pc tx-c uinn' style="color:#f00">
+                    15天
+                </div>
+            </div>
+        </div>
+
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uinn umar-a"  id="btn" style="background-color: #3fb272;margin-top: 1em;border-radius: 0.2em;box-shadow: 0.3em 0.3em #f3f3f3;">
+            点击签到
+        </div>
+
+        <div class="maskbox"></div>
+        <div class='ub c-gra b-bla uinn umar-a ulev-1' style="background-color: #fff;margin-top: 1em;border-radius: 0.2em;box-shadow: 0.2em 0.2em #fefefe;">
+            <p id="rules">
+                第一天签到可获得5分，连续第二天签到可获得6分，连续第三天签到可获得7分，以此类推。最高10积分封顶，每天只可签到一次。
+                <br>
+                说明：如果连续签到中断，则从第一天开始算，即从第一天5分开始。
+            </p>
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/sign/Sign_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .ico_money {
+                width:1.2em;
+                height:1.2em;
+                background: url(../css/image1/ico_duihuan@2x_23.png) no-repeat;
+                background-size: 100% 100%;
+            }
+
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="page" class="ub ub-ver ub-fh ub-fv">
+          <div id="listview" class="ub ub-ver ub-fh ub-fv ub-f1 "></div>
+          </div>
+          <div id="item" class="ub ub-fh ub-ver ub-f1 item uhide">
+            <div class="ub ub-f1 umar-a box">
+                <div class="ub bc-border uba ub-f1 ub-ver">
+                    <img class="ub image">
+                    <div class="ub ub-fh sc-bg box">
+                        <div class="ub ub-f1 uinn ub-ver" style="height: 2em;background:url(../css/image1/ico_duihuan@2x_19.png);background-size:cover;padding-bottom: 0.5em">
+                            <div class="ub name book-title ub-fh ulev-1 bc-text-head">1</div>
+                            <div class="ub ub-fh ulev-1 ub-ac ub-pc umar-t" >
+                                <div class="ub sc-text-red">
+                                    <div class="ub ico_money"></div>
+                                    <div>&nbsp;</div>
+                                    <div class="ub money bc-text-head">1</div>
+                                </div>
+                                <div class="ub ub-f1"></div>
+                                <div class="ub ub-ac ub-pc exchange sc-text-red" style="height:1.5em">财富不够</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_teacher_v200/exchange/mall_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

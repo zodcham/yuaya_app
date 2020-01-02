@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+      <div class="ub ub-fh ub-fv ub-ver">
+        <div class="ub ub-fh ub-ver bc-border ubb white-bg" style="padding-bottom: 1em">
+            <div id="pTitle" class="ub ub-ac ub-pc" style="padding: 0.8em 0.5em 0.2em 0.5em;font-size: 1.5em"></div>
+            <div id="pDate" class="ub ub-ac ub-pc ubb bc-border1 sc-text" style="padding-bottom: 0.8em;font-size: 0.8em"></div>
+            <div class="ub ub-fh">
+                <div id="pContent" class="sc-text-tab uinn" style="word-break:break-all;line-height: 1.5em;font-size: 0.9em"></div>
+            </div>
+        </div>
+       </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/entity.js"></script>
+    <script src="js/tool.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            getUserInfo();
+            getCommInfo();
+            loadData();
+        });
+
+       function loadData() {
+            var params={ 'userId' : userInfo.id,"activityId":commInfo.activityId};
+            common.ajax("/system/getActivityContent", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                /**
+                 *id: 活动id
+                    title: 活动标题
+                    image: 活动图片地址
+                    sort: 排序
+                    isLink: 是否是链接地址(0:否， 1:是)
+                    content : 活动详情内容
+                    updateDate: 发布时间
+                 */
+                $("#pTitle").html(data.obj.title);
+                $("#pDate").html(data.obj.updateDate);
+                $("#pContent").html(data.obj.content);
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+       }
+    </script>
+</html>

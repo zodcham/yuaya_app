@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+             input[type='checkbox'] + .box:before{
+                 content: "\f096";
+                 color:#848484;
+             }
+             input[type='checkbox']:checked + .box:before{
+                  color: #00cc33;
+                 content: "\f14a";
+             }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="main" class="ub ub-fh ub-fv ub-ver"></div>
+        <div id="item" class="item ub ub-fh bc-border ubb uhide click" >
+            <div  class="ub ub-f1"  style="padding:0.5em">
+                <div class="ub ub-ac ub-pc photo">
+                  <img class="ub-f1" src="../head.png" style="border-radius: 50%;border:1px solid #BABABA;width:3em;height:3em">
+                </div>
+                <div class="ub ub-f1 name umar-l ub-ac"></div>
+                <div class="ub ub-ac ub-pc" style="margin-right: 2em">
+                    <input type="checkbox" name="student" class='uhide' />
+                    <div class="box fa fa-1x2"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/pinyin.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        var titleHeight=0; 
+        var studentList=[];
+        var g_classId;
+       appcan.ready(function() {
+          getUserInfo();
+          uexWindow.evaluateScript("", 0, "getLoaded();");
+        });
+        function touchIndexBar(itemId){
+             var obj=$(".item[key='"+itemId+"']").eq(0);
+             $("html,body").animate({scrollTop: obj[0].offsetTop}, 100);
+        }
+        function loadStudent(classId){
+            g_classId=classId;
+            getBookInfo();
+            var params={'clazzId':g_classId};
+            common.ajax("/clazz/getStudentList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var list=data.obj;
+                if(list&&list.length>0){
+                    studentList=getDefaultList();
+                    for(var i=0;i<list.length;i++){
+                        var py=pinyin.getCamelChars( list[i].name);
+                        if(py.length>1){
+                            py=py.substr(0,1);
+                            
+                        }else{
+                            py="-";
+                        }
+                        list[i].index=py;
+                        studentList[py].push(list[i]);
+                    }
+                    createView();
+                }else{
+                    myPrompt.show();
+                }
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            },{loadingMsg:'正在加载学生，请稍后...'});
+       }
+        
+        function createView(){
+            $.each(studentList, function(key, list) { 
+                if(list.length>0){
+                    for(var i=0;i<list.length;i++){
+                        var obj=list[i];
+                        var objItem=$("#item").clone();
+                        objItem.removeClass("uhide");
+                        objItem.attr("id","item_"+obj.id);
+                        objItem.attr("key",key);
+                        objItem.find("input").attr("id",obj.id);
+                        if(obj.photo&&obj.photo.length>0){
+                            objItem.find("img").attr("src",_SERVER_ADDRESS+obj.photo);
+                        }
+                        objItem.find(".name").html(obj.name);
+                        objItem.on("click",function(){
+                            $(this).find("input").attr("checked",(!$(this).find("input").attr("checked")));
+                            ischeckAll();
+                        });
+                        $("#main").append(objItem);
+                    }
+                }else{
+                     $("#main").append("<div class='item' key='"+key+"'></div>");
+                }
+            });  
+            $("#item").remove();
+        }
+        function getDefaultList(){
+            var list={'-':[]};
+            for(var i=0;i<26;i++){
+                list[getLetterByNum(i)]=[];
+            }
+            return list;
+        }
+        function checkAll(flag){
+            $("#main .item input").attr("checked",flag);
+        }
+        function ischeckAll(){
+            var flag=($("#main .item input:checkbox").length>0&&($("#main .item input:checkbox").not("input:checked").length==0));
+            uexWindow.evaluateScript("", 0, "changeCheckBox("+flag+");");
+        }
+        
+       function getCheckedValue(){
+           var checkList=$("#main .item input:checkbox:checked");
+           var returnList=[];
+           $.map(checkList,function(obj){
+               returnList.push($(obj).attr("id"));
+           });
+           getBookInfo();
+           bookInfo.studentChecked[g_classId]=returnList;
+           setBookInfo();
+           uexWindow.evaluateScript("", 0, "doSubmit();");
+       }
+       
+    </script>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style>
+            input[type="range"] {
+                background:-webkit-gradient(linear, left center,right center, color-stop(0%,#00cc33), color-stop(40%,#00cc33), color-stop(40%,#FC7800), color-stop(100%,#FC7800));
+                height:1em;
+                -webkit-appearance: none;
+            }
+            input[type="range"]::-webkit-slider-thumb {
+                 -webkit-appearance: none;
+                height: 1em;
+                width: 0.1em;
+                background: #FFFFFF;
+                border: 0px solid #FFFFFF;
+            }
+            .box{
+                border-radius: 0.5em;
+            }
+            .box .title{
+                border-radius: 0.5em 0.5em 0 0;
+            }
+            .box:before{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                left:-0.5em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-right:0.5em solid #BABABA; 
+            }
+            .box:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                left:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-right:0.5em solid #FFFFFF; 
+            }
+            .year{
+                background:#00848e;
+                border-radius: 0.1em;
+            }
+            .year:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                right:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:0.5em solid #00848e; 
+            }
+            .noyear:after{
+                content: "";
+                position: absolute;
+                top:50%;
+                margin-top:-0.5em;
+                right:-0.45em;
+                margin
+                width:0; 
+                height:0; 
+                border-top:0.5em solid transparent;
+                border-bottom:0.5em solid transparent; 
+                border-left:0.5em solid transparent; 
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div id="main" class="ub ub-ver ub-fh ub-fv"></div>
+        
+        <div id="item" class="item uhide ub ub-fh">
+            <div class="ub ub-ac ub-pc ub-ver">
+                <div class="sc-text-1 ulev-1 uinn ub ub-ac ub-pc ub-f1">
+                    <div style="height:1.5em;padding: 0 0.1em" class="ub ub-ac ub-pc bc-text-head year"></div>
+                </div>
+                <div class="sc-text-1 ulev-1 uinn ub ub-ac ub-pc ub-f1">
+                    <div style="height:1.5em" class="ub ub-ac ub-pc date"></div>
+                </div>
+                <div class="sc-text-1 ulev-1 uinn ub ub-ac ub-pc ub-f1">
+                    <div style="height:1.5em"></div>
+                </div>
+            </div>
+            <div class="ub ub-ac ub-ver ub-pc umar-r">
+                <div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fv">
+                    <div class="ub ub-f1 ub-fv sc-bg-active" style="width: 1px"></div>
+                    <div style="width:0.5em;height:0.5em;border-radius: 50%" class="sc-bg-1"></div>
+                    <div class="ub ub-f1 ub-fv sc-bg-active" style="width: 1px"></div>
+               </div>
+            </div>
+            
+             <div class='ub ub-ver ub-f1 umar-a bc-border uba box click'>
+               <div class="ub ub-fh sc-bg-active title">
+                    <div class="ub ub-f1 uinn ulev-1 ">
+                        <div class="ub ub-f1 sc-text-active name"></div>
+                        <div class="ub ub-ac ub-pc sc-text-warn state"></div>
+                    </div>
+                </div>
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc">
+                        <img src="../css/icons/noImg.png" style="width:4em;height:4em">
+                    </div>
+                    <div class="ub ub-ver ub-f1 umar-l">
+                        <div class="ub ub-f1 ub-fh sc-text-active ulev-1">
+                            <div class="ub ub-ac ub-pc ub-f1 type"></div>
+                            <div class="ub ub-ac ub-pc ub-f1 isMustReview"></div>
+                        </div>
+                        <div class="ub ub-f1 ub-fh">
+                            <div class="ub ub-ac ub-pc" style="margin-right: -0.1em;z-index: 100">
+                                <div class="ub ub-ac ub-pc sc-bc-green bc-text-head ulev-2 finishCountPer " style="border-radius: 50%;width:3em;height:3em"></div>
+                            </div>
+                           <div class="ub ub-ver ub-f1">
+                               <div class="ub-f1"></div>
+                               <div class="ub ub-fh ulev-2">
+                                   <div class="ub ub-ac ub-pc sc-text-green umar-l">完成</div>
+                                   <div class="ub-f1"></div>
+                                   <div class="ub ub-ac ub-pc sc-text-warn umar-r">未完成</div>
+                               </div>
+                              <input type="range" max="100" value="0" class="ub ub-fh range" />
+                               <div class="ub ub-fh ulev-2">
+                                   <div class="ub ub-ac ub-pc sc-text-green umar-l finishCount"></div>
+                                   <div class="ub-f1"></div>
+                                   <div class="ub ub-ac ub-pc sc-text-warn umar-r notfinishCount"></div>
+                               </div>
+                               <div class="ub-f1"></div>
+                            </div>
+                            <div class="ub ub-ac ub-pc" style="margin-left: -0.1em">
+                                <div class="ub ub-ac ub-pc sc-bc-warn bc-text-head ulev-2 notfinishCountPer" style="border-radius: 50%;width:3em;height:3em"></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_teacher/user/user_task_list_content.js"></script>
+    </body>
+    <script>
+        
+
+    </script>
+</html>

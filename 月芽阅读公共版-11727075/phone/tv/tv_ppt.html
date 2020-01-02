@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        
+        <style>
+            html{
+                font-size:24px;
+            }
+            .icon_like {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/dianqu.png) no-repeat;
+                background-size:  100% 100%;
+            }
+          
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(../css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .c-gra1{
+                background-color:#ffffff;
+            }
+            .txt-ellipsis{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .txt-ellipsi{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }
+            .ub-img7{
+                -webkit-background-size:100% 100%;
+                background-size:100% 100%;
+                background-repeat:no-repeat;
+                background-position:center;
+            }
+            .sc-bgs {
+                background-color: #F2F2F2;
+            }
+            .ubb1{
+                border-bottom: .2em solid #F0F0F0;
+            }
+           .sortNav {
+                width: 24%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                z-index: 2;
+                padding-bottom: 3rem;
+                background: rgba(0,0,0,.02);
+            }
+            .sortNav b.icon-stars {
+                font-size: .9rem;
+                text-align: inherit;
+                color: rgba(0,0,0,.7);
+            }                        
+            .sortNav p {
+                font-size: 1.1rem;
+                text-align: center;
+                vertical-align: middle;
+                border-width: 0 0 1px 0;
+                background: rgba(255,255,255,.5);
+                padding: 0.5rem 0rem;
+                width: 99.5%;
+                color: rgba(255,159,0,1);  
+            }
+          input[type='radio'] + .box{
+                overflow: visible;
+                -webkit-transition: color 0.2s;
+                transition: color 0.2s;
+                display: block;
+                height: 2.5rem;
+                line-height: 2.5rem;
+                text-align: center;
+                color: rgba(0,0,0,.6);
+                font-size: .75rem;
+                width: 100%;
+                background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.1),rgba(0,0,0,.1) 60%,transparent 60%);
+                background-size: 100% 1px;
+                background-position: bottom;
+                background-repeat: no-repeat;               
+             }
+             input[type='radio']:checked + .box{
+                 background: rgba(255,255,255,1);
+                color: #4dba72;
+                width: 100%;
+                background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.12),rgba(0,0,0,.12) 60%,transparent 60%);
+                background-size: 100% 1px;
+                background-position: bottom;
+                background-repeat: no-repeat;
+             }            
+        </style>
+    </head>
+    <body class="um-vp" ontouchstart style="">
+
+       <div id="reviewList" style="width:90%;margin:0 auto;"></div>
+           
+       <div id="item" class="item uinn uhide ub " style="width:31%;float:left; height:370px;">
+
+           <div class="c-wh uinn">
+                <img class="ub-img7 ub-fh uh-npic1 bookImage" style="width:100%;">
+               <div class="ub uinn">
+                   <div class=" ub-f1 name txt-ellipsi " style="color:#fff;font-size:28px; text-align: center;"></div>
+               </div>
+           </div>
+              
+       </div>
+   
+    </body>
+    <script src="../js/appcan.js"></script><script src="../js/tools.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+       if(CONNECTSTATUS_FLAG) {
+            document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/tv/tv_ppt.js?v=' + (new Date().getTime()) + '"><\/script>');
+        }
+        else {
+            document.write('<script src="../js_server/js/common_new.js"><\/script>');
+           document.write('<script src="../js/offline_read.js"><\/script>');
+            document.write('<script src="../js_server/tv/tv_ppt.js"><\/script>');
+        }
+</script>
+</html>

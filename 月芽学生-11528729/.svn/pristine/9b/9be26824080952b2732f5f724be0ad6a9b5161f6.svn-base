@@ -1,0 +1,54 @@
+var titHeight;
+appcan.ready(function() {
+    config.isMainWin = true;
+    
+    init();
+    window.onorientationchange = window.onresize = function() {
+        init();
+    };
+});
+function init() {
+    titHeight = $('#header')[0].offsetHeight;
+    appcan.frame.open({
+        id : "content",
+        url : [{
+            'inPageName' : 'myList',
+            'inUrl' : 'user_book_list_content.html'
+        }, {
+            'inPageName' : 'readList',
+            'inUrl' : 'user_book_list_read_content.html'
+        }],
+        top : titHeight,
+        left : 0,
+        index : 0,
+        change : function(index, res) {
+            changeTab(res.multiPopSelectedIndex);
+
+        }
+    });
+    
+
+    $(".tabs .tabItem").on("click", function() {
+        switch($(this).attr("id")) {
+        case "teacherList":
+            appcan.window.selectMultiPopover("content", 0);
+            changeTab(0);
+            break;
+        case "myList":
+            appcan.window.selectMultiPopover("content", 1);
+            changeTab(1);
+            break;
+        }
+    });
+    changeTab(0);
+}
+
+function changeTab(index) {
+    $(".tabs .tabItem").removeClass("tab-active sc-text-active");
+    $(".tabs .tabItem:eq(" + index + ")").addClass("tab-active sc-text-active");
+    $("#title").text($(".tabs .tabItem:eq(" + index + ")").find(".text").text());
+}
+
+appcan.button("#nav-left", "btn-act", function() {
+    appcan.window.close(-1);
+})

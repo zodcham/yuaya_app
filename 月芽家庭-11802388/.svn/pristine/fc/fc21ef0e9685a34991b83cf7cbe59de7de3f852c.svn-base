@@ -1,0 +1,68 @@
+
+
+appcan.ready(function() {
+
+    appcan.window.evaluateScript({
+        name : "order", //窗口名称
+        scriptContent : 'appcan.window.close(-1);'
+    });
+
+
+    var orderStatus=JSON.parse(getLocVal("orderStatus"));
+
+
+    //如果购买成功，更新book_default
+    if(1==orderStatus.status){
+        var orderObj= JSON.parse(getLocVal("orderObj"));
+        switch (orderObj.butType) {
+            case "Video":
+                appcan.window.evaluateScript({
+                    name : "book_default", //窗口名称
+                    scriptContent : 'ShowBuyButton("video");'
+                });
+                break;
+            case "PPT":
+                appcan.window.evaluateScript({
+                    name : "book_default", //窗口名称
+                    scriptContent : 'ShowBuyButton("ppt");'
+                });
+                break;
+            case "audio":
+                appcan.window.evaluateScript({
+                    name : "book_default", //窗口名称
+                    scriptContent : 'ShowBuyButton("audio");'
+                });
+                break;
+            case "vip":
+                appcan.window.publish(UPDATE_INFO, "0");
+                appcan.window.publish(UPDATE_INDEX, "0");
+
+                appcan.window.evaluateScript({
+                    name : "vip_content", //窗口名称
+                    scriptContent : 'loadUserInfo();'
+                });
+                break;
+        }
+    }
+
+
+
+
+    loadInfo();
+
+});
+
+
+function loadInfo() {
+    var orderStatus= JSON.parse(getLocVal("orderStatus"));
+    $("#goodsName").html(orderStatus.goodsName);
+    $("#goodsMoney").html("￥"+orderStatus.goodsMoney);
+}
+
+
+appcan.button("#btnSuccess", "btn-act", function() {
+    appcan.window.evaluateScript({
+        name : "pay_result", //窗口名称
+        scriptContent : 'appcan.window.close(-1);'
+    });
+});

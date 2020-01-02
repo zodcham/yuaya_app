@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .book-title{
+                 overflow: hidden;
+                /*white-space: nowrap;
+                text-overflow: ellipsis;*/
+                
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                height:1.2em;
+                text-align: center;
+                
+            }
+            .cs-select{
+              border: solid 0px #000;
+            
+              /*很关键：将默认的select选择框样式清除*/
+              appearance:none;
+              -moz-appearance:none;
+              -webkit-appearance:none;
+              background: rgba(0,0,0,0);
+              
+            }
+            .ico_search {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/ico_search.png);
+                background-size: 100% 100%;
+            }
+            
+            .ico_money {
+                width:1.5em;
+                height:1.5em;
+                background: url(../css/image1/ico_duihuan@2x_23.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .ico_integral {
+                width:1.5em;
+                height:1.5em;
+                background: url(../css/image1/ico_duhougan@2x_19.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+       <div class="ub ub-ver ub-fh ub-fv">
+            <div class="ub ub-fh ub-ac ub-pc umar-t">
+               <div class="ub ub-ac ub-pc ub-f1 sc-text bc-border uba" style="margin:0 1em;height:1.8em;border-radius: 0.3em;background: #f2f2f2">
+                   <select class="cs-select ub ulev0 ub-ac ub-pc" style="color:#b3b3b3" id="list_class"></select>
+                </div>
+            </div>
+            <div class="ub ub-fh">
+                <div id="listview" class="ub ub-f1 ub-ver"></div>
+            </div>
+        </div> 
+        <div id="item" class="item ub ub-fh ub-ac ub-pc uhide umar-t">
+            <div class="ub ub-f1 uinn ub-ver">
+                <div class="ub ub-fh ub-f1 ub-ac ub-pc">
+                   <div class="ub ub-ac ub-pc" style="width:5em;height:5em;background:url(../css/image1/ico_duhougan@3x_57.png) no-repeat; background-size: cover;border-radius: 50%;" >
+                        <img id="headImg" class="ub userPhoto" src="head.png" style="width:80%;height:80%;border-radius: 50%;" />
+                   </div>
+                    <div class="ub ub-f1 ub-ver">
+                        <div class="ub ub-fh">
+                            <div class="name umar-r"></div>
+                            <div class="className sc-text ulev-1"></div>
+                        </div>
+                        <div class="ub ub-fh sc-text umar-t">
+                            <div class="ub ub-ac ub-pc umar-r">
+                                <div class="ico_money umar-r"></div>
+                                <div class="money"></div>
+                            </div>
+                            <div class="ub ub-ac ub-pc umar-r">
+                                <div class="ico_integral umar-r"></div>
+                                <div class="integral"></div>
+                            </div>
+                        </div>
+                        <div class="ub ub-fh umar-t">
+                            <div class="ub bc-head bc-text-head umar-r" style="padding:0.2em 0.5em;border-radius: 0.3em;background: #3fd4e8">
+                                <div class="ub ub-ac ub-pc" style="width: 6em">阅读本数<div class="readNum"></div></div>
+                            </div>
+                            <div class="ub sc-bc-blue2 bc-text-head" style="padding:0.2em 0.5em;border-radius: 0.3em;background: #3f84fe">
+                                 <div class="ub ub-ac ub-pc" style="width: 6em">读后感数量<div class="readFeelingNum"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-fh sc-bg umar-t" style="height:1px">&nbsp;</div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    </body>
+    <script>
+        var clazzId;
+        appcan.ready(function() {
+            getUserInfo();
+            getCommInfo();
+            loadClass();
+            
+            $("#list_class").on("change",function(){
+                loadData();
+            });
+        });
+        function loadClass(){
+            var params={'userId':userInfo.id};
+            common.ajax("/teacher/myClazz", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                for(var i = 0 ; i < data.obj.length ; i ++) {
+                    var obj=data.obj[i];
+                    if (i == 0) {
+                        clazzId = obj.id;
+                    }
+                    $("#list_class").append("<option value='"+obj.id+"'>"+obj.name+"</option>");  
+                }
+                loadData();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+            });
+        }
+        
+        function loadData(){
+            $("#listview").empty();
+            clazzId = $("#list_class").val();
+             var params = {
+                'clazzId' : clazzId
+            };
+            common.ajax("/clazz/getStudentList", {
+                params : JSON.stringify(params)
+            }, function(data) {
+                if (!data.obj || data.obj.length == 0) {
+                    myPrompt.show("暂无学生",$("#listview"));
+                }else{
+                    myPrompt.hide();
+                    for(var i = 0 ; i < data.obj.length ; i ++){
+                        var obj=data.obj[i];
+                        var objItem=$("#item").clone();
+                        objItem.removeClass("uhide");
+                        objItem.attr("id",obj.id);
+                        if (obj.photo.length > 0) {
+                            objItem.find(".userPhoto").attr("src",getHeadImageUrl(obj.photo));
+                        }
+                        objItem.find(".name").html(obj.name);
+                        objItem.find(".className").html("["+obj.schoolName + "]  " + obj.clazzName);
+                        objItem.find(".money").html(obj.scoreCount);
+                        objItem.find(".integral").html(obj.goldCount);
+                        objItem.find(".readNum").html(obj.readBookCount);
+                        objItem.find(".readFeelingNum").html(obj.reviewCount);
+                        $("#listview").append(objItem);
+                    }
+                    $("#listview .item").on("click",function(){
+                        var id = $(this).attr("id");
+                        getCommInfo();
+                        commInfo.studentId = id;
+                         setCommInfo();
+                       appcan.window.open("student_info","../student/student_info.html",10); 
+                    });
+                }
+            }, function(data) {
+                toast(getMsgByKey(data.msg), config.toastTimeShort);
+            }, null);
+        }
+    </script>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style>
+            ::-webkit-calendar-picker-indicator {display: none !important }
+            .date {
+                width:6em;
+                height:1em;
+                border-radius: 1em;
+                background: rgba(0,0,0,0);
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver">
+            <div class="ub ub-fh bc-white">
+                <div class="ub ub-f1 uinn ub-ac ub-pc">
+                    <div class="ub umar-r">从</div>
+                    <div class="ub umar-r">
+                        <input type="month" id="startDate" class="ub ub-ac ub-pc ub-fh ub-fv ub-f1 uinn ulev0 date bc-border uba sc-text" />
+                    </div>
+                    <div class="ub umar-r">至</div>
+                    <div class="ub umar-r">
+                        <input type="month" id="endDate" class="ub ub-ac ub-pc ub-fh ub-fv ub-f1 uinn ulev0 date bc-border uba sc-text" />
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white search"  type="1" >
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>基本情况</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white search"  type="6" >
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>阅读能力</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white search uhide"  type="2">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>阅读数量</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white search uhide" type="3">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>阅读积分</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white btnTask" >
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>阅读任务</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white search" type="4">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>阅读书单</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-fh bc-border ubb bc-white search" type="5">
+                <div class="ub ub-f1 uinn">
+                    <div class="ub ub-ac ub-pc"></div>
+                    <div class='ub ub-ac ub-f1 name'>读后感</div>
+                    <div class="ub ub-ac ub-pc">
+                        <div class="fa icon-angle-right fa-w fa-lg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            var date = new Date();
+            $("#endDate").val(date.format("yyyy-MM"));
+            date.setMonth(date.getMonth()-1);
+            $("#startDate").val(date.format("yyyy-MM"));
+        });
+       //我的任务
+       appcan.button(".btnTask", "btn-act", function() {
+           getCommInfo();
+           commInfo.finishState = '';
+           setCommInfo(); 
+            appcan.window.open("user_read_tasks","user_read_taskss.html",5);
+       });
+       
+        //
+        appcan.button(".search", "btn-act", function() {
+           var startDate = $("#startDate").val();
+           var endDate = $("#endDate").val();
+           if(startDate.length == 0)
+           {
+               toast("请选择起始日期~",config.toastTimeShort);
+               return;
+           }
+           if(endDate.length == 0)
+           {
+               toast("请选择截止日期~",config.toastTimeShort);
+               return;
+           }
+           
+           getSysInfo();
+           sysInfo.report = {"type":$(this).attr("type"),'startDate':startDate,"endDate":endDate,"name":$(this).find(".name").text()};
+           setSysInfo();
+           appcan.window.open("user_report","user_report.html",5);
+        })
+    </script>
+</html>

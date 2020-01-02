@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/swiper.min.css" />
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/willesPlay.css">
+        <link rel="stylesheet" href="css/book2.css" />
+ 
+        <style>                                
+            .icon{
+                width:3em;
+                height:3em;
+            }
+            .booksheet{
+                background: url(css/image1/ico_index@2x-01.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .evaluating{
+                background: url(css/image1/ico_index@2x-03.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .rank{
+                background: url(css/image1/ico_index@2x-05.png)no-repeat;
+                background-size: 100% 100%;
+            }
+            .report{
+                background: url(css/image1/ico_index@2x-06.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .task{
+                background: url(css/image1/ico_index@2x-02.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .wealth{
+                background: url(css/image1/ico_index@2x-04.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .icon-edit{
+                 background: url(css/image1/saoma.png) no-repeat;
+                background-size: 70% 70%;
+                margin-top: 1em;
+            }
+            .swiper-pagination .swiper-pagination-bullet {
+                background: #FFFFFF;
+                opacity: 0.5;
+            }
+            .swiper-pagination .swiper-pagination-bullet-active {
+                background: #FFFFFF;
+                opacity: 1;
+            }
+            
+           .ico_search {
+                width:1em;
+                height:1em;
+                background: url(css/icons/ico_search.png);
+                background-size: 100% 100%;
+            }
+            .icon_saoma{
+                 background: url(css/image1/saoma.png) no-repeat;
+                 background-size: 100% 100%;
+                 width:1.2em;
+                 height:1.2em;
+            }
+             
+             input:focus{ outline:none; }
+             .uinn14 {
+                padding: 0.29em;
+                margin: 0;
+            }
+            .click2:active {
+                 background: #F16412;
+             }
+             .mark_self {
+                 width:3em;
+                 height:3em;
+                 background: url(css/icons/mark_self.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_selective {
+                 width:3em;
+                 height:3em;
+                 background: url(css/icons/mark_selective.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .mark_integrant {
+                 width:3em;
+                 height:3em;
+                 background: url(css/icons/mark_integrant.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .ico_integral {
+                 width:1.2em;
+                 height:1.2em;
+                 background: url(css/image1/ico_shucheng@2x_r10_c15.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             
+              .icon_like {
+                width:1em;
+                height:1em;
+                background: url(css/image1/dianqu.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_like_pressed {
+                width:1em;
+                height:1em;
+                background: url(css/image1/ico_shuchengduhougan@2x_r3_c6.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .icon_comment {
+                width:1em;
+                height:1em;
+                background: url(css/image1/ico_shuchengduhougan@2x_r3_c4.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .click2:active {
+                background: rgba(0,0,0,0.1);
+            }  
+            .txt-ellipsis{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            } 
+            .txt-e{ 
+                overflow:hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+            }  
+            video{
+                object-fit:fill;               
+           }  
+           .bg-jindutiao{               
+                width: 94%;
+                height: 0.4em;
+                margin-right: 3%; 
+                margin-left: 3%;            
+                background-color:#EEEEEE;
+                border-radius: 25em;
+                overflow: hidden;
+            }
+            .dqjf{
+                width: 30%;
+                height: 100%;
+                background-color: #FF5F00;
+                border-radius: 25em;
+            }
+             
+            .sign{
+                background: url(css/image1/sign.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .answer{
+                background: url(css/image1/answer.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .write{
+                background: url(css/image1/write.png) no-repeat;
+                background-size: 100% 100%;
+            }
+             .Completed{
+                 width:3em;
+                 height:3em;                             
+                 background: url(css/image1/Completed.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .Have{
+                 width:3em;
+                 height:3em;                             
+                 background: url(css/image1/Have.png) no-repeat;
+                 background-size: 100% 100%;
+             }
+             .Release{
+                 width:3em;
+                 height:3em;                             
+                 background: url(css/image1/Release.png) no-repeat;
+                 background-size: 100% 100%;
+             }  
+             .details{
+                 width:1.8em;
+                 height:1.8em;                             
+                 background: url(css/image1/details.png) no-repeat;
+                 background-size: 100% 100%;
+             } 
+             
+             
+       </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+            
+        <div id="main" class="ub ub-fh ub-fv ub-ver">           
+            <!-- /*头部开始*/ -->
+               <div id="header" class="uinn bc-text-head ub bc-head" style="position: fixed;z-index: 999;width: 100%;left: 0;top: 0;overflow: hidden;">
+                      <!-- 用户名 -->                   
+                    <div class="nav-btn">
+                        <a class="ulev-1" id="name"></a>                    
+                    </div>
+                    <!-- 搜索框 -->
+                    <h1 class="ub-f1 ulev-3 ut-s tx-c umar-r umar-l" tabindex="0">                                    
+                        <!-- width: 70% -->
+                        <div class="ub ub-fh bc-white " style="height:1.5em;border-radius: 1em;margin-top: 4px">
+                            <div class="ub ub-f1">
+                                <input id="searchText"  type="text" class="ub ub-fr  ulev-1" placeholder="月芽阅读" style="padding:0.4em 0.1em 0.4em 1em;border:0;background: rgba(0,0,0,0);" />
+                            </div>
+                            <div class="ub uinn14 btnSearch ">
+                                <div class="ico_search"></div>
+                            </div>
+                        </div>                            
+                    </h1>
+                    <!-- 扫描 -->
+                    <div class="nav-btn itembtn umar-r" id="nav-right">
+                        <!-- <div class="ub-img icon_saoma umw1 umh1 umar-r"></div> -->
+                    </div>
+               </div>
+
+              <!-- /*头部结束*/ -->
+             
+            <div class="ub ub-fh bc-head ub-ver" style="margin-top:3em;">
+                
+               <div class="ub ub-f1 ub-fh ub-ac ub-pc">
+                   
+                   <div id="banner_bg" class="ub ub-ver uhide">
+                       
+                        <div class="ub ub-f1"></div>
+                        
+                        <img src="css/icons/banner_bg.png" class="ub ub-fh" />
+                        
+                   </div>
+                   
+                    <!-- <div class="ub ub-fh" style="height:2em;background: url(css/icons/banner_bg.png) no-repeat;background-size: 100% 100%"></div> -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-pagination"></div>
+                        <!-- <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div> -->
+                    </div>
+                </div>
+            </div>
+            <div id="item" class="swiper-slide ub ub-ver ub-ac ub-pc item2 uhide">
+                 <img  class="ub bookImg" style="width:100%;height:100%" />
+             </div>
+            <div class="ub ub-fh ub-ver bc-white bc-border ubb" style="padding:0.5em 0">
+                <div class="ub ub-f1 ub-fh ub-ac ub-pc">
+                     <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="myBookList">
+                        <div class="ub icon booksheet"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#31d68f;width:5em;font-weight: 900">我的书架</div>
+                    </div>                    
+                    
+                     <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="myTask">
+                        <div class="ub icon task"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#2d9bef;width:5em;font-weight: 900">我的任务</div>
+                    </div>                
+                    
+                    <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="myreview">
+                        <div class="ub icon evaluating"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#aa13cf;width:5em;font-weight: 900">测评记录</div>
+                    </div>
+                     
+                    <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="myreward">
+                        <div class="ub icon wealth"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#f7da15;width:5em;font-weight: 900">财富商城</div>
+                    </div>
+                    
+                     <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="userReport" >
+                        <div class="ub icon report"></div>
+                        <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#fd6855;width:5em;font-weight: 900">阅读报告</div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- 阅读打卡  uhide-->
+            <div class="ub ub-fh ub-ver umar-t bc-white slides bc-border ubb uhide">
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 uinn ub-ac ub-pc bc-border ubt ubb bc-white">
+                        
+                        <div class="ub ub-f1 umar-l" style="font-weight: bold">每日打卡任务</div>
+                       
+                         <div class="ub ub-ac ub-pc ulev-1"  style="border-radius: 0.2em;padding:0.2em 0.3em;color: #868686" id="more">
+                                                                                               
+                                <div class="ub fa fa-w details umar-r"></div>| <b>打卡规则 </b> 
+                            </div>
+                    </div>
+                    
+                </div>
+               <div style="width:100%;overflow-x:scroll;" class="umar-b">
+                   <div class="ub ub-f1 ub-fh ub-ac ub-pc umar-t umar-b">
+                                      
+                         <!-- 签到 -->                       
+                         <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="Sign">
+                              <div class="ub mark  Completed" style="position: absolute;top:0em;left:-0.4em;z-index: 100"></div>
+                            <div class="ub icon sign"></div> 
+                              <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#36ab60;width:5em;font-weight: 900">签到   <b class="ub ub-ac ub-pc ulev-1" style="border-radius: 0.2em;color: #FF5F00">+5</b>   </div>  
+                                                 
+                         </div>                
+                         <!-- 答题 -->
+                        <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="answer">
+                             <div class="ub mark  Have" style="position: absolute;top:0em;left:-0.4em;z-index: 100"></div>
+                            <div class="ub icon answer"></div>
+                              <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#36ab60;width:5em;font-weight: 900">答题    <b class="ub ub-ac ub-pc ulev-1" style="border-radius: 0.2em;color: #FF5F00">+15</b>   </div> 
+                                                      
+                        </div>
+                         <!-- 写读后感 -->
+                        <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="write">
+                            <div class="ub mark  Have" style="position: absolute;top:0em;left:-0.3em;z-index: 100"></div>
+                             <div class="ub icon write"></div>
+                             <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#36ab60;width:5em;font-weight: 900">写读后感
+                                 <b class="ub ub-ac ub-pc ulev-1" style="border-radius: 0.2em;color: #FF5F00">+5</b>
+                            </div>                         
+                        </div>
+                        
+                         <!-- 写读后感 -->
+                        <div class="ub ub-f1 ub-ac ub-pc ub-ver" id="wRelease">
+                            <div class="ub mark  Have" style="position: absolute;top:0em;left:-0.3em;z-index: 100"></div>
+                             <div class="ub icon Release"></div>
+                             <div class="ub ub-ac ub-pc ub-fh umar-t ulev-1" style="color:#36ab60;width:5em;font-weight: 900">每日分享<b class="ub ub-ac ub-pc ulev-1" style="border-radius: 0.2em;color: #FF5F00">+5</b>      </div>                                                 
+                        </div>
+                        <!-- <div class="ub ub-f1 ub-ac ub-pc ub-ver credit" >
+                            
+                              <div class="ub icon  ">1天</div>  
+                              <div class="ub ub-ac ub-pc ub-fh ulev-1" style="color:#31d68f;width:5em;font-weight: 900">已打卡</div>                        
+                        </div>   -->
+                       
+                    </div>
+                   
+                    <div class="ub ub-fh">
+                        <div class="ub ub-f1 ub-ac ub-pc umar-l">                           
+                            <div class="ub ub-f1 umar-l ulev-1" style="color: #FF5F00">打卡任务进度</div>                           
+                             <div class="ub ub-ac ub-pc ulev-1 umar-r" style="border-radius: 0.2em;padding:0.2em 0.3em;color: #868686">                                                                                                   
+                                 <div class="ub fa fa-w umar-r">今日获得：<b style="color: #FF5F00">+20</b></div>| <b class="umar-r" style="color: #FF5F00">未完成打卡 </b> 
+                             </div>
+                        </div>                    
+                    </div>
+                   <div class=" bg-jindutiao">
+                       <div class="dqjf"></div> 1 <div class="dqjf"></div>                                               
+                   </div>
+                    
+            </div>
+           
+            
+           </div> 
+            
+            <!-- 课程领读  -->
+            <div class="ub ub-fh ub-ver umar-t bc-white slides ">    
+                <div class="ub ub-f1 uinn ub-ac ub-pc   bc-white">                         
+                        <div class="ub ub-f1 umar-l" style="font-weight: bold">课程领读</div>
+                         <div class="ub ub-ac ub-pc ulev-1"  style="border-radius: 0.2em;padding:0.2em 0.3em;color: #868686" id="Readbut">
+                                更多>>
+                                <div class="ub fa fa-w "></div>
+                            </div>
+                           
+                    </div>                                       
+          <div style="width:100%;overflow-x:scroll;">
+               <div class="ub ub-fh Reads umar-b"></div>
+           </div>    
+           
+           <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide "  id="ReadItems">
+                <div class="ub ub-ac ub-pc " style="width:10em;height:6em;border-radius: 0.3em;">
+                    <img  id="but_teacher" class="ub ub-f1 ub-fh ReadImages  umar-l" style="width:10em;height:6em;border-radius: 0.3em;" />
+                </div>
+                <!-- ReadNames 书名  -->
+                 <div class="ub-fh ub-ac ub-pc ub  txt-e txt ulev-1" style="height: 0.3em"></div>
+            </div> 
+            </div> 
+            
+            
+            <!-- 导读视频 -->
+            <div class="ub ub-fh ub-ver umar-t bc-white slides ">
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 uinn ub-ac ub-pc  bc-white">
+                        
+                        <div class="ub ub-f1 umar-l" style="font-weight: bold">导读视频</div>
+                       
+                         <div class="ub ub-ac ub-pc ulev-1"  style="border-radius: 0.2em;padding:0.2em 0.3em;color: #868686" id="introduction">
+                                更多>>
+                                <div class="ub fa fa-w"></div>
+                            </div>
+                    </div>
+                    
+                </div>
+               <div style="width:100%;overflow-x:scroll;">
+                <div class="ub ub-fh recommendBook bc-white umar-t umar-b umar-l"></div>
+            </div>
+           
+           <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide"  id="bookItem">              
+               <ul class="align  umar-l">                    
+                    <li>
+                        <figure class='book'>
+                            <ul class='paperback_front'>
+                                <li>                                                    
+                                    <img class="ub ub-f1 ub-fh bookImage bc-border uba" src="img/paper.jpg" alt="" style="width: 5.7em;height:6.6em;">
+                                </li>
+                                <li></li>
+                            </ul>
+                            <ul class='ruled_paper'>
+                                <li></li>                            
+                                <li></li>
+                                <li></li>
+                            </ul>
+ 
+                            <ul class='paperback_back '>
+                                <li>
+                                    <img class="ub ub-f1 ub-fh bookImage" src="img/paper.jpg" alt="" style="width: 5.4em;height:6.6em;">
+                                </li>
+                                <li></li>
+                            </ul>                            
+                    </li>
+                </ul>
+               
+                <!-- <div class="ub ub-ac ub-pc " style="width: 4.95em;height:6.6em;border-radius: 0.4em  0  0 0.4em;">
+                    <img class="ub ub-f1 ub-fh bookImage " style="width: 4.95em;height:6.6em;border-radius: 0.4em  0  0 0.4em;" />
+                </div> -->
+                 <div class="ub-fh ub-ac txt-e  txt ub-pc bookName ulev-1" style="width:7em;">书名</div>
+                 <div class="ub-fh ub-ac ub-pc ub  txt-e txt ulev-1" style="height: 0.5em"></div>
+            </div> 
+         </div> 
+           
+            
+            <!-- 精读资源  -->
+            <div class="ub ub-fh ub-ver umar-t umar-b bc-white slides ">    
+            <div class="ub ub-f1 uinn ub-ac ub-pc  bc-white">                         
+                    <div class="ub ub-f1 umar-l" style="font-weight: bold">精读资源</div>
+                     <div class="ub ub-ac ub-pc ulev-1" id="Famousteache" style="border-radius: 0.2em;padding:0.2em 0.3em;color: #868686" id="more">
+                            更多>>
+                            <div class="ub fa fa-w "></div>
+                        </div>
+                       
+                </div>                                       
+          <div style="width:100%;overflow-x:scroll;">
+               <div class="ub ub-fh recommendBooks umar-t umar-b"></div>
+           </div>           
+           <div class="ub ub-f1 ub-ver ub-ac ub-pc uhide umar-b"  id="bookItems">
+                <div class="ub ub-ac ub-pc " style="width:5.7em;height:5.7em;border-radius: 0.3em;">
+                    <img  id="but_teacher" class="ub ub-f1 ub-fh bookImages " style="width:5.7em;height:5.7em;border-radius: 0.3em;" />
+                </div>
+                 <div class="ub-fh ub-ac ub-pc ub bookNames txt-e txt ulev-1" style="width:7em;">书名</div>
+            </div> 
+            </div> 
+            
+             <div class="ub ub-f1 uinn umar-b">                   
+                                   
+            </div> 
+           
+        <div class="ub ub-fh ub-ver uhide">                   
+             <div class="ub ub-f1 uinn ub-ac ub-pc bc-border ubt  bc-white">                                  
+                <div class="ub ub-f1 umar-l" style="font-weight: bold">新闻资讯</div>                        
+                <img src="css/image1/xialai.png" style=" width:2.5em;height:1.1em;"/>                            
+            </div>                        
+        </div> 
+        
+      <div id="bookLists uhide" class="ub ub-ver ub-fh ub-f1 umar-t"></div>
+      <div id="items" class="items uhide ub ub-fh uhide  bc-white bc-border ubb">
+      <div class="ub ub-ac ub-pc ub-f1 uinn3">                   
+                  <img class="NewImage uhide abc" src="css/icons/noImg.png" style="width:7.3em;height:5.5em;" />                      
+                  <div class="ub ub-f1">
+                      <div class="ub ub-f1 uinn ub-ver">
+                          <div class="ub ub-fh">
+                                <div class="ub NewName txt-ellipsis ub-f1 abc"></div>
+                                <div class="ub">
+                                </div>
+                          </div>                          
+                           <div class="ub ub-fh ">                               
+                                <div class="ub ub-f1 txt-ellipsis sc-text NewImages uhide" style="height:1em;">                                                                                                                                               
+                                </div> 
+                                <!-- 三张图  -->
+                                 <img class="Image01 uhide abc" src="css/icons/noImg.png" style="width:32%;height:5.5em;" /> 
+                                 <img class="Image02 uhide abc" src="css/icons/noImg.png" style="width:32%;height:5.5em;" /> 
+                                 <img class="Image03 uhide abc" src="css/icons/noImg.png" style="width:32%;height:5.5em;" />  
+                                 <!-- 视频  -->                                 
+                                 <video  class="video videos uhide" poster="css/image1/hudong.jpg" controls="controls" preload="true"  style="width:100%;height:11em;">                            
+                                 </video>                                                                                        
+                          </div>                                                                                                   
+                          <div class="ub ub-fh umar-t">   
+                              <!-- Namdata   -->
+                            <div class="ub ub-f1 ulev-1 sc-text "></div>
+                              <!-- 评论 -->
+                            <div class="ub umar-r btnComments click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_comment"></div>
+                                    <div class="ub sc-text evaluateTimes"></div>
+                                </div>
+                            </div>
+                            <!-- 点击 -->
+                            <div class="ub umar-l likeBox click2" style="border-radius: 0.2em">
+                                <div class="ub ub-f1 ub-ac ub-pc" style="padding: 0 0.5em">
+                                    <div class="ub umar-r icon_like"></div>
+                                    <div class="ub sc-text hits"></div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>                  
+     </div>    
+        </div>  
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/tool.js"></script>
+        <script src="js/appcan.tab.js"></script>
+ </body>
+    <script>
+        var swiper;        
+        var pageIndex=1;
+        var reloadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期1","pullToReloadText":"拖动刷新","releaseToReloadText":"释放刷新","loadingText":"刷新中，请稍等"};;        
+        var loadJson={"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期2","pullToReloadText":"拖动加载","releaseToReloadText":"释放加载","loadingText":"加载中，请稍等"};
+       
+ 
+        appcan.ready(function(){
+            getUserInfo();
+            getCommInfo();
+                        
+            //uexWindow.setMultilPopoverFlippingEnbaled(1);
+            getSysInfo();
+            
+            uexWindow.setBounce(1);
+            uexWindow.notifyBounceEvent(0,1);
+            uexWindow.notifyBounceEvent(1,1);
+            uexWindow.showBounceView("0","rgba(0, 0, 0, 0)", 1);
+            uexWindow.showBounceView("1","rgba(0, 0, 0, 0)", 1);
+                uexWindow.onBounceStateChange = function(type, state){
+                   var time1 = new Date().format("MM-dd HH:mm:ss"); 
+                    switch(type) {
+                        case 0:
+                        if (state == 2) {
+                            reloadJson.levelText="上次刷新："+time1;
+                            uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+                            $(".swiper-wrapper").empty();
+                            
+                            $(".recommendBook").empty();
+                            
+                            $(".recommendBooks").empty();
+                            
+                            $(".Reads").empty();
+                            
+                            $("#bookLists").empty();
+                            loadActivityList(); 
+                        }
+                        break;
+                        case 1:
+                            if (state == 2) {
+                                pageIndex++;
+                                getNewsinformations();
+                             }
+                         break;
+                    }
+                };
+            
+            $("#item").css("width",$("#main").width()+"px");
+            $(".swiper-wrapper").css("width",$("#main").width()+"px");
+            //图片高度设置
+            $(".swiper-wrapper").css("height",($("#main").width() / 12 * 5) +"px");            
+            $("#banner_bg").css("width",$("#main").width()+"px").css("height",($("#main").width() / 12 * 5) +"px");
+            
+            //滑动banner时禁止窗体滑动
+            $(".swiper-container").on("touchstart",function(){
+                  uexWindow.setMultilPopoverFlippingEnbaled(1);
+            }).on("touchend",function(){
+                   uexWindow.setMultilPopoverFlippingEnbaled(0);
+            }).on("touchcancel",function(){
+                   uexWindow.setMultilPopoverFlippingEnbaled(0);
+            });
+            
+             // 滑动精品资源禁止窗体滑动        
+            $(".slides").on("touchstart",function(){
+                  uexWindow.setMultilPopoverFlippingEnbaled(1);
+            }).on("touchend",function(){
+                   uexWindow.setMultilPopoverFlippingEnbaled(0);
+            }).on("touchcancel",function(){
+                   uexWindow.setMultilPopoverFlippingEnbaled(0);
+            });
+               
+            $("#hot").bind("click",function(){
+                 uexWindow.evaluateScript("",0,"goMall();");
+            });
+            var time1 = new Date().format("MM-dd HH:mm:ss");   
+            reloadJson.levelText="上次刷新："+time1;
+            loadJson.levelText="上次加载："+time1;
+            uexWindow.setBounceParams(0,JSON.stringify(reloadJson));
+            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+            //loadData();   
+            loadActivityList(); 
+                                 
+        })
+       $(".boxs").on("click",function(){                 
+                 $(this).siblings("input").trigger("click"); 
+               // searchType=$(this).attr("value");
+               // $("#bookList").empty();
+               // pageIndex=1;
+               // myPrompt.hide();
+               // loadData();                
+        });  
+       appcan.button("#myBookList", "btn-act", function() {
+            appcan.window.open("bookList","user/user_book_list.html",5);
+       });
+       appcan.button("#myreward", "btn-act", function() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            appcan.window.open("user_reward_list","user/user_reward_lists.html",5);
+       });
+       appcan.button("#myRank", "btn-act", function() {
+            appcan.window.open("rank_list","ranking/ranking_lists.html",5);
+       });
+       appcan.button("#myTask", "btn-act", function() {
+           getCommInfo();
+           commInfo.finishState = '0';
+           setCommInfo(); 
+            appcan.window.open("user_read_tasks","user/user_read_taskss.html",5);
+       });
+       appcan.button("#myreview", "btn-act", function() {
+            appcan.window.open("book_review_history","book/book_review_historys.html",5);
+       });
+       appcan.button("#userReport", "btn-act", function() {
+            appcan.window.open("user_report_search","user/user_report_search.html",5);
+       });
+ 
+          
+       appcan.button("#Readbut", "btn-act", function() {                  
+              appcan.window.open("yueduquan","yueduquan/Reading_circle.html",5);
+       });   
+       appcan.button("#introduction", "btn-act", function() {                          
+              appcan.window.open("introduction","book/book_introduct.html",5);
+       }); 
+        //名师课程更多
+       appcan.button("#Famousteache", "btn-act", function() {          
+            appcan.window.open("book_introduction","book/book_Famousteache.html",5);
+       });
+       
+       //签到
+       appcan.button("#Sign", "btn-act", function() {          
+            appcan.window.open("Sign","Sign/Sign.html",5);
+       });
+        //答题
+        appcan.button("#answer", "btn-act", function() {     
+                            
+       });
+ 
+       //轮播数据
+       function loadActivityList() {
+            $("#name").html(userInfo.name);
+            
+            var time1 = new Date().format("HH:mm:ss");   
+            loadJson.levelText="上次更新："+time1;
+            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+            
+            uexWindow.resetBounceView("0");
+            
+            if (pageIndex == 1) {
+                    uexWindow.resetBounceView("0");
+                }else {
+                    uexWindow.resetBounceView("1");
+                }
+ 
+            var params={ 'userId' : userInfo.id};
+            common.ajax("/system/getActivityList", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var list = data.obj;
+                for(var i = 0 ; i < list.length ; i ++) {
+                     var objItem = $("#item").clone();
+                     var item = list[i];
+                     objItem.attr("id",item.id).attr("isLink",item.isLink).attr("address",item.address);
+                     objItem.removeClass("uhide");
+                     //轮播图片-
+                     objItem.find(".bookImg").attr("src",_SERVER_ADDRESS+item.image);
+                     
+                     objItem.bind("click",function(){
+                       var id = $(this).attr("id");
+                       commInfo.activityAddress = "";
+                       if ($(this).attr("isLink") != "0") {
+                         commInfo.activityAddress = $(this).attr("address");
+                       } 
+                       commInfo.activityId = id;
+                       setCommInfo();
+                       appcan.window.open("activity","activity.html",10);
+                    });
+                
+                    $(".swiper-wrapper").append(objItem);
+                }
+                swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    autoplay : 5000,
+                    autoplayDisableOnInteraction : false,
+                    loop : false
+                });
+                Reads();               
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+                //getRecommendBook();
+            });
+       }
+       
+       //课程领读
+       function Reads() {
+            var params={ 'programCategory' : '7'};
+            common.ajax("/program/getProgramInfo", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                var len = data.obj.length  > 4 ? 4: data.obj.length;
+                 
+                 if(len == 2){
+                    $(".Reads").css("width","100%");
+                 }else if(len == 3){
+                    $(".Reads").css("width","140%");
+                 }else if(len == 4){
+                    $(".Reads").css("width","180%");
+                 }else{
+                    $(".Reads").width(Math.round((data.obj.length * 0.25) * 10000) / 100.00 + "%");
+                 }
+                for (var i = 0 ; i < len; i ++) {
+              
+                   var obj = data.obj[i];
+                   var ReadItem = $("#ReadItems").clone();
+                   ReadItem.attr("id",obj.id);
+                   ReadItem.attr("grade",obj.grade);
+                   ReadItem.attr("month",obj.month);
+                   ReadItem.attr("year",obj.year);
+                   ReadItem.attr("name",obj.name);
+               
+                   ReadItem.removeClass("uhide");
+                   //图片                                       
+                   ReadItem.find(".ReadImages").attr("src",_SERVER_ADDRESS + obj.image);
+                   ReadItem.find(".ReadNames").html(obj.name);
+                               
+                    
+                     ReadItem.bind("click",function(){                     
+                          var month = $(this).attr("month");
+                          var name  = $(this).attr("name");
+                          var report = $(this).attr("year");
+                          
+                        getSysInfo();
+                        sysInfo.ranking = {"grade":month,"name":name,"report":report};
+                        setSysInfo();
+                          
+                        appcan.window.open("Readcontents","yueduquan/Readcontents.html",5);
+                        
+                     });
+                   
+                
+               $(".Reads").append(ReadItem);                  
+              }
+             getRecommendBook();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+               
+            });
+       }
+       
+       //导读视频
+       function getRecommendBook() {
+           
+            var params={ 'userId' : userInfo.id};
+            common.ajax("/student/book/getVideoBook", {
+               params:JSON.stringify(params)
+            }, function(data) {
+               var len = data.obj.length  > 6 ? 6 : data.obj.length;
+                if(len >= 4){
+                    $(".recommendBook").css("width","146%");
+                }else{
+                    $(".recommendBook").width(Math.round((data.obj.length * 0.25) * 10000) / 100.00 + "%");
+                }
+                for (var i = 0 ; i < len; i ++) {
+                   var obj = data.obj[i];
+                   var bookItem = $("#bookItem").clone();
+                   bookItem.attr("id",obj.id).attr("bookId",obj.bookId);
+                   bookItem.removeClass("uhide");
+                   //图片   
+                                    
+                   bookItem.find(".bookImage").attr("src",_SERVER_ADDRESS + obj.image);
+                   bookItem.find(".bookName").html('《'+obj.name+'》');
+                   
+                   //bookItem.find(".bookName").attr("src",_SERVER_VIDEO_ADDRESS + obj.videoFile);
+                                                    
+                    bookItem.bind("click",function(){
+                        var id = $(this).attr("id"); 
+                        getBookInfoById(userInfo.id,id,function(data){  
+                                getBookInfo();
+                                bookInfo=data;
+                                setBookInfo();
+                                $(this).attr("id");
+                                //uexVideo.open(_SERVER_VIDEO_ADDRESS + obj.videoFile,0); 
+                           appcan.window.open("yueduIndex","yuedu_index.html",5);
+                          //appcan.alert(1);
+                                 //toast(getMsgByKey(obj.name),config.toastTimeShort);
+                        },null);
+                    });
+                
+                   $(".recommendBook").append(bookItem);                  
+                }
+                getProgramInfos();
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+                 
+            });
+       }
+      
+       //精读资源
+       function getProgramInfos() {
+            var params={ 'programCategory' : '1'};
+            common.ajax("/program/getProgramInfo", {
+               params:JSON.stringify(params)
+            }, function(data) {
+                  var len = data.obj.length  > 5 ? 5: data.obj.length;
+                 if(len == 3){
+                    $(".recommendBooks").css("width","100%");
+                 }else if (len == 4){
+                    $(".recommendBooks").css("width","110%");
+                 }else if (len == 5){
+                    $(".recommendBooks").css("width","140%");
+                 }else{
+                    $(".recommendBooks").width(Math.round((data.obj.length * 0.25) * 10000) / 100.00 + "%");
+                 }
+                for (var i = 0 ; i < len; i ++) {
+              
+                   var obj = data.obj[i];
+                   var bookItems = $("#bookItems").clone();
+                   bookItems.attr("id",obj.id);
+                   bookItems.removeClass("uhide");
+                   //图片                                       
+                   bookItems.find(".bookImages").attr("src",_SERVER_ADDRESS + obj.image);
+                   bookItems.find(".bookNames").html(obj.name);
+                               
+                    bookItems.bind("click",function(){
+                       var id = $(this).attr("id"); 
+                      //appcan.alert(id);                      
+                        getProgramInfoById(id,function(data){  
+                                getProgramInfo();
+                                programInfo=data;
+                                setProgramInfo();                                 
+                         appcan.window.open("column_index","book/column_index.html",5);                                 
+                        },null);
+                    });
+                   
+                
+               $(".recommendBooks").append(bookItems);                  
+              }
+             
+            }, function(data){
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+               
+            });
+       }
+       //新闻资讯
+       function getNewsinformations(){
+           
+            var time1 = new Date().format("HH:mm:ss"); 
+            loadJson.levelText="上次更新："+time1;
+            uexWindow.setBounceParams(1,JSON.stringify(loadJson));
+
+            var params={'userId':userInfo.id,'pageSize': 3, 'pageIndex': pageIndex,'programCategory':'2'};
+            common.ajax("/program/getProgramInfoMore", {
+               params:JSON.stringify(params)
+            }, function(data) { 
+               if(!data.obj||!data.obj.list||data.obj.list.length==0){
+                   if(pageIndex > 1){
+                        pageIndex --;
+                   }
+                   if($("#bookLists .items").length>0){
+                        toast("已全部加载~",config.toastTimeShort);
+                   }else{
+                       myPrompt.show("未找到数据","#bookList");
+                   }
+               }else{
+                   myPrompt.hide();                    
+                    var index = 0;
+                   for(var i = 0 ; i < data.obj.list.length ; i ++){
+                       var obj = data.obj.list[i];
+                       var objNews = $("#items").clone();
+                       objNews.attr("id",obj.id);
+                       objNews.removeClass("uhide");
+                       if(obj.image.length>0){
+                           objNews.find(".NewImage").removeClass("uhide");
+                           objNews.find(".NewImages").removeClass("uhide");                           
+                           objNews.find(".NewImage").attr("src",_SERVER_ADDRESS+obj.image);  
+                       }
+                       //三张图                      
+                       if(obj.image01.length>0){
+                           objNews.find(".Image01").removeClass("uhide");
+                           objNews.find(".Image01").attr("src",_SERVER_ADDRESS+obj.image01);  
+                       } 
+                       if(obj.image02.length>0){
+                           objNews.find(".Image02").removeClass("uhide");
+                           objNews.find(".Image02").attr("src",_SERVER_ADDRESS+obj.image02);  
+                       } 
+                       if(obj.image03.length>0){
+                           objNews.find(".Image03").removeClass("uhide");                                                    
+                           objNews.find(".Image03").attr("src",_SERVER_ADDRESS+obj.image03);  
+                       } 
+                       
+                       //video
+                       if(obj.videoFile.length > 0){
+                           objNews.find(".video").removeClass("uhide");
+                           objNews.find(".videos").attr("poster",_SERVER_ADDRESS + obj.posterImagePath);  
+                           objNews.find(".video").attr("src",_SERVER_VIDEO_ADDRESS + obj.videoFile);
+                                                                                                                                                                  
+                       }
+                       //视频
+                        objNews.find(".video").on("touchstart",function(){
+                              $(this).parents(".item").removeClass("click");
+                        })
+                                                                   
+                       objNews.find(".NewName").html(obj.name);
+                       objNews.find(".Newremarks").html(obj.remarks);   
+                       objNews.find(".evaluateTimes").html(obj.evaluateTimes);                         
+                       objNews.find(".hits").html(obj.hits);
+                       objNews.find(".Namdata").html(obj.createDate);
+                       objNews.find(".abc").attr("id",obj.id); 
+                        objNews.find(".abc").on("click",function(){
+                            var id = $(this).attr("id"); 
+                           // appcan.alert(id);                      
+                            getProgramInfoById(id,function(data){  
+                                    getProgramInfo();
+                                    programInfo=data;
+                                    setProgramInfo();                                 
+                              appcan.window.open("information","information.html",5);
+                                    
+                            },null);
+                        });
+                                                                                                  
+                       $("#bookLists").append(objNews);                    
+                    }
+               }
+                
+               uexWindow.resetBounceView("1");              
+            }, function(data){
+                isLoading=false;
+                if(pageIndex>1){
+                    pageIndex--;
+                }
+                uexWindow.resetBounceView("1");
+                toast(getMsgByKey(data.msg),config.toastTimeShort);
+                
+            },{loadingMsg:'正在查询，请稍后...'});
+        }
+        
+
+    </script>
+</html>

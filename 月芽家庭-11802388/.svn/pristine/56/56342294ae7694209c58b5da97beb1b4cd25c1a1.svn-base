@@ -1,0 +1,45 @@
+//$("html").css('font-size',"16px");
+var rem_size=$("html").css('font-size');
+var width=document.body.clientWidth;
+var height=document.body.clientHeight;
+//var g_width=1080;
+//var g_height=1920;
+var g_width=1742/3;
+var g_height=1860;
+
+var wpx=width/1080;
+var hpx=height/1860;
+
+
+var type_list=[];
+
+appcan.ready(function() {
+    var t=getLocVal("help_type");
+    if(!t) return;
+    $("#div_"+t).removeClass("uhide");
+    switch (t) {
+        case "read":
+            $("#span_title").html("学富五车");
+            break;
+        case "word":
+            $("#span_title").html("博览群书");
+            break;
+        case "review":
+            $("#span_title").html("妙笔生花");
+            break;
+        case "sign":
+            $("#span_title").html("持之以恒");
+            break;
+        case "test":
+            $("#span_title").html("金榜题名");
+            break;
+        case "game":
+            $("#span_title").html("才高八斗");
+            break;
+    }
+
+})
+
+appcan.button(".btn_back", "btn-act", function() {
+    appcan.window.close(-1);
+})

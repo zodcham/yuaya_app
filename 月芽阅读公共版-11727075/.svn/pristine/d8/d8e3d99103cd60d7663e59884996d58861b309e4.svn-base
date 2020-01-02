@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="login/css/main.css">
+    </head>
+    <body class="um-vp bc-bg bg" ontouchstart>
+        <div class="ub ub-ver ub-fh ub-fv ub-f1" >
+            <div class="ub ub-ac ub-pc ub-fh" style="height:10em">
+                学生登录
+            </div>
+            <div class="ub ub-ver ub-ac ub-pc ub-fh" >
+                <div class="ub ub-fh ub-ac ub-pc ub-f1 bc-border ubb">
+                    <div class="ub ub-ac ub-pc uinn">
+                        <svg class="login_icon name svg-icon" viewBox="0 0 20 20">
+                            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8"></path>
+                        </svg>
+                    </div>
+                    <div class="ub ub-ac ub-f1 ub-fh">
+                        <input id="username" type="text" class="ub login_input name ulev-1 ub-f1 ub-fh uinn"  placeholder="用户名">
+                    </div>
+                </div>
+                <div class="ub ub-fh ub-ac ub-pc ub-f1 bc-border ubb umar-t">
+                    <div class="ub ub-ac ub-pc uinn">
+                        <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
+                            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0"></path>
+                        </svg>
+                    </div>
+                    <div class="ub ub-ac ub-f1 ub-fh">
+                        <input id="password" type="password" class="ub login_input pass ub-f1 ulev-1 ub-f1 ub-fh uinn" placeholder="密码">
+                    </div>
+                </div>
+            </div>
+            <div class="ub ub-ver ub-ac ub-pc ub-fh umar-t ub-f1 umar-t">
+                <div class="ub ub-ac ub-pc ub-fh umar-t umar-t">
+                    <div class="login_submit ub ub-ac ub-pc ub-f1 umar-a">
+                        登 录
+                    </div>
+                </div>
+                <div class="ub ub-ac ub-pc ub-f1 ub-fh">
+                    <div style="position: absolute;bottom:0;right:0;background: #33CC33;border-radius: 0% 100% 0% 0%;width:100%;height:5em">
+                        &nbsp;
+                    </div>
+                    <div style="position: absolute;width:100%;height:3em;bottom:0;right:0;background: #77CC33;border-radius: 100% 0% 0% 0%;">
+                        &nbsp;
+                    </div>
+                    <div class="house">
+                        <div class="house1"></div>
+                        <div class="house2"></div>
+                        <div class="house3"></div>
+                        <div class="house4"></div>
+                        <div class="house5"></div>
+                        <div class="house6"></div>
+                        <div class="house7"></div>
+                        <div class="house8"></div>
+                    </div>
+                    <div class="windmill_one">
+                        <div class="windmill1"></div>
+                        <div class="windmill2"></div>
+                        <div class="windmill3"></div>
+                        <div class="windmill4"></div>
+                        <div class="windmill5"></div>
+                    </div>
+                    <div class="windmill_two">
+                        <div class="windmill1"></div>
+                        <div class="windmill2"></div>
+                        <div class="windmill3"></div>
+                        <div class="windmill4"></div>
+                        <div class="windmill5"></div>
+                    </div>
+                    <div class="windmill_three">
+                        <div class="windmill1"></div>
+                        <div class="windmill2"></div>
+                        <div class="windmill3"></div>
+                        <div class="windmill4"></div>
+                        <div class="windmill5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/login_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

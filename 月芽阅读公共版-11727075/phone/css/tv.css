@@ -1,0 +1,8 @@
+html{
+    font-size:24px;
+    color:#fff;
+}
+
+.bg_tv{
+    background: url('../tv/images/bg.jpg') no-repeat;background-size:100% 100%;
+}

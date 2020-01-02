@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <style type="text/css">
+            .ico_delete {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(../css/icons/ico_delete.png);
+                background-size: 100% 100%;
+            }
+            .ico_comment {
+                width: 1.5em;
+                height: 1.5em;
+                background: url(../css/icons/ico_comment.png);
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" ontouchstart>
+        <div class="ub ub-ver ub-fh ub-f1">
+            <div id="listView" class="ub ub-fh ub-ver ub-f1" ></div>
+            <div class="ub ub-fh" style="height:3.5em"></div>
+        </div>
+        <div class="ub ub-fh bc-white bc-border ubt ubb" style="height:3em;position: fixed;left:0;bottom: 0">
+            <div class="ub ub-f1 uinn" >
+                <div class="ub ub-f1" style="height:2em">
+                    <textarea placeholder="请输入评论" id="content" class="ub ub-ac ub-f1 ulev0 bc-border uba" rows="2" style="resize: none;height:100%;border-radius: 0.2em;padding: 0.1em 0.5em;line-height: 2em"></textarea>
+                </div>
+                <div class="ub ub-ac ub-pc umar-l">
+                    <div id="btnSubmit" class="ub ub-ac ub-pc bc-btn bc-text-head" style="width:4em;height:2.2em;border-radius: 0.2em">
+                        提交
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="itemReview" class="ub ub-fh item uhide ub-ver click bc-white bc-border ubb ubt umar-t">
+            <div class="ub ub-f1 ub-ver uinn" style="padding: 0 0.5em">
+                <div class="ub ub-fh ub-ac umar-t user">
+                    <div class="ub ub-ac ub-pc umar-r" style="width:1.5em;height:1.5em;border-radius: 50%">
+                        <img class="ub ub-fh ub-fv img" src="../head.png" style="border-radius: 50%">
+                    </div>
+                    <div class="ub ub-f1 ub-ver">
+                        <div class="ub userName text-blue ub-f1 umar-r"></div>
+                        <div class="ub sc-text ulev-1 date"></div>
+                    </div>
+                    <div class="ub ico_delete delete click uhide"></div>
+                </div>
+                <div class="ub ub-fh  umar-t ub-ac ub-pc">
+                    <div class="ub ub-f1 content umar-r uinn"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/book/book_read_feeling_review_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

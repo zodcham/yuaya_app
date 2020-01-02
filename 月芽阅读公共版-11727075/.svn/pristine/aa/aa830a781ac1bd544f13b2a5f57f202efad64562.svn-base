@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" style="background: rgba(0,0,0,0.3)" ontouchstart>
+        <div id="page" class="ub ub-fh ub-fv ub-ac ub-pc">
+            <div id="box" class="ub ub-ver ub-ac ub-pc bc-white uinn" style="border-radius: 1em">
+                <div class="ub ub-fh bc-border uba" style="height:2em;border-radius: 2em">
+                    <div class="ub ub-f1 ">
+                        <input type="text" class="ub ub-f1 uinn ulev0" style="border:0;background: rgba(0,0,0,0)" />
+                    </div>
+                    <div class="ub uinn">
+                        <div class="fa icon-search fa-w"></div>
+                    </div>
+                </div>
+                <div class="ub-f1"></div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tool.js"></script>
+
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v200/index_mall_filter.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+</html>

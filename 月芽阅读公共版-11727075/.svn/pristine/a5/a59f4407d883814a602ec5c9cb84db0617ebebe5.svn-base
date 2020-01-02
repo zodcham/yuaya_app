@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>阅读书单</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+    </head>
+    <body class="um-vp " style="padding-bottom: 0.5em;background: url(../images/report/bg.png); font-size:36px;" ontouchstart>
+        <div id="bookList" class="ub ub-ver ub-fh ub-f1"  style="width:1040px;margin:0 auto; background-color: #fff;"></div>
+        
+        <div id="item" class="item click ub ub-fh uhide ub-ver" style="border-bottom:5px solid #638c0b;">
+            <div class="ub ub-f1 ub-ver uinn">
+                <div class="ub ub-ac ub-pc ub-f1">
+                    <div class="ub ub-ac ub-pc umar-r" style="width:275px;height:320px;">
+                        <img src="../css/icons/noImg.png" class="ub ub-fh ub-fv ub-f1 bookImg" style="width:180px;" />
+                        <div class="bookBox uhide"></div>
+                    </div>
+                    <div class="ub ub-f1">
+                        <div class="ub ub-f1 uinn ub-ver ">
+                            <div class="ub ub-f1 bookName ub-ac text-blue ulev0"></div>
+                             <div class="ub ub-fh ub-ac umar-t sc-text"><div class="ub">作者：</div><div class="ub ub-f1 author ub-ac"></div></div>
+                            <div class="ub ub-fh ub-ac umar-t sc-text"><div class="ub">字数：</div><div class="ub ub-f1 wordCount ub-ac"></div></div>
+                            <div class="ub ub-fh ub-ac umar-t sc-text"><div class="ub">测评：</div><div class="ub ub-f1 accuracy ub-ac"></div></div>
+                            <div class="ub ub-fh ub-ac umar-t sc-text"><div class="ub">测评时间：</div><div class="ub ub-f1 createDate ub-ac"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-fh">
+                    <div class="ub ub-f1 umar-a sc-bg" style="height:1px">&nbsp;</div>
+                </div>
+            </div>
+       </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    </body>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_machine_v200/user/user_report_book_list_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+</html>

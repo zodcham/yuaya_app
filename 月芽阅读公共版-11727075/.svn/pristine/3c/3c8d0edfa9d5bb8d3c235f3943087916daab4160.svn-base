@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>读后感</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css" />
+        <style>
+            .icon_write {
+                width:1em;
+                height:1em;
+                background: url(../css/icons/ico_write.png) no-repeat;
+                background-size:  100% 100%;
+            }
+            .content {
+                overflow:auto;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                -webkit-line-clamp: 10;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" style="padding-bottom: 0.5em" ontouchstart>
+        <div id="bookReview" class="ub ub-ver ub-fh ub-f1" ></div>
+        
+        <div id="item" class="item click ub ub-fh uhide">
+            <div class="ub ub-f1 umar-t ub-ver uinn">
+                <div class="ub text-blue bookName ub-fh"></div>
+                <div class="ub umar-t ub-fh sc-text ub-ac ulev-">
+                    <div class="ub icon_write umar-r"></div>
+                    <div class="ub umar-r">发表时间:</div>
+                    <div class="ub createDate"></div>
+                </div>
+                <div class="ub ub-fh umar-t umar-b content"></div>
+                <div class="ub umar-t sc-bg" style="height: 1px">&nbsp;</div>
+            </div>
+       </div>
+    </body>
+    <script src="../js/appcan.js"></script>
+<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="http://www.readseed.cn/nocache/js_student/user/user_report_book_report_content.js"></script>
+    </body>
+    <script> 
+        
+    </script>
+</html>

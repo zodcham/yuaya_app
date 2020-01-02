@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="margin:0;padding: 0;">
+	    <img style="width:100%;" id="signimg">
+	<script src="./js/appcan.js"></script>
+        <script src="./js/appcan.control.js"></script>
+        
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tools.js"></script>
+        
+    </body>
+    <script>
+        appcan.ready(function() {
+            var signImgurl = getLocVal("signImgurl");
+            $("#signimg").attr("src",signImgurl);
+                        
+        });
+        
+
+    </script>
+</html>

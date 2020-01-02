@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+            .icon_comment {
+                width: 1.5em;
+                height: 1em;
+                background: url(../css/icons/comment.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            .head_btn_box {
+                /*background: url(../css/image1/ico_shuchengxiangqing@2x_r10_c12.png) no-repeat;
+                 background-size: 100% 100%;*/
+                background: #FE8100;
+                margin-left: 70%
+            }
+        </style>
+    </head>
+    <body class="um-vp sc-bg" style="padding-bottom: 0.1em" ontouchstart>
+        <div class="ub ub-fh ub-fv ub-ver umar-t">
+            <div id="btnAdd" class="ub  ub-ac ub-pc ulev-1 btnIntroduce head_btn_box umar-t umar-b bc-text-head" style="border-radius:  1em 0 0 1em">
+                <div class="ub ub-pc uinn">
+                    <div class="ub ub-f1">
+                        去评论
+                    </div>
+                </div>
+            </div>
+            <div id="CommentsList" class="ub bc-border ub-ver" style="padding-top: 0.5em">
+                <div class="ub-f1" id="listBottom"></div>
+            </div>
+
+            <div id="item" class="item ub ub-ver ub-fh uhide bc-white bc-border ubt ubb umar-t" style="padding: 0.5em 0em">
+                <div class="ub ub-f1 ub-ver umar-a">
+                    <div class="ub ub-fh user">
+                        <img class="user-Photo" src="../head.png" style="border-radius: 50%;border:0px solid #BABABA;width:3em;height:3em">
+                        <div class="ub ub-f1 ub-ver umar-l">
+                            <div class="ub ub-fh ub-ver umar-l">
+                                <div class="ub ub-fh">
+                                    <div class="user-Name ulev-1 txt-color"></div>
+                                </div>
+                                <div class="ub ub-fh ub-f1 umar-t">
+                                    <div class="user-Star ulev-1" style="color:#FFC304">
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                        <div class="fa icon-star-five-hollow"></div>
+                                    </div>
+                                    <div class="ub-f1"></div>
+                                    <div class="user-pdate time ub ulev-1 sc-text umar-r" title=""></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content ub ub-f1 uinn"></div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="../js/appcan.js"></script>
+    <script src="../js/appcan.control.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/entity.js"></script>
+    <script>
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+        document.write('<script src="http://www.readseed.cn/nocache/js_student/book/column_index_comments_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+    </script>
+    </body>
+</html>

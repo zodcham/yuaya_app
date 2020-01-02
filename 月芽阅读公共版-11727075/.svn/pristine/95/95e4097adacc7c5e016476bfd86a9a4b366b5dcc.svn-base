@@ -1,0 +1,36 @@
+
+
+appcan.ready(function() {
+
+    if(CONNECTSTATUS_FLAG){
+        var cDeviceToken= uexDevice.getInfo(16); //wifi mac
+
+        var url = _SERVER_ADDRESS + "/phone/system/getDeviceInfo";
+        var par = {
+            "deviceId" : cDeviceToken
+        };
+
+
+        var fok = function(data) {
+            LoadData(JSON.parse(data).obj.student);
+        };
+        var ferr = function(err) {
+        };
+
+        common.ajaxPOST(url, par, fok, ferr);
+    }
+    else{
+        var data={"success":true,"msg":"操作成功","obj":{"id":"6aa51231c98d41ebaaddcfd70642376a","remarks":"月芽一体机1号","createBy":"","createDate":"2019-04-03 17:02:20","updateBy":"","updateDate":"2019-04-12 14:40:12","deviceId":"28:ed:e0:b2:94:79","name":"月芽专用一体机","expireDate":"2029-04-03 00:00:00","studentId":"ccf1ca5550b7461c801673a42dbfd3f6","studentUsername":"machina001","student":{"id":"ccf1ca5550b7461c801673a42dbfd3f6","remarks":"","createBy":"1","createDate":"2018-04-24 15:04:36","updateBy":"1","updateDate":"2019-04-12 14:43:13","name":"月芽专用一体机01","schoolId":"a64f7281cebd49a9bd7293545af59160","loginName":"machina001","password":"3820913a0c918a1502296d9094be130e406733df1d6cb1deab74b92e","loginIp":"127.0.0.1","loginDate":"2018-09-18 16:08:11","loginFlag":"1","photo":"/userfiles/ccf1ca5550b7461c801673a42dbfd3f6/b2dc2b20ac7e43aebacbe4c39cd0cc28.jpg","scoreCount":33.2,"goldCount":520,"oldLoginIp":"","oldLoginDate":"","schoolName":"月芽阅读研修院","unreadMessageCount":0,"clazzId":"3490d4d1d7174ddf92e80f0bef87ae50","studentNo":"151842405","nickName":"月芽专用一体机01","readLevelId":"read_level_00002","readBookCount":6,"readWordCount":123.0,"sex":"2","qq":"","email":"","phone":"","mobile":"","readLevelName":"秀才","clazzName":"广西基础班","grade":"5","rankCount":"","type":"2","changePwdFlag":"","reviewCount":"","clazzIds":"","expressConsignee":"","expressMobile":"","expressProvince":"","expressCity":"","expressArea":"","expressAddress":"","teacherId":"","beginDate":"","endDate":"","teacher":false,"reader":false,"student":true,"gradeName":"五年级"},"isExpire":true,"isEnable":true}}
+        LoadData(data.obj.student);
+    }
+
+})
+
+
+
+function LoadData(data){
+    isStudentLogin=0;//一体机登录
+    userInfo = data;
+    setUserInfo(true);
+    appcan.window.open("default", "default.html", 5, 4);
+}
