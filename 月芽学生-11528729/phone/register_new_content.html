@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="applyPass/css/main.css" />
+    </head>
+    <body class="" ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--content1开始-->
+            <div class="ub ub-ver ub-f1 ub-fh ub-fv umar-t">
+                <div class="ub  ub-ver ub-fh sc-bg">
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="昵称" type="text" class="ub ub-f1 " id="nickname" value="">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="姓名（真实姓名）" type="text" class="ub ub-f1 " id="realname" value="">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="年龄" type="number" class="ub ub-f1 " id="age" value="">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f3 umar-l">
+                            <input placeholder="手机号" type="number" class="ub ub-f1 " id="mobile" value="">
+                        </div>
+                        <div class="uinput ub ub-f1 umar-l">
+                            <div class="ub ub-f1 uinn">
+                                <div id="btnGetcode" class="ub ub-ac ub-pc ub-f1 bc-head bc-text-head" style="height: 2.8em;border-radius: 2.8em;">
+                                    获取验证码
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="验证码" type="number" class="ub ub-f1 " id="validatecode" value="">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="密码" type="password" class="ub ub-f1 " id="password" value="">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="确认密码" type="password" class="ub ub-f1 " id="password1" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f4 umar-l">
+                            是/否有班级代码
+                        </div>
+                        <div class="uinput ub ub-f1 ub-ac ub-pc umar-l">
+                            <div class="switch uba bc-border" data-checked="false">
+                               <div class="switch-btn sc-bg-active "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ub ub-ver ub-fh ub-f1 ub-fv" id="content1">
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub  ub-f1 umar-l">
+                            <div class="select uba bc-border bc-text">
+                                <div class="text">省</div>
+                                <select id="selProvince">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="uinput ub ub-f1 umar-l">
+                            <div class="select uba bc-border bc-text">
+                                <div class="text">市</div>
+                                <select id="selCity">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="uinput ub ub-f1 umar-l">
+                            <div class="select uba bc-border bc-text">
+                                <div class="text">区/县</div>
+                                <select id="selCounty">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="select uba ub-f1 bc-border bc-text">
+                            <div class="text">机构</div>
+                            <select id="selOffice">
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="select uba ub-f1 bc-border bc-text">
+                            <div class="text">班级</div>
+                            <select id="selClass">
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ub ub-fh umar-t">
+                        <div class="ub ub-ac ub-pc ub-fh umar-t" id="regsend1">
+                            <div class="login_submit ub ub-ac ub-pc ub-f1 umar-a bc-text-head" style="background:url(css/image1/ico_denglu@1x_r14_c2.png) no-repeat;background-size: cover;height:3em">
+                            提 交
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-ver uinn-a3 ub-fv uhide" id="content2">
+                    <div class="ub ub-ac ubb umh5 bc-border">
+                        <div class="uinput ub ub-f1 umar-l">
+                            <input placeholder="班级代码" type="text" class="ub ub-f1 " id="classcode" value="">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac ub-pc ub-fh umar-t" id="regsend2">
+                        <div class="login_submit ub ub-ac ub-pc ub-f1 umar-a bc-text-head" style="background:url(css/image1/ico_denglu@1x_r14_c2.png) no-repeat;background-size: cover;height:3em">
+                            提 交
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/entity.js"></script>
+        <script>
+            document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/js/common_new.js?v=' + (new Date().getTime()) + '"><\/script>');
+            //document.write('<script src="http://www.readseed.cn/nocache/js_student_v230/register_new_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+            document.write('<script src="js_server/register_new_content.js?v=' + (new Date().getTime()) + '"><\/script>');
+        </script>
+    </body>
+</html>

@@ -1,6 +1,7 @@
 //var _SERVER_ADDRESS="http://www.readseed.cn";
+var _SERVER_ADDRESS="http://101.133.154.104:18080";
 //var _SERVER_ADDRESS="http://www.readseed.cn:28080";
-var _SERVER_ADDRESS="http://192.168.0.188:8082";
+//var _SERVER_ADDRESS="http://192.168.0.188:8081";
 // var _SERVER_ADDRESS="http://192.168.0.128:8080/yueyafront";
 // var _SERVER_ADDRESS="http://192.168.0.123:8080/yueyafront";
 // var _SERVER_ADDRESS="http://lsyxp.free.ngrok.cc/yueyafront";
@@ -80,7 +81,6 @@ var common = {
                 }, 1000);
             },
             success : function(data) {
-
                 flag = true;
                 t && clearTimeout(t);
                 //myLoading.close();
@@ -96,7 +96,7 @@ var common = {
                 }
             },
             error : function(e) {
-
+                console.log(e);
                 flag = true;
                 t && clearTimeout(t);
                 //myLoading.close();
@@ -122,7 +122,7 @@ var common = {
             }
         }
         uexDevice.getInfo('13');
-        // appcan.ajax(option);
+        appcan.ajax(option);
     },
 
     ajaxPOST: function (url, cdata, okFun, failFun) {

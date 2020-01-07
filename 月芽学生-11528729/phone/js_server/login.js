@@ -19,6 +19,12 @@ appcan.ready(function() {
     if (sysInfo.phoneType.length == 0) {
         uexWidgetOne.getPlatform();
     }
+
+    //本地调试
+    if (config.serviceUrl.indexOf('192.168')>-1) {
+       $("#username").val('17687576301');
+       $("#password").val('123456');
+    }
 });
 appcan.button(".login_submit", "btn-act", function() {
     var user = $("#username").val();
@@ -78,6 +84,10 @@ appcan.button("#register", "btn-act", function() {
 })
 appcan.button("#scan_login", "btn-act", function() {
     getBarCodeLogin();
+})
+
+appcan.button("#register_new", "btn-act", function() {
+    appcan.window.open("register_new", "register_new.html", 5);
 })
 //获取二维码或条形码 登录
 function getBarCodeLogin() {

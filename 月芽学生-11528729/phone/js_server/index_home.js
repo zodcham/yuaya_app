@@ -503,6 +503,7 @@ function loadBanner(lbsj){
         var pkList=[];
         if(data.obj.hasOwnProperty("schoolList")){ //如果所属学校有活动且在活动期间，优先显示学校活动。
             list = data.obj.schoolList.list;
+            console.log(list);
             if(list){
                 for(var i=0;i<list.length;i++){
                     var obj=list[i];
@@ -517,6 +518,7 @@ function loadBanner(lbsj){
                         var pk_id=obj.id;
                         pkList.push({"image":img, "address":"", "is_link":"0","id":pk_id});
                     }
+                    
                 }
             }
         }

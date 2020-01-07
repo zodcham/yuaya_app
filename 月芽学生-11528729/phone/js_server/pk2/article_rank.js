@@ -21,12 +21,12 @@ var g_page = 1;
 var g_pagecount = 1;
 appcan.ready(function() {
     $("body").append('<div class="main_btn btn_back" style="z-index: 59999;font-size:0.9em;border-radius: 1em;width:2em;height:2em;line-height:2em; position:fixed;right:0.3em;background-color: black;color:#fff;opacity: 0.5; text-align: center;top:0.3em;" onclick="refreshData()">刷新</div>');
-
-    //setLocVal("pk_id","f9e1351ac57e4d2dbb2b3cc4e34e40fd");
-    //setLocVal("pk_id","f9e1351ac57e4d2dbb2b3cc4e34e40fd");
+    
+    setLocVal("pk_id","f9e1351ac57e4d2dbb2b3cc4e34e40fd");
+    setLocVal("pk_id","f9e1351ac57e4d2dbb2b3cc4e34e40fd");
     $(".detailbox").css("width","98%");
     $(".detailbox div:eq(0)").addClass("uhide");
-
+    
 
     refreshData();
     uexWindow.setBounce(1);
@@ -78,21 +78,23 @@ function refreshData() {
 
     getUserInfo();
 
-
+    
     var fok = function(data) {
         var json = data;
         g_pagecount = json.obj.count;
-        var arr = json.obj;
+        var arr = json.obj.list;
         //列表
         $(arr).each(function(idx, obj) {
             $("#tbodyList").append(GetListHtml(obj,idx));
         })
         g_page++;
     };
-
+    
     g_page=1;
-    var params={"id":getLocVal("pk_id"),"pageSize":20,pageNo:g_page};
-    common.ajax("/activity/phoneRanking", params, fok, function(data) {
+    var params={"activityId":getLocVal("pk_id"),"pageSize":20,pageIndex:g_page};
+    common.ajax("/activity/result", {
+        params : JSON.stringify(params)
+    }, fok, function(data) {
         toast(getMsgByKey(data.msg), config.toastTimeShort);
     }, {
         type : 'GET'
@@ -115,12 +117,12 @@ function GetList() {
 
     getUserInfo();
 
-
+    
     var fok = function(data) {
         var json = data;
 
         g_pagecount = json.obj.count;
-
+		
         var arr = json.obj.list;
 
         //列表
@@ -129,10 +131,12 @@ function GetList() {
         })
         g_page++;
     };
+    
 
-
-    var params={"id":getLocVal("pk_id"),"pageSize":20,pageNo:g_page};
-    common.ajax("/activity/phoneRanking", params, fok, function(data) {
+    var params={"activityId":getLocVal("pk_id"),"pageSize":20,pageIndex:g_page};
+    common.ajax("/activity/result", {
+        params : JSON.stringify(params)
+    }, fok, function(data) {
         toast(getMsgByKey(data.msg), config.toastTimeShort);
     }, {
         type : 'GET'
@@ -165,10 +169,6 @@ function GetListHtml(obj,idx) {
     if(score1) score1=Number(score1).toFixed(2);
     if(score2) score1=Number(score2).toFixed(2);
     var img = _SERVER_ADDRESS + obj.studentPhoto;
-
-    if(obj.firstTotal==0) score1="";
-    if(obj.neverTotal==0) score2="";
-
 
 
     var html = '';
@@ -211,19 +211,19 @@ function GetListHtml(obj,idx) {
 }
 
 function openArticle(id){
-    setLocVal("pk_article_id",id);
-    appcan.window.open("article_detail", "article_detail.html", 5);
+	setLocVal("pk_article_id",id);
+	appcan.window.open("article_detail", "article_detail.html", 5);
 }
 
 function GetName(obj){
-    var name='';
-    if(obj.participantPen!=""){
-        name=obj.participantPen;
-    }
-    else{
-        name=obj.studentName;
-    }
-    return name;
+	var name='';
+	if(obj.participantPen!=""){
+		name=obj.participantPen;
+	}
+	else{
+		name=obj.studentName;
+	}
+	return name;
 }
 
 function ClickBack(){

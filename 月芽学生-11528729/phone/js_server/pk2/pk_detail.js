@@ -9,20 +9,20 @@ appcan.ready(function() {
 
 
     pushTitle="我正在参加月芽阅读活动。";
-
+	
     if(!g_id) {
-        g_id=getLocVal("pk_id");
-        setLocVal("pk_share_url",'http://www.readseed.cn/yueya_webapp/pk/pk_detail.html?'+g_id+'?');
-    }
+		g_id=getLocVal("pk_id");
+		setLocVal("pk_share_url",'http://www.readseed.cn/yueya_webapp/pk/pk_detail.html?'+g_id+'?');
+	}
 
-
+	
     isIPhoneX();
 
 
     init();
 
 
-    uexWeiXin.registerApp(appId);
+	uexWeiXin.registerApp(appId);
     uexWeiXin.cbRegisterApp = function(opCode, dataType, data) {
         if (data == "1") {
             //   alert('注册失败！');
@@ -120,7 +120,7 @@ function init() {
         left : 0,
         index : 0,
         change : function(index, res) {
-            changeTab(res.multiPopSelectedIndex);
+            //changeTab(res.multiPopSelectedIndex);
         }
     });
 
